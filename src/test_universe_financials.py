@@ -1,4 +1,7 @@
+import sys
+
 from src.company_universe import (
+    DEFAULT_UNIVERSE,
     get_companies,
 )
 
@@ -14,6 +17,10 @@ def test_company(ticker):
     for metric_name, metric in (
         FINANCIAL_METRICS.items()
     ):
+        availability = metric[
+            "availability"
+        ]
+
         try:
             result = get_metric_history(
                 ticker,
@@ -27,8 +34,11 @@ def test_company(ticker):
             if records > 0:
                 status = "OK"
 
-            elif metric["required"]:
-                status = "MISSING"
+            elif availability == "core":
+                status = "CORE MISSING"
+
+            elif availability == "preferred":
+                status = "PREFERRED"
 
             else:
                 status = "OPTIONAL"
@@ -38,8 +48,8 @@ def test_company(ticker):
                     "metric":
                         metric_name,
 
-                    "required":
-                        metric["required"],
+                    "availability":
+                        availability,
 
                     "concept":
                         result["concept"],
@@ -61,8 +71,8 @@ def test_company(ticker):
                     "metric":
                         metric_name,
 
-                    "required":
-                        metric["required"],
+                    "availability":
+                        availability,
 
                     "concept":
                         None,
@@ -93,17 +103,17 @@ def print_company_results(
         f"{company['name']}"
     )
 
-    print("-" * 110)
+    print("-" * 116)
 
     print(
         f"{'Metric':<24}"
-        f"{'Required':<12}"
-        f"{'Status':<12}"
+        f"{'Availability':<14}"
+        f"{'Status':<16}"
         f"{'Records':>10}  "
         f"{'Concept'}"
     )
 
-    print("-" * 110)
+    print("-" * 116)
 
     for result in results:
         concept = (
@@ -114,8 +124,8 @@ def print_company_results(
 
         print(
             f"{result['metric']:<24}"
-            f"{str(result['required']):<12}"
-            f"{result['status']:<12}"
+            f"{result['availability']:<14}"
+            f"{result['status']:<16}"
             f"{result['records']:>10}  "
             f"{concept}"
         )
@@ -127,8 +137,27 @@ def print_company_results(
             )
 
 
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
+
+
 def main():
-    companies = get_companies()
+    universe_name = (
+        get_universe_name()
+    )
+
+    companies = get_companies(
+        universe_name
+    )
+
+    if not companies:
+        raise ValueError(
+            f"Universe not found or empty: "
+            f"{universe_name}"
+        )
 
     print()
     print(
@@ -136,13 +165,23 @@ def main():
         "FINANCIAL TEST"
     )
 
-    print("=" * 110)
+    print(
+        "Universe:",
+        universe_name,
+    )
+
+    print("=" * 116)
 
     total_metrics = 0
     available = 0
+
+    core_missing = 0
+    preferred_unavailable = 0
     optional_unavailable = 0
-    required_missing = 0
+
     errors = 0
+
+    company_attention = []
 
     for company in companies:
         results = test_company(
@@ -154,35 +193,66 @@ def main():
             results,
         )
 
+        company_core_missing = 0
+        company_preferred_unavailable = 0
+        company_errors = 0
+
         for result in results:
             total_metrics += 1
 
-            if (
-                result["status"]
-                == "OK"
-            ):
+            status = result[
+                "status"
+            ]
+
+            if status == "OK":
                 available += 1
 
-            elif (
-                result["status"]
-                == "OPTIONAL"
-            ):
-                optional_unavailable += 1
+            elif status == "CORE MISSING":
+                core_missing += 1
+                company_core_missing += 1
 
-            elif (
-                result["status"]
-                == "MISSING"
-            ):
-                required_missing += 1
+            elif status == "PREFERRED":
+                preferred_unavailable += 1
+                company_preferred_unavailable += 1
+
+            elif status == "OPTIONAL":
+                optional_unavailable += 1
 
             else:
                 errors += 1
+                company_errors += 1
+
+        if (
+            company_core_missing > 0
+            or company_preferred_unavailable > 0
+            or company_errors > 0
+        ):
+            company_attention.append(
+                {
+                    "ticker":
+                        company["ticker"],
+
+                    "core_missing":
+                        company_core_missing,
+
+                    "preferred_unavailable":
+                        company_preferred_unavailable,
+
+                    "errors":
+                        company_errors,
+                }
+            )
 
     print()
-    print("=" * 110)
+    print("=" * 116)
 
     print(
         "SUMMARY"
+    )
+
+    print(
+        "Universe:",
+        universe_name,
     )
 
     print(
@@ -201,19 +271,53 @@ def main():
     )
 
     print(
-        "Optional unavailable:",
-        optional_unavailable,
+        "Core missing:",
+        core_missing,
     )
 
     print(
-        "Required missing:",
-        required_missing,
+        "Preferred unavailable:",
+        preferred_unavailable,
+    )
+
+    print(
+        "Optional unavailable:",
+        optional_unavailable,
     )
 
     print(
         "Errors:",
         errors,
     )
+
+    if company_attention:
+        print()
+        print(
+            "COMPANIES NEEDING ATTENTION"
+        )
+
+        print("-" * 78)
+
+        print(
+            f"{'Ticker':<12}"
+            f"{'Core Missing':>16}"
+            f"{'Preferred Missing':>20}"
+            f"{'Errors':>12}"
+        )
+
+        print("-" * 78)
+
+        for item in company_attention:
+            print(
+                f"{item['ticker']:<12}"
+                f"{item[
+                    'core_missing'
+                ]:>16}"
+                f"{item[
+                    'preferred_unavailable'
+                ]:>20}"
+                f"{item['errors']:>12}"
+            )
 
 
 if __name__ == "__main__":

@@ -1,4 +1,7 @@
+import sys
+
 from src.company_universe import (
+    DEFAULT_UNIVERSE,
     get_companies,
 )
 
@@ -45,12 +48,22 @@ def import_company_metrics(
             ]
 
             if not history:
-                if metric_config[
-                    "required"
-                ]:
+                availability = (
+                    metric_config[
+                        "availability"
+                    ]
+                )
+
+                if availability == "core":
                     print(
-                        "MISSING REQUIRED DATA"
+                        "MISSING CORE DATA"
                     )
+
+                elif availability == "preferred":
+                    print(
+                        "preferred unavailable"
+                    )
+
                 else:
                     print(
                         "optional unavailable"
@@ -82,8 +95,30 @@ def import_company_metrics(
     }
 
 
-def import_universe():
-    companies = get_companies()
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
+
+
+def import_universe(
+    universe_name=None,
+):
+    if universe_name is None:
+        universe_name = (
+            get_universe_name()
+        )
+
+    companies = get_companies(
+        universe_name
+    )
+
+    if not companies:
+        raise ValueError(
+            f"Universe not found or empty: "
+            f"{universe_name}"
+        )
 
     summaries = []
 
@@ -91,6 +126,11 @@ def import_universe():
     print(
         "MARKET INTEL UNIVERSE "
         "FINANCIAL IMPORT"
+    )
+
+    print(
+        "Universe:",
+        universe_name,
     )
 
     print("=" * 70)
@@ -106,6 +146,7 @@ def import_universe():
 
     print()
     print("=" * 70)
+
     print(
         "IMPORT SUMMARY"
     )

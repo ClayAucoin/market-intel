@@ -1,4 +1,7 @@
+import sys
+
 from src.company_universe import (
+    DEFAULT_UNIVERSE,
     get_tickers,
 )
 
@@ -10,14 +13,31 @@ from src.price_repository import (
     save_daily_prices,
 )
 
+from src.security_aliases import (
+    get_symbol,
+)
+
 
 BENCHMARK = "SPY"
 
 START_DATE = "2018-01-01"
 
+PRICE_SOURCE = "tiingo"
 
-def get_symbols():
-    symbols = get_tickers()
+
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
+
+
+def get_symbols(
+    universe_name,
+):
+    symbols = get_tickers(
+        universe_name
+    )
 
     if BENCHMARK not in symbols:
         symbols.append(
@@ -27,14 +47,45 @@ def get_symbols():
     return symbols
 
 
-def import_symbol(symbol):
-    print()
-    print(
-        f"Importing {symbol} prices..."
+def get_provider_symbol(
+    symbol,
+):
+    #
+    # The benchmark is not necessarily
+    # represented in the securities table.
+    #
+    if symbol == BENCHMARK:
+        return symbol
+
+    return get_symbol(
+        symbol,
+        PRICE_SOURCE,
     )
 
+
+def import_symbol(symbol):
+    provider_symbol = (
+        get_provider_symbol(
+            symbol
+        )
+    )
+
+    print()
+
+    if provider_symbol == symbol:
+        print(
+            f"Importing {symbol} prices..."
+        )
+
+    else:
+        print(
+            f"Importing {symbol} prices "
+            f"using {PRICE_SOURCE} symbol "
+            f"{provider_symbol}..."
+        )
+
     prices = get_historical_prices(
-        symbol,
+        provider_symbol,
         start_date=START_DATE,
         refresh=False,
     )
@@ -49,10 +100,16 @@ def import_symbol(symbol):
 
         return {
             "symbol": symbol,
+            "provider_symbol":
+                provider_symbol,
             "records": 0,
             "status": "EMPTY",
         }
 
+    #
+    # Save under our canonical internal
+    # ticker, not the provider alias.
+    #
     save_daily_prices(
         symbol,
         prices,
@@ -60,13 +117,24 @@ def import_symbol(symbol):
 
     return {
         "symbol": symbol,
+        "provider_symbol":
+            provider_symbol,
         "records": count,
         "status": "OK",
     }
 
 
-def import_universe_prices():
-    symbols = get_symbols()
+def import_universe_prices(
+    universe_name=None,
+):
+    if universe_name is None:
+        universe_name = (
+            get_universe_name()
+        )
+
+    symbols = get_symbols(
+        universe_name
+    )
 
     results = []
 
@@ -76,7 +144,12 @@ def import_universe_prices():
         "PRICE IMPORT"
     )
 
-    print("=" * 60)
+    print(
+        "Universe:",
+        universe_name,
+    )
+
+    print("=" * 72)
 
     for symbol in symbols:
         try:
@@ -92,6 +165,7 @@ def import_universe_prices():
 
             result = {
                 "symbol": symbol,
+                "provider_symbol": None,
                 "records": 0,
                 "status": "ERROR",
             }
@@ -101,7 +175,7 @@ def import_universe_prices():
         )
 
     print()
-    print("=" * 60)
+    print("=" * 72)
 
     print(
         "PRICE IMPORT SUMMARY"
@@ -111,18 +185,26 @@ def import_universe_prices():
 
     print(
         f"{'Symbol':<10}"
+        f"{'Provider':<12}"
         f"{'Records':>12}"
         f"{'Status':>12}"
     )
 
-    print("-" * 34)
+    print("-" * 48)
 
     total_records = 0
     errors = 0
 
     for result in results:
+        provider = (
+            result["provider_symbol"]
+            if result["provider_symbol"]
+            else "-"
+        )
+
         print(
             f"{result['symbol']:<10}"
+            f"{provider:<12}"
             f"{result['records']:>12}"
             f"{result['status']:>12}"
         )
@@ -137,10 +219,10 @@ def import_universe_prices():
         ):
             errors += 1
 
-    print("-" * 34)
+    print("-" * 48)
 
     print(
-        f"{'TOTAL':<10}"
+        f"{'TOTAL':<22}"
         f"{total_records:>12}"
     )
 

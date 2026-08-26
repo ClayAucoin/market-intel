@@ -1,5 +1,6 @@
 from src.analysis_universe import (
     get_member,
+    get_member_any_universe,
     get_universe,
     get_tickers as get_analysis_tickers,
 )
@@ -28,11 +29,29 @@ def get_tickers(
 
 def get_company(
     ticker,
-    universe_name=DEFAULT_UNIVERSE,
+    universe_name=None,
 ):
-    return get_member(
-        universe_name,
-        ticker,
+    """
+    Return metadata for a company.
+
+    If a universe is explicitly supplied,
+    require membership in that universe.
+
+    If no universe is supplied, resolve the
+    company across all analysis universes.
+    Company-level metadata such as sector
+    should not depend on whichever universe
+    happens to be the current default.
+    """
+
+    if universe_name is not None:
+        return get_member(
+            universe_name,
+            ticker,
+        )
+
+    return get_member_any_universe(
+        ticker
     )
 
 

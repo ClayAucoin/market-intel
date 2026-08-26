@@ -1,7 +1,13 @@
+import sys
+
 from datetime import (
     datetime,
 )
 from zoneinfo import ZoneInfo
+
+from src.company_universe import (
+    DEFAULT_UNIVERSE,
+)
 
 from src.database import (
     get_connection,
@@ -53,7 +59,16 @@ def parse_acceptance_datetime(
     )
 
 
-def get_target_issuers():
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
+
+
+def get_target_issuers(
+    universe_name,
+):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -62,8 +77,10 @@ def get_target_issuers():
                     c.id,
                     c.cik,
                     c.company_name,
+
                     MIN(ff.filed_date),
                     MAX(ff.filed_date),
+
                     COUNT(
                         DISTINCT
                         ff.accession_number
@@ -75,9 +92,19 @@ def get_target_issuers():
                     ON c.id =
                        ff.company_id
 
+                JOIN analysis_universe_members aum
+                    ON aum.security_id =
+                       ff.security_id
+
+                JOIN analysis_universes au
+                    ON au.id =
+                       aum.universe_id
+
                 WHERE
-                    ff.accession_number
-                    IS NOT NULL
+                    au.name = %s
+
+                    AND ff.accession_number
+                        IS NOT NULL
 
                 GROUP BY
                     c.id,
@@ -86,7 +113,10 @@ def get_target_issuers():
 
                 ORDER BY
                     c.company_name;
-                """
+                """,
+                (
+                    universe_name,
+                ),
             )
 
             rows = cursor.fetchall()
@@ -106,25 +136,39 @@ def get_target_issuers():
 
 def get_target_accessions(
     company_id,
+    universe_name,
 ):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
                 """
                 SELECT DISTINCT
-                    accession_number
+                    ff.accession_number
 
-                FROM financial_facts
+                FROM financial_facts ff
 
-                WHERE company_id = %s
-                  AND accession_number
-                      IS NOT NULL
+                JOIN analysis_universe_members aum
+                    ON aum.security_id =
+                       ff.security_id
+
+                JOIN analysis_universes au
+                    ON au.id =
+                       aum.universe_id
+
+                WHERE
+                    ff.company_id = %s
+
+                    AND au.name = %s
+
+                    AND ff.accession_number
+                        IS NOT NULL
 
                 ORDER BY
-                    accession_number;
+                    ff.accession_number;
                 """,
                 (
                     company_id,
+                    universe_name,
                 ),
             )
 
@@ -250,7 +294,6 @@ def save_filing(
                 )
 
                 DO UPDATE SET
-
                     company_id =
                         EXCLUDED.company_id,
 
@@ -293,10 +336,12 @@ def save_filing(
 
 def import_issuer_filings(
     issuer,
+    universe_name,
 ):
     target_accessions = (
         get_target_accessions(
-            issuer["company_id"]
+            issuer["company_id"],
+            universe_name,
         )
     )
 
@@ -395,7 +440,20 @@ def import_issuer_filings(
 
 
 def main():
-    issuers = get_target_issuers()
+    universe_name = (
+        get_universe_name()
+    )
+
+    issuers = get_target_issuers(
+        universe_name
+    )
+
+    if not issuers:
+        raise ValueError(
+            f"No filing targets found "
+            f"for universe: "
+            f"{universe_name}"
+        )
 
     results = []
 
@@ -405,13 +463,19 @@ def main():
         "UNIVERSE FILING IMPORT"
     )
 
+    print(
+        "Universe:",
+        universe_name,
+    )
+
     print("=" * 72)
 
     for issuer in issuers:
         try:
             result = (
                 import_issuer_filings(
-                    issuer
+                    issuer,
+                    universe_name,
                 )
             )
 
@@ -466,6 +530,10 @@ def main():
 
     print("-" * 72)
 
+    total_target = 0
+    total_matched = 0
+    total_missing = 0
+
     for result in results:
         print(
             f"{result['cik']:<12}"
@@ -474,6 +542,27 @@ def main():
             f"{result['missing']:>10}  "
             f"{result['company_name']}"
         )
+
+        total_target += (
+            result["target"]
+        )
+
+        total_matched += (
+            result["matched"]
+        )
+
+        total_missing += (
+            result["missing"]
+        )
+
+    print("-" * 72)
+
+    print(
+        f"{'TOTAL':<12}"
+        f"{total_target:>10}"
+        f"{total_matched:>10}"
+        f"{total_missing:>10}"
+    )
 
 
 if __name__ == "__main__":

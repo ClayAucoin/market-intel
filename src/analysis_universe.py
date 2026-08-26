@@ -245,3 +245,93 @@ def get_member(
             return company
 
     return None
+
+
+def get_member_any_universe(
+    ticker,
+):
+    """
+    Find security metadata regardless of which
+    analysis universe currently contains it.
+
+    This is useful for company-level behavior,
+    such as sector-specific financial concept
+    resolution, which should not depend on the
+    active analysis universe.
+    """
+
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT
+                    s.id,
+                    s.ticker,
+                    s.exchange,
+
+                    c.id,
+                    c.cik,
+                    c.company_name,
+
+                    aum.sector,
+                    aum.industry,
+
+                    au.name
+
+                FROM securities s
+
+                JOIN companies c
+                    ON c.id =
+                       s.company_id
+
+                LEFT JOIN analysis_universe_members aum
+                    ON aum.security_id =
+                       s.id
+
+                LEFT JOIN analysis_universes au
+                    ON au.id =
+                       aum.universe_id
+
+                WHERE UPPER(s.ticker) =
+                      UPPER(%s)
+
+                ORDER BY
+                    CASE
+                        WHEN aum.sector IS NOT NULL
+                        THEN 0
+                        ELSE 1
+                    END,
+
+                    au.name,
+
+                    s.is_primary DESC,
+                    s.id
+
+                LIMIT 1;
+                """,
+                (
+                    ticker,
+                ),
+            )
+
+            row = cursor.fetchone()
+
+    if row is None:
+        return None
+
+    return {
+        "security_id": row[0],
+        "ticker": row[1],
+        "exchange": row[2],
+
+        "company_id": row[3],
+        "cik": row[4],
+        "company_name": row[5],
+
+        "name": row[5],
+
+        "sector": row[6],
+        "industry": row[7],
+
+        "universe_name": row[8],
+    }

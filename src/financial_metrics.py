@@ -29,7 +29,7 @@ FINANCIAL_METRICS = {
             "SalesRevenueNet",
         ],
         "unit": "USD",
-        "required": True,
+        "availability": "core",
 
         "sector_concepts": {
             "Financials": [
@@ -45,7 +45,7 @@ FINANCIAL_METRICS = {
             "ProfitLoss",
         ],
         "unit": "USD",
-        "required": True,
+        "availability": "core",
     },
 
     "diluted_eps": {
@@ -53,7 +53,7 @@ FINANCIAL_METRICS = {
             "EarningsPerShareDiluted",
         ],
         "unit": "USD/shares",
-        "required": True,
+        "availability": "preferred",
     },
 
     "operating_income": {
@@ -61,7 +61,7 @@ FINANCIAL_METRICS = {
             "OperatingIncomeLoss",
         ],
         "unit": "USD",
-        "required": False,
+        "availability": "optional",
     },
 
     "operating_cash_flow": {
@@ -69,7 +69,7 @@ FINANCIAL_METRICS = {
             "NetCashProvidedByUsedInOperatingActivities",
         ],
         "unit": "USD",
-        "required": False,
+        "availability": "optional",
     },
 
     "gross_profit": {
@@ -77,7 +77,7 @@ FINANCIAL_METRICS = {
             "GrossProfit",
         ],
         "unit": "USD",
-        "required": False,
+        "availability": "optional",
     },
 }
 
@@ -401,8 +401,8 @@ def get_metric_history(
         "unit":
             metric["unit"],
 
-        "required":
-            metric["required"],
+        "availability":
+            metric["availability"],
 
         "issuers":
             issuers,
@@ -422,7 +422,7 @@ def test_company_metrics(ticker):
 
     print(
         f"{'Metric':<24}"
-        f"{'Required':<12}"
+        f"{'Availability':<14}"
         f"{'Records':>10}  "
         f"{'Concepts'}"
     )
@@ -446,7 +446,7 @@ def test_company_metrics(ticker):
 
             print(
                 f"{metric_name:<24}"
-                f"{str(metric['required']):<12}"
+                f"{metric['availability']:<14}"
                 f"{len(result['history']):>10}  "
                 f"{concept_text}"
             )
@@ -454,7 +454,7 @@ def test_company_metrics(ticker):
         except Exception as error:
             print(
                 f"{metric_name:<24}"
-                f"{str(metric['required']):<12}"
+                f"{metric['availability']:<14}"
                 f"{'-':>10}  ERROR"
             )
 
