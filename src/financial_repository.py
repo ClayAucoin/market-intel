@@ -1,18 +1,77 @@
 from src.database import get_connection
 
 
+def get_security_id(
+    ticker,
+):
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT id
+
+                FROM securities
+
+                WHERE UPPER(ticker) =
+                      UPPER(%s)
+
+                ORDER BY
+                    is_primary DESC,
+                    id
+
+                LIMIT 1;
+                """,
+                (
+                    ticker,
+                ),
+            )
+
+            row = cursor.fetchone()
+
+    if row is None:
+        raise ValueError(
+            f"Security not found: {ticker}"
+        )
+
+    return row[0]
+
+
 def save_financial_history(
-    company_id,
+    ticker,
     metric,
-    concept,
     unit,
     history,
 ):
+    security_id = get_security_id(
+        ticker
+    )
+
     rows = []
 
     for item in history:
+        company_id = item.get(
+            "company_id"
+        )
+
+        concept = item.get(
+            "concept"
+        )
+
+        if company_id is None:
+            raise ValueError(
+                f"{ticker} {metric} history "
+                "item is missing company_id."
+            )
+
+        if concept is None:
+            raise ValueError(
+                f"{ticker} {metric} history "
+                "item is missing concept."
+            )
+
         rows.append(
             (
+                security_id,
                 company_id,
                 metric,
                 concept,
@@ -24,46 +83,65 @@ def save_financial_history(
                 item.get("value"),
                 item.get("filed"),
                 item.get("accn"),
-                item.get("derived", False),
+                item.get(
+                    "derived",
+                    False,
+                ),
             )
         )
 
     if not rows:
         print(
-            f"No records found for {metric}."
+            f"No records found for "
+            f"{ticker} {metric}."
         )
-        return
+        return 0
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.executemany(
                 """
                 INSERT INTO financial_facts (
+                    security_id,
                     company_id,
+
                     metric,
                     concept,
                     unit,
+
                     fiscal_year,
                     fiscal_period,
+
                     period_start,
                     period_end,
+
                     value,
+
                     filed_date,
                     accession_number,
+
                     is_derived
                 )
+
                 VALUES (
-                    %s, %s, %s, %s,
-                    %s, %s, %s, %s,
-                    %s, %s, %s, %s
+                    %s, %s,
+                    %s, %s, %s,
+                    %s, %s,
+                    %s, %s,
+                    %s,
+                    %s, %s,
+                    %s
                 )
 
                 ON CONFLICT (
+                    security_id,
                     company_id,
                     metric,
                     period_end
                 )
+
                 DO UPDATE SET
+
                     concept =
                         EXCLUDED.concept,
 
@@ -99,5 +177,7 @@ def save_financial_history(
 
     print(
         f"Saved {len(rows):,} "
-        f"{metric} records."
+        f"{ticker} {metric} records."
     )
+
+    return len(rows)

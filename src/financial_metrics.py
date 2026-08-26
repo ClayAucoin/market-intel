@@ -1,100 +1,477 @@
-from src.company_repository import get_company_by_ticker
-from src.financial_history import build_quarterly_history
-from src.xbrl_client import get_company_facts
+from datetime import date
+
+from src.company_repository import (
+    get_company_by_ticker,
+)
+
+from src.company_universe import (
+    get_company,
+)
+
+from src.financial_history import (
+    build_multi_concept_quarterly_history,
+)
+
+from src.issuer_repository import (
+    get_issuer_history_by_ticker,
+)
+
+from src.xbrl_client import (
+    get_company_facts,
+)
 
 
 FINANCIAL_METRICS = {
     "revenue": {
-        "concept": "Revenues",
+        "concepts": [
+            "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "Revenues",
+            "SalesRevenueNet",
+        ],
         "unit": "USD",
+        "required": True,
+
+        "sector_concepts": {
+            "Financials": [
+                "RevenuesNetOfInterestExpense",
+                "Revenues",
+            ],
+        },
     },
-    "operating_income": {
-        "concept": "OperatingIncomeLoss",
-        "unit": "USD",
-    },
+
     "net_income": {
-        "concept": "NetIncomeLoss",
+        "concepts": [
+            "NetIncomeLoss",
+            "ProfitLoss",
+        ],
         "unit": "USD",
+        "required": True,
     },
+
     "diluted_eps": {
-        "concept": "EarningsPerShareDiluted",
+        "concepts": [
+            "EarningsPerShareDiluted",
+        ],
         "unit": "USD/shares",
+        "required": True,
     },
+
+    "operating_income": {
+        "concepts": [
+            "OperatingIncomeLoss",
+        ],
+        "unit": "USD",
+        "required": False,
+    },
+
     "operating_cash_flow": {
-        "concept": "NetCashProvidedByUsedInOperatingActivities",
+        "concepts": [
+            "NetCashProvidedByUsedInOperatingActivities",
+        ],
         "unit": "USD",
+        "required": False,
     },
+
     "gross_profit": {
-        "concept": "GrossProfit",
+        "concepts": [
+            "GrossProfit",
+        ],
         "unit": "USD",
+        "required": False,
     },
 }
 
 
-def get_metric_history(ticker, metric_name):
-    metric = FINANCIAL_METRICS.get(metric_name)
+def get_metric_concepts(
+    ticker,
+    metric_name,
+):
+    metric = FINANCIAL_METRICS.get(
+        metric_name
+    )
 
     if metric is None:
         raise ValueError(
             f"Unknown metric: {metric_name}"
         )
 
-    company = get_company_by_ticker(ticker)
+    company_config = get_company(
+        ticker
+    )
 
-    if company is None:
+    if company_config is not None:
+        sector = company_config.get(
+            "sector"
+        )
+
+        sector_concepts = (
+            metric
+            .get(
+                "sector_concepts",
+                {}
+            )
+            .get(
+                sector
+            )
+        )
+
+        if sector_concepts:
+            return sector_concepts
+
+    return metric["concepts"]
+
+
+def resolve_concepts(
+    facts,
+    ticker,
+    metric_name,
+):
+    concept_names = get_metric_concepts(
+        ticker,
+        metric_name,
+    )
+
+    us_gaap = (
+        facts
+        .get("facts", {})
+        .get("us-gaap", {})
+    )
+
+    return [
+        concept_name
+        for concept_name in concept_names
+        if concept_name in us_gaap
+    ]
+
+
+def parse_period_end(value):
+    if isinstance(value, date):
+        return value
+
+    return date.fromisoformat(
+        value
+    )
+
+
+def period_belongs_to_issuer(
+    period_end,
+    issuer,
+):
+    period_end = parse_period_end(
+        period_end
+    )
+
+    effective_from = issuer[
+        "effective_from"
+    ]
+
+    effective_to = issuer[
+        "effective_to"
+    ]
+
+    if (
+        effective_from is not None
+        and period_end < effective_from
+    ):
+        return False
+
+    if (
+        effective_to is not None
+        and period_end > effective_to
+    ):
+        return False
+
+    return True
+
+
+def get_issuer_metric_history(
+    ticker,
+    issuer,
+    metric_name,
+):
+    metric = FINANCIAL_METRICS[
+        metric_name
+    ]
+
+    facts = get_company_facts(
+        issuer["cik"]
+    )
+
+    concepts = resolve_concepts(
+        facts,
+        ticker,
+        metric_name,
+    )
+
+    if not concepts:
+        return {
+            "issuer": issuer,
+            "concepts": [],
+            "history": [],
+        }
+
+    history = (
+        build_multi_concept_quarterly_history(
+            facts,
+            concepts,
+            metric["unit"],
+        )
+    )
+
+    filtered_history = []
+
+    for item in history:
+        if not period_belongs_to_issuer(
+            item["end"],
+            issuer,
+        ):
+            continue
+
+        filtered_history.append(
+            {
+                **item,
+
+                "company_id":
+                    issuer[
+                        "company_id"
+                    ],
+
+                "issuer_cik":
+                    issuer["cik"],
+
+                "issuer_name":
+                    issuer[
+                        "company_name"
+                    ],
+            }
+        )
+
+    return {
+        "issuer": issuer,
+        "concepts": concepts,
+        "history": filtered_history,
+    }
+
+
+def choose_issuer_value(
+    current,
+    candidate,
+):
+    if current is None:
+        return candidate
+
+    current_filed = current.get(
+        "filed"
+    )
+
+    candidate_filed = candidate.get(
+        "filed"
+    )
+
+    if (
+        candidate_filed is not None
+        and (
+            current_filed is None
+            or candidate_filed
+            < current_filed
+        )
+    ):
+        return candidate
+
+    return current
+
+
+def merge_issuer_histories(
+    issuer_results,
+):
+    merged = {}
+
+    for issuer_result in issuer_results:
+        for item in issuer_result[
+            "history"
+        ]:
+            key = item["end"]
+
+            merged[key] = (
+                choose_issuer_value(
+                    merged.get(key),
+                    item,
+                )
+            )
+
+    return sorted(
+        merged.values(),
+        key=lambda item:
+            item["end"],
+    )
+
+
+def get_metric_history(
+    ticker,
+    metric_name,
+):
+    metric = FINANCIAL_METRICS.get(
+        metric_name
+    )
+
+    if metric is None:
+        raise ValueError(
+            f"Unknown metric: {metric_name}"
+        )
+
+    security_company = (
+        get_company_by_ticker(
+            ticker
+        )
+    )
+
+    if security_company is None:
         raise ValueError(
             f"Ticker not found: {ticker}"
         )
 
-    facts = get_company_facts(
-        company["cik"]
+    issuers = (
+        get_issuer_history_by_ticker(
+            ticker
+        )
     )
 
-    history = build_quarterly_history(
-        facts,
-        metric["concept"],
-        metric["unit"],
+    if not issuers:
+        issuers = [
+            {
+                "company_id":
+                    security_company["id"],
+
+                "cik":
+                    security_company["cik"],
+
+                "company_name":
+                    security_company[
+                        "company_name"
+                    ],
+
+                "effective_from": None,
+                "effective_to": None,
+                "is_current": True,
+            }
+        ]
+
+    issuer_results = []
+
+    for issuer in issuers:
+        issuer_results.append(
+            get_issuer_metric_history(
+                ticker,
+                issuer,
+                metric_name,
+            )
+        )
+
+    history = merge_issuer_histories(
+        issuer_results
     )
+
+    concepts = []
+
+    for result in issuer_results:
+        for concept in result[
+            "concepts"
+        ]:
+            if concept not in concepts:
+                concepts.append(
+                    concept
+                )
 
     return {
-        "company": company,
-        "metric": metric_name,
-        "concept": metric["concept"],
-        "unit": metric["unit"],
-        "history": history,
+        "company":
+            security_company,
+
+        "metric":
+            metric_name,
+
+        "concept": (
+            " / ".join(concepts)
+            if concepts
+            else None
+        ),
+
+        "concepts":
+            concepts,
+
+        "unit":
+            metric["unit"],
+
+        "required":
+            metric["required"],
+
+        "issuers":
+            issuers,
+
+        "history":
+            history,
     }
 
 
-if __name__ == "__main__":
-    result = get_metric_history(
-        "DELL",
-        "diluted_eps",
+def test_company_metrics(ticker):
+    print()
+    print(
+        f"{ticker} FINANCIAL METRICS"
     )
+
+    print("=" * 110)
 
     print(
-        result["company"]["ticker"],
-        result["metric"],
+        f"{'Metric':<24}"
+        f"{'Required':<12}"
+        f"{'Records':>10}  "
+        f"{'Concepts'}"
     )
 
-    print()
+    print("-" * 110)
 
-    for item in result["history"][-12:]:
-        source = (
-            "DERIVED"
-            if item["derived"]
-            else "REPORTED"
+    for metric_name, metric in (
+        FINANCIAL_METRICS.items()
+    ):
+        try:
+            result = get_metric_history(
+                ticker,
+                metric_name,
+            )
+
+            concept_text = (
+                result["concept"]
+                if result["concept"]
+                else "NOT AVAILABLE"
+            )
+
+            print(
+                f"{metric_name:<24}"
+                f"{str(metric['required']):<12}"
+                f"{len(result['history']):>10}  "
+                f"{concept_text}"
+            )
+
+        except Exception as error:
+            print(
+                f"{metric_name:<24}"
+                f"{str(metric['required']):<12}"
+                f"{'-':>10}  ERROR"
+            )
+
+            print(
+                f"  {error}"
+            )
+
+
+if __name__ == "__main__":
+    for ticker in [
+        "JPM",
+        "XOM",
+        "GOOGL",
+        "CAT",
+    ]:
+        test_company_metrics(
+            ticker
         )
 
-        print(
-            item["end"],
-            "| FY:",
-            item["fy"],
-            "| FP:",
-            item["fp"],
-            "| Value:",
-            item["value"],
-            "|",
-            source,
-            "| Filed:",
-            item["filed"],
-        )
+        print()

@@ -16,16 +16,30 @@ def save_daily_prices(
     rows = []
 
     for price in prices:
+        adjusted_open = price.get(
+            "adjOpen"
+        )
+
+        if adjusted_open is None:
+            adjusted_open = price.get(
+                "open"
+            )
+
         rows.append(
             (
                 symbol.upper(),
+
                 parse_trade_date(
                     price["date"]
                 ),
+
                 price.get("open"),
                 price.get("high"),
                 price.get("low"),
                 price.get("close"),
+
+                adjusted_open,
+
                 price.get("adjClose"),
                 price.get("volume"),
                 price.get("divCash"),
@@ -38,6 +52,7 @@ def save_daily_prices(
             f"No price records found "
             f"for {symbol}."
         )
+
         return
 
     with get_connection() as conn:
@@ -47,18 +62,24 @@ def save_daily_prices(
                 INSERT INTO daily_prices (
                     symbol,
                     trade_date,
+
                     open,
                     high,
                     low,
                     close,
+
+                    adjusted_open,
                     adjusted_close,
+
                     volume,
                     dividend_cash,
                     split_factor
                 )
                 VALUES (
-                    %s, %s, %s, %s, %s,
-                    %s, %s, %s, %s, %s
+                    %s, %s,
+                    %s, %s, %s, %s,
+                    %s, %s,
+                    %s, %s, %s
                 )
 
                 ON CONFLICT (
@@ -66,6 +87,7 @@ def save_daily_prices(
                     trade_date
                 )
                 DO UPDATE SET
+
                     open =
                         EXCLUDED.open,
 
@@ -77,6 +99,9 @@ def save_daily_prices(
 
                     close =
                         EXCLUDED.close,
+
+                    adjusted_open =
+                        EXCLUDED.adjusted_open,
 
                     adjusted_close =
                         EXCLUDED.adjusted_close,

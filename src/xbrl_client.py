@@ -1,12 +1,70 @@
+import json
 from datetime import date
+from pathlib import Path
 
 import requests
 
-from src.company_repository import get_company_by_ticker
+from src.company_repository import (
+    get_company_by_ticker,
+)
+
 from src.sec_client import SEC_HEADERS
 
 
-def get_company_facts(cik):
+CACHE_DIR = Path(
+    "data/cache/sec/companyfacts"
+)
+
+
+def get_cache_path(cik):
+    cik = str(cik).zfill(10)
+
+    return (
+        CACHE_DIR
+        / f"CIK{cik}.json"
+    )
+
+
+def load_cached_company_facts(cik):
+    cache_path = get_cache_path(
+        cik
+    )
+
+    if not cache_path.exists():
+        return None
+
+    with cache_path.open(
+        "r",
+        encoding="utf-8",
+    ) as file:
+        return json.load(file)
+
+
+def save_cached_company_facts(
+    cik,
+    data,
+):
+    CACHE_DIR.mkdir(
+        parents=True,
+        exist_ok=True,
+    )
+
+    cache_path = get_cache_path(
+        cik
+    )
+
+    with cache_path.open(
+        "w",
+        encoding="utf-8",
+    ) as file:
+        json.dump(
+            data,
+            file,
+            indent=2,
+        )
+
+
+def download_company_facts(cik):
     cik = str(cik).zfill(10)
 
     url = (
@@ -17,12 +75,40 @@ def get_company_facts(cik):
     response = requests.get(
         url,
         headers=SEC_HEADERS,
-        timeout=30,
+        timeout=60,
     )
 
     response.raise_for_status()
 
-    return response.json()
+    data = response.json()
+
+    save_cached_company_facts(
+        cik,
+        data,
+    )
+
+    return data
+
+
+def get_company_facts(
+    cik,
+    refresh=False,
+):
+    cik = str(cik).zfill(10)
+
+    if not refresh:
+        cached = (
+            load_cached_company_facts(
+                cik
+            )
+        )
+
+        if cached is not None:
+            return cached
+
+    return download_company_facts(
+        cik
+    )
 
 
 def get_concept_values(
@@ -40,10 +126,11 @@ def get_concept_values(
     if concept is None:
         return []
 
-    return concept.get(
-        "units",
-        {}
-    ).get(unit, [])
+    return (
+        concept
+        .get("units", {})
+        .get(unit, [])
+    )
 
 
 def period_days(value):
@@ -53,10 +140,18 @@ def period_days(value):
     if not start or not end:
         return None
 
-    start_date = date.fromisoformat(start)
-    end_date = date.fromisoformat(end)
+    start_date = date.fromisoformat(
+        start
+    )
 
-    return (end_date - start_date).days + 1
+    end_date = date.fromisoformat(
+        end
+    )
+
+    return (
+        end_date
+        - start_date
+    ).days + 1
 
 
 def get_quarterly_values(
@@ -76,13 +171,17 @@ def get_quarterly_values(
         if value.get("form") != "10-Q":
             continue
 
-        days = period_days(value)
+        days = period_days(
+            value
+        )
 
         if days is None:
             continue
 
-        # Normal standalone quarters are roughly 3 months.
-        # Allow some flexibility for 52/53-week fiscal calendars.
+        #
+        # Standalone quarters are
+        # approximately three months.
+        #
         if not 70 <= days <= 110:
             continue
 
@@ -99,9 +198,15 @@ def get_quarterly_values(
             }
         )
 
-    # The same reporting period can be repeated in later filings.
-    # Keep the earliest filing for each actual start/end period,
-    # representing when the value first became public.
+    #
+    # Later filings can repeat prior
+    # quarterly values.
+    #
+    # Keep the earliest filing for each
+    # actual period so backtests use the
+    # date the information first became
+    # public.
+    #
     unique = {}
 
     for value in quarterly:
@@ -110,49 +215,51 @@ def get_quarterly_values(
             value["end"],
         )
 
-        current = unique.get(key)
+        current = unique.get(
+            key
+        )
 
         if (
             current is None
-            or value["filed"] < current["filed"]
+            or value["filed"]
+            < current["filed"]
         ):
             unique[key] = value
 
     return sorted(
         unique.values(),
-        key=lambda item: item["end"],
+        key=lambda item:
+            item["end"],
     )
 
 
 if __name__ == "__main__":
-    company = get_company_by_ticker("DELL")
+    company = (
+        get_company_by_ticker(
+            "DELL"
+        )
+    )
 
     facts = get_company_facts(
         company["cik"]
     )
 
-    quarters = get_quarterly_values(
-        facts,
-        "Revenues",
+    print(
+        "Company:",
+        facts["entityName"],
     )
 
     print(
-        f"{company['ticker']} quarterly revenue"
+        "CIK:",
+        facts["cik"],
     )
 
     print()
+    print(
+        "Available taxonomies:"
+    )
 
-    for quarter in quarters[-12:]:
+    for taxonomy in facts["facts"]:
         print(
-            quarter["start"],
-            "to",
-            quarter["end"],
-            "| FY:",
-            quarter["fy"],
-            "| FP:",
-            quarter["fp"],
-            "| Revenue:",
-            f"${quarter['value'] / 1_000_000_000:.3f}B",
-            "| Filed:",
-            quarter["filed"],
+            taxonomy
         )
