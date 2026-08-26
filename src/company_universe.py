@@ -1,100 +1,69 @@
-COMPANIES = [
-    {
-        "ticker": "DELL",
-        "name": "Dell Technologies",
-        "sector": "Technology",
-    },
-    {
-        "ticker": "AAPL",
-        "name": "Apple",
-        "sector": "Technology",
-    },
-    {
-        "ticker": "MSFT",
-        "name": "Microsoft",
-        "sector": "Technology",
-    },
-    {
-        "ticker": "JPM",
-        "name": "JPMorgan Chase",
-        "sector": "Financials",
-    },
-    {
-        "ticker": "UNH",
-        "name": "UnitedHealth Group",
-        "sector": "Healthcare",
-    },
-    {
-        "ticker": "CAT",
-        "name": "Caterpillar",
-        "sector": "Industrials",
-    },
-    {
-        "ticker": "WMT",
-        "name": "Walmart",
-        "sector": "Consumer Staples",
-    },
-    {
-        "ticker": "HD",
-        "name": "Home Depot",
-        "sector": "Consumer Discretionary",
-    },
-    {
-        "ticker": "XOM",
-        "name": "Exxon Mobil",
-        "sector": "Energy",
-    },
-    {
-        "ticker": "GOOGL",
-        "name": "Alphabet",
-        "sector": "Communication Services",
-    },
-]
+from src.analysis_universe import (
+    get_member,
+    get_universe,
+    get_tickers as get_analysis_tickers,
+)
 
 
-def get_companies():
-    return COMPANIES.copy()
+DEFAULT_UNIVERSE = (
+    "proof_of_concept_10"
+)
 
 
-def get_tickers():
-    return [
-        company["ticker"]
-        for company in COMPANIES
-    ]
+def get_companies(
+    universe_name=DEFAULT_UNIVERSE,
+):
+    return get_universe(
+        universe_name
+    )
 
 
-def get_company(ticker):
-    ticker = ticker.upper()
+def get_tickers(
+    universe_name=DEFAULT_UNIVERSE,
+):
+    return get_analysis_tickers(
+        universe_name
+    )
 
-    for company in COMPANIES:
-        if company["ticker"] == ticker:
-            return company.copy()
 
-    return None
+def get_company(
+    ticker,
+    universe_name=DEFAULT_UNIVERSE,
+):
+    return get_member(
+        universe_name,
+        ticker,
+    )
 
 
 if __name__ == "__main__":
+    companies = get_companies()
+
     print()
-    print("MARKET INTEL TEST UNIVERSE")
-    print("=" * 62)
+    print(
+        f"MARKET INTEL UNIVERSE: "
+        f"{DEFAULT_UNIVERSE}"
+    )
+
+    print("=" * 80)
 
     print(
         f"{'Ticker':<10}"
-        f"{'Company':<28}"
+        f"{'Company':<32}"
         f"{'Sector'}"
     )
 
-    print("-" * 62)
+    print("-" * 80)
 
-    for company in get_companies():
+    for company in companies:
         print(
             f"{company['ticker']:<10}"
-            f"{company['name']:<28}"
+            f"{company['company_name']:<32}"
             f"{company['sector']}"
         )
 
     print()
     print(
-        f"Companies: "
-        f"{len(get_companies())}"
+        "Companies:",
+        len(companies),
     )

@@ -16,14 +16,37 @@ from src.event_timing import (
     get_event_entry_date,
 )
 
+from src.market_context import (
+    calculate_market_context,
+)
+
 
 BENCHMARK = "SPY"
+
+MAX_REPORTING_LAG_DAYS = 120
 
 HORIZONS = [
     "30d",
     "90d",
     "180d",
 ]
+
+
+def clear_backtest_events():
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                TRUNCATE TABLE
+                    backtest_events
+                RESTART IDENTITY;
+                """
+            )
+
+    print(
+        "Cleared existing "
+        "backtest_events."
+    )
 
 
 def get_security(ticker):
@@ -34,12 +57,16 @@ def get_security(ticker):
                 SELECT
                     id,
                     ticker
+
                 FROM securities
+
                 WHERE UPPER(ticker) =
                       UPPER(%s)
+
                 ORDER BY
                     is_primary DESC,
                     id
+
                 LIMIT 1;
                 """,
                 (
@@ -79,9 +106,12 @@ def get_metric_history(
                     is_derived,
                     concept,
                     company_id
+
                 FROM financial_facts
+
                 WHERE security_id = %s
                   AND metric = %s
+
                 ORDER BY period_end;
                 """,
                 (
@@ -107,6 +137,40 @@ def get_metric_history(
         }
         for row in rows
     ]
+
+
+def is_current_reporting_event(
+    financial_fact,
+):
+    period_end = financial_fact.get(
+        "period_end"
+    )
+
+    filed_date = financial_fact.get(
+        "filed_date"
+    )
+
+    if (
+        period_end is None
+        or filed_date is None
+    ):
+        return False
+
+    reporting_lag = (
+        filed_date
+        - period_end
+    ).days
+
+    if reporting_lag < 0:
+        return False
+
+    if (
+        reporting_lag
+        > MAX_REPORTING_LAG_DAYS
+    ):
+        return False
+
+    return True
 
 
 def get_period_record(
@@ -193,7 +257,10 @@ def calculate_percent_change(
         return None
 
     result = (
-        (current - previous)
+        (
+            current
+            - previous
+        )
         / abs(previous)
     ) * Decimal("100")
 
@@ -363,8 +430,11 @@ def get_filing(
                     filing_date,
                     acceptance_datetime,
                     form
+
                 FROM filings
+
                 WHERE accession_number = %s
+
                 LIMIT 1;
                 """,
                 (
@@ -379,7 +449,10 @@ def get_filing(
 
     return {
         "filing_date": row[0],
-        "acceptance_datetime": row[1],
+
+        "acceptance_datetime":
+            row[1],
+
         "form": row[2],
     }
 
@@ -445,16 +518,18 @@ def get_horizon_result(
     ]
 
     return {
-        "return": stock_return,
+        "return":
+            stock_return,
 
         "benchmark_return":
             benchmark_return,
 
-        "excess_return": round(
-            stock_return
-            - benchmark_return,
-            2,
-        ),
+        "excess_return":
+            round(
+                stock_return
+                - benchmark_return,
+                2,
+            ),
     }
 
 
@@ -463,11 +538,14 @@ def save_backtest_event(
     period_end,
     entry_date,
     entry_price,
+
     revenue_yoy,
     revenue_acceleration,
     eps_yoy,
     gross_margin_change,
     operating_margin_change,
+
+    market_context,
     horizon_results,
 ):
     with get_connection() as conn:
@@ -486,6 +564,18 @@ def save_backtest_event(
                     gross_margin_change,
                     operating_margin_change,
 
+                    pre_return_20d,
+                    pre_return_60d,
+                    pre_excess_20d,
+                    pre_excess_60d,
+                    pre_volatility_20d,
+
+                    previous_close,
+                    entry_open,
+                    opening_gap_pct,
+                    spy_opening_gap_pct,
+                    opening_gap_excess,
+
                     return_30d,
                     spy_return_30d,
                     excess_30d,
@@ -501,9 +591,17 @@ def save_backtest_event(
 
                 VALUES (
                     %s, %s, %s, %s,
+
                     %s, %s, %s, %s, %s,
+
+                    %s, %s, %s, %s, %s,
+
+                    %s, %s, %s, %s, %s,
+
                     %s, %s, %s,
+
                     %s, %s, %s,
+
                     %s, %s, %s
                 )
 
@@ -533,6 +631,36 @@ def save_backtest_event(
 
                     operating_margin_change =
                         EXCLUDED.operating_margin_change,
+
+                    pre_return_20d =
+                        EXCLUDED.pre_return_20d,
+
+                    pre_return_60d =
+                        EXCLUDED.pre_return_60d,
+
+                    pre_excess_20d =
+                        EXCLUDED.pre_excess_20d,
+
+                    pre_excess_60d =
+                        EXCLUDED.pre_excess_60d,
+
+                    pre_volatility_20d =
+                        EXCLUDED.pre_volatility_20d,
+
+                    previous_close =
+                        EXCLUDED.previous_close,
+
+                    entry_open =
+                        EXCLUDED.entry_open,
+
+                    opening_gap_pct =
+                        EXCLUDED.opening_gap_pct,
+
+                    spy_opening_gap_pct =
+                        EXCLUDED.spy_opening_gap_pct,
+
+                    opening_gap_excess =
+                        EXCLUDED.opening_gap_excess,
 
                     return_30d =
                         EXCLUDED.return_30d,
@@ -575,6 +703,46 @@ def save_backtest_event(
                     eps_yoy,
                     gross_margin_change,
                     operating_margin_change,
+
+                    market_context[
+                        "pre_return_20d"
+                    ],
+
+                    market_context[
+                        "pre_return_60d"
+                    ],
+
+                    market_context[
+                        "pre_excess_20d"
+                    ],
+
+                    market_context[
+                        "pre_excess_60d"
+                    ],
+
+                    market_context[
+                        "pre_volatility_20d"
+                    ],
+
+                    market_context[
+                        "previous_close"
+                    ],
+
+                    market_context[
+                        "entry_open"
+                    ],
+
+                    market_context[
+                        "opening_gap_pct"
+                    ],
+
+                    market_context[
+                        "spy_opening_gap_pct"
+                    ],
+
+                    market_context[
+                        "opening_gap_excess"
+                    ],
 
                     horizon_results[
                         "30d"
@@ -620,18 +788,22 @@ def build_ticker_events(ticker):
         ticker
     )
 
-    security_id = security[
-        "security_id"
-    ]
-
-    revenue_history = get_metric_history(
-        security_id,
-        "revenue",
+    security_id = (
+        security["security_id"]
     )
 
-    eps_history = get_metric_history(
-        security_id,
-        "diluted_eps",
+    revenue_history = (
+        get_metric_history(
+            security_id,
+            "revenue",
+        )
+    )
+
+    eps_history = (
+        get_metric_history(
+            security_id,
+            "diluted_eps",
+        )
     )
 
     gross_profit_history = (
@@ -649,16 +821,25 @@ def build_ticker_events(ticker):
     )
 
     saved = 0
-    skipped = 0
+
+    comparative_skipped = 0
+    timing_skipped = 0
+    price_skipped = 0
 
     for revenue in revenue_history:
+        if not is_current_reporting_event(
+            revenue
+        ):
+            comparative_skipped += 1
+            continue
+
         entry_date = get_entry_date(
             ticker,
             revenue,
         )
 
         if entry_date is None:
-            skipped += 1
+            timing_skipped += 1
             continue
 
         stock_result = (
@@ -679,8 +860,16 @@ def build_ticker_events(ticker):
             stock_result is None
             or benchmark_result is None
         ):
-            skipped += 1
+            price_skipped += 1
             continue
+
+        market_context = (
+            calculate_market_context(
+                ticker,
+                entry_date,
+                benchmark=BENCHMARK,
+            )
+        )
 
         eps = get_period_record(
             eps_history,
@@ -711,7 +900,9 @@ def build_ticker_events(ticker):
             get_margin_change(
                 gross_profit_history,
                 revenue_history,
-                revenue["period_end"],
+                revenue[
+                    "period_end"
+                ],
             )
         )
 
@@ -719,7 +910,9 @@ def build_ticker_events(ticker):
             get_margin_change(
                 operating_income_history,
                 revenue_history,
-                revenue["period_end"],
+                revenue[
+                    "period_end"
+                ],
             )
         )
 
@@ -764,6 +957,9 @@ def build_ticker_events(ticker):
             operating_margin_change=
                 operating_margin_change,
 
+            market_context=
+                market_context,
+
             horizon_results=
                 horizon_results,
         )
@@ -771,9 +967,20 @@ def build_ticker_events(ticker):
         saved += 1
 
     return {
-        "ticker": ticker,
-        "saved": saved,
-        "skipped": skipped,
+        "ticker":
+            ticker,
+
+        "saved":
+            saved,
+
+        "comparative_skipped":
+            comparative_skipped,
+
+        "timing_skipped":
+            timing_skipped,
+
+        "price_skipped":
+            price_skipped,
     }
 
 
@@ -788,7 +995,9 @@ def main():
         "BACKTEST BUILD"
     )
 
-    print("=" * 70)
+    print("=" * 84)
+
+    clear_backtest_events()
 
     for ticker in tickers:
         print()
@@ -797,8 +1006,10 @@ def main():
         )
 
         try:
-            result = build_ticker_events(
-                ticker
+            result = (
+                build_ticker_events(
+                    ticker
+                )
             )
 
         except Exception as error:
@@ -807,9 +1018,20 @@ def main():
             )
 
             result = {
-                "ticker": ticker,
-                "saved": 0,
-                "skipped": 0,
+                "ticker":
+                    ticker,
+
+                "saved":
+                    0,
+
+                "comparative_skipped":
+                    0,
+
+                "timing_skipped":
+                    0,
+
+                "price_skipped":
+                    0,
             }
 
         results.append(
@@ -817,17 +1039,33 @@ def main():
         )
 
         print(
-            f"Saved: "
-            f"{result['saved']}"
+            "Saved:",
+            result["saved"],
         )
 
         print(
-            f"Skipped: "
-            f"{result['skipped']}"
+            "Comparative skipped:",
+            result[
+                "comparative_skipped"
+            ],
+        )
+
+        print(
+            "Timing skipped:",
+            result[
+                "timing_skipped"
+            ],
+        )
+
+        print(
+            "Price skipped:",
+            result[
+                "price_skipped"
+            ],
         )
 
     print()
-    print("=" * 70)
+    print("=" * 84)
 
     print(
         "BACKTEST BUILD SUMMARY"
@@ -837,36 +1075,63 @@ def main():
 
     print(
         f"{'Ticker':<10}"
-        f"{'Saved':>10}"
-        f"{'Skipped':>12}"
+        f"{'Saved':>9}"
+        f"{'Compare':>11}"
+        f"{'Timing':>11}"
+        f"{'Price':>11}"
     )
 
-    print("-" * 32)
+    print("-" * 52)
 
-    total_saved = 0
-    total_skipped = 0
+    totals = {
+        "saved": 0,
+        "comparative_skipped": 0,
+        "timing_skipped": 0,
+        "price_skipped": 0,
+    }
 
     for result in results:
         print(
             f"{result['ticker']:<10}"
-            f"{result['saved']:>10}"
-            f"{result['skipped']:>12}"
+
+            f"{result['saved']:>9}"
+
+            f"{result[
+                'comparative_skipped'
+            ]:>11}"
+
+            f"{result[
+                'timing_skipped'
+            ]:>11}"
+
+            f"{result[
+                'price_skipped'
+            ]:>11}"
         )
 
-        total_saved += (
-            result["saved"]
-        )
+        for field in totals:
+            totals[field] += (
+                result[field]
+            )
 
-        total_skipped += (
-            result["skipped"]
-        )
-
-    print("-" * 32)
+    print("-" * 52)
 
     print(
         f"{'TOTAL':<10}"
-        f"{total_saved:>10}"
-        f"{total_skipped:>12}"
+
+        f"{totals['saved']:>9}"
+
+        f"{totals[
+            'comparative_skipped'
+        ]:>11}"
+
+        f"{totals[
+            'timing_skipped'
+        ]:>11}"
+
+        f"{totals[
+            'price_skipped'
+        ]:>11}"
     )
 
 
