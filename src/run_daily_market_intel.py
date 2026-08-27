@@ -1,6 +1,11 @@
 import subprocess
 import sys
 
+from src.daily_logger import (
+    start_daily_log,
+    stop_daily_log,
+)
+
 from src.import_universe_prices import (
     import_universe_prices,
 )
@@ -103,7 +108,7 @@ def run_paper_system():
     run_paper_trading()
 
 
-def main():
+def run_daily_update():
     print()
     print("#" * 100)
     print("MARKET INTEL DAILY UPDATE")
@@ -114,13 +119,9 @@ def main():
     )
 
     refresh_financials()
-
     refresh_filings()
-
     refresh_prices()
-
     rebuild_events()
-
     run_paper_system()
 
     print()
@@ -129,6 +130,37 @@ def main():
         "MARKET INTEL DAILY UPDATE COMPLETE"
     )
     print("#" * 100)
+
+
+def main():
+    log = start_daily_log()
+
+    try:
+        print(
+            f"Log file: {log['path']}"
+        )
+
+        run_daily_update()
+
+    except Exception:
+        print()
+        print("#" * 100)
+        print(
+            "MARKET INTEL DAILY UPDATE FAILED"
+        )
+        print("#" * 100)
+
+        raise
+
+    finally:
+        log_path = log["path"]
+
+        stop_daily_log(log)
+
+        print()
+        print(
+            f"Full log saved to: {log_path}"
+        )
 
 
 if __name__ == "__main__":
