@@ -1,3 +1,6 @@
+from src.recommendation_engine import (
+    get_recommendation,
+)
 from src.sector_confidence import (
     build_sector_confidence_map,
 )
@@ -66,6 +69,17 @@ def add_scores(
             )
         )
 
+        sector_confidence = (
+            confidence["label"]
+        )
+
+        recommendation = (
+            get_recommendation(
+                score_result["score"],
+                sector_confidence,
+            )
+        )
+
         results.append(
             {
                 "row": row,
@@ -86,8 +100,21 @@ def add_scores(
                     ],
 
                 "sector_confidence":
-                    confidence[
+                    sector_confidence,
+
+                "recommendation":
+                    recommendation[
                         "label"
+                    ],
+
+                "priority":
+                    recommendation[
+                        "priority"
+                    ],
+
+                "recommendation_reason":
+                    recommendation[
+                        "reason"
                     ],
             }
         )
@@ -101,7 +128,7 @@ def print_results(results):
         "LATEST FINANCIAL SIGNAL REPORT"
     )
 
-    print("=" * 150)
+    print("=" * 190)
 
     print(
         f"{'Ticker':<8}"
@@ -110,12 +137,14 @@ def print_results(results):
         f"{'Score':>8}"
         f"{'Class':>12}"
         f"{'Sector Conf':>16}"
+        f"{'Priority':>10}"
+        f"  {'Recommendation':<32}"
         f"{'Rev Growth':>14}"
         f"{'Rev Accel':>14}"
         f"{'EPS Growth':>14}"
     )
 
-    print("-" * 150)
+    print("-" * 190)
 
     for item in results:
         row = item["row"]
@@ -127,10 +156,63 @@ def print_results(results):
             f"{item['score']:>8}"
             f"{item['classification']:>12}"
             f"{item['sector_confidence']:>16}"
+            f"{item['priority']:>10}"
+            f"  {item['recommendation']:<32}"
             f"{format_percent(row.get('revenue_yoy')):>14}"
             f"{format_percent(row.get('revenue_acceleration')):>14}"
             f"{format_percent(row.get('eps_yoy')):>14}"
         )
+
+
+def print_priority_summary(results):
+    print()
+    print(
+        "RECOMMENDATION SUMMARY"
+    )
+
+    print("=" * 100)
+
+    ordered = sorted(
+        results,
+        key=lambda item: (
+            item["priority"],
+            item["score"],
+            item["row"]["entry_date"],
+        ),
+        reverse=True,
+    )
+
+    for priority in range(
+        5,
+        -1,
+        -1,
+    ):
+        matching = [
+            item
+            for item in ordered
+            if item["priority"] == priority
+        ]
+
+        if not matching:
+            continue
+
+        print()
+        print(
+            f"Priority {priority}: "
+            f"{len(matching)} companies"
+        )
+
+        print("-" * 100)
+
+        for item in matching:
+            row = item["row"]
+
+            print(
+                f"{row['ticker']:<8}"
+                f"{item['score']}/6  "
+                f"{item['sector_confidence']:<16}"
+                f"{item['recommendation']}"
+            )
 
 
 def print_strong_details(results):
@@ -140,12 +222,21 @@ def print_strong_details(results):
         if item["score"] >= 4
     ]
 
+    strong.sort(
+        key=lambda item: (
+            item["priority"],
+            item["score"],
+            item["row"]["entry_date"],
+        ),
+        reverse=True,
+    )
+
     print()
     print(
         "STRONG SIGNAL DETAILS"
     )
 
-    print("=" * 100)
+    print("=" * 110)
 
     print(
         "Companies with score 4 or higher:",
@@ -160,8 +251,21 @@ def print_strong_details(results):
             f"{row['ticker']} "
             f"| Score "
             f"{item['score']} / 6 "
-            f"| {item['classification']} "
-            f"| Sector confidence: "
+            f"| {item['classification']}"
+        )
+
+        print(
+            f"Recommendation: "
+            f"{item['recommendation']}"
+        )
+
+        print(
+            f"Priority: "
+            f"{item['priority']}"
+        )
+
+        print(
+            f"Sector confidence: "
             f"{item['sector_confidence']}"
         )
 
@@ -173,6 +277,15 @@ def print_strong_details(results):
         print(
             f"Sector: "
             f"{row.get('sector') or 'UNKNOWN'}"
+        )
+
+        print(
+            f"Reason: "
+            f"{item['recommendation_reason']}"
+        )
+
+        print(
+            "Financial signal:"
         )
 
         for component in item[
@@ -209,6 +322,7 @@ def main():
 
     scored.sort(
         key=lambda item: (
+            item["priority"],
             item["score"],
             item["row"]["entry_date"],
         ),
@@ -216,6 +330,10 @@ def main():
     )
 
     print_results(
+        scored
+    )
+
+    print_priority_summary(
         scored
     )
 
