@@ -32593,5 +32593,35 @@
     "adjVolume": 18014884,
     "divCash": 0.0,
     "splitFactor": 1.0
+  },
+  {
+    "date": "2026-08-26T00:00:00.000Z",
+    "close": 355.59,
+    "high": 359.4699,
+    "low": 350.06,
+    "open": 357.12,
+    "volume": 19196259,
+    "adjClose": 355.59,
+    "adjHigh": 359.4699,
+    "adjLow": 350.06,
+    "adjOpen": 357.12,
+    "adjVolume": 19196259,
+    "divCash": 0.0,
+    "splitFactor": 1.0
+  },
+  {
+    "date": "2026-08-27T00:00:00.000Z",
+    "close": 371.54,
+    "high": 371.72,
+    "low": 360.61,
+    "open": 361.79,
+    "volume": 20396447,
+    "adjClose": 371.54,
+    "adjHigh": 371.72,
+    "adjLow": 360.61,
+    "adjOpen": 361.79,
+    "adjVolume": 20396447,
+    "divCash": 0.0,
+    "splitFactor": 1.0
   }
 ]

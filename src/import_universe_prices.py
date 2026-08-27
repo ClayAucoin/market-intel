@@ -50,10 +50,6 @@ def get_symbols(
 def get_provider_symbol(
     symbol,
 ):
-    #
-    # The benchmark is not necessarily
-    # represented in the securities table.
-    #
     if symbol == BENCHMARK:
         return symbol
 
@@ -63,7 +59,10 @@ def get_provider_symbol(
     )
 
 
-def import_symbol(symbol):
+def import_symbol(
+    symbol,
+    refresh=False,
+):
     provider_symbol = (
         get_provider_symbol(
             symbol
@@ -87,7 +86,7 @@ def import_symbol(symbol):
     prices = get_historical_prices(
         provider_symbol,
         start_date=START_DATE,
-        refresh=False,
+        refresh=refresh,
     )
 
     count = len(prices)
@@ -106,10 +105,6 @@ def import_symbol(symbol):
             "status": "EMPTY",
         }
 
-    #
-    # Save under our canonical internal
-    # ticker, not the provider alias.
-    #
     save_daily_prices(
         symbol,
         prices,
@@ -126,6 +121,7 @@ def import_symbol(symbol):
 
 def import_universe_prices(
     universe_name=None,
+    refresh=False,
 ):
     if universe_name is None:
         universe_name = (
@@ -149,12 +145,18 @@ def import_universe_prices(
         universe_name,
     )
 
+    print(
+        "Refresh:",
+        refresh,
+    )
+
     print("=" * 72)
 
     for symbol in symbols:
         try:
             result = import_symbol(
-                symbol
+                symbol,
+                refresh=refresh,
             )
 
         except Exception as error:
@@ -237,6 +239,8 @@ def import_universe_prices(
         "Errors:",
         errors,
     )
+
+    return results
 
 
 if __name__ == "__main__":
