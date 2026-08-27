@@ -1,3 +1,5 @@
+import sys
+
 from decimal import Decimal
 
 from src.backtester import (
@@ -5,6 +7,7 @@ from src.backtester import (
 )
 
 from src.company_universe import (
+    DEFAULT_UNIVERSE,
     get_tickers,
 )
 
@@ -32,20 +35,48 @@ HORIZONS = [
 ]
 
 
-def clear_backtest_events():
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
+
+
+def clear_backtest_events(
+    universe_name,
+):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
                 """
-                TRUNCATE TABLE
-                    backtest_events
-                RESTART IDENTITY;
-                """
+                DELETE FROM backtest_events be
+
+                USING
+                    analysis_universe_members aum,
+                    analysis_universes au
+
+                WHERE
+                    be.security_id =
+                        aum.security_id
+
+                    AND aum.universe_id =
+                        au.id
+
+                    AND au.name = %s;
+                """,
+                (
+                    universe_name,
+                ),
+            )
+
+            deleted = (
+                cursor.rowcount
             )
 
     print(
-        "Cleared existing "
-        "backtest_events."
+        f"Cleared {deleted} existing "
+        f"backtest events for "
+        f"{universe_name}."
     )
 
 
@@ -985,7 +1016,19 @@ def build_ticker_events(ticker):
 
 
 def main():
-    tickers = get_tickers()
+    universe_name = (
+        get_universe_name()
+    )
+
+    tickers = get_tickers(
+        universe_name
+    )
+
+    if not tickers:
+        raise ValueError(
+            f"Universe not found or empty: "
+            f"{universe_name}"
+        )
 
     results = []
 
@@ -995,9 +1038,16 @@ def main():
         "BACKTEST BUILD"
     )
 
+    print(
+        "Universe:",
+        universe_name,
+    )
+
     print("=" * 84)
 
-    clear_backtest_events()
+    clear_backtest_events(
+        universe_name
+    )
 
     for ticker in tickers:
         print()
@@ -1069,6 +1119,11 @@ def main():
 
     print(
         "BACKTEST BUILD SUMMARY"
+    )
+
+    print(
+        "Universe:",
+        universe_name,
     )
 
     print()

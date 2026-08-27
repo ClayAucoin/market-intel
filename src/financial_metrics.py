@@ -25,10 +25,12 @@ FINANCIAL_METRICS = {
     "revenue": {
         "concepts": [
             "RevenueFromContractWithCustomerExcludingAssessedTax",
+            "RevenueFromContractWithCustomerIncludingAssessedTax",
+            "RegulatedAndUnregulatedOperatingRevenue",
             "Revenues",
             "SalesRevenueNet",
         ],
-        "unit": "USD",
+    "unit": "USD",
         "availability": "core",
 
         "sector_concepts": {
@@ -95,6 +97,10 @@ def get_metric_concepts(
             f"Unknown metric: {metric_name}"
         )
 
+    concepts = list(
+        metric["concepts"]
+    )
+
     company_config = get_company(
         ticker
     )
@@ -111,14 +117,21 @@ def get_metric_concepts(
                 {}
             )
             .get(
-                sector
+                sector,
+                []
             )
         )
 
-        if sector_concepts:
-            return sector_concepts
+        concepts = (
+            sector_concepts
+            + [
+                concept
+                for concept in concepts
+                if concept not in sector_concepts
+            ]
+        )
 
-    return metric["concepts"]
+    return concepts
 
 
 def resolve_concepts(

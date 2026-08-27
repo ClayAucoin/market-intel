@@ -551,6 +551,127 @@ def print_signal_detail(rows):
             print()
 
 
+def get_bucket(
+    value,
+):
+    if value is None:
+        return None
+
+    if value < Decimal("-10"):
+        return "< -10%"
+
+    if value < Decimal("0"):
+        return "-10% to 0%"
+
+    if value < Decimal("5"):
+        return "0% to 5%"
+
+    if value < Decimal("10"):
+        return "5% to 10%"
+
+    if value < Decimal("20"):
+        return "10% to 20%"
+
+    return ">= 20%"
+
+
+def print_signal_buckets(
+    rows,
+):
+    bucket_signals = {
+        "Revenue Growth":
+            "revenue_yoy",
+
+        "Revenue Acceleration":
+            "revenue_acceleration",
+    }
+
+    bucket_order = [
+        "< -10%",
+        "-10% to 0%",
+        "0% to 5%",
+        "5% to 10%",
+        "10% to 20%",
+        ">= 20%",
+    ]
+
+    print()
+    print(
+        "SIGNAL BUCKET PERFORMANCE"
+    )
+
+    print("=" * 100)
+
+    for signal_name, field in (
+        bucket_signals.items()
+    ):
+        print()
+        print(signal_name.upper())
+
+        print("-" * 100)
+
+        print(
+            f"{'Bucket':<18}"
+            f"{'Horizon':>10}"
+            f"{'N':>8}"
+            f"{'Average':>14}"
+            f"{'Median':>14}"
+            f"{'Win Rate':>14}"
+        )
+
+        print("-" * 100)
+
+        buckets = {
+            bucket: []
+            for bucket in bucket_order
+        }
+
+        for row in rows:
+            bucket = get_bucket(
+                row.get(field)
+            )
+
+            if bucket is None:
+                continue
+
+            buckets[bucket].append(
+                row
+            )
+
+        for bucket in bucket_order:
+            bucket_rows = buckets[
+                bucket
+            ]
+
+            for horizon in HORIZONS:
+                stats = (
+                    calculate_statistics(
+                        bucket_rows,
+                        horizon,
+                    )
+                )
+
+                print(
+                    f"{bucket:<18}"
+                    f"{horizon:>10}"
+                    f"{stats['n']:>8}"
+
+                    f"{format_percent(
+                        stats['average']
+                    ):>14}"
+
+                    f"{format_percent(
+                        stats['median']
+                    ):>14}"
+
+                    f"{format_percent(
+                        stats['win_rate']
+                    ):>14}"
+                )
+
+            print()
+            
+            
 def main():
     rows = get_events()
 
@@ -573,6 +694,10 @@ def main():
     )
 
     print_signal_detail(
+        rows
+    )
+    
+    print_signal_buckets(
         rows
     )
 
