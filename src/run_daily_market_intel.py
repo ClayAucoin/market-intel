@@ -10,6 +10,10 @@ from src.import_universe_prices import (
     import_universe_prices,
 )
 
+from src.notifier import (
+    send_notification,
+)
+
 from src.run_paper_trading import (
     main as run_paper_trading,
 )
@@ -108,6 +112,53 @@ def run_paper_system():
     run_paper_trading()
 
 
+def send_success_notification(
+    log_path,
+):
+    subject = (
+        "Market Intel Daily Update Complete"
+    )
+
+    message = (
+        "The Market Intel daily update "
+        "completed successfully.\n\n"
+        f"Universe: {UNIVERSE}\n"
+        f"Log file: {log_path}\n\n"
+        "Any new qualifying paper BUY or "
+        "position-close events are sent "
+        "as separate alerts."
+    )
+
+    send_notification(
+        subject=subject,
+        message=message,
+    )
+
+
+def send_failure_notification(
+    error,
+    log_path,
+):
+    subject = (
+        "MARKET INTEL DAILY UPDATE FAILED"
+    )
+
+    message = (
+        "The Market Intel daily update "
+        "did not complete successfully.\n\n"
+        f"Universe: {UNIVERSE}\n"
+        f"Error: {error}\n"
+        f"Log file: {log_path}\n\n"
+        "Check the server log for the "
+        "full error details."
+    )
+
+    send_notification(
+        subject=subject,
+        message=message,
+    )
+
+
 def run_daily_update():
     print()
     print("#" * 100)
@@ -135,25 +186,14 @@ def run_daily_update():
 def main():
     log = start_daily_log()
 
+    log_path = log["path"]
+
     try:
         print(
-            f"Log file: {log['path']}"
+            f"Log file: {log_path}"
         )
 
         run_daily_update()
-
-    except Exception:
-        print()
-        print("#" * 100)
-        print(
-            "MARKET INTEL DAILY UPDATE FAILED"
-        )
-        print("#" * 100)
-
-        raise
-
-    finally:
-        log_path = log["path"]
 
         stop_daily_log(log)
 
@@ -161,6 +201,40 @@ def main():
         print(
             f"Full log saved to: {log_path}"
         )
+
+        send_success_notification(
+            log_path
+        )
+
+    except Exception as error:
+        print()
+        print("#" * 100)
+        print(
+            "MARKET INTEL DAILY UPDATE FAILED"
+        )
+        print("#" * 100)
+
+        try:
+            stop_daily_log(log)
+        except Exception:
+            pass
+
+        try:
+            send_failure_notification(
+                error,
+                log_path,
+            )
+        except Exception as notification_error:
+            print()
+            print(
+                "Could not send failure "
+                "notification:"
+            )
+            print(
+                notification_error
+            )
+
+        raise
 
 
 if __name__ == "__main__":

@@ -2,6 +2,8 @@ from decimal import Decimal
 
 from src.database import get_connection
 
+from src.notifier import send_notification
+
 
 ACCOUNT_NAME = "Primary Paper Account"
 
@@ -236,6 +238,42 @@ def close_position(
     }
 
 
+def send_close_notification(
+    result,
+):
+    subject = (
+        f"PAPER POSITION CLOSED: "
+        f"{result['ticker']}"
+    )
+
+    message = (
+        f"Ticker: {result['ticker']}\n"
+        f"Entry date: "
+        f"{result['entry_date']}\n"
+        f"Exit date: "
+        f"{result['exit_date']}\n"
+        f"Entry price: "
+        f"{format_money(result['entry_price'])}\n"
+        f"Exit price: "
+        f"{format_money(result['exit_price'])}\n"
+        f"Invested amount: "
+        f"{format_money(result['invested_amount'])}\n"
+        f"Exit value: "
+        f"{format_money(result['exit_value'])}\n"
+        f"Profit/Loss: "
+        f"{format_money(result['profit'])}\n"
+        f"Return: "
+        f"{format_percent(result['return_percent'])}\n\n"
+        f"This is a paper-trading result, "
+        f"not a live trade."
+    )
+
+    send_notification(
+        subject=subject,
+        message=message,
+    )
+    
+    
 def main():
     account = get_account()
 
@@ -289,6 +327,10 @@ def main():
         )
 
         closed.append(
+            result
+        )
+
+        send_close_notification(
             result
         )
 

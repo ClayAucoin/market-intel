@@ -628,6 +628,46 @@ def process_recommendation(
     }
 
 
+def send_buy_notification(
+    result,
+):
+    entry_price = result["entry_price"]
+
+    if entry_price is None:
+        price_text = "Not available"
+    else:
+        price_text = format_money(
+            entry_price
+        )
+
+    subject = (
+        f"PAPER BUY SIGNAL: "
+        f"{result['ticker']}"
+    )
+
+    message = (
+        f"Ticker: {result['ticker']}\n"
+        f"Action: BUY\n"
+        f"Signal date: "
+        f"{result['signal_date']}\n"
+        f"Entry price: {price_text}\n"
+        f"Priority: "
+        f"{result['priority']}\n"
+        f"Score: {result['score']}\n"
+        f"Recommendation: "
+        f"{result['recommendation']}\n\n"
+        f"Reason:\n"
+        f"{result['reason']}\n\n"
+        f"This is a paper-trading signal, "
+        f"not a live trade recommendation."
+    )
+
+    send_notification(
+        subject=subject,
+        message=message,
+    )
+    
+    
 def print_account(account):
     positions = get_open_positions(
         account["id"]
@@ -726,6 +766,11 @@ def main():
             result
         )
 
+        if result["status"] == "BUY":
+            send_buy_notification(
+                result
+            )
+
     actionable = [
         result
         for result in results
@@ -786,6 +831,7 @@ def main():
             )
 
     account = get_account()
+
 
     print_account(
         account
