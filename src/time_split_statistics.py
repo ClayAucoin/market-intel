@@ -1,3 +1,5 @@
+import sys
+
 from datetime import date
 from decimal import Decimal
 from statistics import median
@@ -7,6 +9,15 @@ from src.database import get_connection
 
 TRAIN_END = date(2023, 12, 31)
 TEST_START = date(2024, 1, 1)
+
+DEFAULT_UNIVERSE = "expanded_50"
+
+
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
 
 
 HORIZONS = [
@@ -25,7 +36,7 @@ SIGNALS = {
 }
 
 
-def get_events():
+def get_events(universe_name):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -57,12 +68,15 @@ def get_events():
 
                 JOIN analysis_universes au
                     ON au.id = aum.universe_id
-                   AND au.name = 'expanded_50'
+                   AND au.name = %s
 
                 ORDER BY
                     be.entry_date,
                     s.ticker;
-                """
+                """,
+                (
+                    universe_name,
+                ),
             )
 
             rows = cursor.fetchall()
@@ -1338,8 +1352,239 @@ def print_yearly_signal_stability(
         )
         
         
+
+def get_positive_signal_rows(rows, field):
+    return [
+        row
+        for row in rows
+        if (
+            row.get(field) is not None
+            and row[field] > 0
+        )
+    ]
+
+
+def get_robustness_candidates(rows):
+    return [
+        (
+            "Revenue Growth > 0",
+            get_positive_signal_rows(
+                rows,
+                "revenue_yoy",
+            ),
+        ),
+        (
+            "Revenue Acceleration > 0",
+            get_positive_signal_rows(
+                rows,
+                "revenue_acceleration",
+            ),
+        ),
+        (
+            "Revenue Acceleration >= 20%",
+            get_high_acceleration_events(
+                rows
+            ),
+        ),
+        (
+            "EPS Growth > 0",
+            get_positive_signal_rows(
+                rows,
+                "eps_yoy",
+            ),
+        ),
+        (
+            "Gross Margin Improving",
+            get_positive_signal_rows(
+                rows,
+                "gross_margin_change",
+            ),
+        ),
+        (
+            "Operating Margin Improving",
+            get_positive_signal_rows(
+                rows,
+                "operating_margin_change",
+            ),
+        ),
+        (
+            "Accel >=20% + Revenue >=10%",
+            [
+                row
+                for row in rows
+                if (
+                    row.get("revenue_acceleration") is not None
+                    and row["revenue_acceleration"] >= Decimal("20")
+                    and row.get("revenue_yoy") is not None
+                    and row["revenue_yoy"] >= Decimal("10")
+                )
+            ],
+        ),
+        (
+            "Accel >=20% + EPS > 0",
+            [
+                row
+                for row in rows
+                if (
+                    row.get("revenue_acceleration") is not None
+                    and row["revenue_acceleration"] >= Decimal("20")
+                    and row.get("eps_yoy") is not None
+                    and row["eps_yoy"] > 0
+                )
+            ],
+        ),
+        (
+            "Accel >=20% + Op Margin Improving",
+            [
+                row
+                for row in rows
+                if (
+                    row.get("revenue_acceleration") is not None
+                    and row["revenue_acceleration"] >= Decimal("20")
+                    and row.get("operating_margin_change") is not None
+                    and row["operating_margin_change"] > 0
+                )
+            ],
+        ),
+        (
+            "Strong Combination",
+            get_strong_combination_events(
+                rows
+            ),
+        ),
+    ]
+
+
+def get_candidate_year_stats(rows, horizon):
+    years = group_events_by_year(rows)
+
+    positive_years = 0
+    negative_years = 0
+    usable_years = 0
+
+    for year_rows in years.values():
+        stats = get_stats(
+            year_rows,
+            horizon,
+        )
+
+        if stats["n"] == 0:
+            continue
+
+        usable_years += 1
+
+        if (
+            stats["median"] is not None
+            and stats["median"] > 0
+        ):
+            positive_years += 1
+        else:
+            negative_years += 1
+
+    return {
+        "usable_years": usable_years,
+        "positive_years": positive_years,
+        "negative_years": negative_years,
+    }
+
+
+def print_robustness_period(
+    name,
+    rows,
+):
+    print()
+    print(name)
+    print("#" * 170)
+
+    print(
+        f"{'Candidate':<38}"
+        f"{'Horizon':>9}"
+        f"{'N':>7}"
+        f"{'Average':>12}"
+        f"{'Median':>12}"
+        f"{'Win':>10}"
+        f"{'Trim Avg':>12}"
+        f"{'+Med Yrs':>11}"
+        f"{'Years':>8}"
+    )
+
+    print("-" * 170)
+
+    for candidate_name, candidate_rows in (
+        get_robustness_candidates(rows)
+    ):
+        first = True
+
+        for horizon in HORIZONS:
+            stats = get_stats(
+                candidate_rows,
+                horizon,
+            )
+
+            distribution = get_distribution_stats(
+                candidate_rows,
+                horizon,
+            )
+
+            year_stats = get_candidate_year_stats(
+                candidate_rows,
+                horizon,
+            )
+
+            display_name = (
+                candidate_name
+                if first
+                else ""
+            )
+
+            print(
+                f"{display_name:<38}"
+                f"{horizon:>9}"
+                f"{stats['n']:>7}"
+                f"{format_percent(stats['average']):>12}"
+                f"{format_percent(stats['median']):>12}"
+                f"{format_percent(stats['win_rate']):>10}"
+                f"{format_percent(distribution['trimmed_average']):>12}"
+                f"{year_stats['positive_years']:>11}"
+                f"{year_stats['usable_years']:>8}"
+            )
+
+            first = False
+
+        print()
+
+
+def print_signal_robustness_comparison(
+    training,
+    testing,
+):
+    print()
+    print(
+        "SIGNAL ROBUSTNESS COMPARISON"
+    )
+
+    print(
+        "Compares raw average, median, win rate, "
+        "10% trimmed average, and year-by-year "
+        "median consistency."
+    )
+
+    print_robustness_period(
+        "TRAINING PERIOD",
+        training,
+    )
+
+    print_robustness_period(
+        "OUT-OF-SAMPLE TEST PERIOD",
+        testing,
+    )
+
 def main():
-    rows = get_events()
+    universe_name = get_universe_name()
+
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = split_by_time(
         rows
@@ -1348,6 +1593,11 @@ def main():
     print()
     print(
         "TIME-SPLIT SIGNAL TEST"
+    )
+
+    print(
+        "Universe:",
+        universe_name,
     )
 
     print(
@@ -1479,6 +1729,11 @@ def main():
 
     print_yearly_signal_stability(
         "OUT-OF-SAMPLE TEST PERIOD",
+        testing,
+    )
+
+    print_signal_robustness_comparison(
+        training,
         testing,
     )
         

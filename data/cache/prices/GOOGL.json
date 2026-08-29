@@ -32623,5 +32623,20 @@
     "adjVolume": 23391389,
     "divCash": 0.0,
     "splitFactor": 1.0
+  },
+  {
+    "date": "2026-08-28T00:00:00.000Z",
+    "close": 346.59,
+    "high": 349.14,
+    "low": 340.27,
+    "open": 340.705,
+    "volume": 24688908,
+    "adjClose": 346.59,
+    "adjHigh": 349.14,
+    "adjLow": 340.27,
+    "adjOpen": 340.705,
+    "adjVolume": 24688908,
+    "divCash": 0.0,
+    "splitFactor": 1.0
   }
 ]
