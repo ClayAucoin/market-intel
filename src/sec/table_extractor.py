@@ -1,6 +1,6 @@
 import pandas as pd
 
-from src.document_service import get_exhibit_by_id
+from src.ai.document_service import get_exhibit_by_id
 from src.sec.sec_client import SEC_HEADERS
 
 import requests

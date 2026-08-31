@@ -2,8 +2,8 @@ import json
 
 from pydantic import BaseModel
 
-from src.ai_client import analyze_text
-from src.document_service import download_exhibit_text
+from src.ai.ai_client import analyze_text
+from src.ai.document_service import download_exhibit_text
 
 
 class FinancialFact(BaseModel):
