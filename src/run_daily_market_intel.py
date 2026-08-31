@@ -10,7 +10,7 @@ from src.prices.import_universe_prices import (
     import_universe_prices,
 )
 
-from src.notifier import (
+from src.notifications.notifier import (
     send_notification,
 )
 

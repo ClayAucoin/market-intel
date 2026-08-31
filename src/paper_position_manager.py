@@ -2,7 +2,7 @@ from decimal import Decimal
 
 from src.database import get_connection
 
-from src.notifier import send_notification
+from src.notifications.notifier import send_notification
 
 
 ACCOUNT_NAME = "Primary Paper Account"

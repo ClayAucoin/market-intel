@@ -1,5 +1,5 @@
-from src.gmail_notifier import send_email
-from src.slack_notifier import send_slack_message
+from src.notifications.gmail_notifier import send_email
+from src.notifications.slack_notifier import send_slack_message
 
 
 DEFAULT_EMAIL = "clay.marketintel@gmail.com"
