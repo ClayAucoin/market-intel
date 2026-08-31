@@ -1,10 +1,14 @@
 import sys
 
+from src.analysis.experimental_signal import (
+    HORIZON,
+    SIGNAL_DESCRIPTION,
+    get_experimental_signal_events,
+)
 from src.backtesting.time_split_statistics import (
     DEFAULT_UNIVERSE,
     get_events,
     get_stats,
-    get_strong_combination_events,
     split_by_time,
 )
 
@@ -13,19 +17,17 @@ MIN_TRAINING_EVENTS = 3
 MIN_TEST_EVENTS = 3
 
 
-def get_strong_sector_stats(
+def get_sector_stats(
     rows,
     sector,
 ):
-    strong_rows = (
-        get_strong_combination_events(
-            rows
-        )
+    signal_rows = get_experimental_signal_events(
+        rows
     )
 
     matching_rows = [
         row
-        for row in strong_rows
+        for row in signal_rows
         if (
             row.get("sector")
             or "UNKNOWN"
@@ -34,7 +36,7 @@ def get_strong_sector_stats(
 
     return get_stats(
         matching_rows,
-        "180d",
+        HORIZON,
     )
 
 
@@ -63,33 +65,23 @@ def classify_sector(
     training_n = training_stats["n"]
     testing_n = testing_stats["n"]
 
-    training_positive = (
-        stats_are_positive(
-            training_stats
-        )
+    training_positive = stats_are_positive(
+        training_stats
     )
 
-    training_negative = (
-        stats_are_negative(
-            training_stats
-        )
+    training_negative = stats_are_negative(
+        training_stats
     )
 
-    testing_positive = (
-        stats_are_positive(
-            testing_stats
-        )
+    testing_positive = stats_are_positive(
+        testing_stats
     )
 
-    testing_negative = (
-        stats_are_negative(
-            testing_stats
-        )
+    testing_negative = stats_are_negative(
+        testing_stats
     )
 
-    if (
-        training_n < MIN_TRAINING_EVENTS
-    ):
+    if training_n < MIN_TRAINING_EVENTS:
         return "No Evidence"
 
     if training_positive:
@@ -124,18 +116,14 @@ def get_sector_confidence(
     testing,
     sector,
 ):
-    training_stats = (
-        get_strong_sector_stats(
-            training,
-            sector,
-        )
+    training_stats = get_sector_stats(
+        training,
+        sector,
     )
 
-    testing_stats = (
-        get_strong_sector_stats(
-            testing,
-            sector,
-        )
+    testing_stats = get_sector_stats(
+        testing,
+        sector,
     )
 
     label = classify_sector(
@@ -185,13 +173,9 @@ def get_all_sectors(
             or "UNKNOWN"
         )
 
-        sectors.add(
-            sector
-        )
+        sectors.add(sector)
 
-    return sorted(
-        sectors
-    )
+    return sorted(sectors)
 
 
 def get_all_sector_confidence(
@@ -219,11 +203,9 @@ def build_sector_confidence_map(
     training,
     testing,
 ):
-    results = (
-        get_all_sector_confidence(
-            training,
-            testing,
-        )
+    results = get_all_sector_confidence(
+        training,
+        testing,
     )
 
     return {
@@ -254,22 +236,22 @@ def main():
         rows
     )
 
-    results = (
-        get_all_sector_confidence(
-            training,
-            testing,
-        )
+    results = get_all_sector_confidence(
+        training,
+        testing,
     )
 
     print()
     print(
-        "STRONG SIGNAL SECTOR CONFIDENCE"
+        "EXPERIMENTAL SIGNAL SECTOR CONFIDENCE"
     )
 
     print(
-        "Signal: Revenue acceleration >= 20% "
-        "+ revenue growth >= 10% "
-        "+ EPS growth > 0"
+        f"Signal: {SIGNAL_DESCRIPTION}"
+    )
+
+    print(
+        f"Horizon: {HORIZON}"
     )
 
     print()
@@ -277,13 +259,13 @@ def main():
     print(
         "Training minimum:",
         MIN_TRAINING_EVENTS,
-        "completed 180d events",
+        "completed 30d events",
     )
 
     print(
         "Test minimum:",
         MIN_TEST_EVENTS,
-        "completed 180d events",
+        "completed 30d events",
     )
 
     print("=" * 150)

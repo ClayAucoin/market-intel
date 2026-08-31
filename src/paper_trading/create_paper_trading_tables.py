@@ -51,6 +51,8 @@ CREATE TABLE IF NOT EXISTS paper_signals (
     revenue_yoy NUMERIC,
     revenue_acceleration NUMERIC,
     eps_yoy NUMERIC,
+    operating_margin_change NUMERIC,
+    pre_excess_20d NUMERIC,
 
     action TEXT NOT NULL,
 
@@ -64,6 +66,17 @@ CREATE TABLE IF NOT EXISTS paper_signals (
         signal_date
     )
 );
+"""
+
+
+MIGRATE_SIGNALS_TABLE = """
+ALTER TABLE paper_signals
+ADD COLUMN IF NOT EXISTS
+    operating_margin_change NUMERIC;
+
+ALTER TABLE paper_signals
+ADD COLUMN IF NOT EXISTS
+    pre_excess_20d NUMERIC;
 """
 
 
@@ -149,7 +162,7 @@ VALUES (
     1000,
     20,
     3,
-    180
+    30
 )
 ON CONFLICT (name)
 DO NOTHING;
@@ -168,6 +181,10 @@ def main():
             )
 
             cur.execute(
+                MIGRATE_SIGNALS_TABLE
+            )
+
+            cur.execute(
                 CREATE_POSITIONS_TABLE
             )
 
@@ -183,7 +200,7 @@ def main():
 
     print()
     print(
-        "PAPER TRADING TABLES CREATED"
+        "PAPER TRADING TABLES READY"
     )
 
     print("=" * 60)
@@ -219,7 +236,7 @@ def main():
     )
 
     print(
-        "  Holding period:      180 days"
+        "  Holding period:      30 days"
     )
 
     print(

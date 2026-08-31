@@ -54,6 +54,8 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
                     be.gross_margin_change,
                     be.operating_margin_change,
 
+                    be.pre_excess_20d,
+
                     be.excess_30d,
                     be.excess_90d,
                     be.excess_180d
@@ -95,9 +97,11 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
             "gross_margin_change": row[7],
             "operating_margin_change": row[8],
 
-            "excess_30d": row[9],
-            "excess_90d": row[10],
-            "excess_180d": row[11],
+            "pre_excess_20d": row[9],
+
+            "excess_30d": row[10],
+            "excess_90d": row[11],
+            "excess_180d": row[12],
         }
         for row in rows
     ]
@@ -1452,7 +1456,188 @@ def get_robustness_candidates(rows):
                 rows
             ),
         ),
+        (
+            "Pre Excess 20d > 0",
+            [
+                row
+                for row in rows
+                if (
+                    row.get("pre_excess_20d") is not None
+                    and row["pre_excess_20d"] > 0
+                )
+            ],
+        ),
+        (
+            "Accel >=20% + Op Margin + Momentum",
+            [
+                row
+                for row in rows
+                if (
+                    row.get("revenue_acceleration") is not None
+                    and row["revenue_acceleration"] >= Decimal("20")
+                    and row.get("operating_margin_change") is not None
+                    and row["operating_margin_change"] > 0
+                    and row.get("pre_excess_20d") is not None
+                    and row["pre_excess_20d"] > 0
+                )
+            ],
+        ),
+        (
+            "Strong Combination + Momentum",
+            [
+                row
+                for row in get_strong_combination_events(
+                    rows
+                )
+                if (
+                    row.get("pre_excess_20d") is not None
+                    and row["pre_excess_20d"] > 0
+                )
+            ],
+        ),
     ]
+
+
+def print_candidate_concentration(
+    title,
+    rows,
+):
+    candidate_rows = [
+        row
+        for row in rows
+        if (
+            row.get("revenue_acceleration") is not None
+            and row["revenue_acceleration"] >= Decimal("20")
+            and row.get("operating_margin_change") is not None
+            and row["operating_margin_change"] > 0
+            and row.get("pre_excess_20d") is not None
+            and row["pre_excess_20d"] > 0
+        )
+    ]
+
+    print()
+    print(title)
+    print("#" * 110)
+
+    for field, heading in (
+        ("ticker", "BY COMPANY"),
+        ("sector", "BY SECTOR"),
+    ):
+        groups = {}
+
+        for row in candidate_rows:
+            name = row.get(field) or "UNKNOWN"
+            groups.setdefault(name, []).append(row)
+
+        print()
+        print(heading)
+        print("-" * 110)
+
+        print(
+            f"{'Group':<30}"
+            f"{'Events':>8}"
+            f"{'Share':>10}"
+            f"{'30d Avg':>14}"
+            f"{'30d Med':>14}"
+            f"{'30d Win':>14}"
+        )
+
+        print("-" * 110)
+
+        total = len(candidate_rows)
+
+        for name, group_rows in sorted(
+            groups.items(),
+            key=lambda item: (-len(item[1]), item[0]),
+        ):
+            stats = get_stats(group_rows, "30d")
+
+            share = (
+                Decimal(len(group_rows))
+                / Decimal(total)
+                * Decimal("100")
+                if total
+                else None
+            )
+
+            print(
+                f"{name:<30}"
+                f"{len(group_rows):>8}"
+                f"{format_percent(share):>10}"
+                f"{format_percent(stats['average']):>14}"
+                f"{format_percent(stats['median']):>14}"
+                f"{format_percent(stats['win_rate']):>14}"
+            )
+
+
+
+def print_candidate_sector_exclusion(
+    title,
+    rows,
+):
+    candidate_rows = [
+        row
+        for row in rows
+        if (
+            row.get("revenue_acceleration") is not None
+            and row["revenue_acceleration"] >= Decimal("20")
+            and row.get("operating_margin_change") is not None
+            and row["operating_margin_change"] > 0
+            and row.get("pre_excess_20d") is not None
+            and row["pre_excess_20d"] > 0
+        )
+    ]
+
+    sectors = sorted(
+        {
+            row.get("sector") or "UNKNOWN"
+            for row in candidate_rows
+        }
+    )
+
+    print()
+    print(title)
+    print("#" * 110)
+
+    print(
+        f"{'Excluded Sector':<30}"
+        f"{'N':>8}"
+        f"{'30d Avg':>14}"
+        f"{'30d Med':>14}"
+        f"{'30d Win':>14}"
+        f"{'Trim Avg':>14}"
+    )
+
+    print("-" * 110)
+
+    for sector in sectors:
+        remaining = [
+            row
+            for row in candidate_rows
+            if (
+                row.get("sector") or "UNKNOWN"
+            ) != sector
+        ]
+
+        stats = get_stats(
+            remaining,
+            "30d",
+        )
+
+        distribution = get_distribution_stats(
+            remaining,
+            "30d",
+        )
+
+        print(
+            f"{sector:<30}"
+            f"{stats['n']:>8}"
+            f"{format_percent(stats['average']):>14}"
+            f"{format_percent(stats['median']):>14}"
+            f"{format_percent(stats['win_rate']):>14}"
+            f"{format_percent(distribution['trimmed_average']):>14}"
+        )
+
 
 
 def get_candidate_year_stats(rows, horizon):
@@ -1734,6 +1919,21 @@ def main():
 
     print_signal_robustness_comparison(
         training,
+        testing,
+    )
+
+    print_candidate_concentration(
+        "TRAINING CANDIDATE CONCENTRATION",
+        training,
+    )
+
+    print_candidate_concentration(
+        "OUT-OF-SAMPLE CANDIDATE CONCENTRATION",
+        testing,
+    )
+
+    print_candidate_sector_exclusion(
+        "OUT-OF-SAMPLE LEAVE-ONE-SECTOR-OUT",
         testing,
     )
         

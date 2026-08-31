@@ -91,7 +91,10 @@ def get_open_positions(
             ps.score,
             ps.priority,
             ps.recommendation,
-            ps.sector_confidence
+            ps.sector_confidence,
+            ps.revenue_acceleration,
+            ps.operating_margin_change,
+            ps.pre_excess_20d
         FROM paper_positions pp
         JOIN paper_signals ps
           ON ps.id = pp.signal_id
@@ -123,6 +126,9 @@ def get_open_positions(
             "priority": row[7],
             "recommendation": row[8],
             "sector_confidence": row[9],
+            "revenue_acceleration": row[10],
+            "operating_margin_change": row[11],
+            "pre_excess_20d": row[12],
         }
         for row in rows
     ]
@@ -142,7 +148,11 @@ def get_closed_positions(
             pp.return_percent,
             ps.score,
             ps.priority,
-            ps.recommendation
+            ps.recommendation,
+            ps.sector_confidence,
+            ps.revenue_acceleration,
+            ps.operating_margin_change,
+            ps.pre_excess_20d
         FROM paper_positions pp
         JOIN paper_signals ps
           ON ps.id = pp.signal_id
@@ -174,6 +184,10 @@ def get_closed_positions(
             "score": row[7],
             "priority": row[8],
             "recommendation": row[9],
+            "sector_confidence": row[10],
+            "revenue_acceleration": row[11],
+            "operating_margin_change": row[12],
+            "pre_excess_20d": row[13],
         }
         for row in rows
     ]
@@ -205,6 +219,29 @@ def get_signal_summary(
         row[0]: row[1]
         for row in rows
     }
+
+
+def print_signal_details(position):
+    print(
+        f"  Revenue acceleration: "
+        f"{format_percent(
+            position['revenue_acceleration']
+        )}"
+    )
+
+    print(
+        f"  Operating margin change: "
+        f"{format_percent(
+            position['operating_margin_change']
+        )}"
+    )
+
+    print(
+        f"  20d excess vs. SPY: "
+        f"{format_percent(
+            position['pre_excess_20d']
+        )}"
+    )
 
 
 def main():
@@ -349,14 +386,29 @@ def main():
     print()
 
     print(
-        "RULES"
+        "STRATEGY"
     )
 
     print("-" * 100)
 
     print(
-        f"Minimum priority:     "
-        f"{account['minimum_priority']}"
+        "Qualification:        "
+        "Revenue acceleration >= 20%"
+    )
+
+    print(
+        "                      "
+        "Operating margin improving"
+    )
+
+    print(
+        "                      "
+        "20-day excess return vs. SPY > 0"
+    )
+
+    print(
+        f"Holding period:       "
+        f"{account['holding_days']} days"
     )
 
     print(
@@ -370,8 +422,9 @@ def main():
     )
 
     print(
-        f"Holding period:       "
-        f"{account['holding_days']} days"
+        f"Minimum priority:     "
+        f"{account['minimum_priority']} "
+        f"(reporting only)"
     )
 
     print()
@@ -431,6 +484,10 @@ def main():
                 f"{position['sector_confidence']}"
             )
 
+            print_signal_details(
+                position
+            )
+
             print(
                 f"  Entry date: "
                 f"{position['entry_date']}"
@@ -479,6 +536,20 @@ def main():
                 f"{position['priority']} "
                 f"| Score "
                 f"{position['score']}"
+            )
+
+            print(
+                f"  Recommendation: "
+                f"{position['recommendation']}"
+            )
+
+            print(
+                f"  Sector confidence: "
+                f"{position['sector_confidence']}"
+            )
+
+            print_signal_details(
+                position
             )
 
             print(

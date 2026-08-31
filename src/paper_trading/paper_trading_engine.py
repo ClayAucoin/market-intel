@@ -2,6 +2,10 @@ from datetime import date
 from decimal import Decimal
 
 from src.database import get_connection
+from src.analysis.experimental_signal import (
+    SIGNAL_DESCRIPTION,
+    qualifies_experimental_signal,
+)
 from src.analysis.latest_signal_report import (
     add_scores,
     get_latest_events,
@@ -21,6 +25,13 @@ ACCOUNT_NAME = "Primary Paper Account"
 
 def format_money(value):
     return f"${value:,.2f}"
+
+
+def format_percent(value):
+    if value is None:
+        return "N/A"
+
+    return f"{Decimal(str(value)):+.2f}%"
 
 
 def get_account():
@@ -313,8 +324,9 @@ def determine_action(
     return {
         "action": "BUY",
         "reason":
-            "Priority threshold, cash, and "
-            "per-ticker risk cap all passed.",
+            "Experimental signal passed: "
+            f"{SIGNAL_DESCRIPTION}. "
+            "Cash and per-ticker risk cap also passed.",
     }
 
 
@@ -344,13 +356,16 @@ def insert_signal(
             revenue_yoy,
             revenue_acceleration,
             eps_yoy,
+            operating_margin_change,
+            pre_excess_20d,
             action,
             action_reason
         )
         VALUES (
             %s, %s, %s, %s, %s, %s,
             %s, %s, %s, %s, %s, %s,
-            %s, %s, %s, %s, %s, %s
+            %s, %s, %s, %s, %s, %s,
+            %s, %s
         )
         RETURNING id
     """
@@ -380,6 +395,12 @@ def insert_signal(
                         "revenue_acceleration"
                     ),
                     row.get("eps_yoy"),
+                    row.get(
+                        "operating_margin_change"
+                    ),
+                    row.get(
+                        "pre_excess_20d"
+                    ),
                     action["action"],
                     action["reason"],
                 ),
@@ -537,12 +558,12 @@ def process_recommendation(
     ticker = row["ticker"]
     signal_date = row["entry_date"]
 
-    if (
-        item["priority"]
-        < account["minimum_priority"]
+    if not qualifies_experimental_signal(
+        row
     ):
         return {
-            "status": "BELOW_PRIORITY",
+            "status":
+                "BELOW_EXPERIMENTAL_SIGNAL",
             "ticker": ticker,
         }
 
@@ -630,6 +651,18 @@ def process_recommendation(
             item["recommendation"],
         "reason": action["reason"],
         "entry_price": entry_price,
+        "revenue_acceleration":
+            row.get(
+                "revenue_acceleration"
+            ),
+        "operating_margin_change":
+            row.get(
+                "operating_margin_change"
+            ),
+        "pre_excess_20d":
+            row.get(
+                "pre_excess_20d"
+            ),
     }
 
 
@@ -661,6 +694,23 @@ def send_buy_notification(
         f"Score: {result['score']}\n"
         f"Recommendation: "
         f"{result['recommendation']}\n\n"
+        f"Experimental qualification:\n"
+        f"Revenue acceleration: "
+        f"{format_percent(
+            result['revenue_acceleration']
+        )}\n"
+        f"Operating margin change: "
+        f"{format_percent(
+            result['operating_margin_change']
+        )}\n"
+        f"20-day excess return vs. SPY: "
+        f"{format_percent(
+            result['pre_excess_20d']
+        )}\n\n"
+        f"Required thresholds:\n"
+        f"Revenue acceleration >= 20%\n"
+        f"Operating margin change > 0%\n"
+        f"20-day excess return vs. SPY > 0%\n\n"
         f"Reason:\n"
         f"{result['reason']}\n\n"
         f"This is a paper-trading signal, "
@@ -671,8 +721,8 @@ def send_buy_notification(
         subject=subject,
         message=message,
     )
-    
-    
+
+
 def print_account(account):
     positions = get_open_positions(
         account["id"]
@@ -713,7 +763,8 @@ def print_account(account):
 
     print(
         f"Minimum priority:"
-        f" {account['minimum_priority']}"
+        f" {account['minimum_priority']} "
+        f"(reporting only)"
     )
 
     print(
@@ -731,6 +782,11 @@ def print_account(account):
         f"{account['holding_days']} days"
     )
 
+    print(
+        "Paper strategy:  "
+        "Accel >=20% + Op Margin + Momentum"
+    )
+
 
 def main():
     account = get_account()
@@ -745,6 +801,10 @@ def main():
 
     print(
         "Mode: Prospective only"
+    )
+
+    print(
+        f"Qualification: {SIGNAL_DESCRIPTION}"
     )
 
     recommendations = (
@@ -793,7 +853,7 @@ def main():
 
     if not actionable:
         print(
-            "No new qualifying signals "
+            "No new experimental signals "
             "since the paper account "
             "was created."
         )
@@ -821,6 +881,27 @@ def main():
                 f"{result['recommendation']}"
             )
 
+            print(
+                f"  Revenue acceleration: "
+                f"{format_percent(
+                    result['revenue_acceleration']
+                )}"
+            )
+
+            print(
+                f"  Operating margin change: "
+                f"{format_percent(
+                    result['operating_margin_change']
+                )}"
+            )
+
+            print(
+                f"  20d excess vs. SPY: "
+                f"{format_percent(
+                    result['pre_excess_20d']
+                )}"
+            )
+
             if (
                 result["entry_price"]
                 is not None
@@ -836,7 +917,6 @@ def main():
             )
 
     account = get_account()
-
 
     print_account(
         account
