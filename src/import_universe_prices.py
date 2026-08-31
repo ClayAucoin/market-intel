@@ -1,5 +1,7 @@
 import sys
 
+from datetime import timedelta
+
 from src.company_universe import (
     DEFAULT_UNIVERSE,
     get_tickers,
@@ -10,6 +12,7 @@ from src.price_client import (
 )
 
 from src.price_repository import (
+    get_latest_price_date,
     save_daily_prices,
 )
 
@@ -59,6 +62,32 @@ def get_provider_symbol(
     )
 
 
+def get_import_start_date(
+    symbol,
+    refresh,
+):
+    if not refresh:
+        return START_DATE
+
+    latest_date = (
+        get_latest_price_date(
+            symbol
+        )
+    )
+
+    if latest_date is None:
+        return START_DATE
+
+    next_date = (
+        latest_date
+        + timedelta(
+            days=1
+        )
+    )
+
+    return next_date.isoformat()
+
+
 def import_symbol(
     symbol,
     refresh=False,
@@ -66,6 +95,13 @@ def import_symbol(
     provider_symbol = (
         get_provider_symbol(
             symbol
+        )
+    )
+
+    start_date = (
+        get_import_start_date(
+            symbol,
+            refresh,
         )
     )
 
@@ -83,9 +119,13 @@ def import_symbol(
             f"{provider_symbol}..."
         )
 
+    print(
+        f"Start date: {start_date}"
+    )
+
     prices = get_historical_prices(
         provider_symbol,
-        start_date=START_DATE,
+        start_date=start_date,
         refresh=refresh,
     )
 
@@ -93,7 +133,7 @@ def import_symbol(
 
     if count == 0:
         print(
-            f"No price data returned "
+            f"No new price data returned "
             f"for {symbol}."
         )
 
@@ -102,7 +142,7 @@ def import_symbol(
             "provider_symbol":
                 provider_symbol,
             "records": 0,
-            "status": "EMPTY",
+            "status": "NO NEW DATA",
         }
 
     save_daily_prices(
@@ -189,10 +229,10 @@ def import_universe_prices(
         f"{'Symbol':<10}"
         f"{'Provider':<12}"
         f"{'Records':>12}"
-        f"{'Status':>12}"
+        f"{'Status':>16}"
     )
 
-    print("-" * 48)
+    print("-" * 50)
 
     total_records = 0
     errors = 0
@@ -208,7 +248,7 @@ def import_universe_prices(
             f"{result['symbol']:<10}"
             f"{provider:<12}"
             f"{result['records']:>12}"
-            f"{result['status']:>12}"
+            f"{result['status']:>16}"
         )
 
         total_records += (
@@ -217,11 +257,11 @@ def import_universe_prices(
 
         if (
             result["status"]
-            != "OK"
+            == "ERROR"
         ):
             errors += 1
 
-    print("-" * 48)
+    print("-" * 50)
 
     print(
         f"{'TOTAL':<22}"

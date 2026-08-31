@@ -9,6 +9,31 @@ def parse_trade_date(value):
     ).date()
 
 
+def get_latest_price_date(symbol):
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT MAX(trade_date)
+                FROM daily_prices
+                WHERE symbol = %s;
+                """,
+                (
+                    symbol.upper(),
+                ),
+            )
+
+            row = cursor.fetchone()
+
+    if (
+        row is None
+        or row[0] is None
+    ):
+        return None
+
+    return row[0]
+
+
 def save_daily_prices(
     symbol,
     prices,

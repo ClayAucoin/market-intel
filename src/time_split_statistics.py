@@ -36,7 +36,7 @@ SIGNALS = {
 }
 
 
-def get_events(universe_name):
+def get_events(universe_name=DEFAULT_UNIVERSE):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(

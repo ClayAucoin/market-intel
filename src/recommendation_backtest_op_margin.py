@@ -210,11 +210,6 @@ def get_known_180d_rows(
         ):
             continue
 
-        # The recommendation is evaluated at
-        # the start of the current event date.
-        # A 180-day outcome that becomes known
-        # on that same date is therefore not
-        # allowed into the historical evidence.
         if (
             result_available_date
             < as_of_date
@@ -284,6 +279,35 @@ def get_historical_sector_confidence(
     }
 
 
+def score_event_with_op_margin(row):
+    result = score_event(
+        row
+    )
+
+    score = result[
+        "score"
+    ]
+
+    operating_margin_change = (
+        row.get(
+            "operating_margin_change"
+        )
+    )
+
+    if (
+        operating_margin_change
+        is not None
+        and operating_margin_change > 0
+    ):
+        score += 1
+
+    return {
+        **result,
+        "score": score,
+        "max_score": 7,
+    }
+
+
 def add_historical_recommendations(
     rows,
     all_rows,
@@ -300,8 +324,10 @@ def add_historical_recommendations(
     )
 
     for row in ordered_rows:
-        score_result = score_event(
-            row
+        score_result = (
+            score_event_with_op_margin(
+                row
+            )
         )
 
         confidence = (
@@ -774,6 +800,7 @@ def print_yearly_results(
         if yearly:
             print("-" * 126)
 
+
 def print_trade_details(
     title,
     rows,
@@ -900,6 +927,11 @@ def main():
 
     print(
         f"Universe: {universe_name}"
+    )
+
+    print(
+        "Experimental scorer: "
+        "+1 point when operating margin is improving."
     )
 
     print(
