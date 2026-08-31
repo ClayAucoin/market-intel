@@ -115,10 +115,15 @@ def get_historical_prices(
     start_date=None,
     end_date=None,
     refresh=False,
+    use_cache=True,
+    save_cache=True,
 ):
     symbol = symbol.upper()
 
-    if not refresh:
+    if (
+        use_cache
+        and not refresh
+    ):
         cached = load_cached_prices(
             symbol
         )
@@ -142,15 +147,16 @@ def get_historical_prices(
         end_date=end_date,
     )
 
-    save_cached_prices(
-        symbol,
-        data,
-    )
+    if save_cache:
+        save_cached_prices(
+            symbol,
+            data,
+        )
 
-    print(
-        f"Saved {symbol} response "
-        f"to cache."
-    )
+        print(
+            f"Saved {symbol} response "
+            f"to cache."
+        )
 
     return data
 

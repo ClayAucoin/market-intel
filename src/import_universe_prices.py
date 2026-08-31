@@ -123,11 +123,23 @@ def import_symbol(
         f"Start date: {start_date}"
     )
 
-    prices = get_historical_prices(
-        provider_symbol,
-        start_date=start_date,
-        refresh=refresh,
-    )
+    if refresh:
+        prices = get_historical_prices(
+            provider_symbol,
+            start_date=start_date,
+            refresh=True,
+            use_cache=False,
+            save_cache=False,
+        )
+
+    else:
+        prices = get_historical_prices(
+            provider_symbol,
+            start_date=start_date,
+            refresh=False,
+            use_cache=True,
+            save_cache=True,
+        )
 
     count = len(prices)
 
