@@ -66,7 +66,7 @@ def refresh_financials():
     )
 
     run_module(
-        "src.import_universe_financials",
+        "src.financials.import_universe_financials",
         UNIVERSE,
     )
 

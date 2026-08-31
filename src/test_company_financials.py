@@ -2,7 +2,7 @@ from src.company_repository import (
     get_company_by_ticker,
 )
 
-from src.financial_history import (
+from src.financials.financial_history import (
     build_quarterly_history,
 )
 

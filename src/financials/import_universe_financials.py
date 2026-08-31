@@ -5,12 +5,12 @@ from src.universe.company_universe import (
     get_companies,
 )
 
-from src.financial_metrics import (
+from src.financials.financial_metrics import (
     FINANCIAL_METRICS,
     get_metric_history,
 )
 
-from src.financial_repository import (
+from src.financials.financial_repository import (
     save_financial_history,
 )
 

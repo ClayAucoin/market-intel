@@ -8,7 +8,7 @@ from src.universe.company_universe import (
     get_company,
 )
 
-from src.financial_history import (
+from src.financials.financial_history import (
     build_multi_concept_quarterly_history,
 )
 
