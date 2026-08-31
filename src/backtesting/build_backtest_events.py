@@ -2,7 +2,7 @@ import sys
 
 from decimal import Decimal
 
-from src.backtester import (
+from src.backtesting.backtester import (
     backtest_from_entry_date,
 )
 

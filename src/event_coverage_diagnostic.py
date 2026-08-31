@@ -1,7 +1,7 @@
 import sys
 
 from src.database import get_connection
-from src.time_split_statistics import DEFAULT_UNIVERSE
+from src.backtesting.time_split_statistics import DEFAULT_UNIVERSE
 
 
 

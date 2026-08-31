@@ -10,7 +10,7 @@ from src.notifications.notifier import send_notification
 from src.sector_confidence import (
     build_sector_confidence_map,
 )
-from src.time_split_statistics import (
+from src.backtesting.time_split_statistics import (
     get_events,
     split_by_time,
 )

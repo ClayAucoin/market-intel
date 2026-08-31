@@ -1,15 +1,15 @@
 from collections import defaultdict
 from decimal import Decimal
 
-from src.capital_constrained_backtest import (
+from src.backtesting.capital_constrained_backtest import (
     STARTING_CASH,
     build_candidate_trades,
     simulate_portfolio,
 )
-from src.recommendation_backtest import (
+from src.backtesting.recommendation_backtest import (
     get_backtest_events,
 )
-from src.time_split_statistics import (
+from src.backtesting.time_split_statistics import (
     split_by_time,
 )
 

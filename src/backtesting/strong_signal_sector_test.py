@@ -1,6 +1,6 @@
 import sys
 
-from src.time_split_statistics import (
+from src.backtesting.time_split_statistics import (
     DEFAULT_UNIVERSE,
     format_percent,
     get_events,

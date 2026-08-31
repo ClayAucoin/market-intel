@@ -4,7 +4,7 @@ from src.signal_scorer import (
     print_score,
     score_event,
 )
-from src.time_split_statistics import (
+from src.backtesting.time_split_statistics import (
     DEFAULT_UNIVERSE,
     get_events,
 )

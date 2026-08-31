@@ -99,7 +99,7 @@ def rebuild_events():
     )
 
     run_module(
-        "src.build_backtest_events",
+        "src.backtesting.build_backtest_events",
         UNIVERSE,
     )
 

@@ -10,7 +10,7 @@ from src.sec.xbrl_client import (
     get_company_facts,
 )
 
-from src.time_split_statistics import DEFAULT_UNIVERSE
+from src.backtesting.time_split_statistics import DEFAULT_UNIVERSE
 
 TICKERS = [
     "BRK-B",

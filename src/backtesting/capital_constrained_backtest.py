@@ -1,11 +1,11 @@
 from datetime import timedelta
 from decimal import Decimal
 
-from src.recommendation_backtest import (
+from src.backtesting.recommendation_backtest import (
     add_historical_recommendations,
     get_backtest_events,
 )
-from src.time_split_statistics import (
+from src.backtesting.time_split_statistics import (
     split_by_time,
 )
 
