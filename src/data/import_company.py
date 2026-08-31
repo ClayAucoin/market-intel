@@ -1,4 +1,4 @@
-from src.company_repository import save_company
+from src.data.company_repository import save_company
 from src.sec.sec_client import get_company
 
 def import_company(cik):

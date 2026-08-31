@@ -1,8 +1,8 @@
-from src.company_repository import (
+from src.data.company_repository import (
     get_company_by_ticker,
 )
 
-from src.issuer_repository import (
+from src.data.issuer_repository import (
     get_issuer_history_by_ticker,
 )
 

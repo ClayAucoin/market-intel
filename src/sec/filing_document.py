@@ -1,6 +1,6 @@
 import requests
 
-from src.company_repository import get_company_by_ticker
+from src.data.company_repository import get_company_by_ticker
 from src.database import get_connection
 from src.sec.sec_client import SEC_HEADERS
 

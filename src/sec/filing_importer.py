@@ -1,4 +1,4 @@
-from src.company_repository import get_company_by_ticker
+from src.data.company_repository import get_company_by_ticker
 from src.sec.filing_repository import save_filings
 from src.sec.sec_client import get_company
 

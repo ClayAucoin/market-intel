@@ -4,7 +4,7 @@ from pathlib import Path
 
 import requests
 
-from src.company_repository import (
+from src.data.company_repository import (
     get_company_by_ticker,
 )
 

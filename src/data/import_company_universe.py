@@ -1,4 +1,4 @@
-from src.company_repository import save_companies
+from src.data.company_repository import save_companies
 from src.sec.sec_client import get_company_tickers
 
 

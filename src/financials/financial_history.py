@@ -1,6 +1,6 @@
 from datetime import date
 
-from src.company_repository import (
+from src.data.company_repository import (
     get_company_by_ticker,
 )
 

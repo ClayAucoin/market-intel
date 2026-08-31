@@ -72,7 +72,7 @@ def get_filing_documents_by_accession(
     ticker,
     accession_number,
 ):
-    from src.company_repository import get_company_by_ticker
+    from src.data.company_repository import get_company_by_ticker
     from src.database import get_connection
 
     company = get_company_by_ticker(ticker)

@@ -16,7 +16,7 @@ from src.prices.price_repository import (
     save_daily_prices,
 )
 
-from src.security_aliases import (
+from src.data.security_aliases import (
     get_symbol,
 )
 
