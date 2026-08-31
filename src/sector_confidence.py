@@ -1,4 +1,7 @@
+import sys
+
 from src.time_split_statistics import (
+    DEFAULT_UNIVERSE,
     get_events,
     get_stats,
     get_strong_combination_events,
@@ -237,7 +240,15 @@ def format_percent(value):
 
 
 def main():
-    rows = get_events()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = split_by_time(
         rows

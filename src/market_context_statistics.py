@@ -1,9 +1,12 @@
+import sys
+
 from datetime import date
 from decimal import Decimal
 from statistics import median
 
 
 from src.database import get_connection
+from src.time_split_statistics import DEFAULT_UNIVERSE
 
 
 TRAIN_END = date(
@@ -50,7 +53,9 @@ MARKET_SIGNALS = {
 }
 
 
-def get_events():
+def get_events(
+    universe_name=DEFAULT_UNIVERSE,
+):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -80,10 +85,21 @@ def get_events():
                     ON s.id =
                        be.security_id
 
+                JOIN analysis_universe_members aum
+                    ON aum.security_id =
+                       be.security_id
+
+                JOIN analysis_universes au
+                    ON au.id =
+                       aum.universe_id
+
+                WHERE au.name = %s
+
                 ORDER BY
                     be.entry_date,
                     s.ticker;
-                """
+                """,
+                (universe_name,),
             )
 
             rows = cursor.fetchall()
@@ -447,7 +463,15 @@ def print_gap_buckets(
 
 
 def main():
-    rows = get_events()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = (
         split_by_time(

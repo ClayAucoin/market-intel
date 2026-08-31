@@ -1,3 +1,5 @@
+import sys
+
 from src.company_universe import (
     get_company,
 )
@@ -11,8 +13,7 @@ from src.xbrl_client import (
     get_company_facts,
 )
 
-
-UNIVERSE_NAME = "expanded_50"
+from src.time_split_statistics import DEFAULT_UNIVERSE
 
 
 TICKERS = [
@@ -52,7 +53,7 @@ def get_required_failures(
     for metric_name, config in (
         FINANCIAL_METRICS.items()
     ):
-        if not config["required"]:
+        if config.get("availability") != "core":
             continue
 
         result = get_metric_history(
@@ -225,16 +226,17 @@ def print_candidates(
 
 def diagnose_ticker(
     ticker,
+    universe_name=DEFAULT_UNIVERSE,
 ):
     company = get_company(
         ticker,
-        UNIVERSE_NAME,
+        universe_name,
     )
 
     if company is None:
         raise ValueError(
             f"{ticker} not found "
-            f"in {UNIVERSE_NAME}"
+            f"in {universe_name}"
         )
 
     print()
@@ -286,15 +288,27 @@ def diagnose_ticker(
 
 
 def main():
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
     print()
     print(
         "REQUIRED METRIC "
         "DIAGNOSTICS"
     )
 
+    print(
+        "Universe:",
+        universe_name,
+    )
+
     for ticker in TICKERS:
         diagnose_ticker(
-            ticker
+            ticker,
+            universe_name,
         )
 
 

@@ -1,3 +1,5 @@
+import sys
+
 from datetime import date
 
 from src.company_universe import (
@@ -8,8 +10,7 @@ from src.xbrl_client import (
     get_company_facts,
 )
 
-
-UNIVERSE_NAME = "expanded_50"
+from src.time_split_statistics import DEFAULT_UNIVERSE
 
 TICKERS = [
     "BRK-B",
@@ -149,16 +150,19 @@ def print_latest_records(
         )
 
 
-def diagnose(ticker):
+def diagnose(
+    ticker,
+    universe_name=DEFAULT_UNIVERSE,
+):
     company = get_company(
         ticker,
-        UNIVERSE_NAME,
+        universe_name,
     )
 
     if company is None:
         raise ValueError(
             f"{ticker} not found in "
-            f"{UNIVERSE_NAME}"
+            f"{universe_name}"
         )
 
     facts = get_company_facts(
@@ -209,14 +213,26 @@ def diagnose(ticker):
 
 
 def main():
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
     print()
     print(
         "EPS DERIVATION DIAGNOSTICS"
     )
 
+    print(
+        "Universe:",
+        universe_name,
+    )
+
     for ticker in TICKERS:
         diagnose(
-            ticker
+            ticker,
+            universe_name,
         )
 
 

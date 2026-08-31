@@ -1,10 +1,13 @@
+import sys
+
 from src.database import get_connection
+from src.time_split_statistics import DEFAULT_UNIVERSE
 
 
-UNIVERSE_NAME = "expanded_50"
 
-
-def get_coverage():
+def get_coverage(
+    universe_name=DEFAULT_UNIVERSE,
+):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
@@ -64,7 +67,7 @@ def get_coverage():
                     s.ticker;
                 """,
                 (
-                    UNIVERSE_NAME,
+                    universe_name,
                 ),
             )
 
@@ -73,14 +76,17 @@ def get_coverage():
     return rows
 
 
-def print_report(rows):
+def print_report(
+    rows,
+    universe_name=DEFAULT_UNIVERSE,
+):
     print()
     print(
         "BACKTEST EVENT COVERAGE DIAGNOSTIC"
     )
 
     print(
-        f"Universe: {UNIVERSE_NAME}"
+        f"Universe: {universe_name}"
     )
 
     print("=" * 125)
@@ -184,10 +190,19 @@ def print_report(rows):
 
 
 def main():
-    rows = get_coverage()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_coverage(
+        universe_name
+    )
 
     print_report(
-        rows
+        rows,
+        universe_name,
     )
 
 

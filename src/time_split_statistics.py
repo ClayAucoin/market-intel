@@ -10,7 +10,7 @@ from src.database import get_connection
 TRAIN_END = date(2023, 12, 31)
 TEST_START = date(2024, 1, 1)
 
-DEFAULT_UNIVERSE = "expanded_50"
+DEFAULT_UNIVERSE = "expanded_200"
 
 
 def get_universe_name():

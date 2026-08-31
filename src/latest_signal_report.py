@@ -1,3 +1,5 @@
+import sys
+
 from src.recommendation_engine import (
     get_recommendation,
 )
@@ -8,10 +10,18 @@ from src.signal_scorer import (
     score_event,
 )
 from src.time_split_statistics import (
+    DEFAULT_UNIVERSE,
     format_percent,
     get_events,
     split_by_time,
 )
+
+
+def get_universe_name():
+    if len(sys.argv) >= 2:
+        return sys.argv[1]
+
+    return DEFAULT_UNIVERSE
 
 
 def get_latest_events(rows):
@@ -298,7 +308,11 @@ def print_strong_details(results):
 
 
 def main():
-    rows = get_events()
+    universe_name = get_universe_name()
+
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = split_by_time(
         rows
@@ -327,6 +341,12 @@ def main():
             item["row"]["entry_date"],
         ),
         reverse=True,
+    )
+
+    print()
+    print(
+        "Universe:",
+        universe_name,
     )
 
     print_results(

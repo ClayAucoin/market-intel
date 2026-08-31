@@ -1,6 +1,8 @@
 from decimal import Decimal
+import sys
 
 from src.time_split_statistics import (
+    DEFAULT_UNIVERSE,
     format_percent,
     get_events,
     get_stats,
@@ -551,7 +553,15 @@ def print_validation_summary(
 
 
 def main():
-    rows = get_events()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = (
         split_by_time(

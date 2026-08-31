@@ -6,6 +6,7 @@ from src.latest_signal_report import (
     add_scores,
     get_latest_events,
 )
+from src.notifier import send_notification
 from src.sector_confidence import (
     build_sector_confidence_map,
 )
@@ -499,8 +500,12 @@ def open_position(
     )
 
 
-def get_current_recommendations():
-    rows = get_events()
+def get_current_recommendations(
+    universe_name="expanded_200",
+):
+    rows = get_events(
+        universe_name
+    )
 
     training, testing = split_by_time(
         rows
@@ -545,7 +550,7 @@ def process_recommendation(
         account["created_at"].date()
     )
 
-    if signal_date < account_start_date:
+    if signal_date <= account_start_date:
         return {
             "status": "BEFORE_ACCOUNT",
             "ticker": ticker,

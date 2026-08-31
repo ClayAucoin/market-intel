@@ -1,8 +1,11 @@
+import sys
+
 from src.signal_scorer import (
     print_score,
     score_event,
 )
 from src.time_split_statistics import (
+    DEFAULT_UNIVERSE,
     get_events,
 )
 
@@ -65,7 +68,15 @@ def print_event(row):
 
 
 def main():
-    rows = get_events()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_events(
+        universe_name
+    )
 
     scored_rows = []
 

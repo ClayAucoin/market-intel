@@ -1,3 +1,5 @@
+import sys
+
 from datetime import date
 
 from src.company_universe import (
@@ -8,8 +10,7 @@ from src.xbrl_client import (
     get_company_facts,
 )
 
-
-UNIVERSE_NAME = "expanded_50"
+from src.time_split_statistics import DEFAULT_UNIVERSE
 
 
 TESTS = [
@@ -297,7 +298,10 @@ def print_concept(
             )
 
 
-def diagnose(test):
+def diagnose(
+    test,
+    universe_name=DEFAULT_UNIVERSE,
+):
     ticker = test[
         "ticker"
     ]
@@ -308,13 +312,13 @@ def diagnose(test):
 
     company = get_company(
         ticker,
-        UNIVERSE_NAME,
+        universe_name,
     )
 
     if company is None:
         raise ValueError(
             f"{ticker} not found in "
-            f"{UNIVERSE_NAME}"
+            f"{universe_name}"
         )
 
     facts = get_company_facts(
@@ -368,15 +372,27 @@ def diagnose(test):
 
 
 def main():
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
     print()
     print(
         "DEEP REQUIRED-METRIC "
         "DIAGNOSTICS"
     )
 
+    print(
+        "Universe:",
+        universe_name,
+    )
+
     for test in TESTS:
         diagnose(
-            test
+            test,
+            universe_name,
         )
 
 

@@ -1,6 +1,8 @@
 from datetime import date
+import sys
 
 from src.time_split_statistics import (
+    DEFAULT_UNIVERSE,
     get_events,
 )
 
@@ -165,7 +167,15 @@ def print_report(latest):
 
 
 def main():
-    rows = get_events()
+    universe_name = (
+        sys.argv[1]
+        if len(sys.argv) >= 2
+        else DEFAULT_UNIVERSE
+    )
+
+    rows = get_events(
+        universe_name
+    )
 
     latest = get_latest_events(
         rows
