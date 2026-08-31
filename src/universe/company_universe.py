@@ -1,4 +1,4 @@
-from src.analysis_universe import (
+from src.universe.analysis_universe import (
     get_member,
     get_member_any_universe,
     get_universe,

@@ -4,7 +4,7 @@ from src.company_repository import (
     get_company_by_ticker,
 )
 
-from src.company_universe import (
+from src.universe.company_universe import (
     get_company,
 )
 

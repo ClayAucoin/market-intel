@@ -2,7 +2,7 @@ import sys
 
 from datetime import date
 
-from src.company_universe import (
+from src.universe.company_universe import (
     get_company,
 )
 

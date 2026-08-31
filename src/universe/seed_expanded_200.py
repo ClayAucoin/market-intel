@@ -3,7 +3,7 @@ from io import StringIO
 import pandas as pd
 import requests
 
-from src.analysis_universe import (
+from src.universe.analysis_universe import (
     add_security_to_universe,
     create_universe,
     get_security_id,

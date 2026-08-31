@@ -5,7 +5,7 @@ from datetime import (
 )
 from zoneinfo import ZoneInfo
 
-from src.company_universe import (
+from src.universe.company_universe import (
     DEFAULT_UNIVERSE,
 )
 

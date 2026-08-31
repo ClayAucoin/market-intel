@@ -2,7 +2,7 @@ import sys
 
 from datetime import timedelta
 
-from src.company_universe import (
+from src.universe.company_universe import (
     DEFAULT_UNIVERSE,
     get_tickers,
 )

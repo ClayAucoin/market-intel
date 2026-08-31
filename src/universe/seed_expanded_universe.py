@@ -1,4 +1,4 @@
-from src.analysis_universe import (
+from src.universe.analysis_universe import (
     add_security_to_universe,
     create_universe,
 )

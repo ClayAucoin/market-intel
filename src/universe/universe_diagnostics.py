@@ -1,4 +1,4 @@
-from src.company_universe import get_companies
+from src.universe.company_universe import get_companies
 from src.database import get_connection
 from src.xbrl_client import get_company_facts
 

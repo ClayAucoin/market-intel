@@ -6,7 +6,7 @@ from src.backtester import (
     backtest_from_entry_date,
 )
 
-from src.company_universe import (
+from src.universe.company_universe import (
     DEFAULT_UNIVERSE,
     get_tickers,
 )

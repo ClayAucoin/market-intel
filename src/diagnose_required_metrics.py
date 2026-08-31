@@ -1,6 +1,6 @@
 import sys
 
-from src.company_universe import (
+from src.universe.company_universe import (
     get_company,
 )
 
