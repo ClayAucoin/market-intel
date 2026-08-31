@@ -14,7 +14,7 @@ from src.notifications.notifier import (
     send_notification,
 )
 
-from src.run_paper_trading import (
+from src.paper_trading.run_paper_trading import (
     main as run_paper_trading,
 )
 

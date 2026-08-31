@@ -1,10 +1,10 @@
-from src.paper_position_manager import (
+from src.paper_trading.paper_position_manager import (
     main as manage_positions,
 )
-from src.paper_trading_engine import (
+from src.paper_trading.paper_trading_engine import (
     main as process_signals,
 )
-from src.paper_trading_report import (
+from src.paper_trading.paper_trading_report import (
     main as show_report,
 )
 
