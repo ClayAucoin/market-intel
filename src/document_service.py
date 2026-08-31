@@ -1,8 +1,8 @@
 import requests
 
 from src.database import get_connection
-from src.filing_parser import html_to_text
-from src.sec_client import SEC_HEADERS
+from src.sec.filing_parser import html_to_text
+from src.sec.sec_client import SEC_HEADERS
 
 
 def get_exhibit_by_id(exhibit_id):

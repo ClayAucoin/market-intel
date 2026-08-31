@@ -4,7 +4,7 @@ from pathlib import Path
 
 import requests
 
-from src.sec_client import SEC_HEADERS
+from src.sec.sec_client import SEC_HEADERS
 
 
 BASE_URL = (

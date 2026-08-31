@@ -1,6 +1,6 @@
 from src.company_repository import get_company_by_ticker
-from src.filing_repository import save_filings
-from src.sec_client import get_company
+from src.sec.filing_repository import save_filings
+from src.sec.sec_client import get_company
 
 
 def parse_recent_filings(sec_data):

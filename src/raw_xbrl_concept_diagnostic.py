@@ -6,7 +6,7 @@ from src.issuer_repository import (
     get_issuer_history_by_ticker,
 )
 
-from src.xbrl_client import (
+from src.sec.xbrl_client import (
     get_company_facts,
 )
 

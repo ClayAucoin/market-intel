@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 
-from src.filing_document import download_filing
+from src.sec.filing_document import download_filing
 
 
 def html_to_text(html):

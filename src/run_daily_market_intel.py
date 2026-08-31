@@ -77,7 +77,7 @@ def refresh_filings():
     )
 
     run_module(
-        "src.import_universe_filings",
+        "src.sec.import_universe_filings",
         UNIVERSE,
     )
 

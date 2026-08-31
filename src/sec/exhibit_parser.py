@@ -2,11 +2,11 @@ import requests
 from bs4 import BeautifulSoup
 from urllib.parse import urljoin
 
-from src.filing_document import (
+from src.sec.filing_document import (
     build_filing_index_url,
     get_latest_filing,
 )
-from src.sec_client import SEC_HEADERS
+from src.sec.sec_client import SEC_HEADERS
 
 
 def get_filing_documents(ticker, form):

@@ -9,7 +9,7 @@ from src.financial_metrics import (
     get_metric_history,
 )
 
-from src.xbrl_client import (
+from src.sec.xbrl_client import (
     get_company_facts,
 )
 

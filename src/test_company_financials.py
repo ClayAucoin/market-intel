@@ -6,7 +6,7 @@ from src.financial_history import (
     build_quarterly_history,
 )
 
-from src.xbrl_client import (
+from src.sec.xbrl_client import (
     get_company_facts,
 )
 

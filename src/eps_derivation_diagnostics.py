@@ -6,7 +6,7 @@ from src.universe.company_universe import (
     get_company,
 )
 
-from src.xbrl_client import (
+from src.sec.xbrl_client import (
     get_company_facts,
 )
 

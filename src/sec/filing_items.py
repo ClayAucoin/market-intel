@@ -1,6 +1,6 @@
 import re
 
-from src.filing_parser import get_filing_text
+from src.sec.filing_parser import get_filing_text
 
 
 ITEM_PATTERN = re.compile(

@@ -1,5 +1,5 @@
 from src.company_repository import save_companies
-from src.sec_client import get_company_tickers
+from src.sec.sec_client import get_company_tickers
 
 
 def import_company_universe():

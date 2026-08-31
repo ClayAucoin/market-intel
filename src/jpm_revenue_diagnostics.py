@@ -2,7 +2,7 @@ from src.company_repository import (
     get_company_by_ticker,
 )
 
-from src.xbrl_client import (
+from src.sec.xbrl_client import (
     get_company_facts,
 )
 

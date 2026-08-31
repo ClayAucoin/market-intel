@@ -1,6 +1,6 @@
 from src.database import get_connection
-from src.exhibit_repository import save_exhibits
-from src.exhibit_parser import (
+from src.sec.exhibit_repository import save_exhibits
+from src.sec.exhibit_parser import (
     get_filing_documents_by_accession,
 )
 

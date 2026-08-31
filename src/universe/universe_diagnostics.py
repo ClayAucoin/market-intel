@@ -1,6 +1,6 @@
 from src.universe.company_universe import get_companies
 from src.database import get_connection
-from src.xbrl_client import get_company_facts
+from src.sec.xbrl_client import get_company_facts
 
 
 SEARCH_TERMS = {

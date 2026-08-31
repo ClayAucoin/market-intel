@@ -13,7 +13,7 @@ from src.database import (
     get_connection,
 )
 
-from src.sec_submissions import (
+from src.sec.sec_submissions import (
     get_submission_records,
 )
 

@@ -1,5 +1,5 @@
-from src.exhibit_parser import get_filing_documents
-from src.exhibit_repository import save_exhibits
+from src.sec.exhibit_parser import get_filing_documents
+from src.sec.exhibit_repository import save_exhibits
 
 
 def import_exhibits(ticker, form):
