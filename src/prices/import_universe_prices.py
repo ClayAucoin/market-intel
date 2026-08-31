@@ -7,11 +7,11 @@ from src.company_universe import (
     get_tickers,
 )
 
-from src.price_client import (
+from src.prices.price_client import (
     get_historical_prices,
 )
 
-from src.price_repository import (
+from src.prices.price_repository import (
     get_latest_price_date,
     save_daily_prices,
 )

@@ -6,7 +6,7 @@ from src.daily_logger import (
     stop_daily_log,
 )
 
-from src.import_universe_prices import (
+from src.prices.import_universe_prices import (
     import_universe_prices,
 )
 

@@ -1,8 +1,8 @@
-from src.price_client import (
+from src.prices.price_client import (
     get_historical_prices,
 )
 
-from src.price_repository import (
+from src.prices.price_repository import (
     save_daily_prices,
 )
 
