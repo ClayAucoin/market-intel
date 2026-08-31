@@ -1,6 +1,6 @@
 from decimal import Decimal
 
-from src.signal_calculator import (
+from src.analysis.signal_calculator import (
     calculate_acceleration,
     get_metric_history,
 )

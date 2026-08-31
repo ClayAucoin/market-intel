@@ -1,6 +1,6 @@
 import sys
 
-from src.signal_scorer import (
+from src.analysis.signal_scorer import (
     print_score,
     score_event,
 )

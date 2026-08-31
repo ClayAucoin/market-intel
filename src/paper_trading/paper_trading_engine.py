@@ -2,12 +2,12 @@ from datetime import date
 from decimal import Decimal
 
 from src.database import get_connection
-from src.latest_signal_report import (
+from src.analysis.latest_signal_report import (
     add_scores,
     get_latest_events,
 )
 from src.notifications.notifier import send_notification
-from src.sector_confidence import (
+from src.analysis.sector_confidence import (
     build_sector_confidence_map,
 )
 from src.backtesting.time_split_statistics import (

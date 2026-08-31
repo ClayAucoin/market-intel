@@ -6,7 +6,7 @@ from src.backtesting.backtester import (
 
 from src.database import get_connection
 
-from src.event_timing import (
+from src.analysis.event_timing import (
     get_financial_events,
 )
 

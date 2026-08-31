@@ -2,7 +2,7 @@ from datetime import timedelta
 from decimal import Decimal
 
 from src.database import get_connection
-from src.event_timing import (
+from src.analysis.event_timing import (
     get_event_entry_date,
     get_financial_events,
 )

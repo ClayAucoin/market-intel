@@ -8,14 +8,14 @@ from statistics import median
 from src.database import (
     get_connection,
 )
-from src.recommendation_engine import (
+from src.analysis.recommendation_engine import (
     get_recommendation,
 )
-from src.sector_confidence import (
+from src.analysis.sector_confidence import (
     classify_sector,
     get_strong_sector_stats,
 )
-from src.signal_scorer import (
+from src.analysis.signal_scorer import (
     score_event,
 )
 from src.backtesting.time_split_statistics import (
