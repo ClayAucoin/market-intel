@@ -8,7 +8,6 @@ from src.analysis.experimental_signal import (
 )
 from src.analysis.latest_signal_report import (
     add_scores,
-    get_latest_events,
 )
 from src.notifications.notifier import (
     send_notification,
@@ -340,15 +339,11 @@ def determine_action(
                 (
                     f"Proposed {ticker} "
                     f"exposure would be "
-                    f"{format_money(
-                        proposed_exposure
-                    )}, above the "
-                    f"{account[
-                        'ticker_cap_percent'
-                    ]}% portfolio cap of "
-                    f"{format_money(
-                        maximum_allowed
-                    )}."
+                    f"{format_money(proposed_exposure)}, "
+                    f"above the "
+                    f"{account['ticker_cap_percent']}% "
+                    f"portfolio cap of "
+                    f"{format_money(maximum_allowed)}."
                 ),
         }
 
@@ -437,9 +432,7 @@ def insert_or_update_signal(
             row.get("period_end"),
             item["score"],
             item["classification"],
-            item[
-                "sector_confidence"
-            ],
+            item["sector_confidence"],
             item["recommendation"],
             item["priority"],
             item[
@@ -587,6 +580,7 @@ def save_action(
 
 
 def get_current_recommendations(
+    account_start_date,
     universe_name="expanded_200",
 ):
     rows = get_events(
@@ -604,12 +598,19 @@ def get_current_recommendations(
         )
     )
 
-    latest_rows = get_latest_events(
-        rows
-    )
+    prospective_rows = [
+        row
+        for row in rows
+        if (
+            row.get("entry_date")
+            is not None
+            and row["entry_date"]
+            > account_start_date
+        )
+    ]
 
     return add_scores(
-        latest_rows,
+        prospective_rows,
         confidence_map,
     )
 
@@ -636,10 +637,7 @@ def process_recommendation(
         account["created_at"].date()
     )
 
-    if (
-        signal_date
-        <= account_start_date
-    ):
+    if signal_date <= account_start_date:
         return {
             "status": "BEFORE_ACCOUNT",
             "ticker": ticker,
@@ -665,8 +663,7 @@ def process_recommendation(
 
     if (
         existing is not None
-        and existing["action"]
-        != "WAIT"
+        and existing["action"] != "WAIT"
     ):
         return {
             "status":
@@ -759,21 +756,15 @@ def send_buy_notification(
         f"Experimental qualification:\n"
         f"Revenue acceleration: "
         f"{format_percent(
-            result[
-                'revenue_acceleration'
-            ]
+            result['revenue_acceleration']
         )}\n"
         f"Operating margin change: "
         f"{format_percent(
-            result[
-                'operating_margin_change'
-            ]
+            result['operating_margin_change']
         )}\n"
         f"20-day excess return vs. SPY: "
         f"{format_percent(
-            result[
-                'pre_excess_20d'
-            ]
+            result['pre_excess_20d']
         )}\n\n"
         f"Required thresholds:\n"
         f"Revenue acceleration >= 20%\n"
@@ -817,16 +808,12 @@ def print_account(account):
 
     print(
         f"Available cash:  "
-        f"{format_money(
-            account['cash']
-        )}"
+        f"{format_money(account['cash'])}"
     )
 
     print(
         f"Open invested:   "
-        f"{format_money(
-            invested
-        )}"
+        f"{format_money(invested)}"
     )
 
     print(
@@ -842,16 +829,12 @@ def print_account(account):
 
     print(
         f"Trade size:      "
-        f"{format_money(
-            account['trade_size']
-        )}"
+        f"{format_money(account['trade_size'])}"
     )
 
     print(
         f"Ticker cap:      "
-        f"{account[
-            'ticker_cap_percent'
-        ]}%"
+        f"{account['ticker_cap_percent']}%"
     )
 
     print(
@@ -886,7 +869,11 @@ def main():
     )
 
     recommendations = (
-        get_current_recommendations()
+        get_current_recommendations(
+            account[
+                "created_at"
+            ].date()
+        )
     )
 
     results = []
@@ -894,31 +881,22 @@ def main():
     for item in sorted(
         recommendations,
         key=lambda value: (
-            value["row"][
-                "entry_date"
-            ],
+            value["row"]["entry_date"],
             value["priority"],
             value["score"],
-            value["row"][
-                "ticker"
-            ],
+            value["row"]["ticker"],
         ),
     ):
-        result = (
-            process_recommendation(
-                account,
-                item,
-            )
+        result = process_recommendation(
+            account,
+            item,
         )
 
         results.append(
             result
         )
 
-        if (
-            result["status"]
-            == "BUY"
-        ):
+        if result["status"] == "BUY":
             send_buy_notification(
                 result
             )
@@ -971,27 +949,21 @@ def main():
             print(
                 f"  Revenue acceleration: "
                 f"{format_percent(
-                    result[
-                        'revenue_acceleration'
-                    ]
+                    result['revenue_acceleration']
                 )}"
             )
 
             print(
                 f"  Operating margin change: "
                 f"{format_percent(
-                    result[
-                        'operating_margin_change'
-                    ]
+                    result['operating_margin_change']
                 )}"
             )
 
             print(
                 f"  20d excess vs. SPY: "
                 f"{format_percent(
-                    result[
-                        'pre_excess_20d'
-                    ]
+                    result['pre_excess_20d']
                 )}"
             )
 
@@ -1001,9 +973,7 @@ def main():
             ):
                 print(
                     f"  Entry price: "
-                    f"${result[
-                        'entry_price'
-                    ]}"
+                    f"${result['entry_price']}"
                 )
 
             print(
