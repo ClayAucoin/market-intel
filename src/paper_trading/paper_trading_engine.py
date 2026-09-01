@@ -10,7 +10,9 @@ from src.analysis.latest_signal_report import (
     add_scores,
     get_latest_events,
 )
-from src.notifications.notifier import send_notification
+from src.notifications.notifier import (
+    send_notification,
+)
 from src.analysis.sector_confidence import (
     build_sector_confidence_map,
 )
@@ -57,23 +59,32 @@ def get_account():
                 query,
                 (ACCOUNT_NAME,),
             )
+
             row = cur.fetchone()
 
     if row is None:
         raise ValueError(
-            f"Paper account not found: {ACCOUNT_NAME}"
+            f"Paper account not found: "
+            f"{ACCOUNT_NAME}"
         )
 
     return {
         "id": row[0],
         "name": row[1],
-        "starting_cash": Decimal(str(row[2])),
-        "cash": Decimal(str(row[3])),
-        "trade_size": Decimal(str(row[4])),
-        "ticker_cap_percent": Decimal(str(row[5])),
-        "minimum_priority": int(row[6]),
-        "holding_days": int(row[7]),
-        "created_at": row[8],
+        "starting_cash":
+            Decimal(str(row[2])),
+        "cash":
+            Decimal(str(row[3])),
+        "trade_size":
+            Decimal(str(row[4])),
+        "ticker_cap_percent":
+            Decimal(str(row[5])),
+        "minimum_priority":
+            int(row[6]),
+        "holding_days":
+            int(row[7]),
+        "created_at":
+            row[8],
     }
 
 
@@ -108,6 +119,7 @@ def get_event_ids(
                     entry_date,
                 ),
             )
+
             row = cur.fetchone()
 
     if row is None:
@@ -140,6 +152,7 @@ def get_entry_price(
                     entry_date,
                 ),
             )
+
             row = cur.fetchone()
 
     if (
@@ -148,7 +161,9 @@ def get_entry_price(
     ):
         return None
 
-    return Decimal(str(row[0]))
+    return Decimal(
+        str(row[0])
+    )
 
 
 def get_existing_signal(
@@ -178,6 +193,7 @@ def get_existing_signal(
                     signal_date,
                 ),
             )
+
             row = cur.fetchone()
 
     if row is None:
@@ -210,15 +226,15 @@ def get_open_positions(
                 query,
                 (account_id,),
             )
+
             rows = cur.fetchall()
 
     return [
         {
             "id": row[0],
             "ticker": row[1],
-            "invested_amount": Decimal(
-                str(row[2])
-            ),
+            "invested_amount":
+                Decimal(str(row[2])),
         }
         for row in rows
     ]
@@ -230,7 +246,9 @@ def get_ticker_exposure(
 ):
     return sum(
         (
-            position["invested_amount"]
+            position[
+                "invested_amount"
+            ]
             for position in positions
             if (
                 position["ticker"].upper()
@@ -246,7 +264,9 @@ def get_total_invested(
 ):
     return sum(
         (
-            position["invested_amount"]
+            position[
+                "invested_amount"
+            ]
             for position in positions
         ),
         Decimal("0"),
@@ -283,9 +303,11 @@ def determine_action(
                 "the required trade size.",
         }
 
-    ticker_exposure = get_ticker_exposure(
-        positions,
-        ticker,
+    ticker_exposure = (
+        get_ticker_exposure(
+            positions,
+            ticker,
+        )
     )
 
     proposed_exposure = (
@@ -302,22 +324,31 @@ def determine_action(
 
     maximum_allowed = (
         portfolio_value_for_cap
-        * account["ticker_cap_percent"]
+        * account[
+            "ticker_cap_percent"
+        ]
         / Decimal("100")
     )
 
-    if proposed_exposure > maximum_allowed:
+    if (
+        proposed_exposure
+        > maximum_allowed
+    ):
         return {
             "action": "SKIP_CAP",
             "reason":
                 (
-                    f"Proposed {ticker} exposure "
-                    f"would be "
-                    f"{format_money(proposed_exposure)}, "
-                    f"above the "
-                    f"{account['ticker_cap_percent']}% "
-                    f"portfolio cap of "
-                    f"{format_money(maximum_allowed)}."
+                    f"Proposed {ticker} "
+                    f"exposure would be "
+                    f"{format_money(
+                        proposed_exposure
+                    )}, above the "
+                    f"{account[
+                        'ticker_cap_percent'
+                    ]}% portfolio cap of "
+                    f"{format_money(
+                        maximum_allowed
+                    )}."
                 ),
         }
 
@@ -326,17 +357,41 @@ def determine_action(
         "reason":
             "Experimental signal passed: "
             f"{SIGNAL_DESCRIPTION}. "
-            "Cash and per-ticker risk cap also passed.",
+            "Cash and per-ticker risk cap "
+            "also passed.",
     }
 
 
-def insert_signal(
+def insert_or_update_signal(
+    cur,
     account,
     item,
     ids,
     action,
+    existing,
 ):
     row = item["row"]
+
+    if existing is not None:
+        query = """
+            UPDATE paper_signals
+            SET
+                action = %s,
+                action_reason = %s
+            WHERE id = %s
+            RETURNING id
+        """
+
+        cur.execute(
+            query,
+            (
+                action["action"],
+                action["reason"],
+                existing["id"],
+            ),
+        )
+
+        return cur.fetchone()[0]
 
     query = """
         INSERT INTO paper_signals (
@@ -370,76 +425,47 @@ def insert_signal(
         RETURNING id
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (
-                    account["id"],
-                    ids["security_id"],
-                    ids["backtest_event_id"],
-                    row["ticker"],
-                    row.get("sector"),
-                    row["entry_date"],
-                    row.get("period_end"),
-                    item["score"],
-                    item["classification"],
-                    item["sector_confidence"],
-                    item["recommendation"],
-                    item["priority"],
-                    item[
-                        "recommendation_reason"
-                    ],
-                    row.get("revenue_yoy"),
-                    row.get(
-                        "revenue_acceleration"
-                    ),
-                    row.get("eps_yoy"),
-                    row.get(
-                        "operating_margin_change"
-                    ),
-                    row.get(
-                        "pre_excess_20d"
-                    ),
-                    action["action"],
-                    action["reason"],
-                ),
-            )
+    cur.execute(
+        query,
+        (
+            account["id"],
+            ids["security_id"],
+            ids["backtest_event_id"],
+            row["ticker"],
+            row.get("sector"),
+            row["entry_date"],
+            row.get("period_end"),
+            item["score"],
+            item["classification"],
+            item[
+                "sector_confidence"
+            ],
+            item["recommendation"],
+            item["priority"],
+            item[
+                "recommendation_reason"
+            ],
+            row.get("revenue_yoy"),
+            row.get(
+                "revenue_acceleration"
+            ),
+            row.get("eps_yoy"),
+            row.get(
+                "operating_margin_change"
+            ),
+            row.get(
+                "pre_excess_20d"
+            ),
+            action["action"],
+            action["reason"],
+        ),
+    )
 
-            signal_id = cur.fetchone()[0]
-
-        conn.commit()
-
-    return signal_id
+    return cur.fetchone()[0]
 
 
-def update_signal_action(
-    signal_id,
-    action,
-):
-    query = """
-        UPDATE paper_signals
-        SET
-            action = %s,
-            action_reason = %s
-        WHERE id = %s
-    """
-
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (
-                    action["action"],
-                    action["reason"],
-                    signal_id,
-                ),
-            )
-
-        conn.commit()
-
-
-def open_position(
+def open_position_in_transaction(
+    cur,
     account,
     signal_id,
     item,
@@ -453,7 +479,7 @@ def open_position(
         / entry_price
     )
 
-    query = """
+    insert_position = """
         INSERT INTO paper_positions (
             account_id,
             signal_id,
@@ -480,6 +506,22 @@ def open_position(
         )
     """
 
+    cur.execute(
+        insert_position,
+        (
+            account["id"],
+            signal_id,
+            ids["security_id"],
+            row["ticker"],
+            row["entry_date"],
+            entry_price,
+            shares,
+            account["trade_size"],
+            row["entry_date"],
+            account["holding_days"],
+        ),
+    )
+
     update_account = """
         UPDATE paper_accounts
         SET
@@ -488,37 +530,60 @@ def open_position(
         WHERE id = %s
     """
 
+    cur.execute(
+        update_account,
+        (
+            account["trade_size"],
+            account["id"],
+        ),
+    )
+
+
+def save_action(
+    account,
+    item,
+    ids,
+    action,
+    existing,
+    entry_price,
+):
     with get_connection() as conn:
         with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (
-                    account["id"],
-                    signal_id,
-                    ids["security_id"],
-                    row["ticker"],
-                    row["entry_date"],
-                    entry_price,
-                    shares,
-                    account["trade_size"],
-                    row["entry_date"],
-                    account["holding_days"],
-                ),
+            signal_id = (
+                insert_or_update_signal(
+                    cur,
+                    account,
+                    item,
+                    ids,
+                    action,
+                    existing,
+                )
             )
 
-            cur.execute(
-                update_account,
-                (
-                    account["trade_size"],
-                    account["id"],
-                ),
-            )
+            if (
+                action["action"]
+                == "BUY"
+            ):
+                open_position_in_transaction(
+                    cur,
+                    account,
+                    signal_id,
+                    item,
+                    ids,
+                    entry_price,
+                )
 
         conn.commit()
 
-    account["cash"] -= (
-        account["trade_size"]
-    )
+    if (
+        action["action"]
+        == "BUY"
+    ):
+        account["cash"] -= (
+            account["trade_size"]
+        )
+
+    return signal_id
 
 
 def get_current_recommendations(
@@ -571,7 +636,10 @@ def process_recommendation(
         account["created_at"].date()
     )
 
-    if signal_date <= account_start_date:
+    if (
+        signal_date
+        <= account_start_date
+    ):
         return {
             "status": "BEFORE_ACCOUNT",
             "ticker": ticker,
@@ -597,12 +665,15 @@ def process_recommendation(
 
     if (
         existing is not None
-        and existing["action"] != "WAIT"
+        and existing["action"]
+        != "WAIT"
     ):
         return {
-            "status": "ALREADY_RECORDED",
+            "status":
+                "ALREADY_RECORDED",
             "ticker": ticker,
-            "action": existing["action"],
+            "action":
+                existing["action"],
         }
 
     entry_price = get_entry_price(
@@ -616,30 +687,14 @@ def process_recommendation(
         entry_price,
     )
 
-    if existing is None:
-        signal_id = insert_signal(
-            account,
-            item,
-            ids,
-            action,
-        )
-
-    else:
-        signal_id = existing["id"]
-
-        update_signal_action(
-            signal_id,
-            action,
-        )
-
-    if action["action"] == "BUY":
-        open_position(
-            account,
-            signal_id,
-            item,
-            ids,
-            entry_price,
-        )
+    save_action(
+        account,
+        item,
+        ids,
+        action,
+        existing,
+        entry_price,
+    )
 
     return {
         "status": action["action"],
@@ -649,8 +704,10 @@ def process_recommendation(
         "score": item["score"],
         "recommendation":
             item["recommendation"],
-        "reason": action["reason"],
-        "entry_price": entry_price,
+        "reason":
+            action["reason"],
+        "entry_price":
+            entry_price,
         "revenue_acceleration":
             row.get(
                 "revenue_acceleration"
@@ -669,10 +726,14 @@ def process_recommendation(
 def send_buy_notification(
     result,
 ):
-    entry_price = result["entry_price"]
+    entry_price = (
+        result["entry_price"]
+    )
 
     if entry_price is None:
-        price_text = "Not available"
+        price_text = (
+            "Not available"
+        )
     else:
         price_text = format_money(
             entry_price
@@ -691,26 +752,34 @@ def send_buy_notification(
         f"Entry price: {price_text}\n"
         f"Priority: "
         f"{result['priority']}\n"
-        f"Score: {result['score']}\n"
+        f"Score: "
+        f"{result['score']}\n"
         f"Recommendation: "
         f"{result['recommendation']}\n\n"
         f"Experimental qualification:\n"
         f"Revenue acceleration: "
         f"{format_percent(
-            result['revenue_acceleration']
+            result[
+                'revenue_acceleration'
+            ]
         )}\n"
         f"Operating margin change: "
         f"{format_percent(
-            result['operating_margin_change']
+            result[
+                'operating_margin_change'
+            ]
         )}\n"
         f"20-day excess return vs. SPY: "
         f"{format_percent(
-            result['pre_excess_20d']
+            result[
+                'pre_excess_20d'
+            ]
         )}\n\n"
         f"Required thresholds:\n"
         f"Revenue acceleration >= 20%\n"
         f"Operating margin change > 0%\n"
-        f"20-day excess return vs. SPY > 0%\n\n"
+        f"20-day excess return vs. SPY "
+        f"> 0%\n\n"
         f"Reason:\n"
         f"{result['reason']}\n\n"
         f"This is a paper-trading signal, "
@@ -748,12 +817,16 @@ def print_account(account):
 
     print(
         f"Available cash:  "
-        f"{format_money(account['cash'])}"
+        f"{format_money(
+            account['cash']
+        )}"
     )
 
     print(
         f"Open invested:   "
-        f"{format_money(invested)}"
+        f"{format_money(
+            invested
+        )}"
     )
 
     print(
@@ -769,12 +842,16 @@ def print_account(account):
 
     print(
         f"Trade size:      "
-        f"{format_money(account['trade_size'])}"
+        f"{format_money(
+            account['trade_size']
+        )}"
     )
 
     print(
         f"Ticker cap:      "
-        f"{account['ticker_cap_percent']}%"
+        f"{account[
+            'ticker_cap_percent'
+        ]}%"
     )
 
     print(
@@ -804,7 +881,8 @@ def main():
     )
 
     print(
-        f"Qualification: {SIGNAL_DESCRIPTION}"
+        f"Qualification: "
+        f"{SIGNAL_DESCRIPTION}"
     )
 
     recommendations = (
@@ -816,22 +894,31 @@ def main():
     for item in sorted(
         recommendations,
         key=lambda value: (
-            value["row"]["entry_date"],
+            value["row"][
+                "entry_date"
+            ],
             value["priority"],
             value["score"],
-            value["row"]["ticker"],
+            value["row"][
+                "ticker"
+            ],
         ),
     ):
-        result = process_recommendation(
-            account,
-            item,
+        result = (
+            process_recommendation(
+                account,
+                item,
+            )
         )
 
         results.append(
             result
         )
 
-        if result["status"] == "BUY":
+        if (
+            result["status"]
+            == "BUY"
+        ):
             send_buy_notification(
                 result
             )
@@ -884,21 +971,27 @@ def main():
             print(
                 f"  Revenue acceleration: "
                 f"{format_percent(
-                    result['revenue_acceleration']
+                    result[
+                        'revenue_acceleration'
+                    ]
                 )}"
             )
 
             print(
                 f"  Operating margin change: "
                 f"{format_percent(
-                    result['operating_margin_change']
+                    result[
+                        'operating_margin_change'
+                    ]
                 )}"
             )
 
             print(
                 f"  20d excess vs. SPY: "
                 f"{format_percent(
-                    result['pre_excess_20d']
+                    result[
+                        'pre_excess_20d'
+                    ]
                 )}"
             )
 
@@ -908,7 +1001,9 @@ def main():
             ):
                 print(
                     f"  Entry price: "
-                    f"${result['entry_price']}"
+                    f"${result[
+                        'entry_price'
+                    ]}"
                 )
 
             print(
