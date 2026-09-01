@@ -6,6 +6,13 @@ from src.database import get_connection
 ACCOUNT_NAME = "Primary Paper Account"
 
 
+def to_decimal(value):
+    if value is None:
+        return None
+
+    return Decimal(str(value))
+
+
 def format_money(value):
     if value is None:
         return "$0.00"
@@ -55,25 +62,55 @@ def get_account():
     return {
         "id": row[0],
         "name": row[1],
-        "starting_cash": Decimal(
-            str(row[2])
+        "starting_cash":
+            Decimal(str(row[2])),
+        "cash":
+            Decimal(str(row[3])),
+        "trade_size":
+            Decimal(str(row[4])),
+        "ticker_cap_percent":
+            Decimal(str(row[5])),
+        "minimum_priority":
+            int(row[6]),
+        "holding_days":
+            int(row[7]),
+        "created_at":
+            row[8],
+    }
+
+
+def get_latest_price(ticker):
+    query = """
+        SELECT
+            trade_date,
+            adjusted_close
+        FROM daily_prices
+        WHERE UPPER(symbol) = UPPER(%s)
+          AND adjusted_close IS NOT NULL
+        ORDER BY trade_date DESC
+        LIMIT 1
+    """
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                query,
+                (ticker,),
+            )
+
+            row = cur.fetchone()
+
+    if row is None:
+        return {
+            "trade_date": None,
+            "price": None,
+        }
+
+    return {
+        "trade_date": row[0],
+        "price": to_decimal(
+            row[1]
         ),
-        "cash": Decimal(
-            str(row[3])
-        ),
-        "trade_size": Decimal(
-            str(row[4])
-        ),
-        "ticker_cap_percent": Decimal(
-            str(row[5])
-        ),
-        "minimum_priority": int(
-            row[6]
-        ),
-        "holding_days": int(
-            row[7]
-        ),
-        "created_at": row[8],
     }
 
 
@@ -114,24 +151,92 @@ def get_open_positions(
 
             rows = cur.fetchall()
 
-    return [
-        {
-            "ticker": row[0],
-            "entry_date": row[1],
-            "entry_price": row[2],
-            "shares": row[3],
-            "invested_amount": row[4],
-            "planned_exit_date": row[5],
-            "score": row[6],
-            "priority": row[7],
-            "recommendation": row[8],
-            "sector_confidence": row[9],
-            "revenue_acceleration": row[10],
-            "operating_margin_change": row[11],
-            "pre_excess_20d": row[12],
-        }
-        for row in rows
-    ]
+    positions = []
+
+    for row in rows:
+        ticker = row[0]
+
+        latest_price = get_latest_price(
+            ticker
+        )
+
+        shares = to_decimal(
+            row[3]
+        )
+
+        invested_amount = to_decimal(
+            row[4]
+        )
+
+        current_price = (
+            latest_price["price"]
+        )
+
+        market_value = None
+        unrealized_profit = None
+        unrealized_return = None
+
+        if (
+            current_price is not None
+            and shares is not None
+        ):
+            market_value = (
+                shares
+                * current_price
+            )
+
+            unrealized_profit = (
+                market_value
+                - invested_amount
+            )
+
+            if invested_amount != 0:
+                unrealized_return = (
+                    unrealized_profit
+                    / invested_amount
+                    * Decimal("100")
+                )
+
+        positions.append(
+            {
+                "ticker": ticker,
+                "entry_date": row[1],
+                "entry_price":
+                    to_decimal(row[2]),
+                "shares":
+                    shares,
+                "invested_amount":
+                    invested_amount,
+                "planned_exit_date":
+                    row[5],
+                "score": row[6],
+                "priority": row[7],
+                "recommendation":
+                    row[8],
+                "sector_confidence":
+                    row[9],
+                "revenue_acceleration":
+                    row[10],
+                "operating_margin_change":
+                    row[11],
+                "pre_excess_20d":
+                    row[12],
+                "latest_price_date":
+                    latest_price[
+                        "trade_date"
+                    ],
+                "current_price":
+                    current_price,
+                "market_value":
+                    market_value,
+                "unrealized_profit":
+                    unrealized_profit,
+                "unrealized_return":
+                    unrealized_return,
+            }
+        )
+
+    return positions
 
 
 def get_closed_positions(
@@ -177,17 +282,25 @@ def get_closed_positions(
             "ticker": row[0],
             "entry_date": row[1],
             "exit_date": row[2],
-            "invested_amount": row[3],
-            "exit_value": row[4],
-            "profit": row[5],
-            "return_percent": row[6],
+            "invested_amount":
+                to_decimal(row[3]),
+            "exit_value":
+                to_decimal(row[4]),
+            "profit":
+                to_decimal(row[5]),
+            "return_percent":
+                to_decimal(row[6]),
             "score": row[7],
             "priority": row[8],
             "recommendation": row[9],
-            "sector_confidence": row[10],
-            "revenue_acceleration": row[11],
-            "operating_margin_change": row[12],
-            "pre_excess_20d": row[13],
+            "sector_confidence":
+                row[10],
+            "revenue_acceleration":
+                row[11],
+            "operating_margin_change":
+                row[12],
+            "pre_excess_20d":
+                row[13],
         }
         for row in rows
     ]
@@ -225,21 +338,27 @@ def print_signal_details(position):
     print(
         f"  Revenue acceleration: "
         f"{format_percent(
-            position['revenue_acceleration']
+            position[
+                'revenue_acceleration'
+            ]
         )}"
     )
 
     print(
         f"  Operating margin change: "
         f"{format_percent(
-            position['operating_margin_change']
+            position[
+                'operating_margin_change'
+            ]
         )}"
     )
 
     print(
         f"  20d excess vs. SPY: "
         f"{format_percent(
-            position['pre_excess_20d']
+            position[
+                'pre_excess_20d'
+            ]
         )}"
     )
 
@@ -247,61 +366,118 @@ def print_signal_details(position):
 def main():
     account = get_account()
 
-    open_positions = get_open_positions(
-        account["id"]
+    open_positions = (
+        get_open_positions(
+            account["id"]
+        )
     )
 
-    closed_positions = get_closed_positions(
-        account["id"]
+    closed_positions = (
+        get_closed_positions(
+            account["id"]
+        )
     )
 
-    signal_summary = get_signal_summary(
-        account["id"]
+    signal_summary = (
+        get_signal_summary(
+            account["id"]
+        )
     )
 
     open_invested = sum(
         (
-            Decimal(
-                str(position[
-                    "invested_amount"
-                ])
-            )
+            position[
+                "invested_amount"
+            ]
             for position
             in open_positions
+            if (
+                position[
+                    "invested_amount"
+                ]
+                is not None
+            )
+        ),
+        Decimal("0"),
+    )
+
+    open_market_value = sum(
+        (
+            position[
+                "market_value"
+            ]
+            for position
+            in open_positions
+            if (
+                position[
+                    "market_value"
+                ]
+                is not None
+            )
+        ),
+        Decimal("0"),
+    )
+
+    unrealized_profit = sum(
+        (
+            position[
+                "unrealized_profit"
+            ]
+            for position
+            in open_positions
+            if (
+                position[
+                    "unrealized_profit"
+                ]
+                is not None
+            )
         ),
         Decimal("0"),
     )
 
     realized_profit = sum(
         (
-            Decimal(
-                str(position["profit"])
-            )
+            position[
+                "profit"
+            ]
             for position
             in closed_positions
-            if position["profit"]
-            is not None
+            if (
+                position["profit"]
+                is not None
+            )
         ),
         Decimal("0"),
     )
 
-    account_value_cost_basis = (
+    account_market_value = (
         account["cash"]
-        + open_invested
+        + open_market_value
     )
 
-    total_return = (
-        (
-            account_value_cost_basis
-            - account[
+    total_profit = (
+        realized_profit
+        + unrealized_profit
+    )
+
+    total_return = Decimal("0")
+
+    if (
+        account["starting_cash"]
+        != 0
+    ):
+        total_return = (
+            (
+                account_market_value
+                - account[
+                    "starting_cash"
+                ]
+            )
+            / account[
                 "starting_cash"
             ]
+            * Decimal("100")
         )
-        / account[
-            "starting_cash"
-        ]
-        * Decimal("100")
-    )
 
     wins = sum(
         1
@@ -310,9 +486,7 @@ def main():
         if (
             position["profit"]
             is not None
-            and Decimal(
-                str(position["profit"])
-            ) > 0
+            and position["profit"] > 0
         )
     )
 
@@ -323,11 +497,62 @@ def main():
         if (
             position["profit"]
             is not None
-            and Decimal(
-                str(position["profit"])
-            ) < 0
+            and position["profit"] < 0
         )
     )
+
+    flat = sum(
+        1
+        for position
+        in closed_positions
+        if (
+            position["profit"]
+            is not None
+            and position["profit"] == 0
+        )
+    )
+
+    completed = (
+        wins
+        + losses
+        + flat
+    )
+
+    win_rate = None
+
+    if completed > 0:
+        win_rate = (
+            Decimal(wins)
+            / Decimal(completed)
+            * Decimal("100")
+        )
+
+    closed_returns = [
+        position[
+            "return_percent"
+        ]
+        for position
+        in closed_positions
+        if (
+            position[
+                "return_percent"
+            ]
+            is not None
+        )
+    ]
+
+    average_closed_return = None
+
+    if closed_returns:
+        average_closed_return = (
+            sum(
+                closed_returns,
+                Decimal("0"),
+            )
+            / Decimal(
+                len(closed_returns)
+            )
+        )
 
     print()
     print(
@@ -348,39 +573,65 @@ def main():
 
     print(
         f"Starting cash:        "
-        f"{format_money(account['starting_cash'])}"
+        f"{format_money(
+            account['starting_cash']
+        )}"
     )
 
     print(
         f"Available cash:       "
-        f"{format_money(account['cash'])}"
+        f"{format_money(
+            account['cash']
+        )}"
     )
 
     print(
-        f"Open invested:        "
-        f"{format_money(open_invested)}"
+        f"Open cost basis:      "
+        f"{format_money(
+            open_invested
+        )}"
     )
 
     print(
-        f"Account value*:       "
-        f"{format_money(account_value_cost_basis)}"
+        f"Open market value:    "
+        f"{format_money(
+            open_market_value
+        )}"
+    )
+
+    print(
+        f"Account market value: "
+        f"{format_money(
+            account_market_value
+        )}"
     )
 
     print(
         f"Realized profit:      "
-        f"{format_money(realized_profit)}"
+        f"{format_money(
+            realized_profit
+        )}"
     )
 
     print(
-        f"Return*:              "
-        f"{format_percent(total_return)}"
+        f"Unrealized profit:    "
+        f"{format_money(
+            unrealized_profit
+        )}"
     )
 
-    print()
+    print(
+        f"Total profit:         "
+        f"{format_money(
+            total_profit
+        )}"
+    )
 
     print(
-        "* Open positions are currently "
-        "valued at cost basis."
+        f"Total return:         "
+        f"{format_percent(
+            total_return
+        )}"
     )
 
     print()
@@ -413,17 +664,23 @@ def main():
 
     print(
         f"Trade size:           "
-        f"{format_money(account['trade_size'])}"
+        f"{format_money(
+            account['trade_size']
+        )}"
     )
 
     print(
         f"Ticker cap:           "
-        f"{account['ticker_cap_percent']}%"
+        f"{account[
+            'ticker_cap_percent'
+        ]}%"
     )
 
     print(
         f"Minimum priority:     "
-        f"{account['minimum_priority']} "
+        f"{account[
+            'minimum_priority'
+        ]} "
         f"(reporting only)"
     )
 
@@ -463,7 +720,9 @@ def main():
         )
 
     else:
-        for position in open_positions:
+        for position in (
+            open_positions
+        ):
             print()
 
             print(
@@ -476,12 +735,16 @@ def main():
 
             print(
                 f"  Recommendation: "
-                f"{position['recommendation']}"
+                f"{position[
+                    'recommendation'
+                ]}"
             )
 
             print(
                 f"  Sector confidence: "
-                f"{position['sector_confidence']}"
+                f"{position[
+                    'sector_confidence'
+                ]}"
             )
 
             print_signal_details(
@@ -490,17 +753,27 @@ def main():
 
             print(
                 f"  Entry date: "
-                f"{position['entry_date']}"
+                f"{position[
+                    'entry_date'
+                ]}"
             )
 
             print(
                 f"  Entry price: "
-                f"{format_money(position['entry_price'])}"
+                f"{format_money(
+                    position[
+                        'entry_price'
+                    ]
+                )}"
             )
 
             print(
                 f"  Invested: "
-                f"{format_money(position['invested_amount'])}"
+                f"{format_money(
+                    position[
+                        'invested_amount'
+                    ]
+                )}"
             )
 
             print(
@@ -509,8 +782,53 @@ def main():
             )
 
             print(
+                f"  Latest price date: "
+                f"{position[
+                    'latest_price_date'
+                ] or 'N/A'}"
+            )
+
+            print(
+                f"  Latest close: "
+                f"{format_money(
+                    position[
+                        'current_price'
+                    ]
+                )}"
+            )
+
+            print(
+                f"  Market value: "
+                f"{format_money(
+                    position[
+                        'market_value'
+                    ]
+                )}"
+            )
+
+            print(
+                f"  Unrealized P/L: "
+                f"{format_money(
+                    position[
+                        'unrealized_profit'
+                    ]
+                )}"
+            )
+
+            print(
+                f"  Unrealized return: "
+                f"{format_percent(
+                    position[
+                        'unrealized_return'
+                    ]
+                )}"
+            )
+
+            print(
                 f"  Planned exit: "
-                f"{position['planned_exit_date']}"
+                f"{position[
+                    'planned_exit_date'
+                ]}"
             )
 
     print()
@@ -527,7 +845,9 @@ def main():
         )
 
     else:
-        for position in closed_positions:
+        for position in (
+            closed_positions
+        ):
             print()
 
             print(
@@ -540,12 +860,16 @@ def main():
 
             print(
                 f"  Recommendation: "
-                f"{position['recommendation']}"
+                f"{position[
+                    'recommendation'
+                ]}"
             )
 
             print(
                 f"  Sector confidence: "
-                f"{position['sector_confidence']}"
+                f"{position[
+                    'sector_confidence'
+                ]}"
             )
 
             print_signal_details(
@@ -554,29 +878,49 @@ def main():
 
             print(
                 f"  "
-                f"{position['entry_date']} "
+                f"{position[
+                    'entry_date'
+                ]} "
                 f"-> "
-                f"{position['exit_date']}"
+                f"{position[
+                    'exit_date'
+                ]}"
             )
 
             print(
                 f"  Invested: "
-                f"{format_money(position['invested_amount'])}"
+                f"{format_money(
+                    position[
+                        'invested_amount'
+                    ]
+                )}"
             )
 
             print(
                 f"  Exit value: "
-                f"{format_money(position['exit_value'])}"
+                f"{format_money(
+                    position[
+                        'exit_value'
+                    ]
+                )}"
             )
 
             print(
                 f"  Profit: "
-                f"{format_money(position['profit'])}"
+                f"{format_money(
+                    position[
+                        'profit'
+                    ]
+                )}"
             )
 
             print(
                 f"  Return: "
-                f"{format_percent(position['return_percent'])}"
+                f"{format_percent(
+                    position[
+                        'return_percent'
+                    ]
+                )}"
             )
 
     print()
@@ -605,6 +949,25 @@ def main():
     print(
         f"Losers:               "
         f"{losses}"
+    )
+
+    print(
+        f"Break-even:           "
+        f"{flat}"
+    )
+
+    print(
+        f"Win rate:             "
+        f"{format_percent(
+            win_rate
+        )}"
+    )
+
+    print(
+        f"Average closed return:"
+        f" {format_percent(
+            average_closed_return
+        )}"
     )
 
 
