@@ -1,9 +1,11 @@
+from datetime import timedelta
 from decimal import Decimal
 
 from src.database import get_connection
 
 
 ACCOUNT_NAME = "Primary Paper Account"
+BENCHMARK_SYMBOL = "SPY"
 
 
 def to_decimal(value):
@@ -111,6 +113,99 @@ def get_latest_price(ticker):
         "price": to_decimal(
             row[1]
         ),
+    }
+
+
+def get_benchmark_performance(
+    symbol,
+    start_date,
+):
+    start_query = """
+        SELECT
+            trade_date,
+            adjusted_close
+        FROM daily_prices
+        WHERE UPPER(symbol) = UPPER(%s)
+          AND trade_date >= %s
+          AND adjusted_close IS NOT NULL
+        ORDER BY trade_date ASC
+        LIMIT 1
+    """
+
+    latest_query = """
+        SELECT
+            trade_date,
+            adjusted_close
+        FROM daily_prices
+        WHERE UPPER(symbol) = UPPER(%s)
+          AND adjusted_close IS NOT NULL
+        ORDER BY trade_date DESC
+        LIMIT 1
+    """
+
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            cur.execute(
+                start_query,
+                (
+                    symbol,
+                    start_date,
+                ),
+            )
+
+            start_row = cur.fetchone()
+
+            cur.execute(
+                latest_query,
+                (symbol,),
+            )
+
+            latest_row = cur.fetchone()
+
+    if (
+        start_row is None
+        or latest_row is None
+    ):
+        return {
+            "symbol": symbol,
+            "start_date": None,
+            "start_price": None,
+            "latest_date": None,
+            "latest_price": None,
+            "return_percent": None,
+        }
+
+    start_price = to_decimal(
+        start_row[1]
+    )
+
+    latest_price = to_decimal(
+        latest_row[1]
+    )
+
+    return_percent = None
+
+    if (
+        start_price is not None
+        and start_price != 0
+        and latest_price is not None
+    ):
+        return_percent = (
+            (
+                latest_price
+                - start_price
+            )
+            / start_price
+            * Decimal("100")
+        )
+
+    return {
+        "symbol": symbol,
+        "start_date": start_row[0],
+        "start_price": start_price,
+        "latest_date": latest_row[0],
+        "latest_price": latest_price,
+        "return_percent": return_percent,
     }
 
 
@@ -384,6 +479,15 @@ def main():
         )
     )
 
+    benchmark = (
+        get_benchmark_performance(
+            BENCHMARK_SYMBOL,
+            account[
+                "created_at"
+            ].date()
+            + timedelta(days=1),        )
+    )
+
     open_invested = sum(
         (
             position[
@@ -477,6 +581,20 @@ def main():
                 "starting_cash"
             ]
             * Decimal("100")
+        )
+
+    benchmark_return = (
+        benchmark[
+            "return_percent"
+        ]
+    )
+
+    excess_vs_benchmark = None
+
+    if benchmark_return is not None:
+        excess_vs_benchmark = (
+            total_return
+            - benchmark_return
         )
 
     wins = sum(
@@ -631,6 +749,57 @@ def main():
         f"Total return:         "
         f"{format_percent(
             total_return
+        )}"
+    )
+
+    print()
+
+    print(
+        "BENCHMARK"
+    )
+
+    print("-" * 100)
+
+    print(
+        f"Benchmark:            "
+        f"{BENCHMARK_SYMBOL}"
+    )
+
+    print(
+        f"Benchmark start date: "
+        f"{benchmark['start_date'] or 'N/A'}"
+    )
+
+    print(
+        f"Benchmark start close:"
+        f" {format_money(
+            benchmark['start_price']
+        )}"
+    )
+
+    print(
+        f"Benchmark latest date:"
+        f" {benchmark['latest_date'] or 'N/A'}"
+    )
+
+    print(
+        f"Benchmark latest close:"
+        f" {format_money(
+            benchmark['latest_price']
+        )}"
+    )
+
+    print(
+        f"Benchmark return:     "
+        f"{format_percent(
+            benchmark_return
+        )}"
+    )
+
+    print(
+        f"Strategy excess:      "
+        f"{format_percent(
+            excess_vs_benchmark
         )}"
     )
 
