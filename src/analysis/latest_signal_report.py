@@ -1,5 +1,9 @@
 import sys
 
+from src.analysis.experimental_signal import (
+    SIGNAL_DESCRIPTION,
+    qualifies_experimental_signal,
+)
 from src.analysis.recommendation_engine import (
     get_recommendation,
 )
@@ -90,6 +94,12 @@ def add_scores(
             )
         )
 
+        experimental_match = (
+            qualifies_experimental_signal(
+                row
+            )
+        )
+
         results.append(
             {
                 "row": row,
@@ -126,6 +136,9 @@ def add_scores(
                     recommendation[
                         "reason"
                     ],
+
+                "experimental_match":
+                    experimental_match,
             }
         )
 
@@ -138,7 +151,7 @@ def print_results(results):
         "LATEST FINANCIAL SIGNAL REPORT"
     )
 
-    print("=" * 190)
+    print("=" * 204)
 
     print(
         f"{'Ticker':<8}"
@@ -148,16 +161,25 @@ def print_results(results):
         f"{'Class':>12}"
         f"{'Sector Conf':>16}"
         f"{'Priority':>10}"
+        f"{'Experimental':>14}"
         f"  {'Recommendation':<32}"
         f"{'Rev Growth':>14}"
         f"{'Rev Accel':>14}"
         f"{'EPS Growth':>14}"
     )
 
-    print("-" * 190)
+    print("-" * 204)
 
     for item in results:
         row = item["row"]
+
+        experimental_text = (
+            "YES"
+            if item[
+                "experimental_match"
+            ]
+            else "-"
+        )
 
         print(
             f"{row['ticker']:<8}"
@@ -167,6 +189,7 @@ def print_results(results):
             f"{item['classification']:>12}"
             f"{item['sector_confidence']:>16}"
             f"{item['priority']:>10}"
+            f"{experimental_text:>14}"
             f"  {item['recommendation']:<32}"
             f"{format_percent(row.get('revenue_yoy')):>14}"
             f"{format_percent(row.get('revenue_acceleration')):>14}"
@@ -217,11 +240,20 @@ def print_priority_summary(results):
         for item in matching:
             row = item["row"]
 
+            experimental_text = (
+                " | EXPERIMENTAL MATCH"
+                if item[
+                    "experimental_match"
+                ]
+                else ""
+            )
+
             print(
                 f"{row['ticker']:<8}"
                 f"{item['score']}/6  "
                 f"{item['sector_confidence']:<16}"
                 f"{item['recommendation']}"
+                f"{experimental_text}"
             )
 
 
@@ -280,6 +312,11 @@ def print_strong_details(results):
         )
 
         print(
+            f"Experimental strategy match: "
+            f"{'YES' if item['experimental_match'] else 'NO'}"
+        )
+
+        print(
             f"Entry date: "
             f"{row['entry_date']}"
         )
@@ -307,8 +344,108 @@ def print_strong_details(results):
             )
 
 
+def print_experimental_matches(
+    results,
+):
+    matches = [
+        item
+        for item in results
+        if item[
+            "experimental_match"
+        ]
+    ]
+
+    matches.sort(
+        key=lambda item: (
+            item["row"]["entry_date"],
+            item["priority"],
+            item["score"],
+        ),
+        reverse=True,
+    )
+
+    print()
+    print(
+        "EXPERIMENTAL STRATEGY MATCHES"
+    )
+
+    print("=" * 110)
+
+    print(
+        f"Qualification: "
+        f"{SIGNAL_DESCRIPTION}"
+    )
+
+    print(
+        f"Current latest-event matches: "
+        f"{len(matches)}"
+    )
+
+    if not matches:
+        print(
+            "No current latest events "
+            "match the experimental strategy."
+        )
+        return
+
+    for item in matches:
+        row = item["row"]
+
+        print()
+        print(
+            f"{row['ticker']} "
+            f"| {row['entry_date']} "
+            f"| Score {item['score']}/6 "
+            f"| Priority {item['priority']}"
+        )
+
+        print(
+            f"  Sector: "
+            f"{row.get('sector') or 'UNKNOWN'}"
+        )
+
+        print(
+            f"  Sector confidence: "
+            f"{item['sector_confidence']}"
+        )
+
+        print(
+            f"  Recommendation: "
+            f"{item['recommendation']}"
+        )
+
+        print(
+            f"  Revenue acceleration: "
+            f"{format_percent(
+                row.get(
+                    'revenue_acceleration'
+                )
+            )}"
+        )
+
+        print(
+            f"  Operating margin change: "
+            f"{format_percent(
+                row.get(
+                    'operating_margin_change'
+                )
+            )}"
+        )
+
+        print(
+            f"  20d excess vs. SPY: "
+            f"{format_percent(
+                row.get(
+                    'pre_excess_20d'
+                )
+            )}"
+        )
+
+
 def main():
-    universe_name = get_universe_name()
+    universe_name = (
+        get_universe_name()
+    )
 
     rows = get_events(
         universe_name
@@ -358,6 +495,10 @@ def main():
     )
 
     print_strong_details(
+        scored
+    )
+
+    print_experimental_matches(
         scored
     )
 
