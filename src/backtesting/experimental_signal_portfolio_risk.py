@@ -1,6 +1,7 @@
 import sys
 from datetime import timedelta
 from decimal import Decimal
+from statistics import median
 
 from src.analysis.experimental_signal import (
     SIGNAL_DESCRIPTION,
@@ -47,6 +48,44 @@ def format_percent(value):
         return "N/A"
 
     return f"{value:+.2f}%"
+
+
+def calculate_average(values):
+    if not values:
+        return None
+
+    return (
+        sum(values, Decimal("0"))
+        / Decimal(len(values))
+    )
+
+
+def calculate_median(values):
+    if not values:
+        return None
+
+    return Decimal(
+        str(
+            median(values)
+        )
+    )
+
+
+def calculate_win_rate(values):
+    if not values:
+        return None
+
+    winners = sum(
+        1
+        for value in values
+        if value > 0
+    )
+
+    return (
+        Decimal(winners)
+        / Decimal(len(values))
+        * Decimal("100")
+    )
 
 
 def get_trade_result(
@@ -203,8 +242,9 @@ def simulate_portfolio(
     open_positions = []
     completed = []
 
-    skipped_cash = 0
-    skipped_cap = 0
+    skipped_cash_trades = []
+    skipped_cap_trades = []
+
     missing_price = 0
 
     max_open_positions = 0
@@ -240,7 +280,10 @@ def simulate_portfolio(
             continue
 
         if cash < trade_size:
-            skipped_cash += 1
+            skipped_cash_trades.append(
+                trade
+            )
+
             continue
 
         ticker = row[
@@ -277,7 +320,10 @@ def simulate_portfolio(
                 proposed_ticker_exposure
                 > maximum_ticker_exposure
             ):
-                skipped_cap += 1
+                skipped_cap_trades.append(
+                    trade
+                )
+
                 continue
 
         open_positions.append(
@@ -334,19 +380,10 @@ def simulate_portfolio(
         * Decimal("100")
     )
 
-    winners = sum(
-        1
+    completed_returns = [
+        trade["return"]
         for trade in completed
-        if trade["profit"] > 0
-    )
-
-    win_rate = (
-        Decimal(winners)
-        / Decimal(len(completed))
-        * Decimal("100")
-        if completed
-        else None
-    )
+    ]
 
     return {
         "signals":
@@ -356,10 +393,20 @@ def simulate_portfolio(
             len(completed),
 
         "skipped_cash":
-            skipped_cash,
+            len(
+                skipped_cash_trades
+            ),
 
         "skipped_cap":
-            skipped_cap,
+            len(
+                skipped_cap_trades
+            ),
+
+        "skipped_cash_trades":
+            skipped_cash_trades,
+
+        "skipped_cap_trades":
+            skipped_cap_trades,
 
         "missing_price":
             missing_price,
@@ -383,7 +430,9 @@ def simulate_portfolio(
             total_return,
 
         "win_rate":
-            win_rate,
+            calculate_win_rate(
+                completed_returns
+            ),
     }
 
 
@@ -493,6 +542,154 @@ def print_ticker_cap_test(
         )
 
 
+def print_cash_skip_analysis(
+    title,
+    rows,
+):
+    result = simulate_portfolio(
+        rows,
+        Decimal("1000"),
+        Decimal("20"),
+    )
+
+    taken_returns = []
+
+    ordered = sorted(
+        rows,
+        key=lambda row: (
+            row["entry_date"],
+            row["ticker"],
+        )
+    )
+
+    skipped_keys = {
+        (
+            trade["ticker"],
+            trade["entry_date"],
+        )
+        for trade in result[
+            "skipped_cash_trades"
+        ]
+    }
+
+    for row in ordered:
+        key = (
+            row["ticker"],
+            row["entry_date"],
+        )
+
+        if key in skipped_keys:
+            continue
+
+        trade = get_trade_result(
+            row,
+            Decimal("1000"),
+        )
+
+        if trade is not None:
+            taken_returns.append(
+                trade["return"]
+            )
+
+    skipped_returns = [
+        trade["return"]
+        for trade in result[
+            "skipped_cash_trades"
+        ]
+    ]
+
+    print()
+    print(title)
+    print("=" * 105)
+
+    print(
+        f"{'Group':<22}"
+        f"{'N':>10}"
+        f"{'Average':>16}"
+        f"{'Median':>16}"
+        f"{'Win Rate':>16}"
+        f"{'Worst':>16}"
+        f"{'Best':>16}"
+    )
+
+    print("-" * 105)
+
+    groups = [
+        (
+            "Taken / available",
+            taken_returns,
+        ),
+        (
+            "Skipped for cash",
+            skipped_returns,
+        ),
+    ]
+
+    for name, values in groups:
+        average = (
+            calculate_average(
+                values
+            )
+        )
+
+        middle = (
+            calculate_median(
+                values
+            )
+        )
+
+        win_rate = (
+            calculate_win_rate(
+                values
+            )
+        )
+
+        worst = (
+            min(values)
+            if values
+            else None
+        )
+
+        best = (
+            max(values)
+            if values
+            else None
+        )
+
+        print(
+            f"{name:<22}"
+            f"{len(values):>10}"
+            f"{format_percent(average):>16}"
+            f"{format_percent(middle):>16}"
+            f"{format_percent(win_rate):>16}"
+            f"{format_percent(worst):>16}"
+            f"{format_percent(best):>16}"
+        )
+
+    print()
+    print(
+        "Skipped-cash signals:"
+    )
+
+    if not result[
+        "skipped_cash_trades"
+    ]:
+        print(
+            "None."
+        )
+
+        return
+
+    for trade in result[
+        "skipped_cash_trades"
+    ]:
+        print(
+            f"{trade['entry_date']}  "
+            f"{trade['ticker']:<7}  "
+            f"{format_percent(trade['return']):>10}"
+        )
+
+
 def main():
     universe_name = (
         get_universe_name()
@@ -584,6 +781,16 @@ def main():
 
     print_ticker_cap_test(
         "OUT-OF-SAMPLE — $1,000 TRADE / TICKER CAP",
+        testing_matches,
+    )
+
+    print_cash_skip_analysis(
+        "TRAINING — $1,000 CASH BOTTLENECK ANALYSIS",
+        training_matches,
+    )
+
+    print_cash_skip_analysis(
+        "OUT-OF-SAMPLE — $1,000 CASH BOTTLENECK ANALYSIS",
         testing_matches,
     )
 
