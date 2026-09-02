@@ -109,7 +109,9 @@ def run_paper_system():
         "STEP 5: RUN PAPER TRADING"
     )
 
-    run_paper_trading()
+    run_paper_trading(
+        UNIVERSE
+    )
 
 
 def send_success_notification(

@@ -581,7 +581,7 @@ def save_action(
 
 def get_current_recommendations(
     account_start_date,
-    universe_name="expanded_200",
+    universe_name,
 ):
     rows = get_events(
         universe_name
@@ -848,7 +848,7 @@ def print_account(account):
     )
 
 
-def main():
+def main(universe_name):
     account = get_account()
 
     print()
@@ -872,7 +872,8 @@ def main():
         get_current_recommendations(
             account[
                 "created_at"
-            ].date()
+            ].date(),
+            universe_name,
         )
     )
 

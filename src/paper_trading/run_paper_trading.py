@@ -9,7 +9,7 @@ from src.paper_trading.paper_trading_report import (
 )
 
 
-def main():
+def main(universe_name):
     print()
     print("=" * 100)
     print("DAILY PAPER TRADING RUN")
@@ -20,7 +20,9 @@ def main():
     print()
     print("=" * 100)
 
-    process_signals()
+    process_signals(
+        universe_name
+    )
 
     print()
     print("=" * 100)
@@ -34,4 +36,15 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    import sys
+
+    if len(sys.argv) != 2:
+        raise SystemExit(
+            "Usage: python -m "
+            "src.paper_trading.run_paper_trading "
+            "<universe_name>"
+        )
+
+    main(
+        sys.argv[1]
+    )
