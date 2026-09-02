@@ -18,6 +18,7 @@ from src.data.issuer_repository import (
 
 from src.sec.xbrl_client import (
     get_company_facts,
+    get_quarterly_values,
 )
 
 
@@ -30,7 +31,7 @@ FINANCIAL_METRICS = {
             "Revenues",
             "SalesRevenueNet",
         ],
-    "unit": "USD",
+        "unit": "USD",
         "availability": "core",
 
         "sector_concepts": {
@@ -84,6 +85,18 @@ FINANCIAL_METRICS = {
 }
 
 
+BANK_REVENUE_COMPONENTS = [
+    "InterestIncomeExpenseNet",
+    "NoninterestIncome",
+]
+
+
+BANK_REVENUE_CONCEPT = (
+    "InterestIncomeExpenseNet"
+    " + NoninterestIncome"
+)
+
+
 def get_metric_concepts(
     ticker,
     metric_name,
@@ -127,7 +140,8 @@ def get_metric_concepts(
             + [
                 concept
                 for concept in concepts
-                if concept not in sector_concepts
+                if concept
+                not in sector_concepts
             ]
         )
 
@@ -197,6 +211,230 @@ def period_belongs_to_issuer(
     return True
 
 
+def is_financial_company(
+    ticker,
+):
+    company_config = get_company(
+        ticker
+    )
+
+    if company_config is None:
+        return False
+
+    return (
+        company_config.get("sector")
+        == "Financials"
+    )
+
+
+def get_bank_revenue_history(
+    facts,
+):
+    component_histories = {}
+
+    for concept_name in (
+        BANK_REVENUE_COMPONENTS
+    ):
+        values = get_quarterly_values(
+            facts,
+            concept_name,
+            "USD",
+        )
+
+        if not values:
+            return []
+
+        component_histories[
+            concept_name
+        ] = {
+            value["end"]: value
+            for value in values
+        }
+
+    common_periods = set(
+        component_histories[
+            BANK_REVENUE_COMPONENTS[0]
+        ]
+    )
+
+    for concept_name in (
+        BANK_REVENUE_COMPONENTS[1:]
+    ):
+        common_periods &= set(
+            component_histories[
+                concept_name
+            ]
+        )
+
+    history = []
+
+    for period_end in sorted(
+        common_periods
+    ):
+        interest_value = (
+            component_histories[
+                "InterestIncomeExpenseNet"
+            ][period_end]
+        )
+
+        noninterest_value = (
+            component_histories[
+                "NoninterestIncome"
+            ][period_end]
+        )
+
+        #
+        # Both components must describe
+        # the same standalone quarter.
+        #
+        if (
+            interest_value.get("start")
+            != noninterest_value.get(
+                "start"
+            )
+        ):
+            continue
+
+        filed_dates = [
+            filed
+            for filed in [
+                interest_value.get(
+                    "filed"
+                ),
+                noninterest_value.get(
+                    "filed"
+                ),
+            ]
+            if filed is not None
+        ]
+
+        filed = (
+            max(filed_dates)
+            if filed_dates
+            else None
+        )
+
+        accessions = [
+            accn
+            for accn in [
+                interest_value.get(
+                    "accn"
+                ),
+                noninterest_value.get(
+                    "accn"
+                ),
+            ]
+            if accn
+        ]
+
+        accession = (
+            accessions[0]
+            if accessions
+            else None
+        )
+
+        history.append(
+            {
+                "fy":
+                    interest_value.get(
+                        "fy"
+                    ),
+
+                "fp":
+                    interest_value.get(
+                        "fp"
+                    ),
+
+                "start":
+                    interest_value.get(
+                        "start"
+                    ),
+
+                "end":
+                    period_end,
+
+                "value": (
+                    interest_value[
+                        "value"
+                    ]
+                    + noninterest_value[
+                        "value"
+                    ]
+                ),
+
+                #
+                # The combined value was
+                # not fully public until
+                # both components were
+                # available.
+                #
+                "filed":
+                    filed,
+
+                "accn":
+                    accession,
+
+                "days":
+                    interest_value.get(
+                        "days"
+                    ),
+
+                "derived":
+                    True,
+
+                "concept":
+                    BANK_REVENUE_CONCEPT,
+            }
+        )
+
+    return history
+
+
+def supplement_bank_revenue_history(
+    ticker,
+    facts,
+    history,
+):
+    if not is_financial_company(
+        ticker
+    ):
+        return history
+
+    bank_history = (
+        get_bank_revenue_history(
+            facts
+        )
+    )
+
+    if not bank_history:
+        return history
+
+    #
+    # Keep directly reported / existing
+    # revenue history whenever we already
+    # have a quarter.
+    #
+    # The bank-specific construction only
+    # fills missing quarterly periods.
+    #
+    merged = {
+        item["end"]: item
+        for item in history
+    }
+
+    for item in bank_history:
+        if item["end"] in merged:
+            continue
+
+        merged[item["end"]] = item
+
+    return sorted(
+        merged.values(),
+        key=lambda item:
+            item["end"],
+    )
+
+
 def get_issuer_metric_history(
     ticker,
     issuer,
@@ -230,6 +468,33 @@ def get_issuer_metric_history(
             metric["unit"],
         )
     )
+
+    if metric_name == "revenue":
+        history = (
+            supplement_bank_revenue_history(
+                ticker,
+                facts,
+                history,
+            )
+        )
+
+        if (
+            any(
+                item.get("concept")
+                == BANK_REVENUE_CONCEPT
+                for item in history
+            )
+        ):
+            for concept_name in (
+                BANK_REVENUE_COMPONENTS
+            ):
+                if (
+                    concept_name
+                    not in concepts
+                ):
+                    concepts.append(
+                        concept_name
+                    )
 
     filtered_history = []
 
