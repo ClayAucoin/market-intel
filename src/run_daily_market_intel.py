@@ -19,7 +19,7 @@ from src.paper_trading.run_paper_trading import (
 )
 
 
-UNIVERSE = "expanded_200"
+UNIVERSE = "expanded_500"
 
 
 def print_header(title):
