@@ -43,6 +43,7 @@ def get_events(
                     be.pre_excess_20d,
 
                     be.pre_return_60d,
+                    be.pre_excess_60d,
                     be.pre_volatility_20d,
                     be.opening_gap_excess,
 
@@ -71,40 +72,64 @@ def get_events(
 
             rows = cursor.fetchall()
 
-    return [
-        {
-            "ticker":
-                row[0],
+    events = []
 
-            "sector":
-                row[1],
+    for row in rows:
+        pre_return_60d = row[6]
+        pre_excess_60d = row[7]
 
-            "entry_date":
-                row[2],
+        spy_return_60d = None
 
-            "revenue_acceleration":
-                row[3],
+        if (
+            pre_return_60d is not None
+            and pre_excess_60d is not None
+        ):
+            spy_return_60d = (
+                pre_return_60d
+                - pre_excess_60d
+            )
 
-            "operating_margin_change":
-                row[4],
+        events.append(
+            {
+                "ticker":
+                    row[0],
 
-            "pre_excess_20d":
-                row[5],
+                "sector":
+                    row[1],
 
-            "pre_return_60d":
-                row[6],
+                "entry_date":
+                    row[2],
 
-            "pre_volatility_20d":
-                row[7],
+                "revenue_acceleration":
+                    row[3],
 
-            "opening_gap_excess":
-                row[8],
+                "operating_margin_change":
+                    row[4],
 
-            "excess_30d":
-                row[9],
-        }
-        for row in rows
-    ]
+                "pre_excess_20d":
+                    row[5],
+
+                "pre_return_60d":
+                    pre_return_60d,
+
+                "pre_excess_60d":
+                    pre_excess_60d,
+
+                "spy_return_60d":
+                    spy_return_60d,
+
+                "pre_volatility_20d":
+                    row[8],
+
+                "opening_gap_excess":
+                    row[9],
+
+                "excess_30d":
+                    row[10],
+            }
+        )
+
+    return events
 
 
 def split_by_time(
@@ -586,6 +611,17 @@ def main():
         field="pre_return_60d",
         positive_label="Positive Trend",
         negative_label="Negative Trend",
+    )
+
+    print_zero_regime(
+        title=(
+            "PRIOR 60-DAY SPY MARKET TREND"
+        ),
+        training=training_matches,
+        testing=testing_matches,
+        field="spy_return_60d",
+        positive_label="Positive SPY Trend",
+        negative_label="Negative SPY Trend",
     )
 
     print_zero_regime(
