@@ -162,7 +162,7 @@ VALUES (
     1000,
     20,
     3,
-    30
+    45
 )
 ON CONFLICT (name)
 DO NOTHING;
@@ -236,7 +236,7 @@ def main():
     )
 
     print(
-        "  Holding period:      30 days"
+        "  Holding period:      45 days"
     )
 
     print(
