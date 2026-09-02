@@ -454,20 +454,43 @@ def get_issuer_metric_history(
         metric_name,
     )
 
-    if not concepts:
+    #
+    # Financial companies can report
+    # revenue through banking-specific
+    # XBRL components instead of a
+    # standard revenue concept.
+    #
+    # Allow revenue processing to continue
+    # so the derived bank-revenue fallback
+    # gets a chance to build history.
+    #
+    allow_bank_revenue_fallback = (
+        metric_name == "revenue"
+        and is_financial_company(
+            ticker
+        )
+    )
+
+    if (
+        not concepts
+        and not allow_bank_revenue_fallback
+    ):
         return {
             "issuer": issuer,
             "concepts": [],
             "history": [],
         }
 
-    history = (
-        build_multi_concept_quarterly_history(
-            facts,
-            concepts,
-            metric["unit"],
+    if concepts:
+        history = (
+            build_multi_concept_quarterly_history(
+                facts,
+                concepts,
+                metric["unit"],
+            )
         )
-    )
+    else:
+        history = []
 
     if metric_name == "revenue":
         history = (
