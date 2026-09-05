@@ -78,7 +78,7 @@ def save_daily_prices(
             f"for {symbol}."
         )
 
-        return
+        return 0
 
     with get_connection() as conn:
         with conn.cursor() as cursor:
@@ -112,7 +112,6 @@ def save_daily_prices(
                     trade_date
                 )
                 DO UPDATE SET
-
                     open =
                         EXCLUDED.open,
 
@@ -150,3 +149,5 @@ def save_daily_prices(
         f"Saved {len(rows):,} "
         f"{symbol.upper()} price records."
     )
+
+    return len(rows)
