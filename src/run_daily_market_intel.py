@@ -100,7 +100,7 @@ def rebuild_events():
 
     run_module(
         "src.backtesting.build_backtest_events",
-        UNIVERSE,
+        "historical_sp500",
     )
 
 

@@ -6,11 +6,6 @@ from src.backtesting.backtester import (
     backtest_from_entry_date,
 )
 
-from src.universe.company_universe import (
-    DEFAULT_UNIVERSE,
-    get_tickers,
-)
-
 from src.database import (
     get_connection,
 )
@@ -26,6 +21,8 @@ from src.analysis.market_context import (
 
 BENCHMARK = "SPY"
 
+INDEX_NAME = "S&P 500"
+
 MAX_REPORTING_LAG_DAYS = 120
 
 HORIZONS = [
@@ -35,37 +32,34 @@ HORIZONS = [
 ]
 
 
-def get_universe_name():
+def get_build_name():
     if len(sys.argv) >= 2:
         return sys.argv[1]
 
-    return DEFAULT_UNIVERSE
+    return "historical_sp500"
 
 
-def clear_backtest_events(
-    universe_name,
-):
+def clear_backtest_events():
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
                 """
                 DELETE FROM backtest_events be
 
-                USING
-                    analysis_universe_members aum,
-                    analysis_universes au
+                WHERE EXISTS (
+                    SELECT 1
 
-                WHERE
-                    be.security_id =
-                        aum.security_id
+                    FROM index_membership_history imh
 
-                    AND aum.universe_id =
-                        au.id
+                    WHERE
+                        imh.security_id =
+                            be.security_id
 
-                    AND au.name = %s;
+                        AND imh.index_name = %s
+                );
                 """,
                 (
-                    universe_name,
+                    INDEX_NAME,
                 ),
             )
 
@@ -75,47 +69,86 @@ def clear_backtest_events(
 
     print(
         f"Cleared {deleted} existing "
-        f"backtest events for "
-        f"{universe_name}."
+        f"historical S&P 500 "
+        f"backtest events."
     )
 
 
-def get_security(ticker):
+def get_historical_securities():
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
                 """
-                SELECT
-                    id,
-                    ticker
+                SELECT DISTINCT
+                    s.id,
+                    s.ticker
 
-                FROM securities
+                FROM index_membership_history imh
 
-                WHERE UPPER(ticker) =
-                      UPPER(%s)
+                JOIN securities s
+                  ON s.id =
+                     imh.security_id
+
+                WHERE
+                    imh.index_name = %s
 
                 ORDER BY
-                    is_primary DESC,
-                    id
+                    s.ticker,
+                    s.id;
+                """,
+                (
+                    INDEX_NAME,
+                ),
+            )
+
+            rows = cursor.fetchall()
+
+    return [
+        {
+            "security_id": row[0],
+            "ticker": row[1],
+        }
+        for row in rows
+    ]
+
+
+def was_index_member_on_date(
+    security_id,
+    entry_date,
+):
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT 1
+
+                FROM index_membership_history
+
+                WHERE
+                    index_name = %s
+
+                    AND security_id = %s
+
+                    AND effective_from <= %s
+
+                    AND (
+                        effective_to IS NULL
+                        OR effective_to >= %s
+                    )
 
                 LIMIT 1;
                 """,
                 (
-                    ticker,
+                    INDEX_NAME,
+                    security_id,
+                    entry_date,
+                    entry_date,
                 ),
             )
 
             row = cursor.fetchone()
 
-    if row is None:
-        raise ValueError(
-            f"Security not found: {ticker}"
-        )
-
-    return {
-        "security_id": row[0],
-        "ticker": row[1],
-    }
+    return row is not None
 
 
 def get_metric_history(
@@ -814,13 +847,15 @@ def save_backtest_event(
             )
 
 
-def build_ticker_events(ticker):
-    security = get_security(
-        ticker
-    )
-
+def build_security_events(
+    security,
+):
     security_id = (
         security["security_id"]
+    )
+
+    ticker = (
+        security["ticker"]
     )
 
     revenue_history = (
@@ -855,6 +890,7 @@ def build_ticker_events(ticker):
 
     comparative_skipped = 0
     timing_skipped = 0
+    membership_skipped = 0
     price_skipped = 0
 
     for revenue in revenue_history:
@@ -871,6 +907,13 @@ def build_ticker_events(ticker):
 
         if entry_date is None:
             timing_skipped += 1
+            continue
+
+        if not was_index_member_on_date(
+            security_id,
+            entry_date,
+        ):
+            membership_skipped += 1
             continue
 
         stock_result = (
@@ -1010,46 +1053,56 @@ def build_ticker_events(ticker):
         "timing_skipped":
             timing_skipped,
 
+        "membership_skipped":
+            membership_skipped,
+
         "price_skipped":
             price_skipped,
     }
 
 
 def main():
-    universe_name = (
-        get_universe_name()
+    build_name = (
+        get_build_name()
     )
 
-    tickers = get_tickers(
-        universe_name
+    securities = (
+        get_historical_securities()
     )
 
-    if not tickers:
+    if not securities:
         raise ValueError(
-            f"Universe not found or empty: "
-            f"{universe_name}"
+            "No historical S&P 500 "
+            "securities found."
         )
 
     results = []
 
     print()
     print(
-        "MARKET INTEL CROSS-COMPANY "
-        "BACKTEST BUILD"
+        "MARKET INTEL HISTORICAL "
+        "S&P 500 BACKTEST BUILD"
     )
 
     print(
-        "Universe:",
-        universe_name,
+        "Build:",
+        build_name,
     )
 
-    print("=" * 84)
-
-    clear_backtest_events(
-        universe_name
+    print(
+        "Historical securities:",
+        len(securities),
     )
 
-    for ticker in tickers:
+    print("=" * 96)
+
+    clear_backtest_events()
+
+    for security in securities:
+        ticker = (
+            security["ticker"]
+        )
+
         print()
         print(
             f"Building {ticker}..."
@@ -1057,8 +1110,8 @@ def main():
 
         try:
             result = (
-                build_ticker_events(
-                    ticker
+                build_security_events(
+                    security
                 )
             )
 
@@ -1078,6 +1131,9 @@ def main():
                     0,
 
                 "timing_skipped":
+                    0,
+
+                "membership_skipped":
                     0,
 
                 "price_skipped":
@@ -1108,6 +1164,13 @@ def main():
         )
 
         print(
+            "Membership skipped:",
+            result[
+                "membership_skipped"
+            ],
+        )
+
+        print(
             "Price skipped:",
             result[
                 "price_skipped"
@@ -1115,15 +1178,15 @@ def main():
         )
 
     print()
-    print("=" * 84)
+    print("=" * 96)
 
     print(
         "BACKTEST BUILD SUMMARY"
     )
 
     print(
-        "Universe:",
-        universe_name,
+        "Build:",
+        build_name,
     )
 
     print()
@@ -1133,15 +1196,17 @@ def main():
         f"{'Saved':>9}"
         f"{'Compare':>11}"
         f"{'Timing':>11}"
+        f"{'Member':>11}"
         f"{'Price':>11}"
     )
 
-    print("-" * 52)
+    print("-" * 63)
 
     totals = {
         "saved": 0,
         "comparative_skipped": 0,
         "timing_skipped": 0,
+        "membership_skipped": 0,
         "price_skipped": 0,
     }
 
@@ -1160,6 +1225,10 @@ def main():
             ]:>11}"
 
             f"{result[
+                'membership_skipped'
+            ]:>11}"
+
+            f"{result[
                 'price_skipped'
             ]:>11}"
         )
@@ -1169,7 +1238,7 @@ def main():
                 result[field]
             )
 
-    print("-" * 52)
+    print("-" * 63)
 
     print(
         f"{'TOTAL':<10}"
@@ -1182,6 +1251,10 @@ def main():
 
         f"{totals[
             'timing_skipped'
+        ]:>11}"
+
+        f"{totals[
+            'membership_skipped'
         ]:>11}"
 
         f"{totals[

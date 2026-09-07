@@ -10,7 +10,7 @@ from src.database import get_connection
 TRAIN_END = date(2023, 12, 31)
 TEST_START = date(2024, 1, 1)
 
-DEFAULT_UNIVERSE = "expanded_200"
+DEFAULT_UNIVERSE = "historical_sp500"
 
 
 def get_universe_name():
@@ -39,47 +39,113 @@ SIGNALS = {
 def get_events(universe_name=DEFAULT_UNIVERSE):
     with get_connection() as conn:
         with conn.cursor() as cursor:
-            cursor.execute(
-                """
-                SELECT
-                    s.ticker,
-                    aum.sector,
+            if universe_name == "historical_sp500":
+                cursor.execute(
+                    """
+                    WITH sector_data AS (
+                        SELECT
+                            security_id,
+                            MAX(sector) AS sector
 
-                    be.period_end,
-                    be.entry_date,
+                        FROM analysis_universe_members
 
-                    be.revenue_yoy,
-                    be.revenue_acceleration,
-                    be.eps_yoy,
-                    be.gross_margin_change,
-                    be.operating_margin_change,
+                        WHERE sector IS NOT NULL
 
-                    be.pre_excess_20d,
+                        GROUP BY security_id
+                    )
 
-                    be.excess_30d,
-                    be.excess_90d,
-                    be.excess_180d
+                    SELECT
+                        s.ticker,
+                        COALESCE(
+                            sd.sector,
+                            'UNKNOWN'
+                        ) AS sector,
 
-                FROM backtest_events be
+                        be.period_end,
+                        be.entry_date,
 
-                JOIN securities s
-                    ON s.id = be.security_id
+                        be.revenue_yoy,
+                        be.revenue_acceleration,
+                        be.eps_yoy,
+                        be.gross_margin_change,
+                        be.operating_margin_change,
 
-                JOIN analysis_universe_members aum
-                    ON aum.security_id = s.id
+                        be.pre_excess_20d,
 
-                JOIN analysis_universes au
-                    ON au.id = aum.universe_id
-                   AND au.name = %s
+                        be.excess_30d,
+                        be.excess_90d,
+                        be.excess_180d
 
-                ORDER BY
-                    be.entry_date,
-                    s.ticker;
-                """,
-                (
-                    universe_name,
-                ),
-            )
+                    FROM backtest_events be
+
+                    JOIN securities s
+                        ON s.id = be.security_id
+
+                    JOIN index_membership_history imh
+                        ON imh.security_id =
+                           be.security_id
+                       AND imh.index_name =
+                           'S&P 500'
+                       AND imh.effective_from <=
+                           be.entry_date
+                       AND (
+                           imh.effective_to IS NULL
+                           OR imh.effective_to >=
+                              be.entry_date
+                       )
+
+                    LEFT JOIN sector_data sd
+                        ON sd.security_id =
+                           be.security_id
+
+                    ORDER BY
+                        be.entry_date,
+                        s.ticker;
+                    """
+                )
+
+            else:
+                cursor.execute(
+                    """
+                    SELECT
+                        s.ticker,
+                        aum.sector,
+
+                        be.period_end,
+                        be.entry_date,
+
+                        be.revenue_yoy,
+                        be.revenue_acceleration,
+                        be.eps_yoy,
+                        be.gross_margin_change,
+                        be.operating_margin_change,
+
+                        be.pre_excess_20d,
+
+                        be.excess_30d,
+                        be.excess_90d,
+                        be.excess_180d
+
+                    FROM backtest_events be
+
+                    JOIN securities s
+                        ON s.id = be.security_id
+
+                    JOIN analysis_universe_members aum
+                        ON aum.security_id = s.id
+
+                    JOIN analysis_universes au
+                        ON au.id = aum.universe_id
+                       AND au.name = %s
+
+                    ORDER BY
+                        be.entry_date,
+                        s.ticker;
+                    """,
+                    (
+                        universe_name,
+                    ),
+                )
 
             rows = cursor.fetchall()
 
@@ -105,7 +171,7 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
         }
         for row in rows
     ]
-
+    
 
 def split_by_time(rows):
     training = [
