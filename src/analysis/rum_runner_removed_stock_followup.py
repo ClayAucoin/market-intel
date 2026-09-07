@@ -177,12 +177,18 @@ def build_removed_holdings(
 
 def analyze_removed_holding(
     holding,
-    drop_date,
+    first_snapshot_date,
+    removal_date,
     followup_date,
 ):
-    drop_price = get_price_on_or_after(
+    starting_price = get_price_on_or_after(
         holding["ticker"],
-        drop_date,
+        first_snapshot_date,
+    )
+
+    removal_price = get_price_on_or_after(
+        holding["ticker"],
+        removal_date,
     )
 
     followup_price = get_price_on_or_before(
@@ -191,50 +197,65 @@ def analyze_removed_holding(
     )
 
     if (
-        drop_price is None
+        starting_price is None
+        or removal_price is None
         or followup_price is None
+        or starting_price["price"] == 0
+        or removal_price["price"] == 0
     ):
         return {
             **holding,
-            "drop_price": drop_price,
+            "starting_price": starting_price,
+            "removal_price": removal_price,
             "followup_price": followup_price,
-            "hold_value": None,
+            "estimated_removal_value": None,
+            "estimated_hold_value": None,
             "hold_profit": None,
             "hold_return_percent": None,
         }
 
-    hold_value = (
-        holding["shares"]
-        * followup_price["price"]
+    value_at_removal_ratio = (
+        removal_price["price"]
+        / starting_price["price"]
     )
 
-    drop_value = (
-        holding["shares"]
-        * drop_price["price"]
+    estimated_removal_value = (
+        holding["market_value"]
+        * value_at_removal_ratio
+    )
+
+    post_removal_ratio = (
+        followup_price["price"]
+        / removal_price["price"]
+    )
+
+    estimated_hold_value = (
+        estimated_removal_value
+        * post_removal_ratio
     )
 
     hold_profit = (
-        hold_value
-        - drop_value
+        estimated_hold_value
+        - estimated_removal_value
     )
 
-    if drop_value == 0:
-        hold_return_percent = None
-
-    else:
-        hold_return_percent = (
-            hold_profit
-            / drop_value
-            * Decimal("100")
-        )
+    hold_return_percent = (
+        hold_profit
+        / estimated_removal_value
+        * Decimal("100")
+    )
 
     return {
         **holding,
-        "drop_price": drop_price,
+        "starting_price": starting_price,
+        "removal_price": removal_price,
         "followup_price": followup_price,
-        "drop_value": drop_value,
-        "hold_value": hold_value,
-        "hold_profit": hold_profit,
+        "estimated_removal_value":
+            estimated_removal_value,
+        "estimated_hold_value":
+            estimated_hold_value,
+        "hold_profit":
+            hold_profit,
         "hold_return_percent":
             hold_return_percent,
     }
@@ -264,7 +285,7 @@ def print_report(
     print(
         "RUM RUNNERS REMOVED STOCK FOLLOW-UP"
     )
-    print("=" * 155)
+    print("=" * 165)
 
     print(
         f"Earlier snapshot: "
@@ -290,34 +311,34 @@ def print_report(
     print(
         f"{'Ticker':<8}"
         f"{'Shares':>12}"
-        f"{'Drop Date':>14}"
-        f"{'Drop Price':>14}"
+        f"{'Removal Date':>14}"
+        f"{'Removal Adj':>14}"
         f"{'Follow Date':>14}"
-        f"{'Follow Price':>14}"
-        f"{'Drop Value':>16}"
-        f"{'Hold Value':>16}"
+        f"{'Follow Adj':>14}"
+        f"{'Est. Drop Value':>18}"
+        f"{'Est. Hold Value':>18}"
         f"{'Hold P/L':>16}"
         f"{'Hold Return':>14}"
     )
 
-    print("-" * 155)
+    print("-" * 165)
 
     for item in sorted(
         results,
         key=lambda x: x["ticker"],
     ):
-        drop = item["drop_price"]
+        removal = item["removal_price"]
         follow = item["followup_price"]
 
-        drop_date_text = (
-            str(drop["date"])
-            if drop is not None
+        removal_date_text = (
+            str(removal["date"])
+            if removal is not None
             else "-"
         )
 
-        drop_price_text = (
-            money(drop["price"])
-            if drop is not None
+        removal_price_text = (
+            money(removal["price"])
+            if removal is not None
             else "-"
         )
 
@@ -336,12 +357,12 @@ def print_report(
         print(
             f"{item['ticker']:<8}"
             f"{item['shares']:>12,.4f}"
-            f"{drop_date_text:>14}"
-            f"{drop_price_text:>14}"
+            f"{removal_date_text:>14}"
+            f"{removal_price_text:>14}"
             f"{follow_date_text:>14}"
             f"{follow_price_text:>14}"
-            f"{money(item.get('drop_value')):>16}"
-            f"{money(item.get('hold_value')):>16}"
+            f"{money(item.get('estimated_removal_value')):>18}"
+            f"{money(item.get('estimated_hold_value')):>18}"
             f"{money(item.get('hold_profit')):>16}"
             f"{percent(item.get('hold_return_percent')):>14}"
         )
@@ -349,9 +370,7 @@ def print_report(
 
 def main():
     if len(sys.argv) != 4:
-        print(
-            "Usage:"
-        )
+        print("Usage:")
         print(
             "python -m "
             "src.analysis.rum_runner_removed_stock_followup "
@@ -361,9 +380,7 @@ def main():
         )
 
         print()
-        print(
-            "Example:"
-        )
+        print("Example:")
         print(
             "python -m "
             "src.analysis.rum_runner_removed_stock_followup "
@@ -423,6 +440,9 @@ def main():
     results = [
         analyze_removed_holding(
             holding,
+            first_snapshot[
+                "snapshot_month"
+            ],
             second_snapshot[
                 "snapshot_month"
             ],
