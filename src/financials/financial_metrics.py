@@ -17,6 +17,7 @@ from src.data.issuer_repository import (
 )
 
 from src.sec.xbrl_client import (
+    get_available_units,
     get_company_facts,
     get_quarterly_values,
 )
@@ -25,11 +26,16 @@ from src.sec.xbrl_client import (
 FINANCIAL_METRICS = {
     "revenue": {
         "concepts": [
+            # US GAAP
             "RevenueFromContractWithCustomerExcludingAssessedTax",
             "RevenueFromContractWithCustomerIncludingAssessedTax",
             "RegulatedAndUnregulatedOperatingRevenue",
             "Revenues",
             "SalesRevenueNet",
+
+            # IFRS
+            "Revenue",
+            "RevenueFromContractsWithCustomers",
         ],
         "unit": "USD",
         "availability": "core",
@@ -44,8 +50,13 @@ FINANCIAL_METRICS = {
 
     "net_income": {
         "concepts": [
+            # US GAAP / IFRS
             "NetIncomeLoss",
             "ProfitLoss",
+
+            # IFRS alternatives
+            "ProfitLossAttributableToOwnersOfParent",
+            "ProfitLossAttributableToOrdinaryEquityHoldersOfParentEntity",
         ],
         "unit": "USD",
         "availability": "core",
@@ -53,7 +64,11 @@ FINANCIAL_METRICS = {
 
     "diluted_eps": {
         "concepts": [
+            # US GAAP
             "EarningsPerShareDiluted",
+
+            # IFRS
+            "DilutedEarningsLossPerShare",
         ],
         "unit": "USD/shares",
         "availability": "preferred",
@@ -61,7 +76,11 @@ FINANCIAL_METRICS = {
 
     "operating_income": {
         "concepts": [
+            # US GAAP
             "OperatingIncomeLoss",
+
+            # IFRS
+            "ProfitLossFromOperatingActivities",
         ],
         "unit": "USD",
         "availability": "optional",
@@ -69,7 +88,11 @@ FINANCIAL_METRICS = {
 
     "operating_cash_flow": {
         "concepts": [
+            # US GAAP
             "NetCashProvidedByUsedInOperatingActivities",
+
+            # IFRS
+            "CashFlowsFromUsedInOperatingActivities",
         ],
         "unit": "USD",
         "availability": "optional",
@@ -95,6 +118,12 @@ BANK_REVENUE_CONCEPT = (
     "InterestIncomeExpenseNet"
     " + NoninterestIncome"
 )
+
+
+SUPPORTED_TAXONOMIES = [
+    "us-gaap",
+    "ifrs-full",
+]
 
 
 def get_metric_concepts(
@@ -158,17 +187,143 @@ def resolve_concepts(
         metric_name,
     )
 
-    us_gaap = (
-        facts
-        .get("facts", {})
-        .get("us-gaap", {})
+    all_facts = facts.get(
+        "facts",
+        {},
     )
+
+    available = set()
+
+    for taxonomy in SUPPORTED_TAXONOMIES:
+        taxonomy_facts = (
+            all_facts.get(
+                taxonomy,
+                {},
+            )
+        )
+
+        available.update(
+            taxonomy_facts.keys()
+        )
 
     return [
         concept_name
         for concept_name in concept_names
-        if concept_name in us_gaap
+        if concept_name in available
     ]
+
+
+def is_currency_unit(unit):
+    return (
+        isinstance(unit, str)
+        and len(unit) == 3
+        and unit.isalpha()
+        and unit.upper() == unit
+    )
+
+
+def is_currency_per_share_unit(unit):
+    if not isinstance(unit, str):
+        return False
+
+    if not unit.endswith(
+        "/shares"
+    ):
+        return False
+
+    currency = unit.split(
+        "/",
+        1,
+    )[0]
+
+    return is_currency_unit(
+        currency
+    )
+
+
+def unit_is_compatible(
+    candidate,
+    preferred,
+):
+    if candidate == preferred:
+        return True
+
+    if preferred == "USD":
+        return is_currency_unit(
+            candidate
+        )
+
+    if preferred == "USD/shares":
+        return (
+            is_currency_per_share_unit(
+                candidate
+            )
+        )
+
+    return False
+
+
+def resolve_metric_unit(
+    facts,
+    concepts,
+    preferred_unit,
+):
+    if not concepts:
+        return preferred_unit
+
+    unit_counts = {}
+
+    for concept_name in concepts:
+        available_units = (
+            get_available_units(
+                facts,
+                concept_name,
+                SUPPORTED_TAXONOMIES,
+            )
+        )
+
+        #
+        # Always prefer the configured unit
+        # when at least one compatible
+        # concept actually reports it.
+        #
+        if preferred_unit in available_units:
+            return preferred_unit
+
+        for unit in available_units:
+            if not unit_is_compatible(
+                unit,
+                preferred_unit,
+            ):
+                continue
+
+            unit_counts[unit] = (
+                unit_counts.get(
+                    unit,
+                    0,
+                )
+                + 1
+            )
+
+    if not unit_counts:
+        return preferred_unit
+
+    #
+    # Use the compatible unit reported by
+    # the greatest number of concepts.
+    #
+    # Alphabetical ordering provides a
+    # deterministic tie-breaker.
+    #
+    ranked = sorted(
+        unit_counts.items(),
+        key=lambda item: (
+            -item[1],
+            item[0],
+        ),
+    )
+
+    return ranked[0][0]
 
 
 def parse_period_end(value):
@@ -362,12 +517,6 @@ def get_bank_revenue_history(
                     ]
                 ),
 
-                #
-                # The combined value was
-                # not fully public until
-                # both components were
-                # available.
-                #
                 "filed":
                     filed,
 
@@ -409,14 +558,6 @@ def supplement_bank_revenue_history(
     if not bank_history:
         return history
 
-    #
-    # Keep directly reported / existing
-    # revenue history whenever we already
-    # have a quarter.
-    #
-    # The bank-specific construction only
-    # fills missing quarterly periods.
-    #
     merged = {
         item["end"]: item
         for item in history
@@ -454,15 +595,17 @@ def get_issuer_metric_history(
         metric_name,
     )
 
+    unit = resolve_metric_unit(
+        facts,
+        concepts,
+        metric["unit"],
+    )
+
     #
     # Financial companies can report
     # revenue through banking-specific
     # XBRL components instead of a
     # standard revenue concept.
-    #
-    # Allow revenue processing to continue
-    # so the derived bank-revenue fallback
-    # gets a chance to build history.
     #
     allow_bank_revenue_fallback = (
         metric_name == "revenue"
@@ -478,6 +621,7 @@ def get_issuer_metric_history(
         return {
             "issuer": issuer,
             "concepts": [],
+            "unit": unit,
             "history": [],
         }
 
@@ -486,7 +630,7 @@ def get_issuer_metric_history(
             build_multi_concept_quarterly_history(
                 facts,
                 concepts,
-                metric["unit"],
+                unit,
             )
         )
     else:
@@ -550,6 +694,7 @@ def get_issuer_metric_history(
     return {
         "issuer": issuer,
         "concepts": concepts,
+        "unit": unit,
         "history": filtered_history,
     }
 
@@ -683,6 +828,18 @@ def get_metric_history(
                     concept
                 )
 
+    units = [
+        result["unit"]
+        for result in issuer_results
+        if result.get("unit")
+    ]
+
+    unit = (
+        units[0]
+        if units
+        else metric["unit"]
+    )
+
     return {
         "company":
             security_company,
@@ -700,7 +857,7 @@ def get_metric_history(
             concepts,
 
         "unit":
-            metric["unit"],
+            unit,
 
         "availability":
             metric["availability"],
@@ -725,6 +882,7 @@ def test_company_metrics(ticker):
         f"{'Metric':<24}"
         f"{'Availability':<14}"
         f"{'Records':>10}  "
+        f"{'Unit':<14}"
         f"{'Concepts'}"
     )
 
@@ -749,6 +907,7 @@ def test_company_metrics(ticker):
                 f"{metric_name:<24}"
                 f"{metric['availability']:<14}"
                 f"{len(result['history']):>10}  "
+                f"{result['unit']:<14}"
                 f"{concept_text}"
             )
 
@@ -756,7 +915,9 @@ def test_company_metrics(ticker):
             print(
                 f"{metric_name:<24}"
                 f"{metric['availability']:<14}"
-                f"{'-':>10}  ERROR"
+                f"{'-':>10}  "
+                f"{'-':<14}"
+                f"ERROR"
             )
 
             print(
@@ -766,6 +927,9 @@ def test_company_metrics(ticker):
 
 if __name__ == "__main__":
     for ticker in [
+        "CHKP",
+        "ENB",
+        "GLOB",
         "JPM",
         "XOM",
         "GOOGL",

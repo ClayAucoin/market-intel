@@ -16,6 +16,30 @@ CACHE_DIR = Path(
 )
 
 
+DEFAULT_TAXONOMIES = [
+    "us-gaap",
+    "ifrs-full",
+]
+
+
+QUARTERLY_FORMS = {
+    "10-Q",
+    "10-Q/A",
+    "6-K",
+    "6-K/A",
+}
+
+
+ANNUAL_FORMS = {
+    "10-K",
+    "10-K/A",
+    "20-F",
+    "20-F/A",
+    "40-F",
+    "40-F/A",
+}
+
+
 def get_cache_path(cik):
     cik = str(cik).zfill(10)
 
@@ -111,20 +135,89 @@ def get_company_facts(
     )
 
 
+def find_concept(
+    facts,
+    concept_name,
+    taxonomies=None,
+):
+    if taxonomies is None:
+        taxonomies = DEFAULT_TAXONOMIES
+
+    all_facts = facts.get(
+        "facts",
+        {},
+    )
+
+    for taxonomy in taxonomies:
+        taxonomy_facts = (
+            all_facts.get(
+                taxonomy,
+                {},
+            )
+        )
+
+        concept = (
+            taxonomy_facts.get(
+                concept_name
+            )
+        )
+
+        if concept is not None:
+            return {
+                "taxonomy":
+                    taxonomy,
+
+                "concept":
+                    concept,
+            }
+
+    return None
+
+
+def get_available_units(
+    facts,
+    concept_name,
+    taxonomies=None,
+):
+    result = find_concept(
+        facts,
+        concept_name,
+        taxonomies,
+    )
+
+    if result is None:
+        return []
+
+    return list(
+        result[
+            "concept"
+        ]
+        .get(
+            "units",
+            {},
+        )
+        .keys()
+    )
+
+
 def get_concept_values(
     facts,
     concept_name,
     unit="USD",
+    taxonomies=None,
 ):
-    concept = (
-        facts
-        .get("facts", {})
-        .get("us-gaap", {})
-        .get(concept_name)
+    result = find_concept(
+        facts,
+        concept_name,
+        taxonomies,
     )
 
-    if concept is None:
+    if result is None:
         return []
+
+    concept = result[
+        "concept"
+    ]
 
     return (
         concept
@@ -158,17 +251,22 @@ def get_quarterly_values(
     facts,
     concept_name,
     unit="USD",
+    taxonomies=None,
 ):
     values = get_concept_values(
         facts,
         concept_name,
         unit,
+        taxonomies,
     )
 
     quarterly = []
 
     for value in values:
-        if value.get("form") != "10-Q":
+        if (
+            value.get("form")
+            not in QUARTERLY_FORMS
+        ):
             continue
 
         days = period_days(
@@ -195,6 +293,7 @@ def get_quarterly_values(
                 "filed": value.get("filed"),
                 "accn": value.get("accn"),
                 "days": days,
+                "form": value.get("form"),
             }
         )
 
@@ -221,8 +320,16 @@ def get_quarterly_values(
 
         if (
             current is None
-            or value["filed"]
-            < current["filed"]
+            or (
+                value.get("filed")
+                is not None
+                and (
+                    current.get("filed")
+                    is None
+                    or value["filed"]
+                    < current["filed"]
+                )
+            )
         ):
             unique[key] = value
 

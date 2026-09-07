@@ -46,7 +46,7 @@ def get_annual_values(
     annual = []
 
     for value in values:
-        if value.get("form") != "10-K":
+        if value.get("form") not in {"10-K", "10-K/A", "20-F", "20-F/A", "40-F", "40-F/A"}:
             continue
 
         days = period_days(
