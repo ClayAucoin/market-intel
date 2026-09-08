@@ -17,9 +17,9 @@ from src.backtesting.time_split_statistics import (
 from src.database import get_connection
 
 
-PORTFOLIO_NAME = "Rum Runners"
+PORTFOLIO_NAME = "Historical Portfolio"
 SNAPSHOT_MONTH = "2026-09-01"
-UNIVERSE_NAME = "rum_runner_2026_09"
+UNIVERSE_NAME = "portfolio_history_2026_09"
 
 
 def get_snapshot():
@@ -50,7 +50,7 @@ def get_snapshot():
 
     if row is None:
         raise RuntimeError(
-            "Rum Runners September 2026 snapshot not found."
+            "Historical Portfolio September 2026 snapshot not found."
         )
 
     return {
@@ -194,7 +194,7 @@ def build_analysis():
 def print_header(snapshot):
     print()
     print(
-        "RUM RUNNERS SNAPSHOT ANALYSIS"
+        "HISTORICAL PORTFOLIO SNAPSHOT ANALYSIS"
     )
     print("=" * 140)
 

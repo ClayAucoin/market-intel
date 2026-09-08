@@ -6,7 +6,7 @@ from src.universe.analysis_universe import (
 )
 
 
-PORTFOLIO_NAME = "Rum Runners"
+PORTFOLIO_NAME = "Historical Portfolio"
 SNAPSHOT_MONTH = "2026-09-01"
 SOURCE_FILENAME = "2026-09.PDF"
 
@@ -96,7 +96,7 @@ def seed():
         for row in HOLDINGS
     )
 
-    print("RUM RUNNERS SEPTEMBER 2026 SNAPSHOT")
+    print("HISTORICAL PORTFOLIO SEPTEMBER 2026 SNAPSHOT")
     print("=" * 60)
 
     print(
@@ -295,7 +295,7 @@ def seed():
     )
 
     print(
-        "September 2026 Rum Runners "
+        "September 2026 Historical Portfolio "
         "snapshot saved successfully."
     )
 

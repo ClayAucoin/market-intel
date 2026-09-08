@@ -6,7 +6,7 @@ from src.universe.analysis_universe import (
 )
 
 
-UNIVERSE_NAME = "rum_runner_2026_09"
+UNIVERSE_NAME = "portfolio_history_2026_09"
 
 
 TICKERS = [
@@ -123,7 +123,7 @@ def seed():
     create_universe(
         UNIVERSE_NAME,
         (
-            "Rum Runners investment club "
+            "Historical Portfolio "
             "portfolio snapshot for "
             "September 2026."
         ),
@@ -163,7 +163,7 @@ def seed():
 
     print()
     print("=" * 60)
-    print("RUM RUNNER SEPTEMBER 2026 UNIVERSE")
+    print("HISTORICAL PORTFOLIO SEPTEMBER 2026 UNIVERSE")
     print("=" * 60)
 
     print(
@@ -200,7 +200,7 @@ def seed():
 
     print()
     print(
-        "rum_runner_2026_09 "
+        "portfolio_history_2026_09 "
         "seed completed."
     )
 

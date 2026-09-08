@@ -5,7 +5,7 @@ from decimal import Decimal
 from src.database import get_connection
 
 
-PORTFOLIO_NAME = "Rum Runners"
+PORTFOLIO_NAME = "Historical Portfolio"
 
 
 def get_snapshot(snapshot_month):
@@ -31,7 +31,7 @@ def get_snapshot(snapshot_month):
 
     if row is None:
         raise RuntimeError(
-            f"No Rum Runners snapshot found for "
+            f"No Historical Portfolio snapshot found for "
             f"{snapshot_month}."
         )
 
@@ -150,7 +150,7 @@ def get_price_on_or_before(
     }
 
 
-def build_removed_holdings(
+def build_added_holdings(
     first_snapshot,
     second_snapshot,
 ):
@@ -162,33 +162,27 @@ def build_removed_holdings(
         second_snapshot["id"]
     )
 
-    removed_ids = (
-        set(first_holdings.keys())
-        - set(second_holdings.keys())
+    added_ids = (
+        set(second_holdings.keys())
+        - set(first_holdings.keys())
     )
 
     return [
-        first_holdings[
+        second_holdings[
             security_id
         ]
-        for security_id in removed_ids
+        for security_id in added_ids
     ]
 
 
-def analyze_removed_holding(
+def analyze_added_holding(
     holding,
-    first_snapshot_date,
-    removal_date,
+    entry_date,
     followup_date,
 ):
-    starting_price = get_price_on_or_after(
+    entry_price = get_price_on_or_after(
         holding["ticker"],
-        first_snapshot_date,
-    )
-
-    removal_price = get_price_on_or_after(
-        holding["ticker"],
-        removal_date,
+        entry_date,
     )
 
     followup_price = get_price_on_or_before(
@@ -197,67 +191,53 @@ def analyze_removed_holding(
     )
 
     if (
-        starting_price is None
-        or removal_price is None
+        entry_price is None
         or followup_price is None
-        or starting_price["price"] == 0
-        or removal_price["price"] == 0
     ):
         return {
             **holding,
-            "starting_price": starting_price,
-            "removal_price": removal_price,
+            "entry_price": entry_price,
             "followup_price": followup_price,
-            "estimated_removal_value": None,
             "estimated_hold_value": None,
-            "hold_profit": None,
-            "hold_return_percent": None,
+            "estimated_profit": None,
+            "return_percent": None,
         }
 
-    value_at_removal_ratio = (
-        removal_price["price"]
-        / starting_price["price"]
-    )
-
-    estimated_removal_value = (
-        holding["market_value"]
-        * value_at_removal_ratio
-    )
-
-    post_removal_ratio = (
+    price_ratio = (
         followup_price["price"]
-        / removal_price["price"]
+        / entry_price["price"]
     )
 
     estimated_hold_value = (
-        estimated_removal_value
-        * post_removal_ratio
+        holding["market_value"]
+        * price_ratio
     )
 
-    hold_profit = (
+    estimated_profit = (
         estimated_hold_value
-        - estimated_removal_value
+        - holding["market_value"]
     )
 
-    hold_return_percent = (
-        hold_profit
-        / estimated_removal_value
-        * Decimal("100")
-    )
+    if holding["market_value"] == 0:
+        return_percent = None
+
+    else:
+        return_percent = (
+            estimated_profit
+            / holding["market_value"]
+            * Decimal("100")
+        )
 
     return {
         **holding,
-        "starting_price": starting_price,
-        "removal_price": removal_price,
+        "entry_price": entry_price,
         "followup_price": followup_price,
-        "estimated_removal_value":
-            estimated_removal_value,
         "estimated_hold_value":
             estimated_hold_value,
-        "hold_profit":
-            hold_profit,
-        "hold_return_percent":
-            hold_return_percent,
+        "estimated_profit":
+            estimated_profit,
+        "return_percent":
+            return_percent,
     }
 
 
@@ -283,9 +263,9 @@ def print_report(
 ):
     print()
     print(
-        "RUM RUNNERS REMOVED STOCK FOLLOW-UP"
+        "HISTORICAL PORTFOLIO ADDED STOCK FOLLOW-UP"
     )
-    print("=" * 165)
+    print("=" * 160)
 
     print(
         f"Earlier snapshot: "
@@ -293,7 +273,7 @@ def print_report(
     )
 
     print(
-        f"Removal detected in: "
+        f"Addition detected in: "
         f"{second_snapshot['snapshot_month']}"
     )
 
@@ -303,7 +283,7 @@ def print_report(
     )
 
     print(
-        f"Removed holdings: "
+        f"Added holdings: "
         f"{len(results)}"
     )
 
@@ -311,34 +291,34 @@ def print_report(
     print(
         f"{'Ticker':<8}"
         f"{'Shares':>12}"
-        f"{'Removal Date':>14}"
-        f"{'Removal Adj':>14}"
+        f"{'Entry Date':>14}"
+        f"{'Entry Adj':>14}"
         f"{'Follow Date':>14}"
         f"{'Follow Adj':>14}"
-        f"{'Est. Drop Value':>18}"
-        f"{'Est. Hold Value':>18}"
+        f"{'Start Value':>16}"
+        f"{'Hold Value':>16}"
         f"{'Hold P/L':>16}"
-        f"{'Hold Return':>14}"
+        f"{'Return':>14}"
     )
 
-    print("-" * 165)
+    print("-" * 160)
 
     for item in sorted(
         results,
         key=lambda x: x["ticker"],
     ):
-        removal = item["removal_price"]
+        entry = item["entry_price"]
         follow = item["followup_price"]
 
-        removal_date_text = (
-            str(removal["date"])
-            if removal is not None
+        entry_date_text = (
+            str(entry["date"])
+            if entry is not None
             else "-"
         )
 
-        removal_price_text = (
-            money(removal["price"])
-            if removal is not None
+        entry_price_text = (
+            money(entry["price"])
+            if entry is not None
             else "-"
         )
 
@@ -357,33 +337,37 @@ def print_report(
         print(
             f"{item['ticker']:<8}"
             f"{item['shares']:>12,.4f}"
-            f"{removal_date_text:>14}"
-            f"{removal_price_text:>14}"
+            f"{entry_date_text:>14}"
+            f"{entry_price_text:>14}"
             f"{follow_date_text:>14}"
             f"{follow_price_text:>14}"
-            f"{money(item.get('estimated_removal_value')):>18}"
-            f"{money(item.get('estimated_hold_value')):>18}"
-            f"{money(item.get('hold_profit')):>16}"
-            f"{percent(item.get('hold_return_percent')):>14}"
+            f"{money(item['market_value']):>16}"
+            f"{money(item.get('estimated_hold_value')):>16}"
+            f"{money(item.get('estimated_profit')):>16}"
+            f"{percent(item.get('return_percent')):>14}"
         )
 
 
 def main():
     if len(sys.argv) != 4:
-        print("Usage:")
+        print(
+            "Usage:"
+        )
         print(
             "python -m "
-            "src.analysis.rum_runner_removed_stock_followup "
+            "src.analysis.portfolio_history_added_stock_followup "
             "EARLIER_SNAPSHOT "
             "LATER_SNAPSHOT "
             "FOLLOWUP_DATE"
         )
 
         print()
-        print("Example:")
+        print(
+            "Example:"
+        )
         print(
             "python -m "
-            "src.analysis.rum_runner_removed_stock_followup "
+            "src.analysis.portfolio_history_added_stock_followup "
             "2026-09-01 2026-10-01 2026-12-31"
         )
 
@@ -432,23 +416,20 @@ def main():
         )
         raise SystemExit(1)
 
-    removed = build_removed_holdings(
+    added = build_added_holdings(
         first_snapshot,
         second_snapshot,
     )
 
     results = [
-        analyze_removed_holding(
+        analyze_added_holding(
             holding,
-            first_snapshot[
-                "snapshot_month"
-            ],
             second_snapshot[
                 "snapshot_month"
             ],
             followup_date,
         )
-        for holding in removed
+        for holding in added
     ]
 
     print_report(

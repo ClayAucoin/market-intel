@@ -4,7 +4,7 @@ from decimal import Decimal
 from src.database import get_connection
 
 
-PORTFOLIO_NAME = "Rum Runners"
+PORTFOLIO_NAME = "Historical Portfolio"
 
 
 def get_snapshot(snapshot_month):
@@ -35,7 +35,7 @@ def get_snapshot(snapshot_month):
 
     if row is None:
         raise RuntimeError(
-            f"No Rum Runners snapshot found for "
+            f"No Historical Portfolio snapshot found for "
             f"{snapshot_month}."
         )
 
@@ -116,7 +116,7 @@ def print_snapshot_summary(
     second_snapshot,
 ):
     print()
-    print("RUM RUNNERS SNAPSHOT COMPARISON")
+    print("HISTORICAL PORTFOLIO SNAPSHOT COMPARISON")
     print("=" * 110)
 
     print(
@@ -419,7 +419,7 @@ def main():
         )
         print(
             "python -m "
-            "src.analysis.rum_runner_snapshot_comparison "
+            "src.analysis.portfolio_history_snapshot_comparison "
             "YYYY-MM-DD YYYY-MM-DD"
         )
         raise SystemExit(1)

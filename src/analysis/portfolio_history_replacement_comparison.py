@@ -2,13 +2,13 @@ import sys
 from datetime import date
 from decimal import Decimal
 
-from src.analysis.rum_runner_removed_stock_followup import (
+from src.analysis.portfolio_history_removed_stock_followup import (
     get_snapshot,
     build_removed_holdings,
     analyze_removed_holding,
 )
 
-from src.analysis.rum_runner_added_stock_followup import (
+from src.analysis.portfolio_history_added_stock_followup import (
     build_added_holdings,
     analyze_added_holding,
 )
@@ -420,7 +420,7 @@ def main():
         print("Usage:")
         print(
             "python -m "
-            "src.analysis.rum_runner_replacement_comparison "
+            "src.analysis.portfolio_history_replacement_comparison "
             "EARLIER_SNAPSHOT "
             "LATER_SNAPSHOT "
             "FOLLOWUP_DATE"
@@ -430,7 +430,7 @@ def main():
         print("Example:")
         print(
             "python -m "
-            "src.analysis.rum_runner_replacement_comparison "
+            "src.analysis.portfolio_history_replacement_comparison "
             "2026-09-01 "
             "2026-10-01 "
             "2026-12-31"
@@ -526,7 +526,7 @@ def main():
 
     print()
     print(
-        "RUM RUNNERS REPLACEMENT COMPARISON"
+        "HISTORICAL PORTFOLIO REPLACEMENT COMPARISON"
     )
     print("=" * 115)
 
