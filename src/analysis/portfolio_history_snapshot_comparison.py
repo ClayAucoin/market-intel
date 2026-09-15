@@ -249,7 +249,7 @@ def print_removed(removed):
 
 def print_kept_changes(changes):
     print()
-    print("KEPT HOLDINGS WITH CHANGES")
+    print("KEPT HOLDINGS WITH SHARE CHANGES")
     print("=" * 145)
 
     if not changes:
@@ -348,7 +348,6 @@ def build_comparison(
 
         changed = (
             share_change != Decimal("0")
-            or value_change != Decimal("0")
         )
 
         if not changed:
@@ -407,7 +406,7 @@ def print_summary(comparison):
     )
 
     print(
-        f"Kept holdings with share/value changes: "
+        f"Kept holdings with share changes: "
         f"{len(comparison['changes'])}"
     )
 
