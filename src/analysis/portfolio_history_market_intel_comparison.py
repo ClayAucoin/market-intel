@@ -172,6 +172,69 @@ def weighted_average(rows):
     return weighted_sum / total_value
 
 
+def actual_portfolio_return(
+    rows,
+    cash,
+):
+    usable = [
+        row
+        for row in rows
+        if (
+            row["return_percent"] is not None
+            and row["market_value"] is not None
+            and row["market_value"] > 0
+        )
+    ]
+
+    stock_value = sum(
+        (
+            Decimal(str(row["market_value"]))
+            for row in usable
+        ),
+        Decimal("0"),
+    )
+
+    cash_value = Decimal(
+        str(cash or 0)
+    )
+
+    starting_value = (
+        stock_value
+        + cash_value
+    )
+
+    if starting_value == 0:
+        return None
+
+    ending_stock_value = sum(
+        (
+            Decimal(str(row["market_value"]))
+            * (
+                Decimal("1")
+                + (
+                    row["return_percent"]
+                    / Decimal("100")
+                )
+            )
+            for row in usable
+        ),
+        Decimal("0"),
+    )
+
+    ending_value = (
+        ending_stock_value
+        + cash_value
+    )
+
+    return (
+        (
+            ending_value
+            / starting_value
+        )
+        - Decimal("1")
+    ) * Decimal("100")
+
+
 def build_transition(
     start_month,
     end_month,
@@ -303,13 +366,29 @@ def build_transition(
         comparison_rows
     )
 
-    advantage = None
+    actual_return = actual_portfolio_return(
+        rows,
+        start_snapshot["cash"],
+    )
+
+    priority_vs_actual = None
+
+    if (
+        priority_return is not None
+        and actual_return is not None
+    ):
+        priority_vs_actual = (
+            priority_return
+            - actual_return
+        )
+
+    priority_vs_comparison = None
 
     if (
         priority_return is not None
         and comparison_return is not None
     ):
-        advantage = (
+        priority_vs_comparison = (
             priority_return
             - comparison_return
         )
@@ -331,14 +410,20 @@ def build_transition(
             diagnostics[
                 "universe_name"
             ],
+        "cash":
+            start_snapshot["cash"],
         "rows":
             rows,
         "priority_return":
             priority_return,
+        "actual_return":
+            actual_return,
         "comparison_return":
             comparison_return,
-        "advantage":
-            advantage,
+        "priority_vs_actual":
+            priority_vs_actual,
+        "priority_vs_comparison":
+            priority_vs_comparison,
         "priority_count":
             len(priority_rows),
         "comparison_count":
@@ -348,7 +433,7 @@ def build_transition(
 
 def print_transition(transition):
     print()
-    print("=" * 110)
+    print("=" * 118)
 
     print(
         f"{transition['start_month']:%Y-%m}"
@@ -376,7 +461,7 @@ def print_transition(transition):
         f"{transition['universe']}"
     )
 
-    print("-" * 110)
+    print("-" * 118)
 
     groups = [
         "Priority 3+",
@@ -417,23 +502,41 @@ def print_transition(transition):
     print()
 
     print(
-        f"Priority 3+ value-weighted return: "
+        f"Priority 3+ return: "
         f"{format_percent(
             transition['priority_return']
         )}"
     )
 
     print(
-        f"Priority 0-2 value-weighted return: "
+        f"Actual portfolio return: "
+        f"{format_percent(
+            transition['actual_return']
+        )}"
+    )
+
+    print(
+        f"Priority 0-2 return: "
         f"{format_percent(
             transition['comparison_return']
         )}"
     )
 
+    print()
+
     print(
-        f"Priority 3+ advantage: "
+        f"Priority 3+ vs actual: "
         f"{format_percent(
-            transition['advantage']
+            transition['priority_vs_actual']
+        )}"
+    )
+
+    print(
+        f"Priority 3+ vs Priority 0-2: "
+        f"{format_percent(
+            transition[
+                'priority_vs_comparison'
+            ]
         )}"
     )
 
@@ -457,7 +560,7 @@ def print_pooled_summary(transitions):
     print(
         "POOLED HOLDING OBSERVATIONS"
     )
-    print("=" * 110)
+    print("=" * 118)
 
     groups = [
         "Priority 3+",
@@ -509,6 +612,7 @@ def print_compounded_comparison(
     transitions,
 ):
     priority_value = STARTING_VALUE
+    actual_value = STARTING_VALUE
     comparison_value = STARTING_VALUE
 
     print()
@@ -517,18 +621,20 @@ def print_compounded_comparison(
         "COMPOUNDED SNAPSHOT-TO-SNAPSHOT "
         "COMPARISON"
     )
-    print("=" * 110)
+    print("=" * 118)
 
     print(
         f"{'Period':<22}"
-        f"{'Priority 3+':>16}"
-        f"{'Priority 0-2':>16}"
-        f"{'Advantage':>14}"
-        f"{'MI Value':>16}"
-        f"{'Compare Value':>16}"
+        f"{'Priority 3+':>14}"
+        f"{'Actual':>12}"
+        f"{'Priority 0-2':>14}"
+        f"{'MI vs Actual':>14}"
+        f"{'MI Value':>14}"
+        f"{'Actual Value':>14}"
+        f"{'P0-2 Value':>14}"
     )
 
-    print("-" * 110)
+    print("-" * 118)
 
     periods_used = 0
 
@@ -536,6 +642,12 @@ def print_compounded_comparison(
         priority_return = (
             transition[
                 "priority_return"
+            ]
+        )
+
+        actual_return = (
+            transition[
+                "actual_return"
             ]
         )
 
@@ -547,6 +659,7 @@ def print_compounded_comparison(
 
         if (
             priority_return is None
+            or actual_return is None
             or comparison_return is None
         ):
             continue
@@ -556,6 +669,11 @@ def print_compounded_comparison(
         priority_value = apply_return(
             priority_value,
             priority_return,
+        )
+
+        actual_value = apply_return(
+            actual_value,
+            actual_return,
         )
 
         comparison_value = apply_return(
@@ -573,24 +691,40 @@ def print_compounded_comparison(
             f"{period_label:<22}"
             f"{format_percent(
                 priority_return
-            ):>16}"
+            ):>14}"
+            f"{format_percent(
+                actual_return
+            ):>12}"
             f"{format_percent(
                 comparison_return
-            ):>16}"
+            ):>14}"
             f"{format_percent(
-                transition['advantage']
+                transition[
+                    'priority_vs_actual'
+                ]
             ):>14}"
             f"{format_money(
                 priority_value
-            ):>16}"
+            ):>14}"
+            f"{format_money(
+                actual_value
+            ):>14}"
             f"{format_money(
                 comparison_value
-            ):>16}"
+            ):>14}"
         )
 
     priority_total_return = (
         (
             priority_value
+            / STARTING_VALUE
+        )
+        - Decimal("1")
+    ) * Decimal("100")
+
+    actual_total_return = (
+        (
+            actual_value
             / STARTING_VALUE
         )
         - Decimal("1")
@@ -604,17 +738,27 @@ def print_compounded_comparison(
         - Decimal("1")
     ) * Decimal("100")
 
-    return_advantage = (
+    priority_vs_actual_return = (
+        priority_total_return
+        - actual_total_return
+    )
+
+    priority_vs_comparison_return = (
         priority_total_return
         - comparison_total_return
     )
 
-    dollar_advantage = (
+    priority_vs_actual_dollars = (
+        priority_value
+        - actual_value
+    )
+
+    priority_vs_comparison_dollars = (
         priority_value
         - comparison_value
     )
 
-    print("-" * 110)
+    print("-" * 118)
 
     print(
         f"Periods compared: "
@@ -643,6 +787,20 @@ def print_compounded_comparison(
     print()
 
     print(
+        f"Actual portfolio ending value: "
+        f"{format_money(actual_value)}"
+    )
+
+    print(
+        f"Actual portfolio compounded return: "
+        f"{format_percent(
+            actual_total_return
+        )}"
+    )
+
+    print()
+
+    print(
         f"Priority 0-2 ending value: "
         f"{format_money(comparison_value)}"
     )
@@ -657,39 +815,37 @@ def print_compounded_comparison(
     print()
 
     print(
-        f"Market-Intel return advantage: "
+        f"Market-Intel vs actual "
+        f"return advantage: "
         f"{format_percent(
-            return_advantage
+            priority_vs_actual_return
         )}"
     )
 
     print(
-        f"Market-Intel dollar advantage "
-        f"on $10,000: "
+        f"Market-Intel vs actual "
+        f"dollar difference on $10,000: "
         f"{format_money(
-            dollar_advantage
+            priority_vs_actual_dollars
         )}"
     )
-
-    if priority_value > comparison_value:
-        result = (
-            "Priority 3+ outperformed "
-            "Priority 0-2."
-        )
-    elif priority_value < comparison_value:
-        result = (
-            "Priority 3+ underperformed "
-            "Priority 0-2."
-        )
-    else:
-        result = (
-            "Priority 3+ and Priority 0-2 "
-            "finished equal."
-        )
 
     print()
+
     print(
-        f"Result: {result}"
+        f"Market-Intel vs Priority 0-2 "
+        f"return advantage: "
+        f"{format_percent(
+            priority_vs_comparison_return
+        )}"
+    )
+
+    print(
+        f"Market-Intel vs Priority 0-2 "
+        f"dollar difference on $10,000: "
+        f"{format_money(
+            priority_vs_comparison_dollars
+        )}"
     )
 
 
