@@ -1,88 +1,300 @@
-import sys
-from datetime import date
 from decimal import Decimal
 
-from src.analysis.portfolio_history_removed_stock_followup import (
-    get_snapshot,
-    build_removed_holdings,
-    analyze_removed_holding,
+from src.database import get_connection
+
+from src.analysis.portfolio_history_stock_performance import (
+    build_history,
 )
 
-from src.analysis.portfolio_history_added_stock_followup import (
-    build_added_holdings,
-    analyze_added_holding,
+from src.analysis.portfolio_history_stock_performance_summary import (
+    get_portfolio_tickers,
 )
 
 
-def money(value):
-    if value is None:
-        return "-"
-
-    return f"${value:,.2f}"
+PORTFOLIO_NAME = "Historical Portfolio"
 
 
-def percent(value):
+def percent_change(old_value, new_value):
+    if (
+        old_value is None
+        or new_value is None
+        or old_value == 0
+    ):
+        return None
+
+    return (
+        (
+            Decimal(str(new_value))
+            / Decimal(str(old_value))
+        )
+        - Decimal("1")
+    ) * Decimal("100")
+
+
+def format_percent(value):
     if value is None:
         return "-"
 
     return f"{value:+.2f}%"
 
 
-def summarize_removed(results):
-    usable = [
-        item
-        for item in results
+def format_money(value):
+    if value is None:
+        return "-"
+
+    if value >= 0:
+        return f"+${value:,.2f}"
+
+    return f"-${abs(value):,.2f}"
+
+
+def get_snapshot_months():
+    with get_connection() as conn:
+        with conn.cursor() as cursor:
+            cursor.execute(
+                """
+                SELECT snapshot_month
+                FROM portfolio_snapshots
+                WHERE portfolio_name = %s
+                ORDER BY snapshot_month;
+                """,
+                (PORTFOLIO_NAME,),
+            )
+
+            return [
+                row[0]
+                for row in cursor.fetchall()
+            ]
+
+
+def get_history_map():
+    histories = {}
+
+    for ticker in get_portfolio_tickers():
+        actual_ticker, rows = build_history(
+            ticker
+        )
+
+        histories[actual_ticker] = {
+            row["month"]: row
+            for row in rows
+        }
+
+    return histories
+
+
+def find_changes(
+    histories,
+    earlier_month,
+    later_month,
+):
+    removed = []
+    added = []
+
+    for ticker, history in histories.items():
+        earlier = history.get(
+            earlier_month
+        )
+
+        later = history.get(
+            later_month
+        )
+
         if (
-            item.get(
-                "estimated_removal_value"
+            earlier is None
+            or later is None
+        ):
+            continue
+
+        if (
+            earlier["held"]
+            and not later["held"]
+        ):
+            removed.append(
+                ticker
             )
-            is not None
-            and item.get(
-                "estimated_hold_value"
+
+        if (
+            not earlier["held"]
+            and later["held"]
+        ):
+            added.append(
+                ticker
             )
+
+    return (
+        sorted(removed),
+        sorted(added),
+    )
+
+
+def analyze_removed(
+    ticker,
+    history,
+    earlier_month,
+    later_month,
+    latest_month,
+):
+    earlier = history[
+        earlier_month
+    ]
+
+    later = history[
+        later_month
+    ]
+
+    latest = history[
+        latest_month
+    ]
+
+    return_percent = None
+    estimated_change = None
+
+    if (
+        later_month < latest_month
+        and later["adjusted_price"] is not None
+        and latest["adjusted_price"] is not None
+    ):
+        return_percent = percent_change(
+            later["adjusted_price"],
+            latest["adjusted_price"],
+        )
+
+        if (
+            earlier["market_value"]
             is not None
-            and item.get(
-                "hold_profit"
+            and return_percent is not None
+        ):
+            estimated_change = (
+                Decimal(
+                    str(
+                        earlier[
+                            "market_value"
+                        ]
+                    )
+                )
+                * return_percent
+                / Decimal("100")
             )
+
+    return {
+        "ticker": ticker,
+        "starting_value": (
+            earlier["market_value"]
+        ),
+        "return_percent": (
+            return_percent
+        ),
+        "estimated_change": (
+            estimated_change
+        ),
+    }
+
+
+def analyze_added(
+    ticker,
+    history,
+    later_month,
+    latest_month,
+):
+    later = history[
+        later_month
+    ]
+
+    latest = history[
+        latest_month
+    ]
+
+    return_percent = None
+    estimated_change = None
+
+    if (
+        later_month < latest_month
+        and later["adjusted_price"] is not None
+        and latest["adjusted_price"] is not None
+    ):
+        return_percent = percent_change(
+            later["adjusted_price"],
+            latest["adjusted_price"],
+        )
+
+        if (
+            later["market_value"]
             is not None
+            and return_percent is not None
+        ):
+            estimated_change = (
+                Decimal(
+                    str(
+                        later[
+                            "market_value"
+                        ]
+                    )
+                )
+                * return_percent
+                / Decimal("100")
+            )
+
+    return {
+        "ticker": ticker,
+        "starting_value": (
+            later["market_value"]
+        ),
+        "return_percent": (
+            return_percent
+        ),
+        "estimated_change": (
+            estimated_change
+        ),
+    }
+
+
+def summarize_group(rows):
+    usable = [
+        row
+        for row in rows
+        if (
+            row["return_percent"]
+            is not None
+            and row[
+                "starting_value"
+            ] is not None
+            and row[
+                "estimated_change"
+            ] is not None
         )
     ]
 
     if not usable:
         return {
-            "count": len(results),
-            "usable_count": 0,
+            "count": len(rows),
+            "usable": 0,
             "starting_value": None,
-            "ending_value": None,
-            "profit": None,
+            "change": None,
             "weighted_return": None,
             "average_return": None,
         }
 
     starting_value = sum(
         (
-            item[
-                "estimated_removal_value"
-            ]
-            for item in usable
+            Decimal(
+                str(
+                    row[
+                        "starting_value"
+                    ]
+                )
+            )
+            for row in usable
         ),
         Decimal("0"),
     )
 
-    ending_value = sum(
+    change = sum(
         (
-            item[
-                "estimated_hold_value"
+            row[
+                "estimated_change"
             ]
-            for item in usable
-        ),
-        Decimal("0"),
-    )
-
-    profit = sum(
-        (
-            item["hold_profit"]
-            for item in usable
+            for row in usable
         ),
         Decimal("0"),
     )
@@ -91,261 +303,192 @@ def summarize_removed(results):
         weighted_return = None
     else:
         weighted_return = (
-            profit
+            change
             / starting_value
             * Decimal("100")
         )
 
-    returns = [
-        item["hold_return_percent"]
-        for item in usable
-        if item.get(
-            "hold_return_percent"
+    average_return = (
+        sum(
+            (
+                row[
+                    "return_percent"
+                ]
+                for row in usable
+            ),
+            Decimal("0"),
         )
-        is not None
-    ]
-
-    if returns:
-        average_return = (
-            sum(
-                returns,
-                Decimal("0"),
-            )
-            / Decimal(
-                str(len(returns))
-            )
+        / Decimal(
+            len(usable)
         )
-    else:
-        average_return = None
+    )
 
     return {
-        "count": len(results),
-        "usable_count": len(usable),
-        "starting_value": starting_value,
-        "ending_value": ending_value,
-        "profit": profit,
-        "weighted_return": weighted_return,
-        "average_return": average_return,
+        "count": len(rows),
+        "usable": len(usable),
+        "starting_value": (
+            starting_value
+        ),
+        "change": change,
+        "weighted_return": (
+            weighted_return
+        ),
+        "average_return": (
+            average_return
+        ),
     }
 
 
-def summarize_added(results):
-    usable = [
-        item
-        for item in results
-        if (
-            item.get(
-                "estimated_hold_value"
-            )
-            is not None
-            and item.get(
-                "estimated_profit"
-            )
-            is not None
+def build_transition(
+    histories,
+    earlier_month,
+    later_month,
+    latest_month,
+):
+    removed_tickers, added_tickers = (
+        find_changes(
+            histories,
+            earlier_month,
+            later_month,
         )
+    )
+
+    if (
+        not removed_tickers
+        and not added_tickers
+    ):
+        return None
+
+    removed = [
+        analyze_removed(
+            ticker,
+            histories[ticker],
+            earlier_month,
+            later_month,
+            latest_month,
+        )
+        for ticker in removed_tickers
     ]
 
-    if not usable:
-        return {
-            "count": len(results),
-            "usable_count": 0,
-            "starting_value": None,
-            "ending_value": None,
-            "profit": None,
-            "weighted_return": None,
-            "average_return": None,
-        }
-
-    starting_value = sum(
-        (
-            item["market_value"]
-            for item in usable
-        ),
-        Decimal("0"),
-    )
-
-    ending_value = sum(
-        (
-            item[
-                "estimated_hold_value"
-            ]
-            for item in usable
-        ),
-        Decimal("0"),
-    )
-
-    profit = sum(
-        (
-            item[
-                "estimated_profit"
-            ]
-            for item in usable
-        ),
-        Decimal("0"),
-    )
-
-    if starting_value == 0:
-        weighted_return = None
-    else:
-        weighted_return = (
-            profit
-            / starting_value
-            * Decimal("100")
+    added = [
+        analyze_added(
+            ticker,
+            histories[ticker],
+            later_month,
+            latest_month,
         )
-
-    returns = [
-        item["return_percent"]
-        for item in usable
-        if item.get(
-            "return_percent"
-        )
-        is not None
+        for ticker in added_tickers
     ]
-
-    if returns:
-        average_return = (
-            sum(
-                returns,
-                Decimal("0"),
-            )
-            / Decimal(
-                str(len(returns))
-            )
-        )
-    else:
-        average_return = None
 
     return {
-        "count": len(results),
-        "usable_count": len(usable),
-        "starting_value": starting_value,
-        "ending_value": ending_value,
-        "profit": profit,
-        "weighted_return": weighted_return,
-        "average_return": average_return,
+        "earlier_month": earlier_month,
+        "later_month": later_month,
+        "removed": removed,
+        "added": added,
+        "removed_summary": (
+            summarize_group(
+                removed
+            )
+        ),
+        "added_summary": (
+            summarize_group(
+                added
+            )
+        ),
     }
 
 
-def print_removed_detail(results):
+def print_stock_rows(
+    title,
+    rows,
+):
     print()
-    print("REMOVED STOCKS")
-    print("=" * 100)
+    print(title)
 
-    if not results:
-        print("None")
+    if not rows:
+        print("  None")
         return
 
-    print(
-        f"{'Ticker':<10}"
-        f"{'Start Value':>18}"
-        f"{'Hold Value':>18}"
-        f"{'Hold P/L':>18}"
-        f"{'Return':>14}"
-    )
-
-    print("-" * 100)
-
-    for item in sorted(
-        results,
-        key=lambda x: x["ticker"],
-    ):
+    for row in rows:
         print(
-            f"{item['ticker']:<10}"
-            f"{money(item.get('estimated_removal_value')):>18}"
-            f"{money(item.get('estimated_hold_value')):>18}"
-            f"{money(item.get('hold_profit')):>18}"
-            f"{percent(item.get('hold_return_percent')):>14}"
+            f"  {row['ticker']:<8}"
+            f" Return "
+            f"{format_percent(row['return_percent']):>9}"
+            f"   Estimated "
+            f"{format_money(row['estimated_change']):>12}"
         )
 
 
-def print_added_detail(results):
-    print()
-    print("ADDED STOCKS")
-    print("=" * 100)
-
-    if not results:
-        print("None")
-        return
-
-    print(
-        f"{'Ticker':<10}"
-        f"{'Start Value':>18}"
-        f"{'Hold Value':>18}"
-        f"{'Hold P/L':>18}"
-        f"{'Return':>14}"
-    )
-
-    print("-" * 100)
-
-    for item in sorted(
-        results,
-        key=lambda x: x["ticker"],
-    ):
-        print(
-            f"{item['ticker']:<10}"
-            f"{money(item.get('market_value')):>18}"
-            f"{money(item.get('estimated_hold_value')):>18}"
-            f"{money(item.get('estimated_profit')):>18}"
-            f"{percent(item.get('return_percent')):>14}"
-        )
-
-
-def print_group_summary(
-    removed_summary,
-    added_summary,
+def print_transition(
+    transition,
+    latest_month,
 ):
-    print()
-    print("GROUP COMPARISON")
-    print("=" * 115)
-
-    print(
-        f"{'Group':<18}"
-        f"{'Stocks':>10}"
-        f"{'Usable':>10}"
-        f"{'Start Value':>18}"
-        f"{'End Value':>18}"
-        f"{'P/L':>18}"
-        f"{'Wt. Return':>15}"
+    earlier = (
+        transition[
+            "earlier_month"
+        ]
+        .strftime("%Y-%m")
     )
 
-    print("-" * 115)
-
-    print(
-        f"{'Removed / Held':<18}"
-        f"{removed_summary['count']:>10}"
-        f"{removed_summary['usable_count']:>10}"
-        f"{money(removed_summary['starting_value']):>18}"
-        f"{money(removed_summary['ending_value']):>18}"
-        f"{money(removed_summary['profit']):>18}"
-        f"{percent(removed_summary['weighted_return']):>15}"
+    later = (
+        transition[
+            "later_month"
+        ]
+        .strftime("%Y-%m")
     )
 
-    print(
-        f"{'Added':<18}"
-        f"{added_summary['count']:>10}"
-        f"{added_summary['usable_count']:>10}"
-        f"{money(added_summary['starting_value']):>18}"
-        f"{money(added_summary['ending_value']):>18}"
-        f"{money(added_summary['profit']):>18}"
-        f"{percent(added_summary['weighted_return']):>15}"
+    latest = latest_month.strftime(
+        "%Y-%m"
+    )
+
+    removed_summary = (
+        transition[
+            "removed_summary"
+        ]
+    )
+
+    added_summary = (
+        transition[
+            "added_summary"
+        ]
     )
 
     print()
+    print("=" * 90)
+
     print(
-        f"Removed average stock return: "
-        f"{percent(removed_summary['average_return'])}"
+        f"TRANSITION: "
+        f"{earlier} -> {later}"
     )
 
     print(
-        f"Added average stock return:   "
-        f"{percent(added_summary['average_return'])}"
+        f"Follow-up through: "
+        f"{latest}"
     )
 
+    print_stock_rows(
+        "REMOVED",
+        transition["removed"],
+    )
 
-def print_verdict(
-    removed_summary,
-    added_summary,
-):
+    print_stock_rows(
+        "ADDED",
+        transition["added"],
+    )
+
+    print()
+    print("GROUP RESULT")
+
+    print(
+        "  Removed stocks if held: "
+        f"{format_percent(removed_summary['weighted_return'])}"
+    )
+
+    print(
+        "  Added stocks:           "
+        f"{format_percent(added_summary['weighted_return'])}"
+    )
+
     removed_return = (
         removed_summary[
             "weighted_return"
@@ -358,217 +501,410 @@ def print_verdict(
         ]
     )
 
-    print()
-    print("REPLACEMENT RESULT")
-    print("=" * 80)
+    if (
+        not transition["removed"]
+        or not transition["added"]
+    ):
+        print(
+            "  Replacement comparison: "
+            "Not a complete remove/add transition."
+        )
+
+        return
 
     if (
         removed_return is None
         or added_return is None
     ):
         print(
-            "Not enough price data to "
-            "compare the groups."
+            "  Replacement comparison: "
+            "Too soon to evaluate."
         )
+
         return
 
-    difference = (
+    advantage = (
         added_return
         - removed_return
     )
 
     print(
-        f"Added-stock weighted return: "
-        f"{percent(added_return)}"
+        "  Replacement advantage:  "
+        f"{format_percent(advantage)}"
     )
 
-    print(
-        f"Removed-stock hold return:   "
-        f"{percent(removed_return)}"
-    )
-
-    print(
-        f"Replacement advantage:       "
-        f"{percent(difference)}"
-    )
-
-    print()
-
-    if difference > 0:
+    if advantage > 0:
         print(
-            "Result: The stocks added by the "
-            "club outperformed the stocks it "
-            "removed over this follow-up period."
+            "  Verdict: Replacements "
+            "outperformed removed stocks."
         )
 
-    elif difference < 0:
+    elif advantage < 0:
         print(
-            "Result: The stocks the club removed "
-            "would have outperformed the stocks "
-            "it added over this follow-up period."
+            "  Verdict: Removed stocks "
+            "would have performed better."
         )
 
     else:
         print(
-            "Result: The added and removed groups "
-            "had the same weighted return."
+            "  Verdict: No difference."
         )
+
+
+def print_overall(
+    transitions,
+):
+    comparable = []
+
+    for transition in transitions:
+        removed_summary = (
+            transition[
+                "removed_summary"
+            ]
+        )
+
+        added_summary = (
+            transition[
+                "added_summary"
+            ]
+        )
+
+        if (
+            transition["removed"]
+            and transition["added"]
+            and removed_summary[
+                "weighted_return"
+            ] is not None
+            and added_summary[
+                "weighted_return"
+            ] is not None
+        ):
+            comparable.append(
+                transition
+            )
+
+    print()
+    print("=" * 90)
+    print("OVERALL REPLACEMENT SUMMARY")
+    print("=" * 90)
+
+    print(
+        f"Snapshot transitions with changes: "
+        f"{len(transitions)}"
+    )
+
+    print(
+        f"Comparable remove/add transitions: "
+        f"{len(comparable)}"
+    )
+
+    if not comparable:
+        print(
+            "Not enough follow-up data "
+            "for an overall comparison."
+        )
+        return
+
+    advantages = []
+
+    positive = 0
+    negative = 0
+    neutral = 0
+
+    removed_start_total = Decimal("0")
+    removed_change_total = Decimal("0")
+
+    added_start_total = Decimal("0")
+    added_change_total = Decimal("0")
+
+    for transition in comparable:
+        removed_summary = (
+            transition[
+                "removed_summary"
+            ]
+        )
+
+        added_summary = (
+            transition[
+                "added_summary"
+            ]
+        )
+
+        removed_return = (
+            removed_summary[
+                "weighted_return"
+            ]
+        )
+
+        added_return = (
+            added_summary[
+                "weighted_return"
+            ]
+        )
+
+        advantage = (
+            added_return
+            - removed_return
+        )
+
+        advantages.append(
+            advantage
+        )
+
+        if advantage > 0:
+            positive += 1
+
+        elif advantage < 0:
+            negative += 1
+
+        else:
+            neutral += 1
+
+        removed_start_total += (
+            removed_summary[
+                "starting_value"
+            ]
+        )
+
+        removed_change_total += (
+            removed_summary[
+                "change"
+            ]
+        )
+
+        added_start_total += (
+            added_summary[
+                "starting_value"
+            ]
+        )
+
+        added_change_total += (
+            added_summary[
+                "change"
+            ]
+        )
+
+    average_advantage = (
+        sum(
+            advantages,
+            Decimal("0"),
+        )
+        / Decimal(
+            len(advantages)
+        )
+    )
+
+    if removed_start_total == 0:
+        removed_weighted_return = None
+    else:
+        removed_weighted_return = (
+            removed_change_total
+            / removed_start_total
+            * Decimal("100")
+        )
+
+    if added_start_total == 0:
+        added_weighted_return = None
+    else:
+        added_weighted_return = (
+            added_change_total
+            / added_start_total
+            * Decimal("100")
+        )
+
+    if (
+        removed_weighted_return is None
+        or added_weighted_return is None
+    ):
+        overall_advantage = None
+    else:
+        overall_advantage = (
+            added_weighted_return
+            - removed_weighted_return
+        )
+
+    dollar_difference = (
+        added_change_total
+        - removed_change_total
+    )
+
+    print(
+        f"Replacement decisions helped: "
+        f"{positive}"
+    )
+
+    print(
+        f"Replacement decisions hurt: "
+        f"{negative}"
+    )
+
+    print(
+        f"Neutral: "
+        f"{neutral}"
+    )
+
+    print()
+    print(
+        "Average transition advantage: "
+        f"{format_percent(average_advantage)}"
+    )
+
+    print()
+    print("DOLLAR-WEIGHTED COMPARISON")
+    print("-" * 90)
+
+    print(
+        "Removed positions starting value: "
+        f"${removed_start_total:,.2f}"
+    )
+
+    print(
+        "Removed positions if held change: "
+        f"{format_money(removed_change_total)}"
+    )
+
+    print(
+        "Removed positions weighted return: "
+        f"{format_percent(removed_weighted_return)}"
+    )
+
+    print()
+
+    print(
+        "Added positions starting value:   "
+        f"${added_start_total:,.2f}"
+    )
+
+    print(
+        "Added positions estimated change: "
+        f"{format_money(added_change_total)}"
+    )
+
+    print(
+        "Added positions weighted return:  "
+        f"{format_percent(added_weighted_return)}"
+    )
+
+    print()
+
+    print(
+        "Dollar change difference:         "
+        f"{format_money(dollar_difference)}"
+    )
+
+    print(
+        "Weighted replacement advantage:  "
+        f"{format_percent(overall_advantage)}"
+    )
+
+    print()
+
+    if overall_advantage is None:
+        print(
+            "Overall observed result: "
+            "NOT ENOUGH DATA"
+        )
+
+    elif overall_advantage > 0:
+        print(
+            "Overall observed result: "
+            "REPLACEMENTS HELPED"
+        )
+
+    elif overall_advantage < 0:
+        print(
+            "Overall observed result: "
+            "REPLACEMENTS HURT"
+        )
+
+    else:
+        print(
+            "Overall observed result: "
+            "NEUTRAL"
+        )
+
+    print()
+    print(
+        "Dollar change difference compares the "
+        "observed change in the added positions "
+        "with the hypothetical change in the "
+        "removed positions if they had remained held."
+    )
+
+    print(
+        "Because the removed and added groups can "
+        "have different starting values, the dollar "
+        "difference and percentage advantage answer "
+        "slightly different questions."
+    )
 
 
 def main():
-    if len(sys.argv) != 4:
-        print("Usage:")
+    months = get_snapshot_months()
+
+    if len(months) < 2:
         print(
-            "python -m "
-            "src.analysis.portfolio_history_replacement_comparison "
-            "EARLIER_SNAPSHOT "
-            "LATER_SNAPSHOT "
-            "FOLLOWUP_DATE"
+            "At least two snapshots are "
+            "required."
         )
+        return
 
-        print()
-        print("Example:")
-        print(
-            "python -m "
-            "src.analysis.portfolio_history_replacement_comparison "
-            "2026-09-01 "
-            "2026-10-01 "
-            "2026-12-31"
-        )
+    histories = get_history_map()
 
-        raise SystemExit(1)
+    latest_month = months[-1]
 
-    first_month = sys.argv[1]
-    second_month = sys.argv[2]
+    transitions = []
 
-    try:
-        followup_date = date.fromisoformat(
-            sys.argv[3]
-        )
-
-    except ValueError:
-        print()
-        print(
-            "Follow-up date must use "
-            "YYYY-MM-DD format."
-        )
-        raise SystemExit(1)
-
-    try:
-        first_snapshot = get_snapshot(
-            first_month
-        )
-
-        second_snapshot = get_snapshot(
-            second_month
-        )
-
-    except RuntimeError as exc:
-        print()
-        print(exc)
-        raise SystemExit(1)
-
-    if (
-        followup_date
-        < second_snapshot[
-            "snapshot_month"
-        ]
+    for index in range(
+        1,
+        len(months),
     ):
-        print()
-        print(
-            "Follow-up date cannot be "
-            "before the later snapshot."
+        transition = build_transition(
+            histories,
+            months[index - 1],
+            months[index],
+            latest_month,
         )
-        raise SystemExit(1)
 
-    removed_holdings = build_removed_holdings(
-        first_snapshot,
-        second_snapshot,
+        if transition is not None:
+            transitions.append(
+                transition
+            )
+
+    print()
+    print(
+        "HISTORICAL PORTFOLIO "
+        "REPLACEMENT COMPARISON"
     )
 
-    added_holdings = build_added_holdings(
-        first_snapshot,
-        second_snapshot,
-    )
+    print("=" * 90)
 
-    removed_results = [
-        analyze_removed_holding(
-            holding,
-            first_snapshot[
-                "snapshot_month"
-            ],
-            second_snapshot[
-                "snapshot_month"
-            ],
-            followup_date,
-        )
-        for holding in removed_holdings
-    ]
-
-    added_results = [
-        analyze_added_holding(
-            holding,
-            second_snapshot[
-                "snapshot_month"
-            ],
-            followup_date,
-        )
-        for holding in added_holdings
-    ]
-
-    removed_summary = summarize_removed(
-        removed_results
-    )
-
-    added_summary = summarize_added(
-        added_results
+    print(
+        "Latest available snapshot: "
+        f"{latest_month}"
     )
 
     print()
     print(
-        "HISTORICAL PORTFOLIO REPLACEMENT COMPARISON"
-    )
-    print("=" * 115)
-
-    print(
-        f"Earlier snapshot: "
-        f"{first_snapshot['snapshot_month']}"
+        "Returns use the later snapshot "
+        "as the observation point because "
+        "exact transaction dates are not available."
     )
 
     print(
-        f"Later snapshot:   "
-        f"{second_snapshot['snapshot_month']}"
+        "Missing monthly snapshots create "
+        "longer observation intervals and do "
+        "not imply a transaction date."
     )
 
-    print(
-        f"Follow-up date:   "
-        f"{followup_date}"
-    )
+    for transition in transitions:
+        print_transition(
+            transition,
+            latest_month,
+        )
 
-    print()
-    print(
-        "Note: the later monthly snapshot date "
-        "is used as the estimated replacement "
-        "date because exact trade dates are "
-        "not available."
-    )
-
-    print_removed_detail(
-        removed_results
-    )
-
-    print_added_detail(
-        added_results
-    )
-
-    print_group_summary(
-        removed_summary,
-        added_summary,
-    )
-
-    print_verdict(
-        removed_summary,
-        added_summary,
+    print_overall(
+        transitions
     )
 
 
