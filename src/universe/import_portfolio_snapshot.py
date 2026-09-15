@@ -60,20 +60,29 @@ def find_column(headers, names):
     return None
 
 
+def as_date(value):
+    if isinstance(value, datetime):
+        return value.date()
+
+    if isinstance(value, date):
+        return value
+
+    return None
+
+
 def find_snapshot_month(sheet):
     # Most files have the month in B2.
     # May 2026 has it in B1.
     for row in range(1, 4):
         for column in range(1, 5):
-            value = sheet.cell(
-                row=row,
-                column=column,
-            ).value
+            value = as_date(
+                sheet.cell(
+                    row=row,
+                    column=column,
+                ).value
+            )
 
-            if isinstance(value, datetime):
-                return value.date().replace(day=1)
-
-            if isinstance(value, date):
+            if value is not None:
                 return value.replace(day=1)
 
     raise ValueError(
@@ -179,6 +188,43 @@ def get_columns(sheet, header_row):
     return required
 
 
+def find_valuation_date(
+    sheet,
+    header_row,
+    price_column,
+    snapshot_month,
+):
+    # Some source sheets include a separate market-price
+    # valuation date above the PRICE column.
+    #
+    # Only dates in the PRICE column are considered here.
+    # The regular portfolio month/date elsewhere in the
+    # heading is not treated as a valuation date.
+    for row in range(
+        1,
+        header_row,
+    ):
+        value = as_date(
+            sheet.cell(
+                row=row,
+                column=price_column,
+            ).value
+        )
+
+        if value is None:
+            continue
+
+        if value.replace(day=1) == snapshot_month:
+            # A same-month heading date may simply be the
+            # snapshot label. Do not infer that it is a
+            # separate valuation date.
+            continue
+
+        return value
+
+    return None
+
+
 def read_spreadsheet(filename):
     path = Path(filename)
 
@@ -205,6 +251,13 @@ def read_spreadsheet(filename):
     columns = get_columns(
         sheet,
         header_row,
+    )
+
+    valuation_date = find_valuation_date(
+        sheet,
+        header_row,
+        columns["PRICE"],
+        snapshot_month,
     )
 
     cash = None
@@ -327,6 +380,8 @@ def read_spreadsheet(filename):
             }
         )
 
+    workbook.close()
+
     if cash is None:
         raise ValueError(
             "Could not find cash value."
@@ -339,6 +394,7 @@ def read_spreadsheet(filename):
 
     return {
         "snapshot_month": snapshot_month,
+        "valuation_date": valuation_date,
         "cash": cash,
         "source_total": source_total,
         "source_cost_basis": source_cost_basis,
@@ -535,12 +591,14 @@ def save_snapshot(
                 INSERT INTO portfolio_snapshots (
                     portfolio_name,
                     snapshot_month,
+                    valuation_date,
                     cash,
                     total_portfolio_value,
                     total_cost_basis,
                     source_filename
                 )
                 VALUES (
+                    %s,
                     %s,
                     %s,
                     %s,
@@ -553,6 +611,11 @@ def save_snapshot(
                     snapshot_month
                 )
                 DO UPDATE SET
+                    valuation_date =
+                        COALESCE(
+                            EXCLUDED.valuation_date,
+                            portfolio_snapshots.valuation_date
+                        ),
                     cash =
                         EXCLUDED.cash,
                     total_portfolio_value =
@@ -568,6 +631,9 @@ def save_snapshot(
                 (
                     PORTFOLIO_NAME,
                     snapshot_month,
+                    snapshot[
+                        "valuation_date"
+                    ],
                     snapshot["cash"],
                     snapshot["source_total"],
                     snapshot[
@@ -666,6 +732,17 @@ def import_snapshot(filename):
         f"Snapshot month: "
         f"{snapshot['snapshot_month']:%B %Y}"
     )
+
+    if snapshot["valuation_date"] is not None:
+        print(
+            f"Valuation date: "
+            f"{snapshot['valuation_date']:%Y-%m-%d}"
+        )
+    else:
+        print(
+            "Valuation date: "
+            "not reported in source"
+        )
 
     print(
         f"Holdings: "

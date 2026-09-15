@@ -568,6 +568,7 @@ def get_horizon_result(
         or benchmark is None
     ):
         return {
+            "exit_date": None,
             "return": None,
             "benchmark_return": None,
             "excess_return": None,
@@ -582,6 +583,9 @@ def get_horizon_result(
     ]
 
     return {
+        "exit_date":
+            stock["exit_date"],
+
         "return":
             stock_return,
 
@@ -640,14 +644,17 @@ def save_backtest_event(
                     spy_opening_gap_pct,
                     opening_gap_excess,
 
+                    exit_date_30d,
                     return_30d,
                     spy_return_30d,
                     excess_30d,
 
+                    exit_date_90d,
                     return_90d,
                     spy_return_90d,
                     excess_90d,
 
+                    exit_date_180d,
                     return_180d,
                     spy_return_180d,
                     excess_180d
@@ -662,11 +669,11 @@ def save_backtest_event(
 
                     %s, %s, %s, %s, %s,
 
-                    %s, %s, %s,
+                    %s, %s, %s, %s,
 
-                    %s, %s, %s,
+                    %s, %s, %s, %s,
 
-                    %s, %s, %s
+                    %s, %s, %s, %s
                 )
 
                 ON CONFLICT (
@@ -726,6 +733,9 @@ def save_backtest_event(
                     opening_gap_excess =
                         EXCLUDED.opening_gap_excess,
 
+                    exit_date_30d =
+                        EXCLUDED.exit_date_30d,
+
                     return_30d =
                         EXCLUDED.return_30d,
 
@@ -735,6 +745,9 @@ def save_backtest_event(
                     excess_30d =
                         EXCLUDED.excess_30d,
 
+                    exit_date_90d =
+                        EXCLUDED.exit_date_90d,
+
                     return_90d =
                         EXCLUDED.return_90d,
 
@@ -743,6 +756,9 @@ def save_backtest_event(
 
                     excess_90d =
                         EXCLUDED.excess_90d,
+
+                    exit_date_180d =
+                        EXCLUDED.exit_date_180d,
 
                     return_180d =
                         EXCLUDED.return_180d,
@@ -810,6 +826,10 @@ def save_backtest_event(
 
                     horizon_results[
                         "30d"
+                    ]["exit_date"],
+
+                    horizon_results[
+                        "30d"
                     ]["return"],
 
                     horizon_results[
@@ -822,6 +842,10 @@ def save_backtest_event(
 
                     horizon_results[
                         "90d"
+                    ]["exit_date"],
+
+                    horizon_results[
+                        "90d"
                     ]["return"],
 
                     horizon_results[
@@ -831,6 +855,10 @@ def save_backtest_event(
                     horizon_results[
                         "90d"
                     ]["excess_return"],
+
+                    horizon_results[
+                        "180d"
+                    ]["exit_date"],
 
                     horizon_results[
                         "180d"
@@ -845,7 +873,7 @@ def save_backtest_event(
                     ]["excess_return"],
                 ),
             )
-
+            
 
 def build_security_events(
     security,

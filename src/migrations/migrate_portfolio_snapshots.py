@@ -13,6 +13,8 @@ def migrate():
 
                     snapshot_month DATE NOT NULL,
 
+                    valuation_date DATE,
+
                     cash NUMERIC(20, 2),
 
                     total_portfolio_value NUMERIC(20, 2),
@@ -33,6 +35,14 @@ def migrate():
                             snapshot_month
                         )
                 );
+                """
+            )
+
+            cursor.execute(
+                """
+                ALTER TABLE portfolio_snapshots
+                ADD COLUMN IF NOT EXISTS
+                    valuation_date DATE;
                 """
             )
 
