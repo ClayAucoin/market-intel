@@ -13,6 +13,7 @@ from src.database import get_connection
 
 
 PORTFOLIO_NAME = "Historical Portfolio"
+STARTING_VALUE = Decimal("10000")
 
 
 def get_snapshot_months():
@@ -116,6 +117,22 @@ def format_money(value):
     return f"${value:,.2f}"
 
 
+def simple_average(rows):
+    values = [
+        row["return_percent"]
+        for row in rows
+        if row["return_percent"] is not None
+    ]
+
+    if not values:
+        return None
+
+    return (
+        sum(values, Decimal("0"))
+        / Decimal(len(values))
+    )
+
+
 def weighted_average(rows):
     usable = [
         row
@@ -153,22 +170,6 @@ def weighted_average(rows):
     )
 
     return weighted_sum / total_value
-
-
-def simple_average(rows):
-    values = [
-        row["return_percent"]
-        for row in rows
-        if row["return_percent"] is not None
-    ]
-
-    if not values:
-        return None
-
-    return (
-        sum(values, Decimal("0"))
-        / Decimal(len(values))
-    )
 
 
 def build_transition(
@@ -211,15 +212,13 @@ def build_transition(
             )
 
             for item in results:
-                price_result = (
-                    get_price_return(
-                        cursor,
-                        item["ticker"],
-                        start_date,
-                        end_date,
-                        date_column,
-                        price_column,
-                    )
+                price_result = get_price_return(
+                    cursor,
+                    item["ticker"],
+                    start_date,
+                    end_date,
+                    date_column,
+                    price_column,
                 )
 
                 if price_result is None:
@@ -274,6 +273,47 @@ def build_transition(
                     }
                 )
 
+    priority_rows = [
+        row
+        for row in rows
+        if (
+            row["priority"] is not None
+            and row["priority"] >= 3
+            and row["return_percent"]
+            is not None
+        )
+    ]
+
+    comparison_rows = [
+        row
+        for row in rows
+        if (
+            row["priority"] is not None
+            and row["priority"] < 3
+            and row["return_percent"]
+            is not None
+        )
+    ]
+
+    priority_return = weighted_average(
+        priority_rows
+    )
+
+    comparison_return = weighted_average(
+        comparison_rows
+    )
+
+    advantage = None
+
+    if (
+        priority_return is not None
+        and comparison_return is not None
+    ):
+        advantage = (
+            priority_return
+            - comparison_return
+        )
+
     return {
         "start_month":
             start_month,
@@ -293,6 +333,16 @@ def build_transition(
             ],
         "rows":
             rows,
+        "priority_return":
+            priority_return,
+        "comparison_return":
+            comparison_return,
+        "advantage":
+            advantage,
+        "priority_count":
+            len(priority_rows),
+        "comparison_count":
+            len(comparison_rows),
     }
 
 
@@ -364,65 +414,31 @@ def print_transition(transition):
             ):>9}"
         )
 
-    priority_rows = [
-        row
-        for row in transition["rows"]
-        if (
-            row["priority"] is not None
-            and row["priority"] >= 3
-            and row["return_percent"]
-            is not None
-        )
-    ]
-
-    nonpriority_rows = [
-        row
-        for row in transition["rows"]
-        if (
-            row["priority"] is not None
-            and row["priority"] < 3
-            and row["return_percent"]
-            is not None
-        )
-    ]
-
-    priority_return = weighted_average(
-        priority_rows
-    )
-
-    nonpriority_return = weighted_average(
-        nonpriority_rows
-    )
-
-    advantage = None
-
-    if (
-        priority_return is not None
-        and nonpriority_return is not None
-    ):
-        advantage = (
-            priority_return
-            - nonpriority_return
-        )
-
     print()
+
     print(
         f"Priority 3+ value-weighted return: "
-        f"{format_percent(priority_return)}"
+        f"{format_percent(
+            transition['priority_return']
+        )}"
     )
 
     print(
         f"Priority 0-2 value-weighted return: "
-        f"{format_percent(nonpriority_return)}"
+        f"{format_percent(
+            transition['comparison_return']
+        )}"
     )
 
     print(
         f"Priority 3+ advantage: "
-        f"{format_percent(advantage)}"
+        f"{format_percent(
+            transition['advantage']
+        )}"
     )
 
 
-def print_overall(transitions):
+def print_pooled_summary(transitions):
     grouped = defaultdict(list)
 
     for transition in transitions:
@@ -439,8 +455,7 @@ def print_overall(transitions):
     print()
     print()
     print(
-        "OVERALL MARKET-INTEL "
-        "HISTORICAL PORTFOLIO COMPARISON"
+        "POOLED HOLDING OBSERVATIONS"
     )
     print("=" * 110)
 
@@ -468,61 +483,213 @@ def print_overall(transitions):
             ):>9}"
         )
 
-    priority_rows = []
 
-    nonpriority_rows = []
+def apply_return(
+    portfolio_value,
+    return_percent,
+):
+    if return_percent is None:
+        return portfolio_value
+
+    multiplier = (
+        Decimal("1")
+        + (
+            return_percent
+            / Decimal("100")
+        )
+    )
+
+    return (
+        portfolio_value
+        * multiplier
+    )
+
+
+def print_compounded_comparison(
+    transitions,
+):
+    priority_value = STARTING_VALUE
+    comparison_value = STARTING_VALUE
+
+    print()
+    print()
+    print(
+        "COMPOUNDED SNAPSHOT-TO-SNAPSHOT "
+        "COMPARISON"
+    )
+    print("=" * 110)
+
+    print(
+        f"{'Period':<22}"
+        f"{'Priority 3+':>16}"
+        f"{'Priority 0-2':>16}"
+        f"{'Advantage':>14}"
+        f"{'MI Value':>16}"
+        f"{'Compare Value':>16}"
+    )
+
+    print("-" * 110)
+
+    periods_used = 0
 
     for transition in transitions:
-        for row in transition["rows"]:
-            if (
-                row["return_percent"]
-                is None
-                or row["priority"] is None
-            ):
-                continue
+        priority_return = (
+            transition[
+                "priority_return"
+            ]
+        )
 
-            if row["priority"] >= 3:
-                priority_rows.append(
-                    row
-                )
-            else:
-                nonpriority_rows.append(
-                    row
-                )
+        comparison_return = (
+            transition[
+                "comparison_return"
+            ]
+        )
 
-    priority_return = weighted_average(
-        priority_rows
+        if (
+            priority_return is None
+            or comparison_return is None
+        ):
+            continue
+
+        periods_used += 1
+
+        priority_value = apply_return(
+            priority_value,
+            priority_return,
+        )
+
+        comparison_value = apply_return(
+            comparison_value,
+            comparison_return,
+        )
+
+        period_label = (
+            f"{transition['start_month']:%Y-%m}"
+            f" -> "
+            f"{transition['end_month']:%Y-%m}"
+        )
+
+        print(
+            f"{period_label:<22}"
+            f"{format_percent(
+                priority_return
+            ):>16}"
+            f"{format_percent(
+                comparison_return
+            ):>16}"
+            f"{format_percent(
+                transition['advantage']
+            ):>14}"
+            f"{format_money(
+                priority_value
+            ):>16}"
+            f"{format_money(
+                comparison_value
+            ):>16}"
+        )
+
+    priority_total_return = (
+        (
+            priority_value
+            / STARTING_VALUE
+        )
+        - Decimal("1")
+    ) * Decimal("100")
+
+    comparison_total_return = (
+        (
+            comparison_value
+            / STARTING_VALUE
+        )
+        - Decimal("1")
+    ) * Decimal("100")
+
+    return_advantage = (
+        priority_total_return
+        - comparison_total_return
     )
 
-    nonpriority_return = weighted_average(
-        nonpriority_rows
+    dollar_advantage = (
+        priority_value
+        - comparison_value
     )
 
-    advantage = None
+    print("-" * 110)
 
-    if (
-        priority_return is not None
-        and nonpriority_return is not None
-    ):
-        advantage = (
-            priority_return
-            - nonpriority_return
+    print(
+        f"Periods compared: "
+        f"{periods_used}"
+    )
+
+    print(
+        f"Starting value: "
+        f"{format_money(STARTING_VALUE)}"
+    )
+
+    print()
+
+    print(
+        f"Priority 3+ ending value: "
+        f"{format_money(priority_value)}"
+    )
+
+    print(
+        f"Priority 3+ compounded return: "
+        f"{format_percent(
+            priority_total_return
+        )}"
+    )
+
+    print()
+
+    print(
+        f"Priority 0-2 ending value: "
+        f"{format_money(comparison_value)}"
+    )
+
+    print(
+        f"Priority 0-2 compounded return: "
+        f"{format_percent(
+            comparison_total_return
+        )}"
+    )
+
+    print()
+
+    print(
+        f"Market-Intel return advantage: "
+        f"{format_percent(
+            return_advantage
+        )}"
+    )
+
+    print(
+        f"Market-Intel dollar advantage "
+        f"on $10,000: "
+        f"{format_money(
+            dollar_advantage
+        )}"
+    )
+
+    if priority_value > comparison_value:
+        result = (
+            "Priority 3+ outperformed "
+            "Priority 0-2."
+        )
+    elif priority_value < comparison_value:
+        result = (
+            "Priority 3+ underperformed "
+            "Priority 0-2."
+        )
+    else:
+        result = (
+            "Priority 3+ and Priority 0-2 "
+            "finished equal."
         )
 
     print()
     print(
-        f"Priority 3+ value-weighted return: "
-        f"{format_percent(priority_return)}"
-    )
-
-    print(
-        f"Priority 0-2 value-weighted return: "
-        f"{format_percent(nonpriority_return)}"
-    )
-
-    print(
-        f"Priority 3+ advantage: "
-        f"{format_percent(advantage)}"
+        f"Result: {result}"
     )
 
 
@@ -555,7 +722,11 @@ def main():
             transition
         )
 
-    print_overall(
+    print_pooled_summary(
+        transitions
+    )
+
+    print_compounded_comparison(
         transitions
     )
 
