@@ -19,14 +19,17 @@ CREATE TABLE IF NOT EXISTS backtest_events (
     gross_margin_change NUMERIC,
     operating_margin_change NUMERIC,
 
+    exit_date_30d DATE,
     return_30d NUMERIC,
     spy_return_30d NUMERIC,
     excess_30d NUMERIC,
 
+    exit_date_90d DATE,
     return_90d NUMERIC,
     spy_return_90d NUMERIC,
     excess_90d NUMERIC,
 
+    exit_date_180d DATE,
     return_180d NUMERIC,
     spy_return_180d NUMERIC,
     excess_180d NUMERIC,

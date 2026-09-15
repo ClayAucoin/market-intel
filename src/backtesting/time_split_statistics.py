@@ -72,8 +72,13 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
 
                         be.pre_excess_20d,
 
+                        be.exit_date_30d,
                         be.excess_30d,
+
+                        be.exit_date_90d,
                         be.excess_90d,
+
+                        be.exit_date_180d,
                         be.excess_180d
 
                     FROM backtest_events be
@@ -107,9 +112,25 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
             else:
                 cursor.execute(
                     """
+                    WITH sector_data AS (
+                        SELECT
+                            security_id,
+                            MAX(sector) AS sector
+
+                        FROM analysis_universe_members
+
+                        WHERE sector IS NOT NULL
+
+                        GROUP BY security_id
+                    )
+
                     SELECT
                         s.ticker,
-                        aum.sector,
+                        COALESCE(
+                            aum.sector,
+                            sd.sector,
+                            'UNKNOWN'
+                        ) AS sector,
 
                         be.period_end,
                         be.entry_date,
@@ -122,8 +143,13 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
 
                         be.pre_excess_20d,
 
+                        be.exit_date_30d,
                         be.excess_30d,
+
+                        be.exit_date_90d,
                         be.excess_90d,
+
+                        be.exit_date_180d,
                         be.excess_180d
 
                     FROM backtest_events be
@@ -138,6 +164,10 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
                         ON au.id = aum.universe_id
                        AND au.name = %s
 
+                    LEFT JOIN sector_data sd
+                        ON sd.security_id =
+                           be.security_id
+
                     ORDER BY
                         be.entry_date,
                         s.ticker;
@@ -146,7 +176,7 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
                         universe_name,
                     ),
                 )
-
+                
             rows = cursor.fetchall()
 
     return [
@@ -165,9 +195,14 @@ def get_events(universe_name=DEFAULT_UNIVERSE):
 
             "pre_excess_20d": row[9],
 
-            "excess_30d": row[10],
-            "excess_90d": row[11],
-            "excess_180d": row[12],
+            "exit_date_30d": row[10],
+            "excess_30d": row[11],
+
+            "exit_date_90d": row[12],
+            "excess_90d": row[13],
+
+            "exit_date_180d": row[14],
+            "excess_180d": row[15],
         }
         for row in rows
     ]
