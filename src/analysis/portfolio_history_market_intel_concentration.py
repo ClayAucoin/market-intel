@@ -18,6 +18,11 @@ REMOVE_COUNTS = [
     10,
 ]
 
+TICKER_REMOVE_COUNTS = [
+    1,
+    3,
+]
+
 
 def get_priority_observations(
     transitions,
@@ -91,9 +96,13 @@ def get_removed_keys(
 def get_transition_priority_rows(
     transition,
     removed_keys=None,
+    removed_tickers=None,
 ):
     if removed_keys is None:
         removed_keys = set()
+
+    if removed_tickers is None:
+        removed_tickers = set()
 
     rows = []
 
@@ -103,6 +112,9 @@ def get_transition_priority_rows(
             or row["priority"] < 3
             or row["return_percent"] is None
         ):
+            continue
+
+        if row["ticker"] in removed_tickers:
             continue
 
         key = (
@@ -124,9 +136,13 @@ def get_transition_priority_rows(
 def compound_priority_strategy(
     transitions,
     removed_keys=None,
+    removed_tickers=None,
 ):
     if removed_keys is None:
         removed_keys = set()
+
+    if removed_tickers is None:
+        removed_tickers = set()
 
     value = STARTING_VALUE
     periods_used = 0
@@ -136,6 +152,7 @@ def compound_priority_strategy(
         rows = get_transition_priority_rows(
             transition,
             removed_keys,
+            removed_tickers,
         )
 
         period_return = weighted_average(
@@ -189,6 +206,82 @@ def compound_priority_strategy(
         "period_results":
             period_results,
     }
+
+
+def get_ticker_names(
+    observations,
+):
+    return sorted(
+        {
+            row["ticker"]
+            for row in observations
+        }
+    )
+
+
+def get_ticker_observation_count(
+    observations,
+    ticker,
+):
+    return sum(
+        1
+        for row in observations
+        if row["ticker"] == ticker
+    )
+
+
+def build_ticker_impact_results(
+    transitions,
+    observations,
+    baseline,
+):
+    results = []
+
+    for ticker in get_ticker_names(
+        observations
+    ):
+        stressed = (
+            compound_priority_strategy(
+                transitions,
+                removed_tickers={
+                    ticker
+                },
+            )
+        )
+
+        impact = (
+            baseline["total_return"]
+            - stressed["total_return"]
+        )
+
+        results.append(
+            {
+                "ticker":
+                    ticker,
+                "observations":
+                    get_ticker_observation_count(
+                        observations,
+                        ticker,
+                    ),
+                "ending_value":
+                    stressed[
+                        "ending_value"
+                    ],
+                "total_return":
+                    stressed[
+                        "total_return"
+                    ],
+                "impact":
+                    impact,
+            }
+        )
+
+    return sorted(
+        results,
+        key=lambda row:
+            row["impact"],
+        reverse=True,
+    )
 
 
 def print_top_winners(
@@ -391,6 +484,121 @@ def print_period_concentration(
         )
 
 
+def print_ticker_impact(
+    ticker_results,
+):
+    print()
+    print()
+    print(
+        "PRIORITY 3+ TICKER-LEVEL IMPACT"
+    )
+    print("=" * 100)
+
+    print(
+        "Each row removes that ticker from "
+        "every period in which it was "
+        "Priority 3+."
+    )
+
+    print()
+
+    print(
+        f"{'Rank':>4}  "
+        f"{'Ticker':<10}"
+        f"{'Obs':>6}"
+        f"{'Return Without':>18}"
+        f"{'Impact':>14}"
+        f"{'Ending Value':>18}"
+    )
+
+    print("-" * 100)
+
+    for index, row in enumerate(
+        ticker_results,
+        start=1,
+    ):
+        print(
+            f"{index:>4}  "
+            f"{row['ticker']:<10}"
+            f"{row['observations']:>6}"
+            f"{format_percent(
+                row['total_return']
+            ):>18}"
+            f"{format_percent(
+                row['impact']
+            ):>14}"
+            f"{format_money(
+                row['ending_value']
+            ):>18}"
+        )
+
+
+def print_ticker_removal_stress(
+    transitions,
+    ticker_results,
+    baseline,
+):
+    print()
+    print()
+    print(
+        "MOST-INFLUENTIAL-TICKER "
+        "REMOVAL STRESS TEST"
+    )
+    print("=" * 100)
+
+    print(
+        f"{'Removed':>10}"
+        f"{'Tickers':<36}"
+        f"{'Ending Value':>18}"
+        f"{'Return':>14}"
+        f"{'Change vs Base':>18}"
+    )
+
+    print("-" * 100)
+
+    for remove_count in (
+        TICKER_REMOVE_COUNTS
+    ):
+        selected = ticker_results[
+            :remove_count
+        ]
+
+        removed_tickers = {
+            row["ticker"]
+            for row in selected
+        }
+
+        result = compound_priority_strategy(
+            transitions,
+            removed_tickers=
+                removed_tickers,
+        )
+
+        change_vs_base = (
+            result["total_return"]
+            - baseline["total_return"]
+        )
+
+        ticker_text = ", ".join(
+            row["ticker"]
+            for row in selected
+        )
+
+        print(
+            f"{remove_count:>10}"
+            f"{ticker_text:<36}"
+            f"{format_money(
+                result['ending_value']
+            ):>18}"
+            f"{format_percent(
+                result['total_return']
+            ):>14}"
+            f"{format_percent(
+                change_vs_base
+            ):>18}"
+        )
+
+
 def build_transitions():
     snapshot_months = (
         get_snapshot_months()
@@ -455,6 +663,24 @@ def main():
 
     print_period_concentration(
         transitions
+    )
+
+    ticker_results = (
+        build_ticker_impact_results(
+            transitions,
+            observations,
+            baseline,
+        )
+    )
+
+    print_ticker_impact(
+        ticker_results
+    )
+
+    print_ticker_removal_stress(
+        transitions,
+        ticker_results,
+        baseline,
     )
 
 
