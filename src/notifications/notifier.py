@@ -18,18 +18,45 @@ def send_notification(
     }
 
     if send_gmail:
-        results["gmail"] = send_email(
-            to_address=DEFAULT_EMAIL,
-            subject=subject,
-            body=message,
-        )
+        try:
+            results["gmail"] = send_email(
+                to_address=DEFAULT_EMAIL,
+                subject=subject,
+                body=message,
+            )
+
+        except Exception as error:
+            results["gmail"] = {
+                "success": False,
+                "error": str(error),
+            }
+
+            print(
+                "WARNING: Gmail notification "
+                f"failed: {error}"
+            )
 
     if send_slack:
-        results["slack"] = send_slack_message(
-            channel=DEFAULT_SLACK_CHANNEL,
-            # message=f"*{subject}*\n\n{message}",
-            message=f"<@U0BMEND132M>\n\n*{subject}*\n\n{message}",
-        )
+        try:
+            results["slack"] = send_slack_message(
+                channel=DEFAULT_SLACK_CHANNEL,
+                message=(
+                    f"<@U0BMEND132M>\n\n"
+                    f"*{subject}*\n\n"
+                    f"{message}"
+                ),
+            )
+
+        except Exception as error:
+            results["slack"] = {
+                "success": False,
+                "error": str(error),
+            }
+
+            print(
+                "WARNING: Slack notification "
+                f"failed: {error}"
+            )
 
     return results
 
