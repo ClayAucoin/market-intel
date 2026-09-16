@@ -39,40 +39,41 @@ def get_build_name():
     return "historical_sp500"
 
 
-def clear_backtest_events():
-    with get_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute(
-                """
-                DELETE FROM backtest_events be
 
-                WHERE EXISTS (
-                    SELECT 1
+def clear_backtest_events(
+    conn,
+):
+    with conn.cursor() as cursor:
+        cursor.execute(
+            """
+            DELETE FROM backtest_events be
 
-                    FROM index_membership_history imh
+            WHERE EXISTS (
+                SELECT 1
 
-                    WHERE
-                        imh.security_id =
-                            be.security_id
+                FROM index_membership_history imh
 
-                        AND imh.index_name = %s
-                );
-                """,
-                (
-                    INDEX_NAME,
-                ),
-            )
+                WHERE
+                    imh.security_id =
+                        be.security_id
 
-            deleted = (
-                cursor.rowcount
-            )
+                    AND imh.index_name = %s
+            );
+            """,
+            (
+                INDEX_NAME,
+            ),
+        )
+
+        deleted = (
+            cursor.rowcount
+        )
 
     print(
         f"Cleared {deleted} existing "
         f"historical S&P 500 "
         f"backtest events."
     )
-
 
 def get_historical_securities():
     with get_connection() as conn:
@@ -601,7 +602,10 @@ def get_horizon_result(
     }
 
 
+
 def save_backtest_event(
+    conn,
+
     security_id,
     period_end,
     entry_date,
@@ -616,266 +620,265 @@ def save_backtest_event(
     market_context,
     horizon_results,
 ):
-    with get_connection() as conn:
-        with conn.cursor() as cursor:
-            cursor.execute(
-                """
-                INSERT INTO backtest_events (
-                    security_id,
-                    period_end,
-                    entry_date,
-                    entry_price,
-
-                    revenue_yoy,
-                    revenue_acceleration,
-                    eps_yoy,
-                    gross_margin_change,
-                    operating_margin_change,
-
-                    pre_return_20d,
-                    pre_return_60d,
-                    pre_excess_20d,
-                    pre_excess_60d,
-                    pre_volatility_20d,
-
-                    previous_close,
-                    entry_open,
-                    opening_gap_pct,
-                    spy_opening_gap_pct,
-                    opening_gap_excess,
-
-                    exit_date_30d,
-                    return_30d,
-                    spy_return_30d,
-                    excess_30d,
-
-                    exit_date_90d,
-                    return_90d,
-                    spy_return_90d,
-                    excess_90d,
-
-                    exit_date_180d,
-                    return_180d,
-                    spy_return_180d,
-                    excess_180d
-                )
-
-                VALUES (
-                    %s, %s, %s, %s,
-
-                    %s, %s, %s, %s, %s,
-
-                    %s, %s, %s, %s, %s,
-
-                    %s, %s, %s, %s, %s,
-
-                    %s, %s, %s, %s,
-
-                    %s, %s, %s, %s,
-
-                    %s, %s, %s, %s
-                )
-
-                ON CONFLICT (
-                    security_id,
-                    period_end
-                )
-
-                DO UPDATE SET
-                    entry_date =
-                        EXCLUDED.entry_date,
-
-                    entry_price =
-                        EXCLUDED.entry_price,
-
-                    revenue_yoy =
-                        EXCLUDED.revenue_yoy,
-
-                    revenue_acceleration =
-                        EXCLUDED.revenue_acceleration,
-
-                    eps_yoy =
-                        EXCLUDED.eps_yoy,
-
-                    gross_margin_change =
-                        EXCLUDED.gross_margin_change,
-
-                    operating_margin_change =
-                        EXCLUDED.operating_margin_change,
-
-                    pre_return_20d =
-                        EXCLUDED.pre_return_20d,
-
-                    pre_return_60d =
-                        EXCLUDED.pre_return_60d,
-
-                    pre_excess_20d =
-                        EXCLUDED.pre_excess_20d,
-
-                    pre_excess_60d =
-                        EXCLUDED.pre_excess_60d,
-
-                    pre_volatility_20d =
-                        EXCLUDED.pre_volatility_20d,
-
-                    previous_close =
-                        EXCLUDED.previous_close,
-
-                    entry_open =
-                        EXCLUDED.entry_open,
-
-                    opening_gap_pct =
-                        EXCLUDED.opening_gap_pct,
-
-                    spy_opening_gap_pct =
-                        EXCLUDED.spy_opening_gap_pct,
-
-                    opening_gap_excess =
-                        EXCLUDED.opening_gap_excess,
-
-                    exit_date_30d =
-                        EXCLUDED.exit_date_30d,
-
-                    return_30d =
-                        EXCLUDED.return_30d,
-
-                    spy_return_30d =
-                        EXCLUDED.spy_return_30d,
-
-                    excess_30d =
-                        EXCLUDED.excess_30d,
-
-                    exit_date_90d =
-                        EXCLUDED.exit_date_90d,
-
-                    return_90d =
-                        EXCLUDED.return_90d,
-
-                    spy_return_90d =
-                        EXCLUDED.spy_return_90d,
-
-                    excess_90d =
-                        EXCLUDED.excess_90d,
-
-                    exit_date_180d =
-                        EXCLUDED.exit_date_180d,
-
-                    return_180d =
-                        EXCLUDED.return_180d,
-
-                    spy_return_180d =
-                        EXCLUDED.spy_return_180d,
-
-                    excess_180d =
-                        EXCLUDED.excess_180d,
-
-                    updated_at =
-                        CURRENT_TIMESTAMP;
-                """,
-                (
-                    security_id,
-                    period_end,
-                    entry_date,
-                    entry_price,
-
-                    revenue_yoy,
-                    revenue_acceleration,
-                    eps_yoy,
-                    gross_margin_change,
-                    operating_margin_change,
-
-                    market_context[
-                        "pre_return_20d"
-                    ],
-
-                    market_context[
-                        "pre_return_60d"
-                    ],
-
-                    market_context[
-                        "pre_excess_20d"
-                    ],
-
-                    market_context[
-                        "pre_excess_60d"
-                    ],
-
-                    market_context[
-                        "pre_volatility_20d"
-                    ],
-
-                    market_context[
-                        "previous_close"
-                    ],
-
-                    market_context[
-                        "entry_open"
-                    ],
-
-                    market_context[
-                        "opening_gap_pct"
-                    ],
-
-                    market_context[
-                        "spy_opening_gap_pct"
-                    ],
-
-                    market_context[
-                        "opening_gap_excess"
-                    ],
-
-                    horizon_results[
-                        "30d"
-                    ]["exit_date"],
-
-                    horizon_results[
-                        "30d"
-                    ]["return"],
-
-                    horizon_results[
-                        "30d"
-                    ]["benchmark_return"],
-
-                    horizon_results[
-                        "30d"
-                    ]["excess_return"],
-
-                    horizon_results[
-                        "90d"
-                    ]["exit_date"],
-
-                    horizon_results[
-                        "90d"
-                    ]["return"],
-
-                    horizon_results[
-                        "90d"
-                    ]["benchmark_return"],
-
-                    horizon_results[
-                        "90d"
-                    ]["excess_return"],
-
-                    horizon_results[
-                        "180d"
-                    ]["exit_date"],
-
-                    horizon_results[
-                        "180d"
-                    ]["return"],
-
-                    horizon_results[
-                        "180d"
-                    ]["benchmark_return"],
-
-                    horizon_results[
-                        "180d"
-                    ]["excess_return"],
-                ),
+    with conn.cursor() as cursor:
+        cursor.execute(
+            """
+            INSERT INTO backtest_events (
+                security_id,
+                period_end,
+                entry_date,
+                entry_price,
+
+                revenue_yoy,
+                revenue_acceleration,
+                eps_yoy,
+                gross_margin_change,
+                operating_margin_change,
+
+                pre_return_20d,
+                pre_return_60d,
+                pre_excess_20d,
+                pre_excess_60d,
+                pre_volatility_20d,
+
+                previous_close,
+                entry_open,
+                opening_gap_pct,
+                spy_opening_gap_pct,
+                opening_gap_excess,
+
+                exit_date_30d,
+                return_30d,
+                spy_return_30d,
+                excess_30d,
+
+                exit_date_90d,
+                return_90d,
+                spy_return_90d,
+                excess_90d,
+
+                exit_date_180d,
+                return_180d,
+                spy_return_180d,
+                excess_180d
             )
-            
+
+            VALUES (
+                %s, %s, %s, %s,
+
+                %s, %s, %s, %s, %s,
+
+                %s, %s, %s, %s, %s,
+
+                %s, %s, %s, %s, %s,
+
+                %s, %s, %s, %s,
+
+                %s, %s, %s, %s,
+
+                %s, %s, %s, %s
+            )
+
+            ON CONFLICT (
+                security_id,
+                period_end
+            )
+
+            DO UPDATE SET
+                entry_date =
+                    EXCLUDED.entry_date,
+
+                entry_price =
+                    EXCLUDED.entry_price,
+
+                revenue_yoy =
+                    EXCLUDED.revenue_yoy,
+
+                revenue_acceleration =
+                    EXCLUDED.revenue_acceleration,
+
+                eps_yoy =
+                    EXCLUDED.eps_yoy,
+
+                gross_margin_change =
+                    EXCLUDED.gross_margin_change,
+
+                operating_margin_change =
+                    EXCLUDED.operating_margin_change,
+
+                pre_return_20d =
+                    EXCLUDED.pre_return_20d,
+
+                pre_return_60d =
+                    EXCLUDED.pre_return_60d,
+
+                pre_excess_20d =
+                    EXCLUDED.pre_excess_20d,
+
+                pre_excess_60d =
+                    EXCLUDED.pre_excess_60d,
+
+                pre_volatility_20d =
+                    EXCLUDED.pre_volatility_20d,
+
+                previous_close =
+                    EXCLUDED.previous_close,
+
+                entry_open =
+                    EXCLUDED.entry_open,
+
+                opening_gap_pct =
+                    EXCLUDED.opening_gap_pct,
+
+                spy_opening_gap_pct =
+                    EXCLUDED.spy_opening_gap_pct,
+
+                opening_gap_excess =
+                    EXCLUDED.opening_gap_excess,
+
+                exit_date_30d =
+                    EXCLUDED.exit_date_30d,
+
+                return_30d =
+                    EXCLUDED.return_30d,
+
+                spy_return_30d =
+                    EXCLUDED.spy_return_30d,
+
+                excess_30d =
+                    EXCLUDED.excess_30d,
+
+                exit_date_90d =
+                    EXCLUDED.exit_date_90d,
+
+                return_90d =
+                    EXCLUDED.return_90d,
+
+                spy_return_90d =
+                    EXCLUDED.spy_return_90d,
+
+                excess_90d =
+                    EXCLUDED.excess_90d,
+
+                exit_date_180d =
+                    EXCLUDED.exit_date_180d,
+
+                return_180d =
+                    EXCLUDED.return_180d,
+
+                spy_return_180d =
+                    EXCLUDED.spy_return_180d,
+
+                excess_180d =
+                    EXCLUDED.excess_180d,
+
+                updated_at =
+                    CURRENT_TIMESTAMP;
+            """,
+            (
+                security_id,
+                period_end,
+                entry_date,
+                entry_price,
+
+                revenue_yoy,
+                revenue_acceleration,
+                eps_yoy,
+                gross_margin_change,
+                operating_margin_change,
+
+                market_context[
+                    "pre_return_20d"
+                ],
+
+                market_context[
+                    "pre_return_60d"
+                ],
+
+                market_context[
+                    "pre_excess_20d"
+                ],
+
+                market_context[
+                    "pre_excess_60d"
+                ],
+
+                market_context[
+                    "pre_volatility_20d"
+                ],
+
+                market_context[
+                    "previous_close"
+                ],
+
+                market_context[
+                    "entry_open"
+                ],
+
+                market_context[
+                    "opening_gap_pct"
+                ],
+
+                market_context[
+                    "spy_opening_gap_pct"
+                ],
+
+                market_context[
+                    "opening_gap_excess"
+                ],
+
+                horizon_results[
+                    "30d"
+                ]["exit_date"],
+
+                horizon_results[
+                    "30d"
+                ]["return"],
+
+                horizon_results[
+                    "30d"
+                ]["benchmark_return"],
+
+                horizon_results[
+                    "30d"
+                ]["excess_return"],
+
+                horizon_results[
+                    "90d"
+                ]["exit_date"],
+
+                horizon_results[
+                    "90d"
+                ]["return"],
+
+                horizon_results[
+                    "90d"
+                ]["benchmark_return"],
+
+                horizon_results[
+                    "90d"
+                ]["excess_return"],
+
+                horizon_results[
+                    "180d"
+                ]["exit_date"],
+
+                horizon_results[
+                    "180d"
+                ]["return"],
+
+                horizon_results[
+                    "180d"
+                ]["benchmark_return"],
+
+                horizon_results[
+                    "180d"
+                ]["excess_return"],
+            ),
+        )
 
 def build_security_events(
+    conn,
     security,
 ):
     security_id = (
@@ -1030,6 +1033,8 @@ def build_security_events(
             )
 
         save_backtest_event(
+            conn=conn,
+
             security_id=
                 security_id,
 
@@ -1124,86 +1129,113 @@ def main():
 
     print("=" * 96)
 
-    clear_backtest_events()
-
-    for security in securities:
-        ticker = (
-            security["ticker"]
+    with get_connection() as conn:
+        clear_backtest_events(
+            conn
         )
 
-        print()
-        print(
-            f"Building {ticker}..."
-        )
-
-        try:
-            result = (
-                build_security_events(
-                    security
-                )
+        for security in securities:
+            ticker = (
+                security["ticker"]
             )
 
-        except Exception as error:
+            print()
             print(
-                f"ERROR: {error}"
+                f"Building {ticker}..."
             )
 
-            result = {
-                "ticker":
-                    ticker,
+            with conn.cursor() as cursor:
+                cursor.execute(
+                    "SAVEPOINT security_build"
+                )
 
-                "saved":
-                    0,
+            try:
+                result = (
+                    build_security_events(
+                        conn,
+                        security,
+                    )
+                )
 
-                "comparative_skipped":
-                    0,
+            except Exception as error:
+                with conn.cursor() as cursor:
+                    cursor.execute(
+                        "ROLLBACK TO SAVEPOINT "
+                        "security_build"
+                    )
 
-                "timing_skipped":
-                    0,
+                    cursor.execute(
+                        "RELEASE SAVEPOINT "
+                        "security_build"
+                    )
 
-                "membership_skipped":
-                    0,
+                print(
+                    f"ERROR: {error}"
+                )
 
-                "price_skipped":
-                    0,
-            }
+                result = {
+                    "ticker":
+                        ticker,
 
-        results.append(
-            result
-        )
+                    "saved":
+                        0,
 
-        print(
-            "Saved:",
-            result["saved"],
-        )
+                    "comparative_skipped":
+                        0,
 
-        print(
-            "Comparative skipped:",
-            result[
-                "comparative_skipped"
-            ],
-        )
+                    "timing_skipped":
+                        0,
 
-        print(
-            "Timing skipped:",
-            result[
-                "timing_skipped"
-            ],
-        )
+                    "membership_skipped":
+                        0,
 
-        print(
-            "Membership skipped:",
-            result[
-                "membership_skipped"
-            ],
-        )
+                    "price_skipped":
+                        0,
+                }
 
-        print(
-            "Price skipped:",
-            result[
-                "price_skipped"
-            ],
-        )
+            else:
+                with conn.cursor() as cursor:
+                    cursor.execute(
+                        "RELEASE SAVEPOINT "
+                        "security_build"
+                    )
+
+            results.append(
+                result
+            )
+
+            print(
+                "Saved:",
+                result["saved"],
+            )
+
+            print(
+                "Comparative skipped:",
+                result[
+                    "comparative_skipped"
+                ],
+            )
+
+            print(
+                "Timing skipped:",
+                result[
+                    "timing_skipped"
+                ],
+            )
+
+            print(
+                "Membership skipped:",
+                result[
+                    "membership_skipped"
+                ],
+            )
+
+            print(
+                "Price skipped:",
+                result[
+                    "price_skipped"
+                ],
+            )
 
     print()
     print("=" * 96)
