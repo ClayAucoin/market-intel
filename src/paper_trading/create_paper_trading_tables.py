@@ -1,4 +1,5 @@
 from src.database import get_connection
+from src.migrations.migrate_prospective_paper_trading import MIGRATION_SQL
 
 
 CREATE_ACCOUNT_TABLE = """
@@ -191,6 +192,8 @@ def main():
             cur.execute(
                 CREATE_INDEXES
             )
+
+            cur.execute(MIGRATION_SQL)
 
             cur.execute(
                 CREATE_DEFAULT_ACCOUNT

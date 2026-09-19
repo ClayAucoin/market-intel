@@ -1,6 +1,8 @@
 from decimal import Decimal
 
 from src.database import get_connection
+from psycopg.rows import dict_row
+from src.paper_trading.paper_execution import completed_through, eastern_now, positive_price
 
 from src.notifications.notifier import send_notification
 
@@ -113,6 +115,9 @@ def get_exit_price(
         WHERE UPPER(symbol) = UPPER(%s)
           AND trade_date >= %s
           AND adjusted_close IS NOT NULL
+          AND adjusted_close > 0
+          AND adjusted_close < 'Infinity'::numeric
+          AND trade_date <= %s
         ORDER BY trade_date
         LIMIT 1
     """
@@ -124,6 +129,7 @@ def get_exit_price(
                 (
                     ticker,
                     planned_exit_date,
+                    completed_through(eastern_now()),
                 ),
             )
 
@@ -140,101 +146,52 @@ def get_exit_price(
     }
 
 
-def close_position(
-    account,
-    position,
-    exit_data,
-):
-    exit_value = (
-        position["shares"]
-        * exit_data["exit_price"]
-    )
-
-    profit = (
-        exit_value
-        - position["invested_amount"]
-    )
-
-    return_percent = (
-        profit
-        / position["invested_amount"]
-        * Decimal("100")
-    )
-
-    update_position = """
-        UPDATE paper_positions
-        SET
-            status = 'CLOSED',
-            exit_date = %s,
-            exit_price = %s,
-            exit_value = %s,
-            profit = %s,
-            return_percent = %s,
-            updated_at = CURRENT_TIMESTAMP
-        WHERE id = %s
-    """
-
-    update_account = """
-        UPDATE paper_accounts
-        SET
-            cash = cash + %s,
-            updated_at = CURRENT_TIMESTAMP
-        WHERE id = %s
-    """
-
+def close_position(account, position, exit_data):
+    # Same lock order as commitments/fills. Re-read the position after locking;
+    # another run may have closed it since the initial list was fetched.
     with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                update_position,
-                (
-                    exit_data[
-                        "exit_date"
-                    ],
-                    exit_data[
-                        "exit_price"
-                    ],
-                    exit_value,
-                    profit,
-                    return_percent,
-                    position["id"],
-                ),
-            )
-
-            cur.execute(
-                update_account,
-                (
-                    exit_value,
-                    account["id"],
-                ),
-            )
-
-        conn.commit()
-
-    account["cash"] += exit_value
-
+        with conn.cursor(row_factory=dict_row) as cur:
+            cur.execute("SELECT cash FROM paper_accounts WHERE id = %s FOR UPDATE",
+                        (account["id"],))
+            if cur.fetchone() is None:
+                raise ValueError("Paper account disappeared during close.")
+            cur.execute("""
+                SELECT * FROM paper_positions
+                WHERE id = %s AND account_id = %s FOR UPDATE
+            """, (position["id"], account["id"]))
+            current = cur.fetchone()
+            if current is None or current["status"] != "OPEN":
+                return None
+            if (exit_data["exit_date"] < current["planned_exit_date"]
+                    or exit_data["exit_date"] > completed_through(eastern_now())
+                    or not positive_price(exit_data["exit_price"])):
+                raise ValueError("Invalid paper exit date or price.")
+            exit_value = current["shares"] * exit_data["exit_price"]
+            profit = exit_value - current["invested_amount"]
+            return_percent = profit / current["invested_amount"] * Decimal("100")
+            cur.execute("""
+                UPDATE paper_positions
+                SET status = 'CLOSED', exit_date = %s, exit_price = %s,
+                    exit_value = %s, profit = %s, return_percent = %s,
+                    updated_at = CURRENT_TIMESTAMP
+                WHERE id = %s AND account_id = %s AND status = 'OPEN'
+                RETURNING id
+            """, (exit_data["exit_date"], exit_data["exit_price"], exit_value,
+                  profit, return_percent, current["id"], account["id"]))
+            if cur.fetchone() is None:
+                return None
+            cur.execute("""
+                UPDATE paper_accounts
+                SET cash = cash + %s, updated_at = CURRENT_TIMESTAMP
+                WHERE id = %s RETURNING cash
+            """, (exit_value, account["id"]))
+            cash = cur.fetchone()["cash"]
+    account["cash"] = cash
     return {
-        "ticker": position[
-            "ticker"
-        ],
-        "entry_date": position[
-            "entry_date"
-        ],
-        "entry_price": position[
-            "entry_price"
-        ],
-        "exit_date": exit_data[
-            "exit_date"
-        ],
-        "exit_price": exit_data[
-            "exit_price"
-        ],
-        "invested_amount": position[
-            "invested_amount"
-        ],
-        "exit_value": exit_value,
-        "profit": profit,
-        "return_percent":
-            return_percent,
+        "ticker": current["ticker"], "entry_date": current["entry_date"],
+        "entry_price": current["entry_price"], "exit_date": exit_data["exit_date"],
+        "exit_price": exit_data["exit_price"], "invested_amount": current["invested_amount"],
+        "exit_value": exit_value, "profit": profit, "return_percent": return_percent,
     }
 
 
@@ -325,6 +282,9 @@ def main():
             position,
             exit_data,
         )
+
+        if result is None:
+            continue
 
         closed.append(
             result

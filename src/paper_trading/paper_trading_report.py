@@ -29,7 +29,7 @@ def format_percent(value):
     return f"{Decimal(str(value)):+.2f}%"
 
 
-def get_account():
+def get_account(conn):
     query = """
         SELECT
             id,
@@ -40,20 +40,20 @@ def get_account():
             ticker_cap_percent,
             minimum_priority,
             holding_days,
-            created_at
+            created_at,
+            prospective_cutover_at
         FROM paper_accounts
         WHERE name = %s
         LIMIT 1
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (ACCOUNT_NAME,),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            query,
+            (ACCOUNT_NAME,),
+        )
 
-            row = cur.fetchone()
+        row = cur.fetchone()
 
     if row is None:
         raise ValueError(
@@ -78,10 +78,11 @@ def get_account():
             int(row[7]),
         "created_at":
             row[8],
+        "prospective_cutover_at": row[9],
     }
 
 
-def get_latest_price(ticker):
+def get_latest_price(ticker, conn):
     query = """
         SELECT
             trade_date,
@@ -93,14 +94,13 @@ def get_latest_price(ticker):
         LIMIT 1
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (ticker,),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            query,
+            (ticker,),
+        )
 
-            row = cur.fetchone()
+        row = cur.fetchone()
 
     if row is None:
         return {
@@ -119,6 +119,7 @@ def get_latest_price(ticker):
 def get_benchmark_performance(
     symbol,
     start_date,
+    conn,
 ):
     start_query = """
         SELECT
@@ -143,24 +144,23 @@ def get_benchmark_performance(
         LIMIT 1
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                start_query,
-                (
-                    symbol,
-                    start_date,
-                ),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            start_query,
+            (
+                symbol,
+                start_date,
+            ),
+        )
 
-            start_row = cur.fetchone()
+        start_row = cur.fetchone()
 
-            cur.execute(
-                latest_query,
-                (symbol,),
-            )
+        cur.execute(
+            latest_query,
+            (symbol,),
+        )
 
-            latest_row = cur.fetchone()
+        latest_row = cur.fetchone()
 
     if (
         start_row is None
@@ -211,6 +211,7 @@ def get_benchmark_performance(
 
 def get_open_positions(
     account_id,
+    conn,
 ):
     query = """
         SELECT
@@ -226,7 +227,8 @@ def get_open_positions(
             ps.sector_confidence,
             ps.revenue_acceleration,
             ps.operating_margin_change,
-            ps.pre_excess_20d
+            ps.pre_excess_20d,
+            ps.signal_date
         FROM paper_positions pp
         JOIN paper_signals ps
           ON ps.id = pp.signal_id
@@ -237,14 +239,13 @@ def get_open_positions(
             pp.ticker
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (account_id,),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            query,
+            (account_id,),
+        )
 
-            rows = cur.fetchall()
+        rows = cur.fetchall()
 
     positions = []
 
@@ -252,7 +253,7 @@ def get_open_positions(
         ticker = row[0]
 
         latest_price = get_latest_price(
-            ticker
+            ticker, conn
         )
 
         shares = to_decimal(
@@ -316,6 +317,7 @@ def get_open_positions(
                     row[11],
                 "pre_excess_20d":
                     row[12],
+                "signal_date": row[13],
                 "latest_price_date":
                     latest_price[
                         "trade_date"
@@ -336,6 +338,7 @@ def get_open_positions(
 
 def get_closed_positions(
     account_id,
+    conn,
 ):
     query = """
         SELECT
@@ -352,7 +355,8 @@ def get_closed_positions(
             ps.sector_confidence,
             ps.revenue_acceleration,
             ps.operating_margin_change,
-            ps.pre_excess_20d
+            ps.pre_excess_20d,
+            ps.signal_date
         FROM paper_positions pp
         JOIN paper_signals ps
           ON ps.id = pp.signal_id
@@ -363,14 +367,13 @@ def get_closed_positions(
             pp.ticker
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (account_id,),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            query,
+            (account_id,),
+        )
 
-            rows = cur.fetchall()
+        rows = cur.fetchall()
 
     return [
         {
@@ -396,6 +399,7 @@ def get_closed_positions(
                 row[12],
             "pre_excess_20d":
                 row[13],
+            "signal_date": row[14],
         }
         for row in rows
     ]
@@ -403,6 +407,7 @@ def get_closed_positions(
 
 def get_signal_summary(
     account_id,
+    conn,
 ):
     query = """
         SELECT
@@ -414,14 +419,13 @@ def get_signal_summary(
         ORDER BY action
     """
 
-    with get_connection() as conn:
-        with conn.cursor() as cur:
-            cur.execute(
-                query,
-                (account_id,),
-            )
+    with conn.cursor() as cur:
+        cur.execute(
+            query,
+            (account_id,),
+        )
 
-            rows = cur.fetchall()
+        rows = cur.fetchall()
 
     return {
         row[0]: row[1]
@@ -429,7 +433,23 @@ def get_signal_summary(
     }
 
 
+def get_pending_commitments(account_id, conn):
+    with conn.cursor() as cur:
+        cur.execute("""
+            SELECT ticker, signal_date, purchase_committed_at,
+                   not_before_date, committed_amount, execution_session_date
+            FROM paper_signals
+            WHERE account_id = %s AND action = 'PENDING_BUY'
+            ORDER BY purchase_committed_at, id
+        """, (account_id,))
+        return [dict(zip(("ticker", "signal_date", "purchase_committed_at",
+                          "not_before_date", "committed_amount", "execution_session_date"), row))
+                for row in cur.fetchall()]
+
+
 def print_signal_details(position):
+    print(f"  Historical signal date: {position['signal_date']}")
+    print(f"  Actual paper entry date: {position['entry_date']}")
     print(
         f"  Revenue acceleration: "
         f"{format_percent(
@@ -458,35 +478,28 @@ def print_signal_details(position):
     )
 
 
+def load_report_snapshot():
+    """Read all report inputs in one snapshot, without taking write locks."""
+    with get_connection() as conn:
+        with conn.cursor() as cur:
+            # Must precede the first data query in this transaction.
+            cur.execute("SET TRANSACTION ISOLATION LEVEL REPEATABLE READ, READ ONLY")
+        account = get_account(conn)
+        account_id = account["id"]
+        pending = get_pending_commitments(account_id, conn)
+        open_positions = get_open_positions(account_id, conn)
+        closed_positions = get_closed_positions(account_id, conn)
+        signal_summary = get_signal_summary(account_id, conn)
+        benchmark = get_benchmark_performance(
+            BENCHMARK_SYMBOL, account["created_at"].date() + timedelta(days=1), conn,
+        )
+    return account, pending, open_positions, closed_positions, signal_summary, benchmark
+
+
 def main():
-    account = get_account()
-
-    open_positions = (
-        get_open_positions(
-            account["id"]
-        )
-    )
-
-    closed_positions = (
-        get_closed_positions(
-            account["id"]
-        )
-    )
-
-    signal_summary = (
-        get_signal_summary(
-            account["id"]
-        )
-    )
-
-    benchmark = (
-        get_benchmark_performance(
-            BENCHMARK_SYMBOL,
-            account[
-                "created_at"
-            ].date()
-            + timedelta(days=1),        )
-    )
+    (account, pending, open_positions, closed_positions,
+     signal_summary, benchmark) = load_report_snapshot()
+    reserved = sum((p["committed_amount"] for p in pending), Decimal("0"))
 
     open_invested = sum(
         (
@@ -697,11 +710,25 @@ def main():
     )
 
     print(
-        f"Available cash:       "
+        f"Total cash:           "
         f"{format_money(
             account['cash']
         )}"
     )
+
+    print(f"Reserved cash:        {format_money(reserved)}")
+    print(f"Spendable cash:       {format_money(account['cash'] - reserved)}")
+    print(f"Prospective cutover:  {account['prospective_cutover_at'] or 'UNSET — commitments disabled'}")
+    print(f"Pending commitments:  {len(pending)}")
+    for commitment in pending:
+        print(
+            f"  {commitment['ticker']} | PENDING (not a filled BUY) | "
+            f"{format_money(commitment['committed_amount'])} | "
+            f"historical signal {commitment['signal_date']} | "
+            f"committed {commitment['purchase_committed_at']} | "
+            f"not before {commitment['not_before_date']} | "
+            f"execution session {commitment['execution_session_date'] or 'awaiting SPY session'}"
+        )
 
     print(
         f"Open cost basis:      "
