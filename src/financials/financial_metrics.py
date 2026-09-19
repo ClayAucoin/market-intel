@@ -580,14 +580,13 @@ def get_issuer_metric_history(
     ticker,
     issuer,
     metric_name,
+    facts_loader=None,
 ):
     metric = FINANCIAL_METRICS[
         metric_name
     ]
 
-    facts = get_company_facts(
-        issuer["cik"]
-    )
+    facts = (facts_loader or get_company_facts)(issuer["cik"])
 
     concepts = resolve_concepts(
         facts,
@@ -755,6 +754,7 @@ def merge_issuer_histories(
 def get_metric_history(
     ticker,
     metric_name,
+    facts_loader=None,
 ):
     metric = FINANCIAL_METRICS.get(
         metric_name
@@ -810,6 +810,7 @@ def get_metric_history(
                 ticker,
                 issuer,
                 metric_name,
+                facts_loader=facts_loader,
             )
         )
 

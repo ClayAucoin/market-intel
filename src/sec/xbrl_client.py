@@ -2,13 +2,11 @@ import json
 from datetime import date
 from pathlib import Path
 
-import requests
-
 from src.data.company_repository import (
     get_company_by_ticker,
 )
 
-from src.sec.sec_client import SEC_HEADERS
+from src.sec.sec_http import get_sec_json
 
 
 CACHE_DIR = Path(
@@ -96,15 +94,7 @@ def download_company_facts(cik):
         f"companyfacts/CIK{cik}.json"
     )
 
-    response = requests.get(
-        url,
-        headers=SEC_HEADERS,
-        timeout=60,
-    )
-
-    response.raise_for_status()
-
-    data = response.json()
+    data = get_sec_json(url)
 
     save_cached_company_facts(
         cik,
@@ -133,6 +123,35 @@ def get_company_facts(
     return download_company_facts(
         cik
     )
+
+
+class ProductionCompanyFacts:
+    """One refreshed payload (or remembered failure) per CIK per invocation."""
+    def __init__(self):
+        self.payloads = {}
+        self.failures = {}
+
+    def __call__(self, cik):
+        cik = str(cik).zfill(10)
+        if cik in self.failures:
+            raise RuntimeError(f"Company Facts production refresh already failed for CIK {cik}")
+        if cik not in self.payloads:
+            try:
+                try:
+                    previous = load_cached_company_facts(cik)
+                except (OSError, ValueError):
+                    previous = None
+                data = get_company_facts(cik, refresh=True)
+                if (not isinstance(data, dict) or not isinstance(data.get("facts"), dict)
+                        or str(data.get("cik", "")).zfill(10) != cik):
+                    raise ValueError(f"Invalid Company Facts payload for CIK {cik}")
+                self.payloads[cik] = data
+                content = "unchanged" if previous == data else "changed/new"
+                print(f"Company Facts HTTP refresh succeeded: CIK {cik}; content {content}")
+            except Exception:
+                self.failures[cik] = True
+                raise
+        return self.payloads[cik]
 
 
 def find_concept(

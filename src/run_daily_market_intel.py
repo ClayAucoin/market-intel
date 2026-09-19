@@ -68,6 +68,7 @@ def refresh_financials():
     run_module(
         "src.financials.import_universe_financials",
         UNIVERSE,
+        "--production-refresh",
     )
 
 
@@ -79,6 +80,7 @@ def refresh_filings():
     run_module(
         "src.sec.import_universe_filings",
         UNIVERSE,
+        "--production-refresh",
     )
 
 

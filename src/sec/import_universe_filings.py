@@ -1,3 +1,4 @@
+import argparse
 import sys
 
 from datetime import (
@@ -15,6 +16,7 @@ from src.database import (
 
 from src.sec.sec_submissions import (
     get_submission_records,
+    ProductionSubmissions,
 )
 
 
@@ -137,13 +139,14 @@ def get_target_issuers(
 def get_target_accessions(
     company_id,
     universe_name,
+    include_dates=False,
 ):
     with get_connection() as conn:
         with conn.cursor() as cursor:
             cursor.execute(
                 """
                 SELECT DISTINCT
-                    ff.accession_number
+                    ff.accession_number, ff.filed_date
 
                 FROM financial_facts ff
 
@@ -174,10 +177,12 @@ def get_target_accessions(
 
             rows = cursor.fetchall()
 
-    return {
-        row[0]
-        for row in rows
-    }
+    if include_dates:
+        dates = {}
+        for accession, filed_date in rows:
+            dates.setdefault(accession, set()).add(filed_date)
+        return dates
+    return {row[0] for row in rows}
 
 
 def build_filing_url(
@@ -337,11 +342,13 @@ def save_filing(
 def import_issuer_filings(
     issuer,
     universe_name,
+    submissions_loader=None,
 ):
     target_accessions = (
         get_target_accessions(
             issuer["company_id"],
             universe_name,
+            include_dates=submissions_loader is not None,
         )
     )
 
@@ -359,16 +366,13 @@ def import_issuer_filings(
         f"{len(target_accessions)}"
     )
 
-    records = get_submission_records(
-        issuer["cik"],
-        start_date=issuer[
-            "earliest"
-        ],
-        end_date=issuer[
-            "latest"
-        ],
-        refresh=False,
-    )
+    if submissions_loader is not None:
+        records = submissions_loader(issuer["cik"], target_accessions)
+    else:
+        records = get_submission_records(
+            issuer["cik"], start_date=issuer["earliest"], end_date=issuer["latest"],
+            refresh=False,
+        )
 
     records_by_accession = {
         record.get(
@@ -396,12 +400,20 @@ def import_issuer_filings(
             )
             continue
 
+        if submissions_loader is not None and (
+            parse_date(record.get("filingDate")) is None
+            or parse_acceptance_datetime(record.get("acceptanceDateTime")) is None
+        ):
+            raise ValueError(f"Required filing metadata incomplete for {accession}")
+
         if save_filing(
             issuer["company_id"],
             issuer["cik"],
             record,
         ):
             matched += 1
+        elif submissions_loader is not None:
+            raise ValueError(f"Required filing was not saved: {accession}")
 
     print(
         f"Matched: {matched}"
@@ -439,10 +451,9 @@ def import_issuer_filings(
     }
 
 
-def main():
-    universe_name = (
-        get_universe_name()
-    )
+def import_universe(universe_name, production_refresh=False):
+    submissions_loader = ProductionSubmissions() if production_refresh else None
+    failures = 0
 
     issuers = get_target_issuers(
         universe_name
@@ -476,10 +487,12 @@ def main():
                 import_issuer_filings(
                     issuer,
                     universe_name,
+                    submissions_loader=submissions_loader,
                 )
             )
 
         except Exception as error:
+            failures += 1
             print(
                 f"ERROR: {error}"
             )
@@ -563,6 +576,21 @@ def main():
         f"{total_matched:>10}"
         f"{total_missing:>10}"
     )
+
+    if production_refresh and (failures or total_missing):
+        raise RuntimeError(f"Production filing SEC refresh failed: {failures} issuer errors; "
+                           f"{total_missing} unresolved accessions")
+    if production_refresh:
+        print(f"Production filing SEC refresh successful: {len(submissions_loader.main)} CIKs retrieved")
+    return results
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("universe", nargs="?", default=DEFAULT_UNIVERSE)
+    parser.add_argument("--production-refresh", action="store_true")
+    args = parser.parse_args()
+    import_universe(args.universe, production_refresh=args.production_refresh)
 
 
 if __name__ == "__main__":

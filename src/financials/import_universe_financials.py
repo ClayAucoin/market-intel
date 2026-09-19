@@ -1,4 +1,7 @@
+import argparse
 import sys
+
+from src.sec.xbrl_client import ProductionCompanyFacts
 
 from src.universe.company_universe import (
     DEFAULT_UNIVERSE,
@@ -17,6 +20,7 @@ from src.financials.financial_repository import (
 
 def import_company_metrics(
     ticker,
+    facts_loader=None,
 ):
     print()
     print(
@@ -28,6 +32,7 @@ def import_company_metrics(
 
     imported = 0
     skipped = 0
+    errors = 0
 
     for metric_name, metric_config in (
         FINANCIAL_METRICS.items()
@@ -41,6 +46,7 @@ def import_company_metrics(
             result = get_metric_history(
                 ticker,
                 metric_name,
+                facts_loader=facts_loader,
             )
 
             history = result[
@@ -82,6 +88,7 @@ def import_company_metrics(
             imported += count
 
         except Exception as error:
+            errors += 1
             print(
                 f"ERROR: {error}"
             )
@@ -92,6 +99,7 @@ def import_company_metrics(
         "ticker": ticker,
         "imported": imported,
         "skipped": skipped,
+        "errors": errors,
     }
 
 
@@ -104,6 +112,7 @@ def get_universe_name():
 
 def import_universe(
     universe_name=None,
+    production_refresh=False,
 ):
     if universe_name is None:
         universe_name = (
@@ -121,6 +130,7 @@ def import_universe(
         )
 
     summaries = []
+    facts_loader = ProductionCompanyFacts() if production_refresh else None
 
     print()
     print(
@@ -137,7 +147,8 @@ def import_universe(
 
     for company in companies:
         result = import_company_metrics(
-            company["ticker"]
+            company["ticker"],
+            facts_loader=facts_loader,
         )
 
         summaries.append(
@@ -187,6 +198,22 @@ def import_universe(
         f"{total_skipped:>12}"
     )
 
+    failures = sum(summary["errors"] for summary in summaries)
+    if production_refresh and (failures or facts_loader.failures):
+        raise RuntimeError(f"Production financial SEC refresh failed: {failures} metric errors; "
+                           f"{len(facts_loader.failures)} failed CIK refreshes")
+    if production_refresh:
+        print(f"Production financial SEC refresh successful: {len(facts_loader.payloads)} CIKs retrieved")
+    return summaries
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("universe", nargs="?", default=DEFAULT_UNIVERSE)
+    parser.add_argument("--production-refresh", action="store_true")
+    args = parser.parse_args()
+    import_universe(args.universe, production_refresh=args.production_refresh)
+
 
 if __name__ == "__main__":
-    import_universe()
+    main()
