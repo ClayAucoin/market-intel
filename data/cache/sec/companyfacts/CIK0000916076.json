@@ -275059,6 +275059,65 @@
           ]
         }
       }
+    },
+    "rxp": {
+      "Royalties": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 2000000,
+              "accn": "0001193125-26-395534",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-18",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      },
+      "Taxes": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 142800000,
+              "accn": "0001193125-26-395534",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-18",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      },
+      "TotalPayments": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 144800000,
+              "accn": "0001193125-26-395534",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-18",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      }
     }
   }
 }

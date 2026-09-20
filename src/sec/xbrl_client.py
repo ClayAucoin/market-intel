@@ -7,6 +7,8 @@ from src.data.company_repository import (
 )
 
 from src.sec.sec_http import get_sec_json
+from src.sec import production_report as reporting
+from src.sec.json_cache import atomic_json, validate_company_facts
 
 
 CACHE_DIR = Path(
@@ -66,24 +68,7 @@ def save_cached_company_facts(
     cik,
     data,
 ):
-    CACHE_DIR.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    cache_path = get_cache_path(
-        cik
-    )
-
-    with cache_path.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
-        json.dump(
-            data,
-            file,
-            indent=2,
-        )
+    atomic_json(get_cache_path(cik), data)
 
 
 def download_company_facts(cik):
@@ -95,6 +80,7 @@ def download_company_facts(cik):
     )
 
     data = get_sec_json(url)
+    validate_company_facts(data, cik)
 
     save_cached_company_facts(
         cik,
@@ -136,19 +122,22 @@ class ProductionCompanyFacts:
         if cik in self.failures:
             raise RuntimeError(f"Company Facts production refresh already failed for CIK {cik}")
         if cik not in self.payloads:
+            reporting.resource("company_facts", cik, "attempted")
             try:
                 try:
                     previous = load_cached_company_facts(cik)
                 except (OSError, ValueError):
                     previous = None
                 data = get_company_facts(cik, refresh=True)
-                if (not isinstance(data, dict) or not isinstance(data.get("facts"), dict)
-                        or str(data.get("cik", "")).zfill(10) != cik):
-                    raise ValueError(f"Invalid Company Facts payload for CIK {cik}")
+                validate_company_facts(data, cik)
                 self.payloads[cik] = data
+                reporting.resource("company_facts", cik, "succeeded")
+                reporting.add("unchanged_payloads" if previous == data else "changed_payloads")
                 content = "unchanged" if previous == data else "changed/new"
                 print(f"Company Facts HTTP refresh succeeded: CIK {cik}; content {content}")
-            except Exception:
+            except Exception as error:
+                reporting.resource("company_facts", cik, "failed")
+                reporting.failure("company_facts", error, cik=cik)
                 self.failures[cik] = True
                 raise
         return self.payloads[cik]

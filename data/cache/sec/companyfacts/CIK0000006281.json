@@ -1,6 +1,6 @@
 {
   "cik": 6281,
-  "entityName": "Analog Devices, Inc.",
+  "entityName": "ANALOG DEVICES INC",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -301157,22 +301157,92 @@
       "NetFeeAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-16",
+              "val": 413636.43,
+              "accn": "0001193125-26-393223",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlFeeAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-16",
+              "val": 413636.43,
+              "accn": "0001193125-26-393223",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlOfferingAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-16",
+              "val": 2995195000,
+              "accn": "0001193125-26-393223",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlOffsetAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-16",
+              "val": 0,
+              "accn": "0001193125-26-393223",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-16",
+              "val": 0,
+              "accn": "0001193125-26-393223",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       }
     }
   }

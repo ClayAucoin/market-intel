@@ -1,6 +1,6 @@
 {
   "cik": 1535527,
-  "entityName": "CROWDSTRIKE HOLDINGS, INC.",
+  "entityName": "CrowdStrike Holdings, Inc.",
   "facts": {
     "dei": {
       "EntityPublicFloat": {
@@ -131673,6 +131673,98 @@
               "form": "DEF 14A",
               "filed": "2026-05-05",
               "frame": "CY2025"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 60997.71,
+              "accn": "0001104659-26-107123",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-11",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 60997.71,
+              "accn": "0001104659-26-107123",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-11",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 441692307.88,
+              "accn": "0001104659-26-107123",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-11",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001104659-26-107123",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-11",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001104659-26-107123",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-11",
+              "frame": "CY2026Q3I"
             }
           ]
         }

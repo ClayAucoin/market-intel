@@ -1,6 +1,9 @@
 import argparse
 import sys
 
+from src.sec.production_requirements import get_production_requirements
+from src.sec import production_report as reporting
+
 from datetime import (
     datetime,
 )
@@ -134,6 +137,28 @@ def get_target_issuers(
         }
         for row in rows
     ]
+
+
+def get_production_issuers(universe_name):
+    # Match the Company Facts call graph even when an issuer has no metric rows.
+    from src.financials.financial_metrics import (
+        get_company_by_ticker, get_issuer_history_by_ticker,
+    )
+    from src.universe.company_universe import get_companies
+
+    issuers = {}
+    for security in get_companies(universe_name):
+        ticker = security["ticker"]
+        history = get_issuer_history_by_ticker(ticker)
+        if not history:
+            company = get_company_by_ticker(ticker)
+            if company is None:
+                raise ValueError("Production security lacks issuer identity")
+            history = [dict(company_id=company["id"], cik=company["cik"],
+                            company_name=company["company_name"])]
+        for issuer in history:
+            issuers[issuer["company_id"]] = {**issuer, "accessions": 0}
+    return list(issuers.values())
 
 
 def get_target_accessions(
@@ -339,18 +364,70 @@ def save_filing(
     return True
 
 
+def valid_filing_metadata(record):
+    """Validate before optional persistence; absent metadata is a coverage gap."""
+    try:
+        if (not record.get("accessionNumber") or parse_date(record.get("filingDate")) is None
+                or parse_acceptance_datetime(record.get("acceptanceDateTime")) is None):
+            return False
+        parse_date(record.get("reportDate"))
+    except (ValueError, TypeError):
+        return False
+    return True
+
+
+def import_production_issuer_filings(issuer, universe_name, submissions_loader):
+    required, stored, gaps = get_production_requirements(issuer["company_id"], universe_name)
+    # Together these sets cover the fact-linked accessions read by the
+    # requirements query, including every metric and non-current source.
+    targets = set(required) | set(stored) | set(gaps)
+    covered = set(stored)
+    counts = dict(targeted=len(targets), available=0, reused=len(stored), persisted=0,
+                  unresolved=len(targets - covered), complete=False)
+
+    def report_coverage():
+        counts["unresolved"] = len(targets - covered)
+        reporting.filing_coverage(issuer["cik"], counts, targets - covered - set(required))
+
+    report_coverage()
+    # Only mandatory missing metadata can trigger historical-shard recovery.
+    records = submissions_loader(issuer["cik"],
+                                 {a: dates for a, dates in required.items() if a not in stored})
+    available = {r["accessionNumber"]: r for r in records
+                 if r.get("accessionNumber") in targets and valid_filing_metadata(r)}
+    counts["available"] = len(available)
+    reporting.unresolved(issuer["cik"], set(required) - covered)
+    report_coverage()
+    for accession, record in sorted(available.items()):
+        if accession in covered:
+            continue  # Reuse valid stored identity/timing without sparse overwrites.
+        if not save_filing(issuer["company_id"], issuer["cik"], record):
+            raise ValueError(f"Validated fact-linked filing was not saved: {accession}")
+        covered.add(accession)
+        counts["persisted"] += 1
+        reporting.unresolved(issuer["cik"], set(required) - covered)
+        report_coverage()
+
+    missing = set(required) - covered
+    if missing:
+        raise ValueError(f"Required filing metadata incomplete: {', '.join(sorted(missing))}")
+    counts["complete"] = True
+    report_coverage()
+    print(f"CIK {issuer['cik']}: required {len(required)}; fact-linked {len(targets)}; "
+          f"persisted {counts['persisted']}; reused {counts['reused']}; "
+          f"non-current coverage gaps {counts['unresolved']}")
+    return dict(company_name=issuer["company_name"], cik=issuer["cik"],
+                target=len(required), matched=len(required), missing=0)
+
+
 def import_issuer_filings(
     issuer,
     universe_name,
     submissions_loader=None,
 ):
-    target_accessions = (
-        get_target_accessions(
-            issuer["company_id"],
-            universe_name,
-            include_dates=submissions_loader is not None,
-        )
-    )
+    if submissions_loader is not None:
+        return import_production_issuer_filings(issuer, universe_name, submissions_loader)
+    target_accessions = get_target_accessions(issuer["company_id"], universe_name)
 
     print()
     print(
@@ -366,13 +443,9 @@ def import_issuer_filings(
         f"{len(target_accessions)}"
     )
 
-    if submissions_loader is not None:
-        records = submissions_loader(issuer["cik"], target_accessions)
-    else:
-        records = get_submission_records(
-            issuer["cik"], start_date=issuer["earliest"], end_date=issuer["latest"],
-            refresh=False,
-        )
+    records = get_submission_records(
+        issuer["cik"], start_date=issuer["earliest"], end_date=issuer["latest"], refresh=False,
+    )
 
     records_by_accession = {
         record.get(
@@ -400,20 +473,12 @@ def import_issuer_filings(
             )
             continue
 
-        if submissions_loader is not None and (
-            parse_date(record.get("filingDate")) is None
-            or parse_acceptance_datetime(record.get("acceptanceDateTime")) is None
-        ):
-            raise ValueError(f"Required filing metadata incomplete for {accession}")
-
         if save_filing(
             issuer["company_id"],
             issuer["cik"],
             record,
         ):
             matched += 1
-        elif submissions_loader is not None:
-            raise ValueError(f"Required filing was not saved: {accession}")
 
     print(
         f"Matched: {matched}"
@@ -455,9 +520,8 @@ def import_universe(universe_name, production_refresh=False):
     submissions_loader = ProductionSubmissions() if production_refresh else None
     failures = 0
 
-    issuers = get_target_issuers(
-        universe_name
-    )
+    issuers = (get_production_issuers(universe_name) if production_refresh
+               else get_target_issuers(universe_name))
 
     if not issuers:
         raise ValueError(
@@ -492,6 +556,7 @@ def import_universe(universe_name, production_refresh=False):
             )
 
         except Exception as error:
+            reporting.failure("submissions", error, cik=issuer["cik"])
             failures += 1
             print(
                 f"ERROR: {error}"
@@ -577,6 +642,7 @@ def import_universe(universe_name, production_refresh=False):
         f"{total_missing:>10}"
     )
 
+    reporting.result("filing_import", {"target": total_target, "matched": total_matched, "missing": total_missing})
     if production_refresh and (failures or total_missing):
         raise RuntimeError(f"Production filing SEC refresh failed: {failures} issuer errors; "
                            f"{total_missing} unresolved accessions")
@@ -590,7 +656,12 @@ def main():
     parser.add_argument("universe", nargs="?", default=DEFAULT_UNIVERSE)
     parser.add_argument("--production-refresh", action="store_true")
     args = parser.parse_args()
-    import_universe(args.universe, production_refresh=args.production_refresh)
+    if args.production_refresh:
+        reporting.run_reported(args.universe,
+                               lambda: import_universe(args.universe, production_refresh=True),
+                               mode="production-refresh-filings-only")
+    else:
+        import_universe(args.universe, production_refresh=False)
 
 
 if __name__ == "__main__":

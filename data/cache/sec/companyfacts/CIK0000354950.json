@@ -1,6 +1,6 @@
 {
   "cik": 354950,
-  "entityName": "HOME DEPOT,\u00a0INC.",
+  "entityName": "The Home Depot, Inc.",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -218465,6 +218465,98 @@
               "form": "DEF 14A",
               "filed": "2026-04-07",
               "frame": "CY2025"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 33067.43,
+              "accn": "0000354950-26-000163",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 33067.43,
+              "accn": "0000354950-26-000163",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 596387349,
+              "accn": "0000354950-26-000163",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 0,
+              "accn": "0000354950-26-000163",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 0,
+              "accn": "0000354950-26-000163",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
             }
           ]
         }

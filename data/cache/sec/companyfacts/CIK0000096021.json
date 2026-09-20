@@ -1,6 +1,6 @@
 {
   "cik": 96021,
-  "entityName": "Sysco Corporation",
+  "entityName": "SYSCO CORP",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -269966,6 +269966,116 @@
               "form": "10-K",
               "filed": "2026-08-21",
               "frame": "CY2025"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 158814.99,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "NrrtvMaxAggtOfferingPric": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 1149999930,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 158814.99,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 1149999930,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 0,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-15",
+              "val": 0,
+              "accn": "0001104659-26-108068",
+              "fy": null,
+              "fp": null,
+              "form": "424B5",
+              "filed": "2026-09-16",
+              "frame": "CY2026Q3I"
             }
           ]
         }

@@ -624,6 +624,11 @@ def get_issuer_metric_history(
             "history": [],
         }
 
+    if facts_loader is not None and metric_name == "revenue":
+        from src.sec.production_requirements import validate_revenue_sources
+        validate_revenue_sources(facts, concepts + (BANK_REVENUE_COMPONENTS
+                                                  if allow_bank_revenue_fallback else []), unit)
+
     if concepts:
         history = (
             build_multi_concept_quarterly_history(

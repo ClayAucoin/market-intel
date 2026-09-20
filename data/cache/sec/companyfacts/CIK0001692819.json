@@ -1,6 +1,6 @@
 {
   "cik": 1692819,
-  "entityName": "Vistra Corp.",
+  "entityName": "Vistra Operations Company LLC",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -175396,6 +175396,98 @@
               "form": "10-Q",
               "filed": "2026-08-10",
               "frame": "CY2026Q2I"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-14",
+              "val": 207150,
+              "accn": "0001140361-26-036415",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-14",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-14",
+              "val": 207150,
+              "accn": "0001140361-26-036415",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-14",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-14",
+              "val": 1500000000,
+              "accn": "0001140361-26-036415",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-14",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-14",
+              "val": 0,
+              "accn": "0001140361-26-036415",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-14",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-14",
+              "val": 0,
+              "accn": "0001140361-26-036415",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-14",
+              "frame": "CY2026Q3I"
             }
           ]
         }

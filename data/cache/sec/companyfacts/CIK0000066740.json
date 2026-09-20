@@ -1,6 +1,6 @@
 {
   "cik": 66740,
-  "entityName": "3M COMPANY",
+  "entityName": "3M CO",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -357672,6 +357672,116 @@
               "fp": "Q2",
               "form": "10-Q",
               "filed": "2026-07-21"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 239434.91,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "NrrtvMaxAggtOfferingPric": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 1733779178,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 239434.91,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 1733779178,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 0,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-04",
+              "val": 0,
+              "accn": "0001104659-26-105521",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-04",
+              "frame": "CY2026Q3I"
             }
           ]
         }

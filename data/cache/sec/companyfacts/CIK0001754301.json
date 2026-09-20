@@ -1,6 +1,6 @@
 {
   "cik": 1754301,
-  "entityName": "Fox Corp",
+  "entityName": "Fox Corporation",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -99866,6 +99866,69 @@
             }
           ]
         }
+      },
+      "NetIncomeLoss": {
+        "label": "Net Income (Loss) Attributable to Parent",
+        "description": "The portion of profit or loss for the period, net of income taxes, which is attributable to the parent.",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 1205000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 1239000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 1501000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 2263000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 1685000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
       }
     },
     "ffd": {
@@ -100000,6 +100063,449 @@
               "fp": null,
               "form": "S-4",
               "filed": "2026-08-07"
+            }
+          ]
+        }
+      }
+    },
+    "ecd": {
+      "CoSelectedMeasureAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 2955000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 3191000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 2883000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 3624000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 3906000000,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "NonPeoNeoAvgCompActuallyPaidAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 9235001,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 11604501,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 9575879,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 22679749,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 11443476,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "NonPeoNeoAvgTotalCompAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 11496427,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 12811439,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 15576723,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 11990410,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 12799096,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "PeerGroupTotalShareholderRtnAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 57,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 66,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 74,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 111,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 76,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "PeoActuallyPaidCompAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 17353546,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 22853700,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 19270338,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 66319496,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 26957228,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "PeoTotalCompAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 21748681,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 21777902,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 23806025,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 32980954,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 31019117,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
+            }
+          ]
+        }
+      },
+      "TotalShareholderRtnAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2021-07-01",
+              "end": "2022-06-30",
+              "val": 85,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2022"
+            },
+            {
+              "start": "2022-07-01",
+              "end": "2023-06-30",
+              "val": 93,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2023"
+            },
+            {
+              "start": "2023-07-01",
+              "end": "2024-06-30",
+              "val": 95,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2024"
+            },
+            {
+              "start": "2024-07-01",
+              "end": "2025-06-30",
+              "val": 156,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            },
+            {
+              "start": "2025-07-01",
+              "end": "2026-06-30",
+              "val": 143,
+              "accn": "0001628280-26-062480",
+              "fy": null,
+              "fp": null,
+              "form": "DEF 14A",
+              "filed": "2026-09-17",
+              "frame": "CY2026"
             }
           ]
         }

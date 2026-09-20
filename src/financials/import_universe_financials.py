@@ -1,6 +1,8 @@
 import argparse
 import sys
 
+from src.sec import production_report as reporting
+
 from src.sec.xbrl_client import ProductionCompanyFacts
 
 from src.universe.company_universe import (
@@ -88,6 +90,7 @@ def import_company_metrics(
             imported += count
 
         except Exception as error:
+            reporting.failure("financial_metric", error, ticker=ticker)
             errors += 1
             print(
                 f"ERROR: {error}"
@@ -198,6 +201,8 @@ def import_universe(
         f"{total_skipped:>12}"
     )
 
+    reporting.result("financial_import", {"imported": total_records, "skipped": total_skipped,
+                                          "errors": sum(s["errors"] for s in summaries)})
     failures = sum(summary["errors"] for summary in summaries)
     if production_refresh and (failures or facts_loader.failures):
         raise RuntimeError(f"Production financial SEC refresh failed: {failures} metric errors; "
@@ -212,7 +217,12 @@ def main():
     parser.add_argument("universe", nargs="?", default=DEFAULT_UNIVERSE)
     parser.add_argument("--production-refresh", action="store_true")
     args = parser.parse_args()
-    import_universe(args.universe, production_refresh=args.production_refresh)
+    if args.production_refresh:
+        reporting.run_reported(args.universe,
+                               lambda: import_universe(args.universe, production_refresh=True),
+                               mode="production-refresh-financials-only")
+    else:
+        import_universe(args.universe, production_refresh=False)
 
 
 if __name__ == "__main__":

@@ -1,8 +1,10 @@
 import json
-from datetime import date
+from datetime import date, datetime
 from pathlib import Path
 
 from src.sec.sec_http import get_sec_json
+from src.sec import production_report as reporting
+from src.sec.json_cache import atomic_json, validate_columns, validate_submissions
 
 
 BASE_URL = (
@@ -36,20 +38,7 @@ def save_json(
     path,
     data,
 ):
-    path.parent.mkdir(
-        parents=True,
-        exist_ok=True,
-    )
-
-    with path.open(
-        "w",
-        encoding="utf-8",
-    ) as file:
-        json.dump(
-            data,
-            file,
-            indent=2,
-        )
+    atomic_json(path, data)
 
 
 def load_json(path):
@@ -66,8 +55,10 @@ def load_json(path):
 def download_json(
     url,
     cache_path,
+    validator,
 ):
     data = get_sec_json(url)
+    validator(data)
 
     save_json(
         cache_path,
@@ -110,6 +101,7 @@ def get_company_submissions(
     return download_json(
         url,
         cache_path,
+        lambda data: validate_submissions(data, cik),
     )
 
 
@@ -144,6 +136,7 @@ def get_historical_submissions(
     return download_json(
         url,
         cache_path,
+        validate_columns,
     )
 
 
@@ -336,48 +329,69 @@ class ProductionSubmissions:
         if cik in self.failures:
             raise RuntimeError(f"Submissions production refresh already failed for CIK {cik}")
         if cik not in self.main:
+            reporting.resource("submissions", cik, "attempted")
             try:
                 try:
                     previous = load_json(get_main_cache_path(cik))
                 except (OSError, ValueError):
                     previous = None
                 data = get_company_submissions(cik, refresh=True)
-                if (not isinstance(data, dict) or str(data.get("cik", "")).zfill(10) != cik
-                        or not isinstance(data.get("filings"), dict)
-                        or not isinstance(data["filings"].get("recent"), dict)
-                        or not isinstance(data["filings"]["recent"].get("accessionNumber"), list)
-                        or not isinstance(data["filings"].get("files", []), list)):
-                    raise ValueError(f"Invalid submissions payload for CIK {cik}")
+                validate_submissions(data, cik)
                 self.main[cik] = data
+                reporting.resource("submissions", cik, "succeeded")
+                reporting.add("unchanged_payloads" if previous == data else "changed_payloads")
                 content = "unchanged" if previous == data else "changed/new"
                 print(f"Submissions HTTP refresh succeeded: CIK {cik}; content {content}")
-            except Exception:
+            except Exception as error:
+                reporting.resource("submissions", cik, "failed")
+                reporting.failure("submissions", error, cik=cik)
                 self.failures.add(cik)
                 raise
         return self.main[cik]
 
     def _history(self, filename, refresh=False):
         if refresh or filename not in self.history:
-            data = None if refresh else load_json(get_history_cache_path(filename))
+            try:
+                previous = load_json(get_history_cache_path(filename))
+                if previous is not None:
+                    validate_columns(previous)
+            except (OSError, ValueError):
+                previous = None
+            data = None if refresh else previous
             if data is None:
                 data = get_historical_submissions(filename, refresh=True)
                 self.downloaded_history.add(filename)
-            if not isinstance(data, dict) or not isinstance(data.get("accessionNumber"), list):
-                raise ValueError(f"Invalid historical submissions payload: {filename}")
+                reporting.add("historical_shards_downloaded")
+                reporting.add("unchanged_payloads" if previous == data else "changed_payloads")
+            else:
+                reporting.add("historical_shards_reused")
+            validate_columns(data)
             self.history[filename] = data
         return self.history[filename]
 
     def __call__(self, cik, required_dates):
         """required_dates maps each accession to its known fact filing dates."""
+        reporting.unresolved(cik, required_dates)
         filings = self._main(cik)["filings"]
         records = {r["accessionNumber"]: r for r in columnar_to_records(filings["recent"])
                    if r.get("accessionNumber")}
+
+        def complete(record):
+            try:
+                return (parse_date(record.get("filingDate")) is not None
+                        and datetime.strptime(record.get("acceptanceDateTime", "")[:19],
+                                              "%Y-%m-%dT%H:%M:%S") is not None)
+            except (ValueError, TypeError):
+                return False
+
+        def missing_accessions():
+            return {a for a in required_dates if a not in records or not complete(records[a])}
 
         def relevant(shard):
             start = parse_date(shard.get("filingFrom"))
             end = parse_date(shard.get("filingTo"))
             return any(ranges_overlap(start, end, filed, filed)
-                       for accession, dates in required_dates.items() if accession not in records
+                       for accession, dates in required_dates.items() if accession in missing_accessions()
                        for filed in (dates or {None}))
 
         def merge(data):
@@ -385,8 +399,11 @@ class ProductionSubmissions:
                 accession = record.get("accessionNumber")
                 if accession:
                     # Fresh recent metadata takes precedence over repeated history.
-                    records.setdefault(accession, record)
+                    if accession not in records or not complete(records[accession]):
+                        records[accession] = record
 
+        recovery = missing_accessions()
+        reporting.add("targeted_recovery_attempts", len(recovery))
         shards = filings.get("files", [])
         for shard in shards:
             if shard.get("name") and relevant(shard):
@@ -396,7 +413,9 @@ class ProductionSubmissions:
             filename = shard.get("name")
             if filename and filename not in self.downloaded_history and relevant(shard):
                 merge(self._history(filename, refresh=True))
-        missing = set(required_dates) - records.keys()
+        missing = missing_accessions()
+        reporting.add("targeted_recovery_resolved", len(recovery - missing))
+        reporting.unresolved(cik, missing)
         if missing:
             raise ValueError(f"Incomplete production submissions for CIK {cik}: "
                              f"unresolved accessions {', '.join(sorted(missing))}")

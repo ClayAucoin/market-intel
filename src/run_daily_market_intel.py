@@ -173,8 +173,7 @@ def run_daily_update():
         f"Universe: {UNIVERSE}"
     )
 
-    refresh_financials()
-    refresh_filings()
+    run_module("src.sec.run_production_refresh", UNIVERSE, "--production-refresh")
     refresh_prices()
     rebuild_events()
     run_paper_system()

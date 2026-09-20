@@ -1,6 +1,6 @@
 {
   "cik": 107263,
-  "entityName": "Williams\u00a0Companies,\u00a0Inc.",
+  "entityName": "WILLIAMS COMPANIES, INC.",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -332783,22 +332783,164 @@
       "NetFeeAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 279614.46,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 379400.41,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlFeeAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 279614.46,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 379400.41,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlOfferingAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 2024724528.64,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 2747287500,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       },
       "TtlOffsetAmt": {
         "label": "",
         "description": "",
-        "units": {}
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 0,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 0,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "NrrtvMaxAggtOfferingPric": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 2024724528.64,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 2747287500,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-03",
+              "val": 0,
+              "accn": "0001193125-26-381916",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-03"
+            },
+            {
+              "end": "2026-09-09",
+              "val": 0,
+              "accn": "0001193125-26-386622",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-09",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
       }
     }
   }

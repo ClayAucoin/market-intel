@@ -1,6 +1,6 @@
 {
   "cik": 1389170,
-  "entityName": "TARGA RESOURCES CORP.",
+  "entityName": "Targa Resources Corp.",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -264499,6 +264499,46 @@
               "form": "10-Q",
               "filed": "2026-08-06",
               "frame": "CY2025Q3I"
+            }
+          ]
+        }
+      }
+    },
+    "rxp": {
+      "Taxes": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 6899137,
+              "accn": "0001193125-26-394399",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      },
+      "TotalPayments": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 6899137,
+              "accn": "0001193125-26-394399",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-17",
+              "frame": "CY2025"
             }
           ]
         }
