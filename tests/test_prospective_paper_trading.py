@@ -25,6 +25,7 @@ with patch('dotenv.load_dotenv'), patch.dict(sys.modules, {'src.notifications.no
     from src.paper_trading import run_paper_trading as runner
     from src.paper_trading import paper_trading_report as report
     from src.migrations.migrate_prospective_paper_trading import MIGRATION_SQL
+    from src.migrations.migrate_paper_cutover_immutability import MIGRATION_SQL as CUTOVER_SQL
 
 EASTERN = rules.EASTERN
 FRIDAY = date(2026, 9, 18)
@@ -253,6 +254,52 @@ class ExecutionTests(unittest.TestCase):
         engine.observed_sessions.return_value = None
         self.assertEqual(self.commit(), 'NOT_FRESH')
 
+    def test_session_integrity_prevents_catch_up_commitments(self):
+        thursday = FRIDAY - timedelta(days=1)
+        wednesday = FRIDAY - timedelta(days=2)
+        self.db.account['prospective_cutover_at'] = NOW - timedelta(days=2)
+        self.db.source[0].update(
+            acceptance_datetime=NOW.replace(hour=8) - timedelta(days=1),
+            filed_date=thursday, filing_date=thursday)
+        for spy_dates, stock_dates in (
+            ([wednesday, FRIDAY], [wednesday, FRIDAY]),  # synchronized gap
+            ([wednesday, FRIDAY], [wednesday, thursday, FRIDAY]),
+            ([wednesday, thursday, FRIDAY], [wednesday, FRIDAY]),
+        ):
+            with self.subTest(spy=spy_dates, stock=stock_dates):
+                cur = Mock()
+                cur.fetchall.side_effect = [
+                    [dict(trade_date=d, adjusted_open=D(100), adjusted_close=D(101))
+                     for d in spy_dates],
+                    [dict(trade_date=d) for d in stock_dates],
+                ]
+                engine.observed_sessions.side_effect = (
+                    lambda unused, start, end: rules.observed_sessions(cur, start, end))
+                self.assertEqual(self.commit(), 'NOT_FRESH')
+                self.assertFalse(self.db.signals)
+                self.assertFalse(self.db.positions)
+                self.assertEqual(self.db.account['cash'], D(10000))
+
+    def test_complete_session_evidence_allows_commitment(self):
+        cur = Mock()
+        cur.fetchall.side_effect = [
+            [dict(trade_date=d, adjusted_open=D(100), adjusted_close=D(101))
+             for d in (FRIDAY-timedelta(days=1), FRIDAY)],
+            [dict(trade_date=FRIDAY)],
+        ]
+        engine.observed_sessions.side_effect = (
+            lambda unused, start, end: rules.observed_sessions(cur, start, end))
+        self.assertEqual(self.commit(), 'PENDING_BUY')
+        self.assertEqual(self.db.account['cash'], D(10000))
+
+    def test_uncertain_session_evidence_cannot_fill_pending_purchase(self):
+        self.assertEqual(self.commit(), 'PENDING_BUY')
+        engine.observed_sessions.return_value = None
+        self.assertIsNone(self.fill_transaction())
+        self.assertEqual(self.db.signals[1]['action'], 'PENDING_BUY')
+        self.assertFalse(self.db.positions)
+        self.assertEqual(self.db.account['cash'], D(10000))
+
     def test_rerun_and_concurrent_calls_commit_once(self):
         with ThreadPoolExecutor(max_workers=2) as pool:
             results = list(pool.map(lambda _: self.commit(), range(2)))
@@ -477,10 +524,41 @@ class RuleTests(unittest.TestCase):
         self.assertEqual(self.sessions(start,start,[FRIDAY]),[])
         self.assertEqual(self.sessions(start,MONDAY,[FRIDAY,MONDAY]),[MONDAY])
 
-    def test_market_holiday_defers_to_observed_tuesday(self):
+    def test_weekday_holiday_without_calendar_fails_closed(self):
         friday = date(2026,9,4)
         tuesday = date(2026,9,8)
-        self.assertEqual(self.sessions(friday+timedelta(days=1),tuesday,[friday,tuesday]),[tuesday])
+        # Local absence cannot prove that Monday was a holiday.
+        self.assertIsNone(self.sessions(friday+timedelta(days=1),tuesday,[friday,tuesday]))
+
+    def test_complete_weekday_evidence(self):
+        self.assertEqual(self.sessions(FRIDAY, FRIDAY,
+                                       [FRIDAY-timedelta(days=1), FRIDAY]), [FRIDAY])
+
+    def test_synchronized_september_17_gap_fails_closed(self):
+        self.assertIsNone(self.sessions(FRIDAY-timedelta(days=1), FRIDAY,
+                                       [FRIDAY-timedelta(days=2), FRIDAY]))
+
+    def test_friday_acceptance_and_weekend_candidates_reach_monday(self):
+        for accepted in (NOW.replace(hour=9, minute=30), NOW,
+                         NOW+timedelta(days=1), NOW+timedelta(days=2)):
+            with self.subTest(accepted=accepted):
+                p = dict(provenance(), acceptance_datetime=accepted)
+                start = rules.get_candidate_entry_date(p)
+                sessions = self.sessions(start, MONDAY, [FRIDAY, MONDAY])
+                self.assertEqual(sessions, [MONDAY])
+                self.assertIsNone(rules.freshness_reason(
+                    dict(event(), entry_date=MONDAY), [p], NOW-timedelta(days=1),
+                    NOW+timedelta(days=3), sessions))
+
+    def test_invalid_spy_evidence_fails_closed(self):
+        for price in (None, D(0), D('NaN'), D('Infinity')):
+            with self.subTest(price=price):
+                cur = Mock()
+                cur.fetchall.return_value = [
+                    dict(trade_date=FRIDAY-timedelta(days=1), adjusted_open=D(100), adjusted_close=D(101)),
+                    dict(trade_date=FRIDAY, adjusted_open=price, adjusted_close=D(101)),
+                ]
+                self.assertIsNone(rules.observed_sessions(cur, FRIDAY, FRIDAY))
 
     def test_missing_spy_with_stock_evidence_fails_closed(self):
         self.assertIsNone(self.sessions(FRIDAY,MONDAY,[FRIDAY-timedelta(days=1),MONDAY],
@@ -565,7 +643,8 @@ class SchemaPredicateTests(unittest.TestCase):
             "(purchase_committed_at AT TIME ZONE 'America/New_York')::date + 1",
             'next_eastern_date(purchase_committed_at)')
         self.guards = re.findall(r'IF (.*?) THEN\s*RAISE EXCEPTION',
-                                 MIGRATION_SQL.split('CREATE OR REPLACE FUNCTION',1)[1], re.S)
+                                 MIGRATION_SQL.split('CREATE OR REPLACE FUNCTION preserve_paper_commitment()',1)[1]
+                                 .split('END $$;',1)[0], re.S)
         self.assertEqual(len(self.guards), 4)
 
     def evaluate(self, expression, bindings):
@@ -660,6 +739,53 @@ class SchemaPredicateTests(unittest.TestCase):
         for key,value in changes.items():
             with self.subTest(field=key):
                 self.assertFalse(self.transition(self.row, dict(self.row, **{key:value})))
+
+
+class CutoverProtectionTests(unittest.TestCase):
+    """Evaluate the actual guard offline; PostgreSQL trigger execution is not tested."""
+
+    def setUp(self):
+        self.sql = sqlite3.connect(':memory:')
+        self.addCleanup(self.sql.close)
+        guards = re.findall(r'IF (.*?) THEN\s*RAISE EXCEPTION', CUTOVER_SQL, re.S)
+        self.assertEqual(len(guards), 1)
+        self.guard = guards[0].replace('OLD.prospective_cutover_at', ':old').replace(
+            'NEW.prospective_cutover_at', ':new')
+
+    def rejected(self, old, new):
+        return bool(self.sql.execute('SELECT ' + self.guard, dict(old=old, new=new)).fetchone()[0])
+
+    def test_null_and_first_activation_allowed(self):
+        self.assertFalse(self.rejected(None, None))
+        self.assertFalse(self.rejected(None, NOW.isoformat()))
+
+    def test_activated_cutover_cannot_move_or_clear(self):
+        for new in (None, (NOW-timedelta(seconds=1)).isoformat(),
+                    (NOW+timedelta(seconds=1)).isoformat()):
+            with self.subTest(new=new):
+                self.assertTrue(self.rejected(NOW.isoformat(), new))
+
+    def test_unchanged_cutover_allows_unrelated_updates(self):
+        self.assertFalse(self.rejected(NOW.isoformat(), NOW.isoformat()))
+        # The actual trigger predicate consults no cash/updated_at/other columns.
+        self.assertEqual(set(re.findall(r'(?:OLD|NEW)\.(\w+)', CUTOVER_SQL)),
+                         {'prospective_cutover_at'})
+
+    def test_idempotent_ddl_and_no_activation(self):
+        self.assertIn('CREATE OR REPLACE FUNCTION preserve_paper_cutover()', CUTOVER_SQL)
+        self.assertIn('DROP TRIGGER IF EXISTS preserve_paper_cutover ON paper_accounts;', CUTOVER_SQL)
+        self.assertIn('CREATE TRIGGER preserve_paper_cutover BEFORE UPDATE ON paper_accounts', CUTOVER_SQL)
+        self.assertIn('FOR EACH ROW EXECUTE FUNCTION preserve_paper_cutover()', CUTOVER_SQL)
+        self.assertNotRegex(CUTOVER_SQL, r'(?i)\b(?:UPDATE\s+paper_accounts|INSERT\s+INTO|DELETE\s+FROM)\b')
+        self.assertTrue(MIGRATION_SQL.endswith(CUTOVER_SQL))
+
+    def test_migration_runs_in_one_transaction_without_account_writes(self):
+        from src.migrations import migrate_paper_cutover_immutability as migration
+        connection = MagicMock()
+        with patch.object(migration, 'get_connection', return_value=connection):
+            migration.migrate()
+        connection.__enter__.return_value.cursor.return_value.__enter__.return_value.execute.assert_called_once_with(CUTOVER_SQL)
+        connection.__exit__.assert_called_once_with(None, None, None)
 
 
 class ReportSnapshotTests(unittest.TestCase):

@@ -1,6 +1,7 @@
 """Paper-only migration. Does not activate trading or rewrite legacy records."""
 
 from src.database import get_connection
+from src.migrations.migrate_paper_cutover_immutability import MIGRATION_SQL as CUTOVER_SQL
 
 
 MIGRATION_SQL = """
@@ -87,7 +88,7 @@ END $$;
 DROP TRIGGER IF EXISTS preserve_paper_commitment ON paper_signals;
 CREATE TRIGGER preserve_paper_commitment BEFORE UPDATE ON paper_signals
     FOR EACH ROW EXECUTE FUNCTION preserve_paper_commitment();
-"""
+""" + CUTOVER_SQL
 
 
 def migrate():

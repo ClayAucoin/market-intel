@@ -23,10 +23,12 @@ def positive_price(value):
 
 
 def observed_sessions(cur, start, end):
-    """Use SPY, with a prior anchor and cross-symbol evidence of missing days.
+    """Return sessions only when the requested interval is unambiguous.
 
-    No weekday is assumed to be a session. A synchronized missing day across
-    all stored symbols cannot be diagnosed without an independent calendar.
+    Weekends are non-sessions. Every weekday in [start, end] must have valid
+    SPY evidence: absent data cannot prove a market closure. Without a local
+    exchange calendar this deliberately fails closed on weekday holidays too.
+    A prior anchor and cross-symbol checks provide additional integrity checks.
     """
     if start > end:
         return None
@@ -57,6 +59,12 @@ def observed_sessions(cur, start, end):
     """, (anchor_start, end))
     if any(p["trade_date"] not in dates for p in cur.fetchall()):
         return None
+    observed = set(dates)
+    day = start
+    while day <= end:
+        if day.weekday() < 5 and day not in observed:
+            return None
+        day += timedelta(days=1)
     return [d for d in dates if d >= start]
 
 
