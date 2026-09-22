@@ -8,6 +8,7 @@ from src.daily_logger import (
 
 from src.prices.import_universe_prices import (
     import_universe_prices,
+    format_price_error,
 )
 
 from src.notifications.notifier import (
@@ -89,10 +90,20 @@ def refresh_prices():
         "STEP 3: REFRESH MARKET PRICES"
     )
 
-    import_universe_prices(
+    results = import_universe_prices(
         universe_name=UNIVERSE,
         refresh=True,
     )
+    failures = [result for result in results if result["status"] == "ERROR"]
+    if failures:
+        message = (
+            f"Production price refresh failed for {len(failures)} symbol(s): "
+            + "; ".join(format_price_error(result) for result in failures)
+        )
+        # Print before main closes the existing daily log. The same safe message
+        # reaches its existing failure notification; no parallel report needed.
+        print(message)
+        raise RuntimeError(message)
 
 
 def rebuild_events():
