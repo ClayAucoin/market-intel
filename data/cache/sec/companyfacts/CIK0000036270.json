@@ -1,6 +1,6 @@
 {
   "cik": 36270,
-  "entityName": "M&T BANK CORPORATION",
+  "entityName": "M&T BANK CORP",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -412287,6 +412287,16 @@
               "form": "424B5",
               "filed": "2026-07-17",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-21",
+              "val": 0,
+              "accn": "0001193125-26-397312",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-22",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -412352,6 +412362,16 @@
               "form": "424B5",
               "filed": "2026-07-17",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-21",
+              "val": 0,
+              "accn": "0001193125-26-397312",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-22",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -412389,6 +412409,16 @@
               "form": "424B5",
               "filed": "2026-07-17",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-21",
+              "val": 0,
+              "accn": "0001193125-26-397312",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-22",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -412426,6 +412456,16 @@
               "form": "424B5",
               "filed": "2026-07-17",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-21",
+              "val": 0,
+              "accn": "0001193125-26-397312",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-22",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -412454,6 +412494,16 @@
               "form": "424B5",
               "filed": "2026-07-17",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-21",
+              "val": 0,
+              "accn": "0001193125-26-397312",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-22",
+              "frame": "CY2026Q3I"
             }
           ]
         }
