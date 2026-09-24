@@ -1,6 +1,6 @@
 {
   "cik": 91419,
-  "entityName": "The J. M. Smucker Company",
+  "entityName": "J M SMUCKER Co",
   "facts": {
     "dei": {
       "EntityCommonStockSharesOutstanding": {
@@ -241068,6 +241068,98 @@
               "form": "DEF 14A",
               "filed": "2026-06-26",
               "frame": "CY2025"
+            }
+          ]
+        }
+      }
+    },
+    "ffd": {
+      "NetFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001193125-26-399455",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-23",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlFeeAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001193125-26-399455",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-23",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOfferingAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001193125-26-399455",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-23",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlOffsetAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001193125-26-399455",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-23",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "TtlPrevslyPdAmt": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-10",
+              "val": 0,
+              "accn": "0001193125-26-399455",
+              "fy": null,
+              "fp": null,
+              "form": "S-3ASR",
+              "filed": "2026-09-23",
+              "frame": "CY2026Q3I"
             }
           ]
         }
