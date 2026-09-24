@@ -1,0 +1,6177 @@
+[
+  {
+    "cik": "0000773840",
+    "window": {
+      "display_ticker": "HON",
+      "security_id": 256,
+      "cik": "0000773840",
+      "start": "2018-01-01",
+      "end_exclusive": "2022-01-01",
+      "scope": "10-K/10-Q in saved baseline filing inventory; not all SEC forms",
+      "expected_regular_filings": 16,
+      "verified_regular_filings": 16,
+      "missing_accessions": [],
+      "observations": 16,
+      "unique_instants": 16,
+      "median_gap_days": 90.9736574074074,
+      "maximum_gap_days": 120.2213888888889,
+      "events": 16,
+      "lookup_counts": {
+        "CLASSIFIED": 16
+      },
+      "median_event_age_days": 0.04162615740740741,
+      "maximum_event_age_days": 3.836400462962963
+    },
+    "source_files": [
+      {
+        "path": "data/cache/sec/submissions/CIK0000773840-submissions-001.json",
+        "sha256": "3c2da4030ed0d960239d677a1eab286b320925e060eadf3b3c2cc33037124f30"
+      },
+      {
+        "path": "data/cache/sec/submissions/CIK0000773840.json",
+        "sha256": "3d888948f745c5240dbf6075b77553afd7c60f85ca8237c0ac077ef8e9f3ca73"
+      },
+      {
+        "path": "data/cache/sec/submissions/CIK0000773840-submissions-002.json",
+        "sha256": "2fcd59f816d74c7634830df56f6cee0759668840c7c199a19a408384183b2926"
+      }
+    ],
+    "forms": {
+      "4": 396,
+      "8-K": 64,
+      "DEFA14A": 9,
+      "25-NSE": 2,
+      "PX14A6G": 1,
+      "CERT": 2,
+      "DEF 14A": 4,
+      "8-A12B": 2,
+      "424B5": 15,
+      "3": 15,
+      "FWP": 5,
+      "10-K": 4,
+      "SC 13G/A": 8,
+      "5": 3,
+      "10-Q": 12,
+      "13F-HR": 7,
+      "8-K/A": 1,
+      "11-K": 8,
+      "SD": 4,
+      "3/A": 2,
+      "IRANNOTICE": 5,
+      "S-8": 1,
+      "S-3ASR": 2,
+      "UPLOAD": 2,
+      "CORRESP": 1,
+      "PRE 14A": 1,
+      "SC 13D": 2,
+      "25": 1,
+      "SC 13D/A": 8
+    },
+    "cached_submissions_regular": 16,
+    "regular_without_verified_header": [],
+    "verified_regular_not_in_catalog": [],
+    "records": [
+      {
+        "accession": "0000950117-20-000205",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T21:04:22.000Z"
+      },
+      {
+        "accession": "0000950117-20-000204",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T21:03:21.000Z"
+      },
+      {
+        "accession": "0000950117-20-000203",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T21:02:47.000Z"
+      },
+      {
+        "accession": "0000950117-20-000202",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T21:01:54.000Z"
+      },
+      {
+        "accession": "0000950117-20-000201",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T21:01:02.000Z"
+      },
+      {
+        "accession": "0000950117-20-000200",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T20:59:07.000Z"
+      },
+      {
+        "accession": "0000950117-20-000199",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T20:58:14.000Z"
+      },
+      {
+        "accession": "0000950117-20-000198",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T20:56:49.000Z"
+      },
+      {
+        "accession": "0000950117-20-000197",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T20:55:46.000Z"
+      },
+      {
+        "accession": "0000950117-20-000196",
+        "form": "4",
+        "filed_date": "2020-04-28",
+        "acceptance_source": "2020-04-28T20:54:59.000Z"
+      },
+      {
+        "accession": "0000950117-20-000181",
+        "form": "4",
+        "filed_date": "2020-04-24",
+        "acceptance_source": "2020-04-24T22:35:34.000Z"
+      },
+      {
+        "accession": "0001193125-20-103955",
+        "form": "8-K",
+        "filed_date": "2020-04-10",
+        "acceptance_source": "2020-04-10T21:08:52.000Z"
+      },
+      {
+        "accession": "0001193125-20-100940",
+        "form": "DEFA14A",
+        "filed_date": "2020-04-08",
+        "acceptance_source": "2020-04-08T12:41:11.000Z"
+      },
+      {
+        "accession": "0001193125-20-100462",
+        "form": "DEFA14A",
+        "filed_date": "2020-04-07",
+        "acceptance_source": "2020-04-07T20:06:35.000Z"
+      },
+      {
+        "accession": "0000950117-20-000163",
+        "form": "4",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-04T01:27:28.000Z"
+      },
+      {
+        "accession": "0000950117-20-000162",
+        "form": "4",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T20:43:37.000Z"
+      },
+      {
+        "accession": "0000950117-20-000161",
+        "form": "4",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T20:42:46.000Z"
+      },
+      {
+        "accession": "0000950117-20-000160",
+        "form": "4",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T20:42:02.000Z"
+      },
+      {
+        "accession": "0000950117-20-000159",
+        "form": "4",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T20:41:16.000Z"
+      },
+      {
+        "accession": "0000876661-20-000293",
+        "form": "25-NSE",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T18:21:52.000Z"
+      },
+      {
+        "accession": "0001214659-20-003180",
+        "form": "PX14A6G",
+        "filed_date": "2020-04-03",
+        "acceptance_source": "2020-04-03T17:05:14.000Z"
+      },
+      {
+        "accession": "0000773840-20-000016",
+        "form": "8-K",
+        "filed_date": "2020-03-31",
+        "acceptance_source": "2020-03-31T20:45:24.000Z"
+      },
+      {
+        "accession": "0000876661-20-000242",
+        "form": "CERT",
+        "filed_date": "2020-03-25",
+        "acceptance_source": "2020-03-25T15:04:12.000Z"
+      },
+      {
+        "accession": "0001193125-20-070942",
+        "form": "DEFA14A",
+        "filed_date": "2020-03-12",
+        "acceptance_source": "2020-03-12T11:36:36.000Z"
+      },
+      {
+        "accession": "0001193125-20-070931",
+        "form": "DEF 14A",
+        "filed_date": "2020-03-12",
+        "acceptance_source": "2020-03-12T11:32:09.000Z"
+      },
+      {
+        "accession": "0001193125-20-068171",
+        "form": "8-A12B",
+        "filed_date": "2020-03-10",
+        "acceptance_source": "2020-03-10T14:07:32.000Z"
+      },
+      {
+        "accession": "0001193125-20-067922",
+        "form": "8-K",
+        "filed_date": "2020-03-10",
+        "acceptance_source": "2020-03-10T13:04:20.000Z"
+      },
+      {
+        "accession": "0001193125-20-063165",
+        "form": "424B5",
+        "filed_date": "2020-03-05",
+        "acceptance_source": "2020-03-05T21:51:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000136",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T23:39:22.000Z"
+      },
+      {
+        "accession": "0000950117-20-000135",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T23:38:04.000Z"
+      },
+      {
+        "accession": "0000950117-20-000134",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T23:32:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000133",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T23:30:47.000Z"
+      },
+      {
+        "accession": "0000950117-20-000132",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T23:27:17.000Z"
+      },
+      {
+        "accession": "0000950117-20-000131",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T22:57:24.000Z"
+      },
+      {
+        "accession": "0000950117-20-000130",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T22:55:19.000Z"
+      },
+      {
+        "accession": "0000950117-20-000129",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T22:53:52.000Z"
+      },
+      {
+        "accession": "0000950117-20-000128",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T22:51:22.000Z"
+      },
+      {
+        "accession": "0000950117-20-000127",
+        "form": "3",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T21:17:55.000Z"
+      },
+      {
+        "accession": "0001193125-20-060468",
+        "form": "FWP",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T21:17:32.000Z"
+      },
+      {
+        "accession": "0001193125-20-059540",
+        "form": "424B5",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T11:09:39.000Z"
+      },
+      {
+        "accession": "0000950117-20-000123",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:31:17.000Z"
+      },
+      {
+        "accession": "0000950117-20-000122",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:28:45.000Z"
+      },
+      {
+        "accession": "0000950117-20-000121",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:25:02.000Z"
+      },
+      {
+        "accession": "0000950117-20-000120",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:22:52.000Z"
+      },
+      {
+        "accession": "0000950117-20-000119",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:21:08.000Z"
+      },
+      {
+        "accession": "0000950117-20-000118",
+        "form": "4",
+        "filed_date": "2020-03-02",
+        "acceptance_source": "2020-03-02T22:15:26.000Z"
+      },
+      {
+        "accession": "0000950117-20-000115",
+        "form": "4",
+        "filed_date": "2020-02-28",
+        "acceptance_source": "2020-02-28T21:13:11.000Z"
+      },
+      {
+        "accession": "0000773840-20-000011",
+        "form": "8-K",
+        "filed_date": "2020-02-28",
+        "acceptance_source": "2020-02-28T15:21:29.000Z"
+      },
+      {
+        "accession": "0000950117-20-000110",
+        "form": "4",
+        "filed_date": "2020-02-25",
+        "acceptance_source": "2020-02-25T21:04:35.000Z"
+      },
+      {
+        "accession": "0000950117-20-000108",
+        "form": "4",
+        "filed_date": "2020-02-24",
+        "acceptance_source": "2020-02-24T22:04:05.000Z"
+      },
+      {
+        "accession": "0000950117-20-000103",
+        "form": "4",
+        "filed_date": "2020-02-20",
+        "acceptance_source": "2020-02-20T21:09:10.000Z"
+      },
+      {
+        "accession": "0000950117-20-000102",
+        "form": "4",
+        "filed_date": "2020-02-20",
+        "acceptance_source": "2020-02-20T21:06:54.000Z"
+      },
+      {
+        "accession": "0000950117-20-000098",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:16:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000097",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:14:46.000Z"
+      },
+      {
+        "accession": "0000950117-20-000096",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:13:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000095",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:12:21.000Z"
+      },
+      {
+        "accession": "0000950117-20-000094",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:11:20.000Z"
+      },
+      {
+        "accession": "0000950117-20-000093",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:10:20.000Z"
+      },
+      {
+        "accession": "0000950117-20-000092",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:08:47.000Z"
+      },
+      {
+        "accession": "0000950117-20-000091",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:07:57.000Z"
+      },
+      {
+        "accession": "0000950117-20-000090",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:06:41.000Z"
+      },
+      {
+        "accession": "0000950117-20-000089",
+        "form": "4",
+        "filed_date": "2020-02-19",
+        "acceptance_source": "2020-02-19T21:03:04.000Z"
+      },
+      {
+        "accession": "0000950117-20-000078",
+        "form": "4",
+        "filed_date": "2020-02-18",
+        "acceptance_source": "2020-02-18T23:49:41.000Z"
+      },
+      {
+        "accession": "0000950117-20-000077",
+        "form": "4",
+        "filed_date": "2020-02-18",
+        "acceptance_source": "2020-02-18T23:49:01.000Z"
+      },
+      {
+        "accession": "0000950117-20-000076",
+        "form": "4",
+        "filed_date": "2020-02-18",
+        "acceptance_source": "2020-02-18T23:48:22.000Z"
+      },
+      {
+        "accession": "0000950117-20-000075",
+        "form": "4",
+        "filed_date": "2020-02-18",
+        "acceptance_source": "2020-02-18T23:47:45.000Z"
+      },
+      {
+        "accession": "0000950117-20-000074",
+        "form": "4",
+        "filed_date": "2020-02-18",
+        "acceptance_source": "2020-02-18T23:47:03.000Z"
+      },
+      {
+        "accession": "0000773840-20-000009",
+        "form": "10-K",
+        "filed_date": "2020-02-14",
+        "acceptance_source": "2020-02-14T18:25:35.000Z"
+      },
+      {
+        "accession": "0001104659-20-018518",
+        "form": "SC 13G/A",
+        "filed_date": "2020-02-12",
+        "acceptance_source": "2020-02-12T16:01:05.000Z"
+      },
+      {
+        "accession": "0000950117-20-000060",
+        "form": "5",
+        "filed_date": "2020-02-07",
+        "acceptance_source": "2020-02-07T22:49:32.000Z"
+      },
+      {
+        "accession": "0000950117-20-000057",
+        "form": "4",
+        "filed_date": "2020-02-07",
+        "acceptance_source": "2020-02-07T21:32:25.000Z"
+      },
+      {
+        "accession": "0000834237-20-005338",
+        "form": "SC 13G/A",
+        "filed_date": "2020-02-05",
+        "acceptance_source": "2020-02-05T16:45:38.000Z"
+      },
+      {
+        "accession": "0000773840-20-000005",
+        "form": "8-K",
+        "filed_date": "2020-01-31",
+        "acceptance_source": "2020-01-31T11:37:10.000Z"
+      },
+      {
+        "accession": "0000950117-20-000036",
+        "form": "4",
+        "filed_date": "2020-01-15",
+        "acceptance_source": "2020-01-15T21:29:10.000Z"
+      },
+      {
+        "accession": "0000950117-20-000028",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:05:28.000Z"
+      },
+      {
+        "accession": "0000950117-20-000027",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:04:54.000Z"
+      },
+      {
+        "accession": "0000950117-20-000026",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:04:19.000Z"
+      },
+      {
+        "accession": "0000950117-20-000025",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:03:39.000Z"
+      },
+      {
+        "accession": "0000950117-20-000024",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:02:54.000Z"
+      },
+      {
+        "accession": "0000950117-20-000023",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:02:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000022",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:01:39.000Z"
+      },
+      {
+        "accession": "0000950117-20-000021",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:00:51.000Z"
+      },
+      {
+        "accession": "0000950117-20-000020",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T21:00:14.000Z"
+      },
+      {
+        "accession": "0000950117-20-000019",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T20:59:33.000Z"
+      },
+      {
+        "accession": "0000950117-20-000018",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T20:58:47.000Z"
+      },
+      {
+        "accession": "0000950117-20-000017",
+        "form": "4",
+        "filed_date": "2020-01-06",
+        "acceptance_source": "2020-01-06T20:57:32.000Z"
+      },
+      {
+        "accession": "0000950117-19-000385",
+        "form": "4",
+        "filed_date": "2019-12-30",
+        "acceptance_source": "2019-12-30T21:03:07.000Z"
+      },
+      {
+        "accession": "0000950117-19-000373",
+        "form": "4",
+        "filed_date": "2019-12-16",
+        "acceptance_source": "2019-12-16T22:11:21.000Z"
+      },
+      {
+        "accession": "0000773840-19-000029",
+        "form": "8-K",
+        "filed_date": "2019-12-06",
+        "acceptance_source": "2019-12-06T21:10:42.000Z"
+      },
+      {
+        "accession": "0000950117-19-000351",
+        "form": "4",
+        "filed_date": "2019-11-18",
+        "acceptance_source": "2019-11-18T21:09:24.000Z"
+      },
+      {
+        "accession": "0000950117-19-000341",
+        "form": "4",
+        "filed_date": "2019-11-04",
+        "acceptance_source": "2019-11-04T21:23:37.000Z"
+      },
+      {
+        "accession": "0000950117-19-000334",
+        "form": "4",
+        "filed_date": "2019-10-29",
+        "acceptance_source": "2019-10-29T23:40:38.000Z"
+      },
+      {
+        "accession": "0000950117-19-000329",
+        "form": "3",
+        "filed_date": "2019-10-25",
+        "acceptance_source": "2019-10-25T21:43:41.000Z"
+      },
+      {
+        "accession": "0000773840-19-000026",
+        "form": "10-Q",
+        "filed_date": "2019-10-17",
+        "acceptance_source": "2019-10-17T13:06:47.000Z"
+      },
+      {
+        "accession": "0000773840-19-000025",
+        "form": "8-K",
+        "filed_date": "2019-10-17",
+        "acceptance_source": "2019-10-17T10:35:32.000Z"
+      },
+      {
+        "accession": "0000950117-19-000319",
+        "form": "4",
+        "filed_date": "2019-10-16",
+        "acceptance_source": "2019-10-16T22:41:24.000Z"
+      },
+      {
+        "accession": "0000930413-19-002693",
+        "form": "8-K",
+        "filed_date": "2019-10-16",
+        "acceptance_source": "2019-10-15T21:34:39.000Z"
+      },
+      {
+        "accession": "0000950117-19-000314",
+        "form": "3",
+        "filed_date": "2019-10-09",
+        "acceptance_source": "2019-10-09T20:36:15.000Z"
+      },
+      {
+        "accession": "0000930413-19-002643",
+        "form": "8-K",
+        "filed_date": "2019-10-08",
+        "acceptance_source": "2019-10-07T22:39:35.000Z"
+      },
+      {
+        "accession": "0000950117-19-000309",
+        "form": "4",
+        "filed_date": "2019-10-04",
+        "acceptance_source": "2019-10-04T20:14:58.000Z"
+      },
+      {
+        "accession": "0000950117-19-000308",
+        "form": "4",
+        "filed_date": "2019-10-04",
+        "acceptance_source": "2019-10-04T20:14:49.000Z"
+      },
+      {
+        "accession": "0000950117-19-000305",
+        "form": "4",
+        "filed_date": "2019-10-03",
+        "acceptance_source": "2019-10-03T20:10:19.000Z"
+      },
+      {
+        "accession": "0000950117-19-000304",
+        "form": "4",
+        "filed_date": "2019-10-03",
+        "acceptance_source": "2019-10-03T20:09:24.000Z"
+      },
+      {
+        "accession": "0000950117-19-000303",
+        "form": "4",
+        "filed_date": "2019-10-03",
+        "acceptance_source": "2019-10-03T20:08:37.000Z"
+      },
+      {
+        "accession": "0000930413-19-002415",
+        "form": "8-K",
+        "filed_date": "2019-08-29",
+        "acceptance_source": "2019-08-29T13:02:11.000Z"
+      },
+      {
+        "accession": "0000950117-19-000279",
+        "form": "4",
+        "filed_date": "2019-08-21",
+        "acceptance_source": "2019-08-21T20:05:01.000Z"
+      },
+      {
+        "accession": "0000950117-19-000276",
+        "form": "4",
+        "filed_date": "2019-08-16",
+        "acceptance_source": "2019-08-16T21:36:05.000Z"
+      },
+      {
+        "accession": "0000950117-19-000274",
+        "form": "4",
+        "filed_date": "2019-08-16",
+        "acceptance_source": "2019-08-16T21:31:55.000Z"
+      },
+      {
+        "accession": "0000950117-19-000269",
+        "form": "4",
+        "filed_date": "2019-08-14",
+        "acceptance_source": "2019-08-14T20:05:20.000Z"
+      },
+      {
+        "accession": "0000950117-19-000264",
+        "form": "4",
+        "filed_date": "2019-08-12",
+        "acceptance_source": "2019-08-12T20:06:30.000Z"
+      },
+      {
+        "accession": "0001193125-19-216411",
+        "form": "8-K",
+        "filed_date": "2019-08-08",
+        "acceptance_source": "2019-08-08T15:45:13.000Z"
+      },
+      {
+        "accession": "0000950117-19-000261",
+        "form": "4",
+        "filed_date": "2019-08-02",
+        "acceptance_source": "2019-08-02T20:14:54.000Z"
+      },
+      {
+        "accession": "0000950117-19-000260",
+        "form": "4",
+        "filed_date": "2019-08-02",
+        "acceptance_source": "2019-08-02T20:14:10.000Z"
+      },
+      {
+        "accession": "0000950117-19-000259",
+        "form": "4",
+        "filed_date": "2019-08-02",
+        "acceptance_source": "2019-08-02T20:13:25.000Z"
+      },
+      {
+        "accession": "0000950117-19-000258",
+        "form": "4",
+        "filed_date": "2019-08-02",
+        "acceptance_source": "2019-08-02T20:12:38.000Z"
+      },
+      {
+        "accession": "0000950117-19-000257",
+        "form": "4",
+        "filed_date": "2019-08-02",
+        "acceptance_source": "2019-08-02T20:11:52.000Z"
+      },
+      {
+        "accession": "0001193125-19-211023",
+        "form": "424B5",
+        "filed_date": "2019-08-01",
+        "acceptance_source": "2019-08-01T21:14:11.000Z"
+      },
+      {
+        "accession": "0000930413-19-002212",
+        "form": "8-K",
+        "filed_date": "2019-08-01",
+        "acceptance_source": "2019-08-01T12:00:44.000Z"
+      },
+      {
+        "accession": "0000950117-19-000241",
+        "form": "4",
+        "filed_date": "2019-07-31",
+        "acceptance_source": "2019-07-31T20:05:06.000Z"
+      },
+      {
+        "accession": "0001193125-19-207193",
+        "form": "FWP",
+        "filed_date": "2019-07-30",
+        "acceptance_source": "2019-07-30T21:18:55.000Z"
+      },
+      {
+        "accession": "0000950117-19-000238",
+        "form": "4",
+        "filed_date": "2019-07-30",
+        "acceptance_source": "2019-07-30T21:17:59.000Z"
+      },
+      {
+        "accession": "0000950117-19-000237",
+        "form": "4",
+        "filed_date": "2019-07-30",
+        "acceptance_source": "2019-07-30T21:16:30.000Z"
+      },
+      {
+        "accession": "0000950117-19-000236",
+        "form": "3",
+        "filed_date": "2019-07-30",
+        "acceptance_source": "2019-07-30T21:15:40.000Z"
+      },
+      {
+        "accession": "0001193125-19-206264",
+        "form": "424B5",
+        "filed_date": "2019-07-30",
+        "acceptance_source": "2019-07-30T12:47:14.000Z"
+      },
+      {
+        "accession": "0000950117-19-000231",
+        "form": "4",
+        "filed_date": "2019-07-29",
+        "acceptance_source": "2019-07-29T22:48:37.000Z"
+      },
+      {
+        "accession": "0000950117-19-000230",
+        "form": "4",
+        "filed_date": "2019-07-29",
+        "acceptance_source": "2019-07-29T22:47:02.000Z"
+      },
+      {
+        "accession": "0000950117-19-000229",
+        "form": "4",
+        "filed_date": "2019-07-29",
+        "acceptance_source": "2019-07-29T22:45:10.000Z"
+      },
+      {
+        "accession": "0000950117-19-000228",
+        "form": "4",
+        "filed_date": "2019-07-29",
+        "acceptance_source": "2019-07-29T22:44:34.000Z"
+      },
+      {
+        "accession": "0000773840-19-000018",
+        "form": "8-K",
+        "filed_date": "2019-07-26",
+        "acceptance_source": "2019-07-26T20:19:18.000Z"
+      },
+      {
+        "accession": "0000930413-19-002101",
+        "form": "13F-HR",
+        "filed_date": "2019-07-24",
+        "acceptance_source": "2019-07-24T20:05:24.000Z"
+      },
+      {
+        "accession": "0000773840-19-000015",
+        "form": "8-K/A",
+        "filed_date": "2019-07-18",
+        "acceptance_source": "2019-07-18T19:09:33.000Z"
+      },
+      {
+        "accession": "0000773840-19-000013",
+        "form": "10-Q",
+        "filed_date": "2019-07-18",
+        "acceptance_source": "2019-07-18T12:29:25.000Z"
+      },
+      {
+        "accession": "0000773840-19-000012",
+        "form": "8-K",
+        "filed_date": "2019-07-18",
+        "acceptance_source": "2019-07-18T10:40:22.000Z"
+      },
+      {
+        "accession": "0000930413-19-002021",
+        "form": "8-K",
+        "filed_date": "2019-07-08",
+        "acceptance_source": "2019-07-08T17:27:02.000Z"
+      },
+      {
+        "accession": "0000950117-19-000207",
+        "form": "4",
+        "filed_date": "2019-07-03",
+        "acceptance_source": "2019-07-03T20:04:18.000Z"
+      },
+      {
+        "accession": "0000950117-19-000206",
+        "form": "4",
+        "filed_date": "2019-07-03",
+        "acceptance_source": "2019-07-03T20:03:33.000Z"
+      },
+      {
+        "accession": "0000950117-19-000205",
+        "form": "4",
+        "filed_date": "2019-07-03",
+        "acceptance_source": "2019-07-03T20:02:10.000Z"
+      },
+      {
+        "accession": "0000930413-19-001941",
+        "form": "11-K",
+        "filed_date": "2019-06-28",
+        "acceptance_source": "2019-06-28T21:09:51.000Z"
+      },
+      {
+        "accession": "0000930413-19-001940",
+        "form": "11-K",
+        "filed_date": "2019-06-28",
+        "acceptance_source": "2019-06-28T21:07:00.000Z"
+      },
+      {
+        "accession": "0000773840-19-000005",
+        "form": "SD",
+        "filed_date": "2019-05-31",
+        "acceptance_source": "2019-05-31T14:15:13.000Z"
+      },
+      {
+        "accession": "0000950117-19-000178",
+        "form": "4",
+        "filed_date": "2019-05-22",
+        "acceptance_source": "2019-05-22T20:06:20.000Z"
+      },
+      {
+        "accession": "0000930413-19-001540",
+        "form": "13F-HR",
+        "filed_date": "2019-05-02",
+        "acceptance_source": "2019-05-02T20:01:18.000Z"
+      },
+      {
+        "accession": "0000950117-19-000167",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:05:31.000Z"
+      },
+      {
+        "accession": "0000950117-19-000166",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:03:48.000Z"
+      },
+      {
+        "accession": "0000950117-19-000165",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:03:15.000Z"
+      },
+      {
+        "accession": "0000950117-19-000164",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:02:43.000Z"
+      },
+      {
+        "accession": "0000950117-19-000163",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:01:34.000Z"
+      },
+      {
+        "accession": "0000950117-19-000162",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T19:00:35.000Z"
+      },
+      {
+        "accession": "0000950117-19-000161",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T18:59:53.000Z"
+      },
+      {
+        "accession": "0000950117-19-000160",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T18:57:40.000Z"
+      },
+      {
+        "accession": "0000950117-19-000159",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T18:56:11.000Z"
+      },
+      {
+        "accession": "0000950117-19-000158",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T18:55:08.000Z"
+      },
+      {
+        "accession": "0000950117-19-000157",
+        "form": "4",
+        "filed_date": "2019-05-01",
+        "acceptance_source": "2019-05-01T18:53:38.000Z"
+      },
+      {
+        "accession": "0000950117-19-000143",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-30T00:16:53.000Z"
+      },
+      {
+        "accession": "0000950117-19-000142",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-30T00:08:45.000Z"
+      },
+      {
+        "accession": "0000950117-19-000141",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-30T00:04:49.000Z"
+      },
+      {
+        "accession": "0000950117-19-000140",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-30T00:00:46.000Z"
+      },
+      {
+        "accession": "0000950117-19-000139",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:59:17.000Z"
+      },
+      {
+        "accession": "0000950117-19-000138",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:56:59.000Z"
+      },
+      {
+        "accession": "0000950117-19-000137",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:54:10.000Z"
+      },
+      {
+        "accession": "0000950117-19-000136",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:51:54.000Z"
+      },
+      {
+        "accession": "0000950117-19-000135",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:50:20.000Z"
+      },
+      {
+        "accession": "0000950117-19-000134",
+        "form": "4",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T23:47:33.000Z"
+      },
+      {
+        "accession": "0001193125-19-125772",
+        "form": "8-K",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T21:28:57.000Z"
+      },
+      {
+        "accession": "0000930413-19-001412",
+        "form": "8-K",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T21:16:47.000Z"
+      },
+      {
+        "accession": "0000930413-19-001411",
+        "form": "8-K",
+        "filed_date": "2019-04-29",
+        "acceptance_source": "2019-04-29T21:06:27.000Z"
+      },
+      {
+        "accession": "0001628280-19-004415",
+        "form": "10-Q",
+        "filed_date": "2019-04-18",
+        "acceptance_source": "2019-04-18T12:30:42.000Z"
+      },
+      {
+        "accession": "0000930413-19-001231",
+        "form": "8-K",
+        "filed_date": "2019-04-18",
+        "acceptance_source": "2019-04-18T10:35:38.000Z"
+      },
+      {
+        "accession": "0001193125-19-105294",
+        "form": "DEFA14A",
+        "filed_date": "2019-04-12",
+        "acceptance_source": "2019-04-12T21:13:14.000Z"
+      },
+      {
+        "accession": "0000950117-19-000119",
+        "form": "4",
+        "filed_date": "2019-04-02",
+        "acceptance_source": "2019-04-02T20:08:28.000Z"
+      },
+      {
+        "accession": "0000950117-19-000118",
+        "form": "4",
+        "filed_date": "2019-04-02",
+        "acceptance_source": "2019-04-02T20:07:20.000Z"
+      },
+      {
+        "accession": "0000950117-19-000117",
+        "form": "4",
+        "filed_date": "2019-04-02",
+        "acceptance_source": "2019-04-02T20:05:46.000Z"
+      },
+      {
+        "accession": "0001193125-19-074029",
+        "form": "DEFA14A",
+        "filed_date": "2019-03-14",
+        "acceptance_source": "2019-03-14T11:33:33.000Z"
+      },
+      {
+        "accession": "0001193125-19-074027",
+        "form": "DEF 14A",
+        "filed_date": "2019-03-14",
+        "acceptance_source": "2019-03-14T11:30:15.000Z"
+      },
+      {
+        "accession": "0000950117-19-000098",
+        "form": "4",
+        "filed_date": "2019-03-07",
+        "acceptance_source": "2019-03-07T21:04:33.000Z"
+      },
+      {
+        "accession": "0000950117-19-000094",
+        "form": "4",
+        "filed_date": "2019-03-05",
+        "acceptance_source": "2019-03-06T00:17:11.000Z"
+      },
+      {
+        "accession": "0000950117-19-000093",
+        "form": "4",
+        "filed_date": "2019-03-05",
+        "acceptance_source": "2019-03-06T00:06:57.000Z"
+      },
+      {
+        "accession": "0000950117-19-000088",
+        "form": "4",
+        "filed_date": "2019-03-01",
+        "acceptance_source": "2019-03-01T21:05:39.000Z"
+      },
+      {
+        "accession": "0000950117-19-000086",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:40:06.000Z"
+      },
+      {
+        "accession": "0000950117-19-000085",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:39:06.000Z"
+      },
+      {
+        "accession": "0000950117-19-000084",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:38:11.000Z"
+      },
+      {
+        "accession": "0000950117-19-000083",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:37:23.000Z"
+      },
+      {
+        "accession": "0000950117-19-000082",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:36:17.000Z"
+      },
+      {
+        "accession": "0000950117-19-000081",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:35:18.000Z"
+      },
+      {
+        "accession": "0000950117-19-000080",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:33:57.000Z"
+      },
+      {
+        "accession": "0000950117-19-000079",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:33:17.000Z"
+      },
+      {
+        "accession": "0000950117-19-000078",
+        "form": "4",
+        "filed_date": "2019-02-28",
+        "acceptance_source": "2019-02-28T21:32:28.000Z"
+      },
+      {
+        "accession": "0000950117-19-000066",
+        "form": "4",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T02:18:29.000Z"
+      },
+      {
+        "accession": "0000950117-19-000065",
+        "form": "4",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T02:15:28.000Z"
+      },
+      {
+        "accession": "0000950117-19-000064",
+        "form": "3/A",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T02:12:31.000Z"
+      },
+      {
+        "accession": "0000950117-19-000063",
+        "form": "3/A",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T02:10:47.000Z"
+      },
+      {
+        "accession": "0000950117-19-000061",
+        "form": "4",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T01:02:33.000Z"
+      },
+      {
+        "accession": "0000950117-19-000060",
+        "form": "4",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T01:01:16.000Z"
+      },
+      {
+        "accession": "0000950117-19-000059",
+        "form": "4",
+        "filed_date": "2019-02-27",
+        "acceptance_source": "2019-02-28T00:58:10.000Z"
+      },
+      {
+        "accession": "0000932471-19-005880",
+        "form": "SC 13G/A",
+        "filed_date": "2019-02-12",
+        "acceptance_source": "2019-02-12T15:48:53.000Z"
+      },
+      {
+        "accession": "0000930413-19-000367",
+        "form": "IRANNOTICE",
+        "filed_date": "2019-02-08",
+        "acceptance_source": "2019-02-08T19:14:02.000Z"
+      },
+      {
+        "accession": "0000930413-19-000366",
+        "form": "10-K",
+        "filed_date": "2019-02-08",
+        "acceptance_source": "2019-02-08T19:09:10.000Z"
+      },
+      {
+        "accession": "0000950117-19-000044",
+        "form": "4",
+        "filed_date": "2019-02-07",
+        "acceptance_source": "2019-02-07T21:14:42.000Z"
+      },
+      {
+        "accession": "0000950117-19-000043",
+        "form": "4",
+        "filed_date": "2019-02-07",
+        "acceptance_source": "2019-02-07T21:14:00.000Z"
+      },
+      {
+        "accession": "0000930413-19-000324",
+        "form": "13F-HR",
+        "filed_date": "2019-02-05",
+        "acceptance_source": "2019-02-05T21:05:21.000Z"
+      },
+      {
+        "accession": "0000215457-19-004185",
+        "form": "SC 13G/A",
+        "filed_date": "2019-02-04",
+        "acceptance_source": "2019-02-04T21:58:04.000Z"
+      },
+      {
+        "accession": "0000930413-19-000246",
+        "form": "8-K",
+        "filed_date": "2019-02-01",
+        "acceptance_source": "2019-02-01T11:37:24.000Z"
+      },
+      {
+        "accession": "0000950117-19-000031",
+        "form": "4",
+        "filed_date": "2019-01-17",
+        "acceptance_source": "2019-01-17T21:04:09.000Z"
+      },
+      {
+        "accession": "0000950117-19-000027",
+        "form": "4",
+        "filed_date": "2019-01-15",
+        "acceptance_source": "2019-01-15T23:52:31.000Z"
+      },
+      {
+        "accession": "0000950117-19-000023",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T23:03:15.000Z"
+      },
+      {
+        "accession": "0000950117-19-000022",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:58:09.000Z"
+      },
+      {
+        "accession": "0000950117-19-000021",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:56:32.000Z"
+      },
+      {
+        "accession": "0000950117-19-000020",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:55:25.000Z"
+      },
+      {
+        "accession": "0000950117-19-000019",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:54:48.000Z"
+      },
+      {
+        "accession": "0000950117-19-000018",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:54:06.000Z"
+      },
+      {
+        "accession": "0000950117-19-000017",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:53:05.000Z"
+      },
+      {
+        "accession": "0000950117-19-000016",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:52:32.000Z"
+      },
+      {
+        "accession": "0000950117-19-000015",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:46:58.000Z"
+      },
+      {
+        "accession": "0000950117-19-000014",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:46:09.000Z"
+      },
+      {
+        "accession": "0000950117-19-000013",
+        "form": "4",
+        "filed_date": "2019-01-03",
+        "acceptance_source": "2019-01-03T22:45:21.000Z"
+      },
+      {
+        "accession": "0001193125-18-346439",
+        "form": "424B5",
+        "filed_date": "2018-12-11",
+        "acceptance_source": "2018-12-11T02:15:21.000Z"
+      },
+      {
+        "accession": "0001193125-18-346438",
+        "form": "424B5",
+        "filed_date": "2018-12-11",
+        "acceptance_source": "2018-12-11T02:14:29.000Z"
+      },
+      {
+        "accession": "0001193125-18-346240",
+        "form": "S-8",
+        "filed_date": "2018-12-10",
+        "acceptance_source": "2018-12-10T22:00:58.000Z"
+      },
+      {
+        "accession": "0001193125-18-346173",
+        "form": "S-3ASR",
+        "filed_date": "2018-12-10",
+        "acceptance_source": "2018-12-10T21:26:54.000Z"
+      },
+      {
+        "accession": "0000950117-18-000393",
+        "form": "4",
+        "filed_date": "2018-12-07",
+        "acceptance_source": "2018-12-07T23:21:33.000Z"
+      },
+      {
+        "accession": "0000950117-18-000385",
+        "form": "4",
+        "filed_date": "2018-11-26",
+        "acceptance_source": "2018-11-26T21:16:34.000Z"
+      },
+      {
+        "accession": "0000950117-18-000380",
+        "form": "4",
+        "filed_date": "2018-11-21",
+        "acceptance_source": "2018-11-21T21:45:20.000Z"
+      },
+      {
+        "accession": "0000950117-18-000375",
+        "form": "4",
+        "filed_date": "2018-11-16",
+        "acceptance_source": "2018-11-16T20:54:54.000Z"
+      },
+      {
+        "accession": "0000930413-18-003280",
+        "form": "13F-HR",
+        "filed_date": "2018-11-07",
+        "acceptance_source": "2018-11-07T21:05:42.000Z"
+      },
+      {
+        "accession": "0000950117-18-000363",
+        "form": "4",
+        "filed_date": "2018-11-02",
+        "acceptance_source": "2018-11-02T20:02:03.000Z"
+      },
+      {
+        "accession": "0000899243-18-027856",
+        "form": "4",
+        "filed_date": "2018-10-31",
+        "acceptance_source": "2018-10-31T22:55:48.000Z"
+      },
+      {
+        "accession": "0001193125-18-309906",
+        "form": "8-K",
+        "filed_date": "2018-10-29",
+        "acceptance_source": "2018-10-29T12:40:57.000Z"
+      },
+      {
+        "accession": "0000899243-18-027547",
+        "form": "4",
+        "filed_date": "2018-10-26",
+        "acceptance_source": "2018-10-26T21:03:11.000Z"
+      },
+      {
+        "accession": "0000950117-18-000354",
+        "form": "3",
+        "filed_date": "2018-10-26",
+        "acceptance_source": "2018-10-26T20:04:07.000Z"
+      },
+      {
+        "accession": "0000930413-18-003114",
+        "form": "IRANNOTICE",
+        "filed_date": "2018-10-19",
+        "acceptance_source": "2018-10-19T19:33:27.000Z"
+      },
+      {
+        "accession": "0000930413-18-003112",
+        "form": "8-K",
+        "filed_date": "2018-10-19",
+        "acceptance_source": "2018-10-19T13:55:23.000Z"
+      },
+      {
+        "accession": "0000930413-18-003111",
+        "form": "10-Q",
+        "filed_date": "2018-10-19",
+        "acceptance_source": "2018-10-19T13:08:08.000Z"
+      },
+      {
+        "accession": "0000930413-18-003108",
+        "form": "8-K",
+        "filed_date": "2018-10-19",
+        "acceptance_source": "2018-10-19T10:38:13.000Z"
+      },
+      {
+        "accession": "0001193125-18-298884",
+        "form": "8-K",
+        "filed_date": "2018-10-15",
+        "acceptance_source": "2018-10-15T12:37:07.000Z"
+      },
+      {
+        "accession": "0000899243-18-026133",
+        "form": "3",
+        "filed_date": "2018-10-03",
+        "acceptance_source": "2018-10-04T00:34:36.000Z"
+      },
+      {
+        "accession": "0000950117-18-000337",
+        "form": "4",
+        "filed_date": "2018-10-02",
+        "acceptance_source": "2018-10-03T01:43:01.000Z"
+      },
+      {
+        "accession": "0000950117-18-000336",
+        "form": "4",
+        "filed_date": "2018-10-02",
+        "acceptance_source": "2018-10-03T01:42:18.000Z"
+      },
+      {
+        "accession": "0000950117-18-000335",
+        "form": "4",
+        "filed_date": "2018-10-02",
+        "acceptance_source": "2018-10-03T01:41:15.000Z"
+      },
+      {
+        "accession": "0001193125-18-290912",
+        "form": "8-K",
+        "filed_date": "2018-10-02",
+        "acceptance_source": "2018-10-02T20:39:13.000Z"
+      },
+      {
+        "accession": "0000950142-18-001922",
+        "form": "4",
+        "filed_date": "2018-10-01",
+        "acceptance_source": "2018-10-01T10:22:31.000Z"
+      },
+      {
+        "accession": "0001193125-18-288474",
+        "form": "8-K",
+        "filed_date": "2018-10-01",
+        "acceptance_source": "2018-10-01T10:16:04.000Z"
+      },
+      {
+        "accession": "0000950142-18-001906",
+        "form": "4",
+        "filed_date": "2018-09-24",
+        "acceptance_source": "2018-09-24T22:17:29.000Z"
+      },
+      {
+        "accession": "0001193125-18-274274",
+        "form": "8-K",
+        "filed_date": "2018-09-14",
+        "acceptance_source": "2018-09-14T21:12:57.000Z"
+      },
+      {
+        "accession": "0000000000-18-028321",
+        "form": "UPLOAD",
+        "filed_date": "2018-09-12",
+        "acceptance_source": "2018-09-12T14:31:40.000Z"
+      },
+      {
+        "accession": "0000950142-18-001852",
+        "form": "3",
+        "filed_date": "2018-09-07",
+        "acceptance_source": "2018-09-07T20:15:23.000Z"
+      },
+      {
+        "accession": "0000930413-18-002815",
+        "form": "8-K",
+        "filed_date": "2018-09-05",
+        "acceptance_source": "2018-09-05T20:01:26.000Z"
+      },
+      {
+        "accession": "0000930413-18-002680",
+        "form": "8-K",
+        "filed_date": "2018-08-23",
+        "acceptance_source": "2018-08-23T11:53:20.000Z"
+      },
+      {
+        "accession": "0000950157-18-000913",
+        "form": "CORRESP",
+        "filed_date": "2018-08-20",
+        "acceptance_source": "2018-08-20T15:32:47.000Z"
+      },
+      {
+        "accession": "0000000000-18-025225",
+        "form": "UPLOAD",
+        "filed_date": "2018-08-15",
+        "acceptance_source": "2018-08-15T13:34:43.000Z"
+      },
+      {
+        "accession": "0000950117-18-000295",
+        "form": "3",
+        "filed_date": "2018-08-10",
+        "acceptance_source": "2018-08-10T20:05:50.000Z"
+      },
+      {
+        "accession": "0000930413-18-002533",
+        "form": "13F-HR",
+        "filed_date": "2018-08-08",
+        "acceptance_source": "2018-08-08T20:06:16.000Z"
+      },
+      {
+        "accession": "0000950117-18-000288",
+        "form": "4",
+        "filed_date": "2018-08-06",
+        "acceptance_source": "2018-08-06T20:16:42.000Z"
+      },
+      {
+        "accession": "0000930413-18-002493",
+        "form": "8-K",
+        "filed_date": "2018-08-02",
+        "acceptance_source": "2018-08-02T13:03:23.000Z"
+      },
+      {
+        "accession": "0000950117-18-000278",
+        "form": "4",
+        "filed_date": "2018-08-01",
+        "acceptance_source": "2018-08-01T20:03:26.000Z"
+      },
+      {
+        "accession": "0000950117-18-000277",
+        "form": "4",
+        "filed_date": "2018-08-01",
+        "acceptance_source": "2018-08-01T20:02:20.000Z"
+      },
+      {
+        "accession": "0000950117-18-000273",
+        "form": "4",
+        "filed_date": "2018-07-31",
+        "acceptance_source": "2018-07-31T23:09:44.000Z"
+      },
+      {
+        "accession": "0000950117-18-000272",
+        "form": "4",
+        "filed_date": "2018-07-31",
+        "acceptance_source": "2018-07-31T23:02:29.000Z"
+      },
+      {
+        "accession": "0000950117-18-000271",
+        "form": "4",
+        "filed_date": "2018-07-31",
+        "acceptance_source": "2018-07-31T22:59:31.000Z"
+      },
+      {
+        "accession": "0000950117-18-000266",
+        "form": "4",
+        "filed_date": "2018-07-30",
+        "acceptance_source": "2018-07-30T20:22:04.000Z"
+      },
+      {
+        "accession": "0000950117-18-000265",
+        "form": "4",
+        "filed_date": "2018-07-30",
+        "acceptance_source": "2018-07-30T20:21:18.000Z"
+      },
+      {
+        "accession": "0000950117-18-000264",
+        "form": "4",
+        "filed_date": "2018-07-30",
+        "acceptance_source": "2018-07-30T20:20:24.000Z"
+      },
+      {
+        "accession": "0000930413-18-002304",
+        "form": "IRANNOTICE",
+        "filed_date": "2018-07-20",
+        "acceptance_source": "2018-07-20T15:11:54.000Z"
+      },
+      {
+        "accession": "0000930413-18-002303",
+        "form": "10-Q",
+        "filed_date": "2018-07-20",
+        "acceptance_source": "2018-07-20T15:08:44.000Z"
+      },
+      {
+        "accession": "0000930413-18-002301",
+        "form": "8-K",
+        "filed_date": "2018-07-20",
+        "acceptance_source": "2018-07-20T10:39:02.000Z"
+      },
+      {
+        "accession": "0000950117-18-000237",
+        "form": "3",
+        "filed_date": "2018-07-02",
+        "acceptance_source": "2018-07-02T20:10:44.000Z"
+      },
+      {
+        "accession": "0000950117-18-000236",
+        "form": "4",
+        "filed_date": "2018-07-02",
+        "acceptance_source": "2018-07-02T20:07:49.000Z"
+      },
+      {
+        "accession": "0000950117-18-000235",
+        "form": "4",
+        "filed_date": "2018-07-02",
+        "acceptance_source": "2018-07-02T20:07:23.000Z"
+      },
+      {
+        "accession": "0000950117-18-000234",
+        "form": "4",
+        "filed_date": "2018-07-02",
+        "acceptance_source": "2018-07-02T20:06:52.000Z"
+      },
+      {
+        "accession": "0000930413-18-002119",
+        "form": "11-K",
+        "filed_date": "2018-06-29",
+        "acceptance_source": "2018-06-29T20:38:34.000Z"
+      },
+      {
+        "accession": "0000930413-18-002118",
+        "form": "11-K",
+        "filed_date": "2018-06-29",
+        "acceptance_source": "2018-06-29T20:36:13.000Z"
+      },
+      {
+        "accession": "0000930413-18-002042",
+        "form": "8-K",
+        "filed_date": "2018-06-19",
+        "acceptance_source": "2018-06-19T12:52:13.000Z"
+      },
+      {
+        "accession": "0000950117-18-000218",
+        "form": "3",
+        "filed_date": "2018-06-11",
+        "acceptance_source": "2018-06-11T12:02:07.000Z"
+      },
+      {
+        "accession": "0000930413-18-001954",
+        "form": "SD",
+        "filed_date": "2018-05-31",
+        "acceptance_source": "2018-05-31T17:53:38.000Z"
+      },
+      {
+        "accession": "0000930413-18-001953",
+        "form": "8-K",
+        "filed_date": "2018-05-31",
+        "acceptance_source": "2018-05-31T14:33:20.000Z"
+      },
+      {
+        "accession": "0000950117-18-000183",
+        "form": "4",
+        "filed_date": "2018-05-29",
+        "acceptance_source": "2018-05-29T22:37:43.000Z"
+      },
+      {
+        "accession": "0000950117-18-000182",
+        "form": "4",
+        "filed_date": "2018-05-29",
+        "acceptance_source": "2018-05-29T22:32:51.000Z"
+      },
+      {
+        "accession": "0000930413-18-001649",
+        "form": "8-K",
+        "filed_date": "2018-05-01",
+        "acceptance_source": "2018-05-01T12:39:47.000Z"
+      },
+      {
+        "accession": "0000950117-18-000158",
+        "form": "4",
+        "filed_date": "2018-05-01",
+        "acceptance_source": "2018-05-01T10:06:35.000Z"
+      },
+      {
+        "accession": "0000950117-18-000153",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:46:07.000Z"
+      },
+      {
+        "accession": "0000950117-18-000152",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:44:52.000Z"
+      },
+      {
+        "accession": "0000950117-18-000150",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:42:08.000Z"
+      },
+      {
+        "accession": "0000950117-18-000149",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:40:57.000Z"
+      },
+      {
+        "accession": "0000950117-18-000148",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:39:51.000Z"
+      },
+      {
+        "accession": "0000950117-18-000147",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:39:01.000Z"
+      },
+      {
+        "accession": "0000950117-18-000146",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:34:16.000Z"
+      },
+      {
+        "accession": "0000950117-18-000145",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:33:22.000Z"
+      },
+      {
+        "accession": "0000950117-18-000144",
+        "form": "4",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T22:32:17.000Z"
+      },
+      {
+        "accession": "0000930413-18-001624",
+        "form": "13F-HR",
+        "filed_date": "2018-04-30",
+        "acceptance_source": "2018-04-30T20:05:22.000Z"
+      },
+      {
+        "accession": "0000930413-18-001563",
+        "form": "8-K",
+        "filed_date": "2018-04-27",
+        "acceptance_source": "2018-04-27T20:50:47.000Z"
+      },
+      {
+        "accession": "0000950117-18-000139",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T23:00:14.000Z"
+      },
+      {
+        "accession": "0000950117-18-000138",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:56:07.000Z"
+      },
+      {
+        "accession": "0000950117-18-000137",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:53:45.000Z"
+      },
+      {
+        "accession": "0000950117-18-000136",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:51:37.000Z"
+      },
+      {
+        "accession": "0000950117-18-000135",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:50:00.000Z"
+      },
+      {
+        "accession": "0000950117-18-000134",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:49:05.000Z"
+      },
+      {
+        "accession": "0000950117-18-000133",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:48:05.000Z"
+      },
+      {
+        "accession": "0000950117-18-000132",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:46:44.000Z"
+      },
+      {
+        "accession": "0000950117-18-000131",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:45:47.000Z"
+      },
+      {
+        "accession": "0000950117-18-000130",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:44:47.000Z"
+      },
+      {
+        "accession": "0000950117-18-000129",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:38:52.000Z"
+      },
+      {
+        "accession": "0000950117-18-000128",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T22:35:24.000Z"
+      },
+      {
+        "accession": "0000950117-18-000113",
+        "form": "4",
+        "filed_date": "2018-04-25",
+        "acceptance_source": "2018-04-25T10:46:19.000Z"
+      },
+      {
+        "accession": "0000930413-18-001449",
+        "form": "8-K",
+        "filed_date": "2018-04-24",
+        "acceptance_source": "2018-04-24T20:05:40.000Z"
+      },
+      {
+        "accession": "0000930413-18-001430",
+        "form": "8-K",
+        "filed_date": "2018-04-23",
+        "acceptance_source": "2018-04-23T21:06:04.000Z"
+      },
+      {
+        "accession": "0000930413-18-001373",
+        "form": "IRANNOTICE",
+        "filed_date": "2018-04-20",
+        "acceptance_source": "2018-04-20T17:21:18.000Z"
+      },
+      {
+        "accession": "0000930413-18-001371",
+        "form": "10-Q",
+        "filed_date": "2018-04-20",
+        "acceptance_source": "2018-04-20T17:15:24.000Z"
+      },
+      {
+        "accession": "0000930413-18-001358",
+        "form": "8-K",
+        "filed_date": "2018-04-20",
+        "acceptance_source": "2018-04-20T10:41:19.000Z"
+      },
+      {
+        "accession": "0000950117-18-000099",
+        "form": "4",
+        "filed_date": "2018-04-04",
+        "acceptance_source": "2018-04-04T20:44:13.000Z"
+      },
+      {
+        "accession": "0000950117-18-000097",
+        "form": "4",
+        "filed_date": "2018-04-03",
+        "acceptance_source": "2018-04-03T22:12:16.000Z"
+      },
+      {
+        "accession": "0000950117-18-000096",
+        "form": "4",
+        "filed_date": "2018-04-03",
+        "acceptance_source": "2018-04-03T22:11:20.000Z"
+      },
+      {
+        "accession": "0000930413-18-000996",
+        "form": "DEFA14A",
+        "filed_date": "2018-03-20",
+        "acceptance_source": "2018-03-20T00:58:14.000Z"
+      },
+      {
+        "accession": "0000950117-18-000080",
+        "form": "4",
+        "filed_date": "2018-03-12",
+        "acceptance_source": "2018-03-12T20:16:43.000Z"
+      },
+      {
+        "accession": "0000930413-18-000801",
+        "form": "DEFA14A",
+        "filed_date": "2018-03-08",
+        "acceptance_source": "2018-03-08T12:32:23.000Z"
+      },
+      {
+        "accession": "0000930413-18-000800",
+        "form": "DEF 14A",
+        "filed_date": "2018-03-08",
+        "acceptance_source": "2018-03-08T12:30:34.000Z"
+      },
+      {
+        "accession": "0000950117-18-000073",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:36:26.000Z"
+      },
+      {
+        "accession": "0000950117-18-000072",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:36:23.000Z"
+      },
+      {
+        "accession": "0000950117-18-000071",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:34:51.000Z"
+      },
+      {
+        "accession": "0000950117-18-000070",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:34:50.000Z"
+      },
+      {
+        "accession": "0000950117-18-000069",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:32:50.000Z"
+      },
+      {
+        "accession": "0000950117-18-000068",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:32:43.000Z"
+      },
+      {
+        "accession": "0000950117-18-000067",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:31:36.000Z"
+      },
+      {
+        "accession": "0000950117-18-000066",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:31:26.000Z"
+      },
+      {
+        "accession": "0000950117-18-000065",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:29:53.000Z"
+      },
+      {
+        "accession": "0000950117-18-000064",
+        "form": "4",
+        "filed_date": "2018-03-01",
+        "acceptance_source": "2018-03-01T21:28:44.000Z"
+      },
+      {
+        "accession": "0000950117-18-000063",
+        "form": "4",
+        "filed_date": "2018-02-28",
+        "acceptance_source": "2018-02-28T21:07:02.000Z"
+      },
+      {
+        "accession": "0000950117-18-000062",
+        "form": "4",
+        "filed_date": "2018-02-28",
+        "acceptance_source": "2018-02-28T21:06:37.000Z"
+      },
+      {
+        "accession": "0000950117-18-000061",
+        "form": "4",
+        "filed_date": "2018-02-28",
+        "acceptance_source": "2018-02-28T21:05:27.000Z"
+      },
+      {
+        "accession": "0000950117-18-000060",
+        "form": "4",
+        "filed_date": "2018-02-28",
+        "acceptance_source": "2018-02-28T21:04:46.000Z"
+      },
+      {
+        "accession": "0000950117-18-000059",
+        "form": "4",
+        "filed_date": "2018-02-28",
+        "acceptance_source": "2018-02-28T21:04:09.000Z"
+      },
+      {
+        "accession": "0000950117-18-000050",
+        "form": "3",
+        "filed_date": "2018-02-22",
+        "acceptance_source": "2018-02-23T00:24:14.000Z"
+      },
+      {
+        "accession": "0000876661-18-000197",
+        "form": "25-NSE",
+        "filed_date": "2018-02-22",
+        "acceptance_source": "2018-02-22T18:52:22.000Z"
+      },
+      {
+        "accession": "0000930413-18-000529",
+        "form": "8-K",
+        "filed_date": "2018-02-20",
+        "acceptance_source": "2018-02-20T22:20:31.000Z"
+      },
+      {
+        "accession": "0000930413-18-000526",
+        "form": "PRE 14A",
+        "filed_date": "2018-02-16",
+        "acceptance_source": "2018-02-16T22:10:29.000Z"
+      },
+      {
+        "accession": "0000950117-18-000043",
+        "form": "4",
+        "filed_date": "2018-02-16",
+        "acceptance_source": "2018-02-16T19:48:26.000Z"
+      },
+      {
+        "accession": "0000930413-18-000501",
+        "form": "8-K",
+        "filed_date": "2018-02-14",
+        "acceptance_source": "2018-02-14T22:13:24.000Z"
+      },
+      {
+        "accession": "0000930413-18-000299",
+        "form": "13F-HR",
+        "filed_date": "2018-02-09",
+        "acceptance_source": "2018-02-09T21:12:52.000Z"
+      },
+      {
+        "accession": "0000930413-18-000295",
+        "form": "IRANNOTICE",
+        "filed_date": "2018-02-09",
+        "acceptance_source": "2018-02-09T20:02:08.000Z"
+      },
+      {
+        "accession": "0000930413-18-000292",
+        "form": "10-K",
+        "filed_date": "2018-02-09",
+        "acceptance_source": "2018-02-09T19:29:41.000Z"
+      },
+      {
+        "accession": "0000932471-18-003370",
+        "form": "SC 13G/A",
+        "filed_date": "2018-02-09",
+        "acceptance_source": "2018-02-09T13:44:52.000Z"
+      },
+      {
+        "accession": "0000950117-18-000034",
+        "form": "5",
+        "filed_date": "2018-02-06",
+        "acceptance_source": "2018-02-06T21:03:02.000Z"
+      },
+      {
+        "accession": "0000950117-18-000033",
+        "form": "5",
+        "filed_date": "2018-02-06",
+        "acceptance_source": "2018-02-06T21:02:27.000Z"
+      },
+      {
+        "accession": "0000930413-18-000214",
+        "form": "8-K",
+        "filed_date": "2018-01-30",
+        "acceptance_source": "2018-01-30T12:46:46.000Z"
+      },
+      {
+        "accession": "0000930413-18-000180",
+        "form": "8-K",
+        "filed_date": "2018-01-26",
+        "acceptance_source": "2018-01-26T11:36:31.000Z"
+      },
+      {
+        "accession": "0000215457-18-003007",
+        "form": "SC 13G/A",
+        "filed_date": "2018-01-25",
+        "acceptance_source": "2018-01-25T16:12:41.000Z"
+      },
+      {
+        "accession": "0000950117-18-000020",
+        "form": "4",
+        "filed_date": "2018-01-17",
+        "acceptance_source": "2018-01-17T23:42:20.000Z"
+      },
+      {
+        "accession": "0000950117-18-000014",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T20:07:30.000Z"
+      },
+      {
+        "accession": "0000950117-18-000013",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T20:00:58.000Z"
+      },
+      {
+        "accession": "0000950117-18-000012",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T20:00:10.000Z"
+      },
+      {
+        "accession": "0000950117-18-000011",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:59:12.000Z"
+      },
+      {
+        "accession": "0000950117-18-000010",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:58:27.000Z"
+      },
+      {
+        "accession": "0000950117-18-000009",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:57:42.000Z"
+      },
+      {
+        "accession": "0000950117-18-000008",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:57:03.000Z"
+      },
+      {
+        "accession": "0000950117-18-000007",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:56:19.000Z"
+      },
+      {
+        "accession": "0000950117-18-000006",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:55:25.000Z"
+      },
+      {
+        "accession": "0000950117-18-000005",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:54:39.000Z"
+      },
+      {
+        "accession": "0000950117-18-000004",
+        "form": "4",
+        "filed_date": "2018-01-04",
+        "acceptance_source": "2018-01-04T19:53:44.000Z"
+      },
+      {
+        "accession": "0000950117-18-000003",
+        "form": "4",
+        "filed_date": "2018-01-03",
+        "acceptance_source": "2018-01-03T21:34:25.000Z"
+      },
+      {
+        "accession": "0001209191-21-071397",
+        "form": "4",
+        "filed_date": "2021-12-28",
+        "acceptance_source": "2021-12-28T22:12:09.000Z"
+      },
+      {
+        "accession": "0000773840-21-000070",
+        "form": "8-K",
+        "filed_date": "2021-11-23",
+        "acceptance_source": "2021-11-23T21:13:47.000Z"
+      },
+      {
+        "accession": "0001209191-21-063754",
+        "form": "4",
+        "filed_date": "2021-11-09",
+        "acceptance_source": "2021-11-10T00:52:13.000Z"
+      },
+      {
+        "accession": "0001209191-21-062070",
+        "form": "4",
+        "filed_date": "2021-10-29",
+        "acceptance_source": "2021-10-29T20:04:30.000Z"
+      },
+      {
+        "accession": "0001193125-21-305590",
+        "form": "424B5",
+        "filed_date": "2021-10-22",
+        "acceptance_source": "2021-10-22T21:23:26.000Z"
+      },
+      {
+        "accession": "0001193125-21-305584",
+        "form": "424B5",
+        "filed_date": "2021-10-22",
+        "acceptance_source": "2021-10-22T21:22:07.000Z"
+      },
+      {
+        "accession": "0001193125-21-305397",
+        "form": "S-3ASR",
+        "filed_date": "2021-10-22",
+        "acceptance_source": "2021-10-22T20:02:19.000Z"
+      },
+      {
+        "accession": "0000773840-21-000065",
+        "form": "10-Q",
+        "filed_date": "2021-10-22",
+        "acceptance_source": "2021-10-22T12:31:29.000Z"
+      },
+      {
+        "accession": "0000773840-21-000064",
+        "form": "8-K",
+        "filed_date": "2021-10-22",
+        "acceptance_source": "2021-10-22T10:53:57.000Z"
+      },
+      {
+        "accession": "0001209191-21-060357",
+        "form": "4",
+        "filed_date": "2021-10-13",
+        "acceptance_source": "2021-10-13T20:06:30.000Z"
+      },
+      {
+        "accession": "0001209191-21-059734",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-06T00:04:34.000Z"
+      },
+      {
+        "accession": "0001209191-21-059617",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-05T21:33:25.000Z"
+      },
+      {
+        "accession": "0001209191-21-059615",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-05T21:33:01.000Z"
+      },
+      {
+        "accession": "0001209191-21-059613",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-05T21:32:10.000Z"
+      },
+      {
+        "accession": "0001209191-21-059610",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-05T21:30:35.000Z"
+      },
+      {
+        "accession": "0001209191-21-059605",
+        "form": "4",
+        "filed_date": "2021-10-05",
+        "acceptance_source": "2021-10-05T21:27:50.000Z"
+      },
+      {
+        "accession": "0001209191-21-054297",
+        "form": "4",
+        "filed_date": "2021-09-01",
+        "acceptance_source": "2021-09-01T21:53:31.000Z"
+      },
+      {
+        "accession": "0001209191-21-054289",
+        "form": "4",
+        "filed_date": "2021-09-01",
+        "acceptance_source": "2021-09-01T21:47:04.000Z"
+      },
+      {
+        "accession": "0001193125-21-248125",
+        "form": "8-K",
+        "filed_date": "2021-08-17",
+        "acceptance_source": "2021-08-17T00:00:49.000Z"
+      },
+      {
+        "accession": "0001209191-21-051526",
+        "form": "4",
+        "filed_date": "2021-08-16",
+        "acceptance_source": "2021-08-16T13:20:23.000Z"
+      },
+      {
+        "accession": "0001209191-21-051374",
+        "form": "4",
+        "filed_date": "2021-08-13",
+        "acceptance_source": "2021-08-13T20:04:39.000Z"
+      },
+      {
+        "accession": "0001209191-21-051012",
+        "form": "4",
+        "filed_date": "2021-08-11",
+        "acceptance_source": "2021-08-12T01:47:30.000Z"
+      },
+      {
+        "accession": "0001193125-21-236429",
+        "form": "8-K",
+        "filed_date": "2021-08-04",
+        "acceptance_source": "2021-08-04T21:24:07.000Z"
+      },
+      {
+        "accession": "0001193125-21-236376",
+        "form": "424B5",
+        "filed_date": "2021-08-04",
+        "acceptance_source": "2021-08-04T20:53:30.000Z"
+      },
+      {
+        "accession": "0001209191-21-049471",
+        "form": "4",
+        "filed_date": "2021-08-03",
+        "acceptance_source": "2021-08-03T22:44:55.000Z"
+      },
+      {
+        "accession": "0001209191-21-049456",
+        "form": "4",
+        "filed_date": "2021-08-03",
+        "acceptance_source": "2021-08-03T22:30:47.000Z"
+      },
+      {
+        "accession": "0001209191-21-049455",
+        "form": "4",
+        "filed_date": "2021-08-03",
+        "acceptance_source": "2021-08-03T22:29:57.000Z"
+      },
+      {
+        "accession": "0001209191-21-049451",
+        "form": "4",
+        "filed_date": "2021-08-03",
+        "acceptance_source": "2021-08-03T22:13:17.000Z"
+      },
+      {
+        "accession": "0001193125-21-233706",
+        "form": "FWP",
+        "filed_date": "2021-08-03",
+        "acceptance_source": "2021-08-03T01:34:58.000Z"
+      },
+      {
+        "accession": "0001193125-21-232326",
+        "form": "8-K",
+        "filed_date": "2021-08-02",
+        "acceptance_source": "2021-08-02T12:09:07.000Z"
+      },
+      {
+        "accession": "0001193125-21-232319",
+        "form": "424B5",
+        "filed_date": "2021-08-02",
+        "acceptance_source": "2021-08-02T12:05:15.000Z"
+      },
+      {
+        "accession": "0001209191-21-048773",
+        "form": "4",
+        "filed_date": "2021-07-30",
+        "acceptance_source": "2021-07-30T20:13:15.000Z"
+      },
+      {
+        "accession": "0001209191-21-048772",
+        "form": "4",
+        "filed_date": "2021-07-30",
+        "acceptance_source": "2021-07-30T20:11:39.000Z"
+      },
+      {
+        "accession": "0001209191-21-048771",
+        "form": "4",
+        "filed_date": "2021-07-30",
+        "acceptance_source": "2021-07-30T20:10:41.000Z"
+      },
+      {
+        "accession": "0001209191-21-048474",
+        "form": "4",
+        "filed_date": "2021-07-29",
+        "acceptance_source": "2021-07-29T12:52:44.000Z"
+      },
+      {
+        "accession": "0001209191-21-048473",
+        "form": "4",
+        "filed_date": "2021-07-29",
+        "acceptance_source": "2021-07-29T12:51:33.000Z"
+      },
+      {
+        "accession": "0001209191-21-048390",
+        "form": "4",
+        "filed_date": "2021-07-27",
+        "acceptance_source": "2021-07-28T01:14:48.000Z"
+      },
+      {
+        "accession": "0001209191-21-048366",
+        "form": "4",
+        "filed_date": "2021-07-27",
+        "acceptance_source": "2021-07-27T23:34:57.000Z"
+      },
+      {
+        "accession": "0001209191-21-048361",
+        "form": "4",
+        "filed_date": "2021-07-27",
+        "acceptance_source": "2021-07-27T23:30:59.000Z"
+      },
+      {
+        "accession": "0001209191-21-047935",
+        "form": "3",
+        "filed_date": "2021-07-23",
+        "acceptance_source": "2021-07-23T18:44:47.000Z"
+      },
+      {
+        "accession": "0000773840-21-000057",
+        "form": "10-Q",
+        "filed_date": "2021-07-23",
+        "acceptance_source": "2021-07-23T13:09:25.000Z"
+      },
+      {
+        "accession": "0000773840-21-000055",
+        "form": "8-K",
+        "filed_date": "2021-07-23",
+        "acceptance_source": "2021-07-23T10:40:05.000Z"
+      },
+      {
+        "accession": "0001193125-21-215278",
+        "form": "8-K",
+        "filed_date": "2021-07-14",
+        "acceptance_source": "2021-07-14T20:24:07.000Z"
+      },
+      {
+        "accession": "0001209191-21-045415",
+        "form": "4",
+        "filed_date": "2021-07-06",
+        "acceptance_source": "2021-07-06T20:11:12.000Z"
+      },
+      {
+        "accession": "0001209191-21-045410",
+        "form": "4",
+        "filed_date": "2021-07-06",
+        "acceptance_source": "2021-07-06T20:09:49.000Z"
+      },
+      {
+        "accession": "0001209191-21-045407",
+        "form": "4",
+        "filed_date": "2021-07-06",
+        "acceptance_source": "2021-07-06T20:08:24.000Z"
+      },
+      {
+        "accession": "0001209191-21-045398",
+        "form": "4",
+        "filed_date": "2021-07-06",
+        "acceptance_source": "2021-07-06T20:02:55.000Z"
+      },
+      {
+        "accession": "0001209191-21-045394",
+        "form": "4",
+        "filed_date": "2021-07-06",
+        "acceptance_source": "2021-07-06T20:01:35.000Z"
+      },
+      {
+        "accession": "0000930413-21-001200",
+        "form": "11-K",
+        "filed_date": "2021-06-21",
+        "acceptance_source": "2021-06-21T19:26:01.000Z"
+      },
+      {
+        "accession": "0000930413-21-001199",
+        "form": "11-K",
+        "filed_date": "2021-06-21",
+        "acceptance_source": "2021-06-21T19:21:15.000Z"
+      },
+      {
+        "accession": "0001209191-21-037146",
+        "form": "4",
+        "filed_date": "2021-06-02",
+        "acceptance_source": "2021-06-02T20:13:12.000Z"
+      },
+      {
+        "accession": "0000773840-21-000049",
+        "form": "SD",
+        "filed_date": "2021-06-01",
+        "acceptance_source": "2021-06-01T17:33:26.000Z"
+      },
+      {
+        "accession": "0001209191-21-035696",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:13:36.000Z"
+      },
+      {
+        "accession": "0001209191-21-035694",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:12:23.000Z"
+      },
+      {
+        "accession": "0001209191-21-035692",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:10:50.000Z"
+      },
+      {
+        "accession": "0001209191-21-035691",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:10:03.000Z"
+      },
+      {
+        "accession": "0001209191-21-035689",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:08:20.000Z"
+      },
+      {
+        "accession": "0001209191-21-035688",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:07:17.000Z"
+      },
+      {
+        "accession": "0001209191-21-035686",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:06:33.000Z"
+      },
+      {
+        "accession": "0001209191-21-035685",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:04:49.000Z"
+      },
+      {
+        "accession": "0001209191-21-035684",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:03:47.000Z"
+      },
+      {
+        "accession": "0001209191-21-035683",
+        "form": "4",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T20:02:37.000Z"
+      },
+      {
+        "accession": "0000773840-21-000045",
+        "form": "8-K",
+        "filed_date": "2021-05-25",
+        "acceptance_source": "2021-05-25T15:01:29.000Z"
+      },
+      {
+        "accession": "0001209191-21-032145",
+        "form": "4",
+        "filed_date": "2021-05-12",
+        "acceptance_source": "2021-05-12T21:32:00.000Z"
+      },
+      {
+        "accession": "0000899243-21-019047",
+        "form": "3",
+        "filed_date": "2021-05-10",
+        "acceptance_source": "2021-05-11T01:30:10.000Z"
+      },
+      {
+        "accession": "0001193125-21-156443",
+        "form": "SC 13D",
+        "filed_date": "2021-05-10",
+        "acceptance_source": "2021-05-10T21:22:08.000Z"
+      },
+      {
+        "accession": "0000773840-21-000043",
+        "form": "25",
+        "filed_date": "2021-05-10",
+        "acceptance_source": "2021-05-10T20:30:20.000Z"
+      },
+      {
+        "accession": "0001354457-21-000551",
+        "form": "CERT",
+        "filed_date": "2021-05-10",
+        "acceptance_source": "2021-05-10T20:25:33.000Z"
+      },
+      {
+        "accession": "0000773840-21-000042",
+        "form": "8-A12B",
+        "filed_date": "2021-05-10",
+        "acceptance_source": "2021-05-10T20:15:40.000Z"
+      },
+      {
+        "accession": "0001193125-21-154214",
+        "form": "DEFA14A",
+        "filed_date": "2021-05-07",
+        "acceptance_source": "2021-05-07T13:06:04.000Z"
+      },
+      {
+        "accession": "0000899243-21-018260",
+        "form": "4",
+        "filed_date": "2021-05-04",
+        "acceptance_source": "2021-05-05T01:00:22.000Z"
+      },
+      {
+        "accession": "0001193125-21-150191",
+        "form": "SC 13D/A",
+        "filed_date": "2021-05-04",
+        "acceptance_source": "2021-05-04T21:01:57.000Z"
+      },
+      {
+        "accession": "0001209191-21-029542",
+        "form": "4",
+        "filed_date": "2021-05-03",
+        "acceptance_source": "2021-05-03T21:23:04.000Z"
+      },
+      {
+        "accession": "0000773840-21-000036",
+        "form": "8-K",
+        "filed_date": "2021-04-30",
+        "acceptance_source": "2021-04-30T13:02:46.000Z"
+      },
+      {
+        "accession": "0001209191-21-029101",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:21:32.000Z"
+      },
+      {
+        "accession": "0001209191-21-029099",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:20:38.000Z"
+      },
+      {
+        "accession": "0001209191-21-029097",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:19:52.000Z"
+      },
+      {
+        "accession": "0001209191-21-029096",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:18:58.000Z"
+      },
+      {
+        "accession": "0001209191-21-029095",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:17:48.000Z"
+      },
+      {
+        "accession": "0001209191-21-029093",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:17:00.000Z"
+      },
+      {
+        "accession": "0001209191-21-029092",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:15:39.000Z"
+      },
+      {
+        "accession": "0001209191-21-029090",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:14:30.000Z"
+      },
+      {
+        "accession": "0001209191-21-029088",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:13:13.000Z"
+      },
+      {
+        "accession": "0001209191-21-029087",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:11:22.000Z"
+      },
+      {
+        "accession": "0001209191-21-029086",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:10:28.000Z"
+      },
+      {
+        "accession": "0001209191-21-029085",
+        "form": "4",
+        "filed_date": "2021-04-29",
+        "acceptance_source": "2021-04-29T22:09:16.000Z"
+      },
+      {
+        "accession": "0001209191-21-028669",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:47:02.000Z"
+      },
+      {
+        "accession": "0001209191-21-028666",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:44:45.000Z"
+      },
+      {
+        "accession": "0001209191-21-028662",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:42:36.000Z"
+      },
+      {
+        "accession": "0001209191-21-028660",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:40:28.000Z"
+      },
+      {
+        "accession": "0001209191-21-028657",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:39:07.000Z"
+      },
+      {
+        "accession": "0001209191-21-028654",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:37:05.000Z"
+      },
+      {
+        "accession": "0001209191-21-028652",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:34:58.000Z"
+      },
+      {
+        "accession": "0001209191-21-028649",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:33:10.000Z"
+      },
+      {
+        "accession": "0001209191-21-028647",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:31:47.000Z"
+      },
+      {
+        "accession": "0001209191-21-028645",
+        "form": "4",
+        "filed_date": "2021-04-27",
+        "acceptance_source": "2021-04-27T22:30:12.000Z"
+      },
+      {
+        "accession": "0000773840-21-000032",
+        "form": "10-Q",
+        "filed_date": "2021-04-23",
+        "acceptance_source": "2021-04-23T13:10:16.000Z"
+      },
+      {
+        "accession": "0000773840-21-000030",
+        "form": "8-K",
+        "filed_date": "2021-04-23",
+        "acceptance_source": "2021-04-23T10:59:53.000Z"
+      },
+      {
+        "accession": "0001193125-21-111041",
+        "form": "DEFA14A",
+        "filed_date": "2021-04-09",
+        "acceptance_source": "2021-04-09T12:05:29.000Z"
+      },
+      {
+        "accession": "0001193125-21-111036",
+        "form": "DEF 14A",
+        "filed_date": "2021-04-09",
+        "acceptance_source": "2021-04-09T12:02:40.000Z"
+      },
+      {
+        "accession": "0001209191-21-024508",
+        "form": "4",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T19:27:11.000Z"
+      },
+      {
+        "accession": "0001209191-21-024504",
+        "form": "4",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T19:17:42.000Z"
+      },
+      {
+        "accession": "0001209191-21-024503",
+        "form": "4",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T19:16:11.000Z"
+      },
+      {
+        "accession": "0001209191-21-024501",
+        "form": "4",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T19:15:17.000Z"
+      },
+      {
+        "accession": "0001209191-21-024499",
+        "form": "4",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T19:14:08.000Z"
+      },
+      {
+        "accession": "0000773840-21-000023",
+        "form": "8-K",
+        "filed_date": "2021-04-02",
+        "acceptance_source": "2021-04-02T12:57:30.000Z"
+      },
+      {
+        "accession": "0001193125-21-076916",
+        "form": "SC 13D/A",
+        "filed_date": "2021-03-11",
+        "acceptance_source": "2021-03-11T11:07:52.000Z"
+      },
+      {
+        "accession": "0001209191-21-016578",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:42:52.000Z"
+      },
+      {
+        "accession": "0001209191-21-016571",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:39:40.000Z"
+      },
+      {
+        "accession": "0001209191-21-016565",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:36:56.000Z"
+      },
+      {
+        "accession": "0001209191-21-016560",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:35:38.000Z"
+      },
+      {
+        "accession": "0001209191-21-016555",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:33:33.000Z"
+      },
+      {
+        "accession": "0001209191-21-016551",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:32:40.000Z"
+      },
+      {
+        "accession": "0001209191-21-016545",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:30:46.000Z"
+      },
+      {
+        "accession": "0001209191-21-016543",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:29:51.000Z"
+      },
+      {
+        "accession": "0001209191-21-016540",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-03T01:28:19.000Z"
+      },
+      {
+        "accession": "0001209191-21-016107",
+        "form": "4",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-02T21:44:50.000Z"
+      },
+      {
+        "accession": "0001209191-21-015199",
+        "form": "4",
+        "filed_date": "2021-03-01",
+        "acceptance_source": "2021-03-01T21:04:49.000Z"
+      },
+      {
+        "accession": "0001209191-21-014688",
+        "form": "4",
+        "filed_date": "2021-02-26",
+        "acceptance_source": "2021-02-26T21:06:27.000Z"
+      },
+      {
+        "accession": "0001209191-21-013756",
+        "form": "4",
+        "filed_date": "2021-02-24",
+        "acceptance_source": "2021-02-24T21:08:27.000Z"
+      },
+      {
+        "accession": "0001209191-21-013150",
+        "form": "4",
+        "filed_date": "2021-02-23",
+        "acceptance_source": "2021-02-23T21:06:38.000Z"
+      },
+      {
+        "accession": "0001209191-21-012678",
+        "form": "4",
+        "filed_date": "2021-02-22",
+        "acceptance_source": "2021-02-22T21:13:31.000Z"
+      },
+      {
+        "accession": "0001193125-21-046579",
+        "form": "SC 13D/A",
+        "filed_date": "2021-02-17",
+        "acceptance_source": "2021-02-17T21:40:04.000Z"
+      },
+      {
+        "accession": "0001209191-21-010787",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:47:41.000Z"
+      },
+      {
+        "accession": "0001209191-21-010780",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:44:30.000Z"
+      },
+      {
+        "accession": "0001209191-21-010779",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:43:46.000Z"
+      },
+      {
+        "accession": "0001209191-21-010777",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:42:36.000Z"
+      },
+      {
+        "accession": "0001209191-21-010775",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:41:51.000Z"
+      },
+      {
+        "accession": "0001209191-21-010772",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:41:17.000Z"
+      },
+      {
+        "accession": "0001209191-21-010769",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:40:24.000Z"
+      },
+      {
+        "accession": "0001209191-21-010765",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:39:01.000Z"
+      },
+      {
+        "accession": "0001209191-21-010763",
+        "form": "4",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T21:38:28.000Z"
+      },
+      {
+        "accession": "0000773840-21-000019",
+        "form": "8-K",
+        "filed_date": "2021-02-16",
+        "acceptance_source": "2021-02-16T13:56:37.000Z"
+      },
+      {
+        "accession": "0000773840-21-000015",
+        "form": "10-K",
+        "filed_date": "2021-02-12",
+        "acceptance_source": "2021-02-12T19:31:39.000Z"
+      },
+      {
+        "accession": "0001104659-21-018291",
+        "form": "SC 13G/A",
+        "filed_date": "2021-02-10",
+        "acceptance_source": "2021-02-10T15:57:21.000Z"
+      },
+      {
+        "accession": "0000834237-21-003825",
+        "form": "SC 13G/A",
+        "filed_date": "2021-01-29",
+        "acceptance_source": "2021-01-29T14:56:35.000Z"
+      },
+      {
+        "accession": "0000773840-21-000005",
+        "form": "8-K",
+        "filed_date": "2021-01-29",
+        "acceptance_source": "2021-01-29T12:02:33.000Z"
+      },
+      {
+        "accession": "0001193125-21-018339",
+        "form": "SC 13D/A",
+        "filed_date": "2021-01-27",
+        "acceptance_source": "2021-01-27T11:08:58.000Z"
+      },
+      {
+        "accession": "0001193125-21-006713",
+        "form": "SC 13D/A",
+        "filed_date": "2021-01-12",
+        "acceptance_source": "2021-01-12T11:08:52.000Z"
+      },
+      {
+        "accession": "0001209191-21-002258",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:28:13.000Z"
+      },
+      {
+        "accession": "0001209191-21-002253",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:27:36.000Z"
+      },
+      {
+        "accession": "0001209191-21-002248",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:26:38.000Z"
+      },
+      {
+        "accession": "0001209191-21-002241",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:25:17.000Z"
+      },
+      {
+        "accession": "0001209191-21-002238",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:24:43.000Z"
+      },
+      {
+        "accession": "0001209191-21-002233",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:24:07.000Z"
+      },
+      {
+        "accession": "0001209191-21-002230",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:23:18.000Z"
+      },
+      {
+        "accession": "0001209191-21-002228",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:22:44.000Z"
+      },
+      {
+        "accession": "0001209191-21-002226",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:22:10.000Z"
+      },
+      {
+        "accession": "0001209191-21-002225",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:21:32.000Z"
+      },
+      {
+        "accession": "0001209191-21-002221",
+        "form": "4",
+        "filed_date": "2021-01-06",
+        "acceptance_source": "2021-01-06T22:20:46.000Z"
+      },
+      {
+        "accession": "0001193125-20-326099",
+        "form": "SC 13D/A",
+        "filed_date": "2020-12-23",
+        "acceptance_source": "2020-12-23T21:48:53.000Z"
+      },
+      {
+        "accession": "0000899243-20-034783",
+        "form": "4",
+        "filed_date": "2020-12-21",
+        "acceptance_source": "2020-12-22T02:20:07.000Z"
+      },
+      {
+        "accession": "0001209191-20-062351",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:38:27.000Z"
+      },
+      {
+        "accession": "0001209191-20-059648",
+        "form": "4",
+        "filed_date": "2020-11-20",
+        "acceptance_source": "2020-11-20T21:19:51.000Z"
+      },
+      {
+        "accession": "0000899243-20-031361",
+        "form": "4",
+        "filed_date": "2020-11-17",
+        "acceptance_source": "2020-11-18T02:40:37.000Z"
+      },
+      {
+        "accession": "0001193125-20-296136",
+        "form": "SC 13D/A",
+        "filed_date": "2020-11-17",
+        "acceptance_source": "2020-11-17T22:17:59.000Z"
+      },
+      {
+        "accession": "0001209191-20-058694",
+        "form": "4",
+        "filed_date": "2020-11-17",
+        "acceptance_source": "2020-11-17T21:02:37.000Z"
+      },
+      {
+        "accession": "0001209191-20-058692",
+        "form": "4",
+        "filed_date": "2020-11-17",
+        "acceptance_source": "2020-11-17T21:01:06.000Z"
+      },
+      {
+        "accession": "0000899243-20-030891",
+        "form": "4",
+        "filed_date": "2020-11-12",
+        "acceptance_source": "2020-11-13T02:41:46.000Z"
+      },
+      {
+        "accession": "0001209191-20-057963",
+        "form": "4",
+        "filed_date": "2020-11-12",
+        "acceptance_source": "2020-11-12T21:34:05.000Z"
+      },
+      {
+        "accession": "0001209191-20-057605",
+        "form": "4",
+        "filed_date": "2020-11-10",
+        "acceptance_source": "2020-11-10T21:07:08.000Z"
+      },
+      {
+        "accession": "0001209191-20-057440",
+        "form": "4",
+        "filed_date": "2020-11-09",
+        "acceptance_source": "2020-11-09T21:09:44.000Z"
+      },
+      {
+        "accession": "0000899243-20-030593",
+        "form": "4",
+        "filed_date": "2020-11-06",
+        "acceptance_source": "2020-11-07T02:40:16.000Z"
+      },
+      {
+        "accession": "0001209191-20-056878",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T21:02:38.000Z"
+      },
+      {
+        "accession": "0001209191-20-056877",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T21:01:49.000Z"
+      },
+      {
+        "accession": "0001209191-20-056875",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T21:01:05.000Z"
+      },
+      {
+        "accession": "0001209191-20-056871",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T20:59:56.000Z"
+      },
+      {
+        "accession": "0001209191-20-056869",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T20:58:35.000Z"
+      },
+      {
+        "accession": "0001193125-20-284833",
+        "form": "SC 13D/A",
+        "filed_date": "2020-11-03",
+        "acceptance_source": "2020-11-03T22:10:59.000Z"
+      },
+      {
+        "accession": "0000899243-20-030145",
+        "form": "4",
+        "filed_date": "2020-11-02",
+        "acceptance_source": "2020-11-03T02:52:09.000Z"
+      },
+      {
+        "accession": "0000773840-20-000048",
+        "form": "10-Q",
+        "filed_date": "2020-10-30",
+        "acceptance_source": "2020-10-30T13:00:10.000Z"
+      },
+      {
+        "accession": "0000773840-20-000047",
+        "form": "8-K",
+        "filed_date": "2020-10-30",
+        "acceptance_source": "2020-10-30T10:37:23.000Z"
+      },
+      {
+        "accession": "0001193125-20-280206",
+        "form": "SC 13D",
+        "filed_date": "2020-10-29",
+        "acceptance_source": "2020-10-29T01:40:59.000Z"
+      },
+      {
+        "accession": "0000899243-20-029599",
+        "form": "4",
+        "filed_date": "2020-10-28",
+        "acceptance_source": "2020-10-29T01:43:59.000Z"
+      },
+      {
+        "accession": "0000899243-20-029597",
+        "form": "3",
+        "filed_date": "2020-10-28",
+        "acceptance_source": "2020-10-29T01:42:10.000Z"
+      },
+      {
+        "accession": "0000773840-20-000041",
+        "form": "8-K",
+        "filed_date": "2020-10-23",
+        "acceptance_source": "2020-10-23T21:22:59.000Z"
+      },
+      {
+        "accession": "0001209191-20-053372",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T23:00:30.000Z"
+      },
+      {
+        "accession": "0001209191-20-053368",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T22:59:11.000Z"
+      },
+      {
+        "accession": "0001209191-20-053366",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T22:56:23.000Z"
+      },
+      {
+        "accession": "0001209191-20-053364",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T22:55:17.000Z"
+      },
+      {
+        "accession": "0001209191-20-053363",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T22:54:15.000Z"
+      },
+      {
+        "accession": "0001209191-20-052315",
+        "form": "4",
+        "filed_date": "2020-09-29",
+        "acceptance_source": "2020-09-29T20:10:48.000Z"
+      },
+      {
+        "accession": "0001193125-20-224771",
+        "form": "8-K",
+        "filed_date": "2020-08-19",
+        "acceptance_source": "2020-08-19T21:08:33.000Z"
+      },
+      {
+        "accession": "0001193125-20-223646",
+        "form": "424B5",
+        "filed_date": "2020-08-18",
+        "acceptance_source": "2020-08-18T20:33:19.000Z"
+      },
+      {
+        "accession": "0001193125-20-222583",
+        "form": "FWP",
+        "filed_date": "2020-08-18",
+        "acceptance_source": "2020-08-17T22:54:58.000Z"
+      },
+      {
+        "accession": "0000950117-20-000265",
+        "form": "4",
+        "filed_date": "2020-08-17",
+        "acceptance_source": "2020-08-17T20:33:00.000Z"
+      },
+      {
+        "accession": "0001193125-20-221872",
+        "form": "424B5",
+        "filed_date": "2020-08-17",
+        "acceptance_source": "2020-08-17T12:28:55.000Z"
+      },
+      {
+        "accession": "0000950117-20-000262",
+        "form": "4",
+        "filed_date": "2020-08-05",
+        "acceptance_source": "2020-08-05T20:10:30.000Z"
+      },
+      {
+        "accession": "0000950117-20-000260",
+        "form": "4",
+        "filed_date": "2020-08-04",
+        "acceptance_source": "2020-08-04T20:12:46.000Z"
+      },
+      {
+        "accession": "0000950117-20-000257",
+        "form": "4",
+        "filed_date": "2020-08-03",
+        "acceptance_source": "2020-08-03T23:06:54.000Z"
+      },
+      {
+        "accession": "0000950117-20-000256",
+        "form": "4",
+        "filed_date": "2020-08-03",
+        "acceptance_source": "2020-08-03T23:03:55.000Z"
+      },
+      {
+        "accession": "0000950117-20-000255",
+        "form": "4",
+        "filed_date": "2020-08-03",
+        "acceptance_source": "2020-08-03T23:03:01.000Z"
+      },
+      {
+        "accession": "0000930413-20-001904",
+        "form": "4",
+        "filed_date": "2020-07-30",
+        "acceptance_source": "2020-07-31T00:22:15.000Z"
+      },
+      {
+        "accession": "0000930413-20-001878",
+        "form": "4",
+        "filed_date": "2020-07-29",
+        "acceptance_source": "2020-07-29T20:01:58.000Z"
+      },
+      {
+        "accession": "0000930413-20-001866",
+        "form": "4",
+        "filed_date": "2020-07-28",
+        "acceptance_source": "2020-07-29T00:38:51.000Z"
+      },
+      {
+        "accession": "0000930413-20-001865",
+        "form": "4",
+        "filed_date": "2020-07-28",
+        "acceptance_source": "2020-07-29T00:30:27.000Z"
+      },
+      {
+        "accession": "0000773840-20-000038",
+        "form": "10-Q",
+        "filed_date": "2020-07-24",
+        "acceptance_source": "2020-07-24T13:24:22.000Z"
+      },
+      {
+        "accession": "0000773840-20-000037",
+        "form": "8-K",
+        "filed_date": "2020-07-24",
+        "acceptance_source": "2020-07-24T10:36:09.000Z"
+      },
+      {
+        "accession": "0000930413-20-001766",
+        "form": "4",
+        "filed_date": "2020-07-06",
+        "acceptance_source": "2020-07-06T20:56:42.000Z"
+      },
+      {
+        "accession": "0000930413-20-001765",
+        "form": "4",
+        "filed_date": "2020-07-06",
+        "acceptance_source": "2020-07-06T20:50:58.000Z"
+      },
+      {
+        "accession": "0000930413-20-001764",
+        "form": "4",
+        "filed_date": "2020-07-06",
+        "acceptance_source": "2020-07-06T20:48:16.000Z"
+      },
+      {
+        "accession": "0000930413-20-001763",
+        "form": "4",
+        "filed_date": "2020-07-06",
+        "acceptance_source": "2020-07-06T20:38:11.000Z"
+      },
+      {
+        "accession": "0000930413-20-001762",
+        "form": "4",
+        "filed_date": "2020-07-06",
+        "acceptance_source": "2020-07-06T20:34:25.000Z"
+      },
+      {
+        "accession": "0000930413-20-001708",
+        "form": "11-K",
+        "filed_date": "2020-06-29",
+        "acceptance_source": "2020-06-30T01:45:25.000Z"
+      },
+      {
+        "accession": "0000930413-20-001703",
+        "form": "11-K",
+        "filed_date": "2020-06-29",
+        "acceptance_source": "2020-06-29T21:36:39.000Z"
+      },
+      {
+        "accession": "0000950117-20-000245",
+        "form": "3",
+        "filed_date": "2020-06-22",
+        "acceptance_source": "2020-06-22T15:06:54.000Z"
+      },
+      {
+        "accession": "0000773840-20-000031",
+        "form": "8-K",
+        "filed_date": "2020-06-11",
+        "acceptance_source": "2020-06-11T20:05:37.000Z"
+      },
+      {
+        "accession": "0000773840-20-000028",
+        "form": "SD",
+        "filed_date": "2020-06-01",
+        "acceptance_source": "2020-06-01T20:14:47.000Z"
+      },
+      {
+        "accession": "0000930413-20-001464",
+        "form": "8-K",
+        "filed_date": "2020-05-18",
+        "acceptance_source": "2020-05-18T20:54:56.000Z"
+      },
+      {
+        "accession": "0000930413-20-001459",
+        "form": "424B5",
+        "filed_date": "2020-05-18",
+        "acceptance_source": "2020-05-18T10:12:39.000Z"
+      },
+      {
+        "accession": "0000950117-20-000241",
+        "form": "4",
+        "filed_date": "2020-05-15",
+        "acceptance_source": "2020-05-15T21:20:41.000Z"
+      },
+      {
+        "accession": "0000930413-20-001456",
+        "form": "424B5",
+        "filed_date": "2020-05-15",
+        "acceptance_source": "2020-05-15T20:18:29.000Z"
+      },
+      {
+        "accession": "0000930413-20-001452",
+        "form": "FWP",
+        "filed_date": "2020-05-14",
+        "acceptance_source": "2020-05-14T21:02:25.000Z"
+      },
+      {
+        "accession": "0000930413-20-001445",
+        "form": "8-K",
+        "filed_date": "2020-05-14",
+        "acceptance_source": "2020-05-14T12:28:19.000Z"
+      },
+      {
+        "accession": "0000930413-20-001444",
+        "form": "424B5",
+        "filed_date": "2020-05-14",
+        "acceptance_source": "2020-05-14T12:25:40.000Z"
+      },
+      {
+        "accession": "0000773840-20-000025",
+        "form": "10-Q",
+        "filed_date": "2020-05-01",
+        "acceptance_source": "2020-05-01T13:34:13.000Z"
+      },
+      {
+        "accession": "0000773840-20-000024",
+        "form": "8-K",
+        "filed_date": "2020-05-01",
+        "acceptance_source": "2020-05-01T10:36:25.000Z"
+      },
+      {
+        "accession": "0000950117-20-000229",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:12:16.000Z"
+      },
+      {
+        "accession": "0000950117-20-000228",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:09:40.000Z"
+      },
+      {
+        "accession": "0000950117-20-000227",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:08:36.000Z"
+      },
+      {
+        "accession": "0000950117-20-000226",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:07:53.000Z"
+      },
+      {
+        "accession": "0000950117-20-000225",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:07:00.000Z"
+      },
+      {
+        "accession": "0000950117-20-000224",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:06:08.000Z"
+      },
+      {
+        "accession": "0000950117-20-000223",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:05:23.000Z"
+      },
+      {
+        "accession": "0000950117-20-000222",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:04:30.000Z"
+      },
+      {
+        "accession": "0000950117-20-000221",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:03:15.000Z"
+      },
+      {
+        "accession": "0000950117-20-000220",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T21:00:02.000Z"
+      },
+      {
+        "accession": "0000950117-20-000219",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T20:59:24.000Z"
+      },
+      {
+        "accession": "0000950117-20-000218",
+        "form": "4",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T20:58:08.000Z"
+      },
+      {
+        "accession": "0000773840-20-000019",
+        "form": "8-K",
+        "filed_date": "2020-04-29",
+        "acceptance_source": "2020-04-29T20:56:45.000Z"
+      }
+    ]
+  },
+  {
+    "cik": "0000833444",
+    "window": {
+      "display_ticker": "JCI",
+      "security_id": 197,
+      "cik": "0000833444",
+      "start": "2020-01-01",
+      "end_exclusive": "2024-01-01",
+      "scope": "10-K/10-Q in saved baseline filing inventory; not all SEC forms",
+      "expected_regular_filings": 16,
+      "verified_regular_filings": 16,
+      "missing_accessions": [],
+      "observations": 16,
+      "unique_instants": 16,
+      "median_gap_days": 91.00596064814815,
+      "maximum_gap_days": 133.92855324074074,
+      "events": 16,
+      "lookup_counts": {
+        "CLASSIFIED": 16
+      },
+      "median_event_age_days": 0.9718923611111111,
+      "maximum_event_age_days": 2.979236111111111
+    },
+    "source_files": [
+      {
+        "path": "data/cache/sec/submissions/CIK0000833444.json",
+        "sha256": "7e80539be986add8fb7c38401d1d145b5e096d2dc7d6419d318f7e25031e0bae"
+      },
+      {
+        "path": "data/cache/sec/submissions/CIK0000833444-submissions-001.json",
+        "sha256": "ee1c532e60502b2a5493c36b506f626c01f66c2dd9abbe11686f6b2f405d1695"
+      }
+    ],
+    "forms": {
+      "4": 257,
+      "144": 8,
+      "10-K": 4,
+      "8-K": 44,
+      "NT 10-K": 1,
+      "25-NSE": 6,
+      "3": 10,
+      "10-Q": 12,
+      "11-K": 12,
+      "CERT": 4,
+      "8-A12B": 4,
+      "SD": 4,
+      "424B5": 12,
+      "FWP": 6,
+      "SC 13G/A": 14,
+      "S-3ASR": 2,
+      "ARS": 1,
+      "DEFA14A": 4,
+      "DEF 14A": 4,
+      "4/A": 5,
+      "SC 13G": 2,
+      "S-8": 1,
+      "POSASR": 1,
+      "PX14A6G": 1
+    },
+    "cached_submissions_regular": 16,
+    "regular_without_verified_header": [],
+    "verified_regular_not_in_catalog": [],
+    "records": [
+      {
+        "accession": "0001127602-23-030247",
+        "form": "4",
+        "filed_date": "2023-12-21",
+        "acceptance_source": "2023-12-21T14:29:28.000Z"
+      },
+      {
+        "accession": "0001950047-23-006364",
+        "form": "144",
+        "filed_date": "2023-12-20",
+        "acceptance_source": "2023-12-20T21:21:40.000Z"
+      },
+      {
+        "accession": "0001127602-23-030168",
+        "form": "4",
+        "filed_date": "2023-12-20",
+        "acceptance_source": "2023-12-20T20:30:36.000Z"
+      },
+      {
+        "accession": "0001127602-23-030105",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T01:02:38.000Z"
+      },
+      {
+        "accession": "0001127602-23-030104",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T01:01:55.000Z"
+      },
+      {
+        "accession": "0001127602-23-030101",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T01:00:01.000Z"
+      },
+      {
+        "accession": "0001127602-23-030100",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:59:17.000Z"
+      },
+      {
+        "accession": "0001127602-23-030098",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:58:27.000Z"
+      },
+      {
+        "accession": "0001127602-23-030097",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:57:48.000Z"
+      },
+      {
+        "accession": "0001127602-23-030095",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:57:01.000Z"
+      },
+      {
+        "accession": "0001127602-23-030093",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:56:18.000Z"
+      },
+      {
+        "accession": "0001127602-23-030092",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:55:28.000Z"
+      },
+      {
+        "accession": "0001127602-23-030090",
+        "form": "4",
+        "filed_date": "2023-12-19",
+        "acceptance_source": "2023-12-20T00:54:25.000Z"
+      },
+      {
+        "accession": "0001950047-23-006260",
+        "form": "144",
+        "filed_date": "2023-12-18",
+        "acceptance_source": "2023-12-18T21:45:27.000Z"
+      },
+      {
+        "accession": "0000833444-23-000048",
+        "form": "10-K",
+        "filed_date": "2023-12-14",
+        "acceptance_source": "2023-12-14T13:27:27.000Z"
+      },
+      {
+        "accession": "0001127602-23-029467",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:28:48.000Z"
+      },
+      {
+        "accession": "0001127602-23-029466",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:28:11.000Z"
+      },
+      {
+        "accession": "0001127602-23-029465",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:27:27.000Z"
+      },
+      {
+        "accession": "0001127602-23-029463",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:26:46.000Z"
+      },
+      {
+        "accession": "0001127602-23-029462",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:26:08.000Z"
+      },
+      {
+        "accession": "0001127602-23-029461",
+        "form": "4",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T22:25:24.000Z"
+      },
+      {
+        "accession": "0000833444-23-000044",
+        "form": "8-K",
+        "filed_date": "2023-12-12",
+        "acceptance_source": "2023-12-12T11:57:51.000Z"
+      },
+      {
+        "accession": "0001127602-23-029237",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:51:07.000Z"
+      },
+      {
+        "accession": "0001127602-23-029235",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:49:41.000Z"
+      },
+      {
+        "accession": "0001127602-23-029233",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:47:22.000Z"
+      },
+      {
+        "accession": "0001127602-23-029231",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:36:20.000Z"
+      },
+      {
+        "accession": "0001127602-23-029227",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:28:19.000Z"
+      },
+      {
+        "accession": "0001127602-23-029215",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:16:08.000Z"
+      },
+      {
+        "accession": "0001127602-23-029209",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:14:43.000Z"
+      },
+      {
+        "accession": "0001127602-23-029207",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:12:59.000Z"
+      },
+      {
+        "accession": "0001127602-23-029203",
+        "form": "4",
+        "filed_date": "2023-12-11",
+        "acceptance_source": "2023-12-11T22:07:28.000Z"
+      },
+      {
+        "accession": "0000833444-23-000042",
+        "form": "8-K",
+        "filed_date": "2023-12-08",
+        "acceptance_source": "2023-12-08T21:36:11.000Z"
+      },
+      {
+        "accession": "0000833444-23-000040",
+        "form": "NT 10-K",
+        "filed_date": "2023-11-29",
+        "acceptance_source": "2023-11-29T11:56:40.000Z"
+      },
+      {
+        "accession": "0001127602-23-027628",
+        "form": "4",
+        "filed_date": "2023-11-16",
+        "acceptance_source": "2023-11-16T21:42:31.000Z"
+      },
+      {
+        "accession": "0001127602-23-027621",
+        "form": "4",
+        "filed_date": "2023-11-16",
+        "acceptance_source": "2023-11-16T21:38:07.000Z"
+      },
+      {
+        "accession": "0001950047-23-005037",
+        "form": "144",
+        "filed_date": "2023-11-15",
+        "acceptance_source": "2023-11-15T21:21:18.000Z"
+      },
+      {
+        "accession": "0000833444-23-000038",
+        "form": "8-K",
+        "filed_date": "2023-11-13",
+        "acceptance_source": "2023-11-13T22:27:30.000Z"
+      },
+      {
+        "accession": "0001127602-23-025994",
+        "form": "4",
+        "filed_date": "2023-10-17",
+        "acceptance_source": "2023-10-17T20:22:10.000Z"
+      },
+      {
+        "accession": "0001950047-23-004540",
+        "form": "144",
+        "filed_date": "2023-10-16",
+        "acceptance_source": "2023-10-16T20:22:57.000Z"
+      },
+      {
+        "accession": "0001127602-23-025263",
+        "form": "4",
+        "filed_date": "2023-10-03",
+        "acceptance_source": "2023-10-03T20:41:43.000Z"
+      },
+      {
+        "accession": "0000833444-23-000036",
+        "form": "8-K",
+        "filed_date": "2023-09-27",
+        "acceptance_source": "2023-09-27T21:15:35.000Z"
+      },
+      {
+        "accession": "0000876661-23-000730",
+        "form": "25-NSE",
+        "filed_date": "2023-09-15",
+        "acceptance_source": "2023-09-15T16:11:07.000Z"
+      },
+      {
+        "accession": "0000833444-23-000033",
+        "form": "8-K",
+        "filed_date": "2023-09-08",
+        "acceptance_source": "2023-09-08T20:29:54.000Z"
+      },
+      {
+        "accession": "0001127602-23-023550",
+        "form": "4",
+        "filed_date": "2023-09-01",
+        "acceptance_source": "2023-09-01T18:34:55.000Z"
+      },
+      {
+        "accession": "0001127602-23-023182",
+        "form": "4",
+        "filed_date": "2023-08-24",
+        "acceptance_source": "2023-08-24T21:40:21.000Z"
+      },
+      {
+        "accession": "0001950047-23-003401",
+        "form": "144",
+        "filed_date": "2023-08-23",
+        "acceptance_source": "2023-08-23T20:16:30.000Z"
+      },
+      {
+        "accession": "0001193125-23-217018",
+        "form": "8-K",
+        "filed_date": "2023-08-21",
+        "acceptance_source": "2023-08-21T20:49:32.000Z"
+      },
+      {
+        "accession": "0001127602-23-022198",
+        "form": "3",
+        "filed_date": "2023-08-08",
+        "acceptance_source": "2023-08-08T20:27:39.000Z"
+      },
+      {
+        "accession": "0001193125-23-205014",
+        "form": "8-K",
+        "filed_date": "2023-08-07",
+        "acceptance_source": "2023-08-07T20:27:56.000Z"
+      },
+      {
+        "accession": "0000833444-23-000030",
+        "form": "10-Q",
+        "filed_date": "2023-08-02",
+        "acceptance_source": "2023-08-02T15:10:20.000Z"
+      },
+      {
+        "accession": "0000833444-23-000028",
+        "form": "8-K",
+        "filed_date": "2023-08-02",
+        "acceptance_source": "2023-08-02T10:59:41.000Z"
+      },
+      {
+        "accession": "0000833444-23-000024",
+        "form": "11-K",
+        "filed_date": "2023-06-23",
+        "acceptance_source": "2023-06-23T20:07:28.000Z"
+      },
+      {
+        "accession": "0000833444-23-000023",
+        "form": "11-K",
+        "filed_date": "2023-06-23",
+        "acceptance_source": "2023-06-23T20:05:35.000Z"
+      },
+      {
+        "accession": "0000833444-23-000022",
+        "form": "11-K",
+        "filed_date": "2023-06-23",
+        "acceptance_source": "2023-06-23T20:00:43.000Z"
+      },
+      {
+        "accession": "0001127602-23-017456",
+        "form": "4",
+        "filed_date": "2023-06-02",
+        "acceptance_source": "2023-06-02T16:53:17.000Z"
+      },
+      {
+        "accession": "0000876661-23-000460",
+        "form": "CERT",
+        "filed_date": "2023-05-31",
+        "acceptance_source": "2023-05-31T20:53:42.000Z"
+      },
+      {
+        "accession": "0001193125-23-157851",
+        "form": "8-A12B",
+        "filed_date": "2023-05-31",
+        "acceptance_source": "2023-05-31T20:15:57.000Z"
+      },
+      {
+        "accession": "0000833444-23-000017",
+        "form": "SD",
+        "filed_date": "2023-05-26",
+        "acceptance_source": "2023-05-26T15:35:30.000Z"
+      },
+      {
+        "accession": "0001193125-23-151889",
+        "form": "8-K",
+        "filed_date": "2023-05-23",
+        "acceptance_source": "2023-05-23T20:49:05.000Z"
+      },
+      {
+        "accession": "0001127602-23-016307",
+        "form": "4",
+        "filed_date": "2023-05-19",
+        "acceptance_source": "2023-05-19T20:31:07.000Z"
+      },
+      {
+        "accession": "0001950047-23-000752",
+        "form": "144",
+        "filed_date": "2023-05-18",
+        "acceptance_source": "2023-05-18T20:29:22.000Z"
+      },
+      {
+        "accession": "0001193125-23-147054",
+        "form": "424B5",
+        "filed_date": "2023-05-17",
+        "acceptance_source": "2023-05-17T20:33:41.000Z"
+      },
+      {
+        "accession": "0001193125-23-146000",
+        "form": "FWP",
+        "filed_date": "2023-05-16",
+        "acceptance_source": "2023-05-16T19:12:58.000Z"
+      },
+      {
+        "accession": "0001193125-23-145572",
+        "form": "424B5",
+        "filed_date": "2023-05-16",
+        "acceptance_source": "2023-05-16T10:07:09.000Z"
+      },
+      {
+        "accession": "0001127602-23-015143",
+        "form": "4",
+        "filed_date": "2023-05-10",
+        "acceptance_source": "2023-05-10T21:04:54.000Z"
+      },
+      {
+        "accession": "0001127602-23-015140",
+        "form": "4",
+        "filed_date": "2023-05-10",
+        "acceptance_source": "2023-05-10T20:57:31.000Z"
+      },
+      {
+        "accession": "0001127602-23-015030",
+        "form": "4",
+        "filed_date": "2023-05-09",
+        "acceptance_source": "2023-05-09T21:04:10.000Z"
+      },
+      {
+        "accession": "0001950047-23-000490",
+        "form": "144",
+        "filed_date": "2023-05-09",
+        "acceptance_source": "2023-05-09T20:52:23.000Z"
+      },
+      {
+        "accession": "0001950047-23-000459",
+        "form": "144",
+        "filed_date": "2023-05-08",
+        "acceptance_source": "2023-05-08T20:48:03.000Z"
+      },
+      {
+        "accession": "0000833444-23-000014",
+        "form": "10-Q",
+        "filed_date": "2023-05-05",
+        "acceptance_source": "2023-05-05T13:59:54.000Z"
+      },
+      {
+        "accession": "0000833444-23-000011",
+        "form": "8-K",
+        "filed_date": "2023-05-05",
+        "acceptance_source": "2023-05-05T10:57:36.000Z"
+      },
+      {
+        "accession": "0001127602-23-012827",
+        "form": "4",
+        "filed_date": "2023-04-12",
+        "acceptance_source": "2023-04-12T18:42:17.000Z"
+      },
+      {
+        "accession": "0001127602-23-012742",
+        "form": "3",
+        "filed_date": "2023-04-10",
+        "acceptance_source": "2023-04-10T16:29:54.000Z"
+      },
+      {
+        "accession": "0000833444-23-000007",
+        "form": "8-K",
+        "filed_date": "2023-03-14",
+        "acceptance_source": "2023-03-14T21:08:14.000Z"
+      },
+      {
+        "accession": "0001127602-23-009895",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T21:03:06.000Z"
+      },
+      {
+        "accession": "0001127602-23-009889",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T20:43:48.000Z"
+      },
+      {
+        "accession": "0001127602-23-009888",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T20:41:03.000Z"
+      },
+      {
+        "accession": "0001127602-23-009880",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T20:30:01.000Z"
+      },
+      {
+        "accession": "0001127602-23-009873",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T20:17:55.000Z"
+      },
+      {
+        "accession": "0001127602-23-009862",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T20:06:13.000Z"
+      },
+      {
+        "accession": "0001127602-23-009845",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T19:40:49.000Z"
+      },
+      {
+        "accession": "0001127602-23-009843",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T19:27:07.000Z"
+      },
+      {
+        "accession": "0001127602-23-009842",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T19:15:37.000Z"
+      },
+      {
+        "accession": "0001127602-23-009841",
+        "form": "4",
+        "filed_date": "2023-03-13",
+        "acceptance_source": "2023-03-13T19:11:48.000Z"
+      },
+      {
+        "accession": "0001127602-23-009671",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:22:55.000Z"
+      },
+      {
+        "accession": "0001127602-23-009668",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:21:50.000Z"
+      },
+      {
+        "accession": "0001127602-23-009666",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:20:25.000Z"
+      },
+      {
+        "accession": "0001127602-23-009664",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:19:07.000Z"
+      },
+      {
+        "accession": "0001127602-23-009662",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:18:09.000Z"
+      },
+      {
+        "accession": "0001127602-23-009661",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:17:07.000Z"
+      },
+      {
+        "accession": "0001127602-23-009658",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:16:04.000Z"
+      },
+      {
+        "accession": "0001127602-23-009655",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:15:07.000Z"
+      },
+      {
+        "accession": "0001127602-23-009648",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:10:56.000Z"
+      },
+      {
+        "accession": "0001127602-23-009644",
+        "form": "4",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T23:09:35.000Z"
+      },
+      {
+        "accession": "0001127602-23-009536",
+        "form": "3",
+        "filed_date": "2023-03-09",
+        "acceptance_source": "2023-03-09T12:13:49.000Z"
+      },
+      {
+        "accession": "0001193125-23-038614",
+        "form": "SC 13G/A",
+        "filed_date": "2023-02-14",
+        "acceptance_source": "2023-02-14T19:06:55.000Z"
+      },
+      {
+        "accession": "0001127602-23-004832",
+        "form": "4",
+        "filed_date": "2023-02-13",
+        "acceptance_source": "2023-02-13T20:31:00.000Z"
+      },
+      {
+        "accession": "0001104659-23-016271",
+        "form": "SC 13G/A",
+        "filed_date": "2023-02-09",
+        "acceptance_source": "2023-02-09T16:25:08.000Z"
+      },
+      {
+        "accession": "0000912938-23-000177",
+        "form": "SC 13G/A",
+        "filed_date": "2023-02-08",
+        "acceptance_source": "2023-02-08T21:07:01.000Z"
+      },
+      {
+        "accession": "0001306550-23-007923",
+        "form": "SC 13G/A",
+        "filed_date": "2023-02-07",
+        "acceptance_source": "2023-02-07T18:45:27.000Z"
+      },
+      {
+        "accession": "0000846087-23-000043",
+        "form": "SC 13G/A",
+        "filed_date": "2023-02-06",
+        "acceptance_source": "2023-02-06T19:36:14.000Z"
+      },
+      {
+        "accession": "0001193125-23-022735",
+        "form": "S-3ASR",
+        "filed_date": "2023-02-02",
+        "acceptance_source": "2023-02-02T21:06:24.000Z"
+      },
+      {
+        "accession": "0000833444-23-000005",
+        "form": "10-Q",
+        "filed_date": "2023-02-01",
+        "acceptance_source": "2023-02-01T16:30:18.000Z"
+      },
+      {
+        "accession": "0000833444-23-000003",
+        "form": "8-K",
+        "filed_date": "2023-02-01",
+        "acceptance_source": "2023-02-01T11:58:46.000Z"
+      },
+      {
+        "accession": "0001193125-23-011995",
+        "form": "ARS",
+        "filed_date": "2023-01-20",
+        "acceptance_source": "2023-01-20T21:08:03.000Z"
+      },
+      {
+        "accession": "0001193125-23-011990",
+        "form": "DEFA14A",
+        "filed_date": "2023-01-20",
+        "acceptance_source": "2023-01-20T21:06:00.000Z"
+      },
+      {
+        "accession": "0001193125-23-011980",
+        "form": "DEF 14A",
+        "filed_date": "2023-01-20",
+        "acceptance_source": "2023-01-20T21:03:15.000Z"
+      },
+      {
+        "accession": "0001127602-23-001670",
+        "form": "4/A",
+        "filed_date": "2023-01-18",
+        "acceptance_source": "2023-01-18T22:19:33.000Z"
+      },
+      {
+        "accession": "0000876661-23-000050",
+        "form": "25-NSE",
+        "filed_date": "2023-01-17",
+        "acceptance_source": "2023-01-17T14:25:54.000Z"
+      },
+      {
+        "accession": "0000833444-22-000047",
+        "form": "8-K",
+        "filed_date": "2022-12-22",
+        "acceptance_source": "2022-12-21T23:20:45.000Z"
+      },
+      {
+        "accession": "0001127602-22-027411",
+        "form": "4",
+        "filed_date": "2022-12-13",
+        "acceptance_source": "2022-12-13T22:33:16.000Z"
+      },
+      {
+        "accession": "0001127602-22-027339",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:56:44.000Z"
+      },
+      {
+        "accession": "0001127602-22-027338",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:28:42.000Z"
+      },
+      {
+        "accession": "0001127602-22-027337",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:28:00.000Z"
+      },
+      {
+        "accession": "0001127602-22-027336",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:27:10.000Z"
+      },
+      {
+        "accession": "0001127602-22-027335",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:26:04.000Z"
+      },
+      {
+        "accession": "0001127602-22-027334",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:25:22.000Z"
+      },
+      {
+        "accession": "0001127602-22-027331",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:23:59.000Z"
+      },
+      {
+        "accession": "0001127602-22-027330",
+        "form": "4",
+        "filed_date": "2022-12-12",
+        "acceptance_source": "2022-12-12T22:22:48.000Z"
+      },
+      {
+        "accession": "0001127602-22-027240",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:35:44.000Z"
+      },
+      {
+        "accession": "0001127602-22-027238",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:34:12.000Z"
+      },
+      {
+        "accession": "0001127602-22-027237",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:32:08.000Z"
+      },
+      {
+        "accession": "0001127602-22-027234",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:29:52.000Z"
+      },
+      {
+        "accession": "0001127602-22-027232",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:27:57.000Z"
+      },
+      {
+        "accession": "0001127602-22-027229",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:25:06.000Z"
+      },
+      {
+        "accession": "0001127602-22-027228",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:22:17.000Z"
+      },
+      {
+        "accession": "0001127602-22-027227",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:20:49.000Z"
+      },
+      {
+        "accession": "0001127602-22-027225",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:17:30.000Z"
+      },
+      {
+        "accession": "0001127602-22-027222",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:14:58.000Z"
+      },
+      {
+        "accession": "0001127602-22-027216",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T22:09:39.000Z"
+      },
+      {
+        "accession": "0001127602-22-027204",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T21:56:21.000Z"
+      },
+      {
+        "accession": "0001127602-22-027196",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T21:46:38.000Z"
+      },
+      {
+        "accession": "0000833444-22-000045",
+        "form": "8-K",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T21:37:19.000Z"
+      },
+      {
+        "accession": "0001127602-22-027190",
+        "form": "4",
+        "filed_date": "2022-12-09",
+        "acceptance_source": "2022-12-09T21:28:28.000Z"
+      },
+      {
+        "accession": "0001127602-22-027080",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T21:06:35.000Z"
+      },
+      {
+        "accession": "0001127602-22-027072",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T20:49:18.000Z"
+      },
+      {
+        "accession": "0001127602-22-027070",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T20:04:58.000Z"
+      },
+      {
+        "accession": "0001127602-22-027069",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T19:53:41.000Z"
+      },
+      {
+        "accession": "0001127602-22-027068",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T19:41:58.000Z"
+      },
+      {
+        "accession": "0001127602-22-027067",
+        "form": "4",
+        "filed_date": "2022-12-08",
+        "acceptance_source": "2022-12-08T19:36:05.000Z"
+      },
+      {
+        "accession": "0001127602-22-026960",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:59:53.000Z"
+      },
+      {
+        "accession": "0001127602-22-026959",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:58:44.000Z"
+      },
+      {
+        "accession": "0001127602-22-026958",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:56:52.000Z"
+      },
+      {
+        "accession": "0001127602-22-026957",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:54:36.000Z"
+      },
+      {
+        "accession": "0001127602-22-026956",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:51:21.000Z"
+      },
+      {
+        "accession": "0001127602-22-026955",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:50:12.000Z"
+      },
+      {
+        "accession": "0001127602-22-026954",
+        "form": "4",
+        "filed_date": "2022-12-06",
+        "acceptance_source": "2022-12-06T17:49:06.000Z"
+      },
+      {
+        "accession": "0001127602-22-026879",
+        "form": "4",
+        "filed_date": "2022-12-05",
+        "acceptance_source": "2022-12-05T21:27:27.000Z"
+      },
+      {
+        "accession": "0001127602-22-025713",
+        "form": "4",
+        "filed_date": "2022-11-16",
+        "acceptance_source": "2022-11-16T17:53:50.000Z"
+      },
+      {
+        "accession": "0001127602-22-025712",
+        "form": "3",
+        "filed_date": "2022-11-16",
+        "acceptance_source": "2022-11-16T17:51:37.000Z"
+      },
+      {
+        "accession": "0000833444-22-000043",
+        "form": "10-K",
+        "filed_date": "2022-11-15",
+        "acceptance_source": "2022-11-15T17:56:50.000Z"
+      },
+      {
+        "accession": "0001127602-22-025174",
+        "form": "4",
+        "filed_date": "2022-11-09",
+        "acceptance_source": "2022-11-09T20:27:18.000Z"
+      },
+      {
+        "accession": "0000833444-22-000038",
+        "form": "8-K",
+        "filed_date": "2022-11-03",
+        "acceptance_source": "2022-11-03T11:00:21.000Z"
+      },
+      {
+        "accession": "0001127602-22-024681",
+        "form": "4",
+        "filed_date": "2022-11-02",
+        "acceptance_source": "2022-11-02T15:48:58.000Z"
+      },
+      {
+        "accession": "0001127602-22-024001",
+        "form": "4",
+        "filed_date": "2022-10-18",
+        "acceptance_source": "2022-10-18T13:59:03.000Z"
+      },
+      {
+        "accession": "0001127602-22-023334",
+        "form": "4",
+        "filed_date": "2022-10-03",
+        "acceptance_source": "2022-10-03T22:06:10.000Z"
+      },
+      {
+        "accession": "0001127602-22-023329",
+        "form": "4",
+        "filed_date": "2022-10-03",
+        "acceptance_source": "2022-10-03T21:58:12.000Z"
+      },
+      {
+        "accession": "0000876661-22-000779",
+        "form": "CERT",
+        "filed_date": "2022-09-22",
+        "acceptance_source": "2022-09-22T18:41:45.000Z"
+      },
+      {
+        "accession": "0001193125-22-247103",
+        "form": "8-A12B",
+        "filed_date": "2022-09-19",
+        "acceptance_source": "2022-09-19T20:15:54.000Z"
+      },
+      {
+        "accession": "0001193125-22-244741",
+        "form": "8-K",
+        "filed_date": "2022-09-14",
+        "acceptance_source": "2022-09-14T20:17:07.000Z"
+      },
+      {
+        "accession": "0001193125-22-240030",
+        "form": "8-K",
+        "filed_date": "2022-09-07",
+        "acceptance_source": "2022-09-07T20:21:01.000Z"
+      },
+      {
+        "accession": "0001193125-22-240018",
+        "form": "424B5",
+        "filed_date": "2022-09-07",
+        "acceptance_source": "2022-09-07T20:17:40.000Z"
+      },
+      {
+        "accession": "0001193125-22-238905",
+        "form": "FWP",
+        "filed_date": "2022-09-06",
+        "acceptance_source": "2022-09-06T20:36:55.000Z"
+      },
+      {
+        "accession": "0001193125-22-238457",
+        "form": "424B5",
+        "filed_date": "2022-09-06",
+        "acceptance_source": "2022-09-06T12:37:16.000Z"
+      },
+      {
+        "accession": "0001127602-22-021915",
+        "form": "4",
+        "filed_date": "2022-09-01",
+        "acceptance_source": "2022-09-01T21:32:44.000Z"
+      },
+      {
+        "accession": "0001193125-22-231369",
+        "form": "424B5",
+        "filed_date": "2022-08-26",
+        "acceptance_source": "2022-08-26T20:44:08.000Z"
+      },
+      {
+        "accession": "0001193125-22-230001",
+        "form": "FWP",
+        "filed_date": "2022-08-25",
+        "acceptance_source": "2022-08-25T19:58:55.000Z"
+      },
+      {
+        "accession": "0001193125-22-229045",
+        "form": "424B5",
+        "filed_date": "2022-08-25",
+        "acceptance_source": "2022-08-25T10:06:10.000Z"
+      },
+      {
+        "accession": "0000833444-22-000036",
+        "form": "10-Q",
+        "filed_date": "2022-08-04",
+        "acceptance_source": "2022-08-04T14:50:07.000Z"
+      },
+      {
+        "accession": "0000833444-22-000034",
+        "form": "8-K",
+        "filed_date": "2022-08-04",
+        "acceptance_source": "2022-08-04T11:00:43.000Z"
+      },
+      {
+        "accession": "0000833444-22-000029",
+        "form": "8-K",
+        "filed_date": "2022-07-06",
+        "acceptance_source": "2022-07-06T20:47:54.000Z"
+      },
+      {
+        "accession": "0001127602-22-018312",
+        "form": "3",
+        "filed_date": "2022-06-30",
+        "acceptance_source": "2022-06-30T23:48:09.000Z"
+      },
+      {
+        "accession": "0000833444-22-000027",
+        "form": "8-K",
+        "filed_date": "2022-06-30",
+        "acceptance_source": "2022-06-30T20:43:25.000Z"
+      },
+      {
+        "accession": "0000833444-22-000025",
+        "form": "11-K",
+        "filed_date": "2022-06-24",
+        "acceptance_source": "2022-06-24T18:54:57.000Z"
+      },
+      {
+        "accession": "0000833444-22-000024",
+        "form": "11-K",
+        "filed_date": "2022-06-24",
+        "acceptance_source": "2022-06-24T18:51:08.000Z"
+      },
+      {
+        "accession": "0000833444-22-000023",
+        "form": "11-K",
+        "filed_date": "2022-06-24",
+        "acceptance_source": "2022-06-24T18:46:05.000Z"
+      },
+      {
+        "accession": "0001127602-22-016365",
+        "form": "4",
+        "filed_date": "2022-06-02",
+        "acceptance_source": "2022-06-02T20:10:30.000Z"
+      },
+      {
+        "accession": "0001127602-22-016363",
+        "form": "3",
+        "filed_date": "2022-06-02",
+        "acceptance_source": "2022-06-02T20:09:11.000Z"
+      },
+      {
+        "accession": "0000833444-22-000019",
+        "form": "SD",
+        "filed_date": "2022-05-27",
+        "acceptance_source": "2022-05-27T19:08:01.000Z"
+      },
+      {
+        "accession": "0001127602-22-014171",
+        "form": "4",
+        "filed_date": "2022-05-11",
+        "acceptance_source": "2022-05-11T21:03:07.000Z"
+      },
+      {
+        "accession": "0001127602-22-014167",
+        "form": "3",
+        "filed_date": "2022-05-11",
+        "acceptance_source": "2022-05-11T21:01:50.000Z"
+      },
+      {
+        "accession": "0000833444-22-000017",
+        "form": "10-Q",
+        "filed_date": "2022-05-04",
+        "acceptance_source": "2022-05-04T15:54:41.000Z"
+      },
+      {
+        "accession": "0000833444-22-000014",
+        "form": "8-K",
+        "filed_date": "2022-05-04",
+        "acceptance_source": "2022-05-04T11:02:13.000Z"
+      },
+      {
+        "accession": "0001193125-22-073382",
+        "form": "8-K",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T21:05:07.000Z"
+      },
+      {
+        "accession": "0001127602-22-008984",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:16:16.000Z"
+      },
+      {
+        "accession": "0001127602-22-008983",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:15:18.000Z"
+      },
+      {
+        "accession": "0001127602-22-008982",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:14:35.000Z"
+      },
+      {
+        "accession": "0001127602-22-008981",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:13:40.000Z"
+      },
+      {
+        "accession": "0001127602-22-008980",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:12:50.000Z"
+      },
+      {
+        "accession": "0001127602-22-008979",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:12:10.000Z"
+      },
+      {
+        "accession": "0001127602-22-008978",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:11:00.000Z"
+      },
+      {
+        "accession": "0001127602-22-008977",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:10:12.000Z"
+      },
+      {
+        "accession": "0001127602-22-008976",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:09:20.000Z"
+      },
+      {
+        "accession": "0001127602-22-008975",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:08:25.000Z"
+      },
+      {
+        "accession": "0001127602-22-008974",
+        "form": "4",
+        "filed_date": "2022-03-11",
+        "acceptance_source": "2022-03-11T18:07:32.000Z"
+      },
+      {
+        "accession": "0001127602-22-006949",
+        "form": "4",
+        "filed_date": "2022-02-28",
+        "acceptance_source": "2022-02-28T15:42:38.000Z"
+      },
+      {
+        "accession": "0000833444-22-000010",
+        "form": "8-K",
+        "filed_date": "2022-02-15",
+        "acceptance_source": "2022-02-15T21:55:05.000Z"
+      },
+      {
+        "accession": "0001193125-22-041049",
+        "form": "SC 13G/A",
+        "filed_date": "2022-02-14",
+        "acceptance_source": "2022-02-14T18:48:54.000Z"
+      },
+      {
+        "accession": "0001104659-22-017889",
+        "form": "SC 13G/A",
+        "filed_date": "2022-02-10",
+        "acceptance_source": "2022-02-10T13:22:08.000Z"
+      },
+      {
+        "accession": "0001127602-22-003284",
+        "form": "4",
+        "filed_date": "2022-02-04",
+        "acceptance_source": "2022-02-04T15:43:38.000Z"
+      },
+      {
+        "accession": "0001678858-22-000072",
+        "form": "SC 13G",
+        "filed_date": "2022-02-04",
+        "acceptance_source": "2022-02-04T14:06:48.000Z"
+      },
+      {
+        "accession": "0000912938-22-000205",
+        "form": "SC 13G",
+        "filed_date": "2022-02-02",
+        "acceptance_source": "2022-02-02T17:46:55.000Z"
+      },
+      {
+        "accession": "0000833444-22-000005",
+        "form": "10-Q",
+        "filed_date": "2022-02-02",
+        "acceptance_source": "2022-02-02T15:48:59.000Z"
+      },
+      {
+        "accession": "0000833444-22-000003",
+        "form": "8-K",
+        "filed_date": "2022-02-02",
+        "acceptance_source": "2022-02-02T11:58:53.000Z"
+      },
+      {
+        "accession": "0000834237-22-004525",
+        "form": "SC 13G/A",
+        "filed_date": "2022-02-01",
+        "acceptance_source": "2022-02-01T22:08:31.000Z"
+      },
+      {
+        "accession": "0001193125-22-014802",
+        "form": "DEFA14A",
+        "filed_date": "2022-01-21",
+        "acceptance_source": "2022-01-21T21:08:00.000Z"
+      },
+      {
+        "accession": "0001193125-22-014793",
+        "form": "DEF 14A",
+        "filed_date": "2022-01-21",
+        "acceptance_source": "2022-01-21T21:05:16.000Z"
+      },
+      {
+        "accession": "0001127602-22-001448",
+        "form": "4",
+        "filed_date": "2022-01-13",
+        "acceptance_source": "2022-01-13T21:07:19.000Z"
+      },
+      {
+        "accession": "0001127602-22-001223",
+        "form": "4",
+        "filed_date": "2022-01-10",
+        "acceptance_source": "2022-01-10T20:24:34.000Z"
+      },
+      {
+        "accession": "0001127602-21-030940",
+        "form": "4",
+        "filed_date": "2021-12-14",
+        "acceptance_source": "2021-12-14T23:01:26.000Z"
+      },
+      {
+        "accession": "0001127602-21-030846",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:54:24.000Z"
+      },
+      {
+        "accession": "0001127602-21-030844",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:53:12.000Z"
+      },
+      {
+        "accession": "0001127602-21-030842",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:51:52.000Z"
+      },
+      {
+        "accession": "0001127602-21-030838",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:50:43.000Z"
+      },
+      {
+        "accession": "0001127602-21-030836",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:49:15.000Z"
+      },
+      {
+        "accession": "0001127602-21-030834",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:47:37.000Z"
+      },
+      {
+        "accession": "0001127602-21-030831",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:46:25.000Z"
+      },
+      {
+        "accession": "0001127602-21-030828",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:44:56.000Z"
+      },
+      {
+        "accession": "0001127602-21-030826",
+        "form": "4",
+        "filed_date": "2021-12-13",
+        "acceptance_source": "2021-12-13T22:43:16.000Z"
+      },
+      {
+        "accession": "0001127602-21-030734",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:19:05.000Z"
+      },
+      {
+        "accession": "0001127602-21-030733",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:17:17.000Z"
+      },
+      {
+        "accession": "0001127602-21-030732",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:15:57.000Z"
+      },
+      {
+        "accession": "0001127602-21-030731",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:14:18.000Z"
+      },
+      {
+        "accession": "0001127602-21-030730",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:12:34.000Z"
+      },
+      {
+        "accession": "0001127602-21-030729",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:11:10.000Z"
+      },
+      {
+        "accession": "0001127602-21-030728",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:09:45.000Z"
+      },
+      {
+        "accession": "0001127602-21-030727",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:08:16.000Z"
+      },
+      {
+        "accession": "0001127602-21-030726",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:06:49.000Z"
+      },
+      {
+        "accession": "0001127602-21-030725",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T23:05:31.000Z"
+      },
+      {
+        "accession": "0000833444-21-000050",
+        "form": "8-K",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T21:33:20.000Z"
+      },
+      {
+        "accession": "0001127602-21-030715",
+        "form": "4",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T20:56:15.000Z"
+      },
+      {
+        "accession": "0001127602-21-030710",
+        "form": "4/A",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T20:43:45.000Z"
+      },
+      {
+        "accession": "0001127602-21-030709",
+        "form": "4/A",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T20:41:42.000Z"
+      },
+      {
+        "accession": "0001127602-21-030708",
+        "form": "4/A",
+        "filed_date": "2021-12-10",
+        "acceptance_source": "2021-12-10T20:39:28.000Z"
+      },
+      {
+        "accession": "0001127602-21-030667",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T23:05:14.000Z"
+      },
+      {
+        "accession": "0001127602-21-030659",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T22:37:33.000Z"
+      },
+      {
+        "accession": "0001127602-21-030655",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T22:35:26.000Z"
+      },
+      {
+        "accession": "0001127602-21-030652",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T22:33:27.000Z"
+      },
+      {
+        "accession": "0001127602-21-030650",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T22:31:48.000Z"
+      },
+      {
+        "accession": "0001127602-21-030648",
+        "form": "4",
+        "filed_date": "2021-12-09",
+        "acceptance_source": "2021-12-09T22:28:35.000Z"
+      },
+      {
+        "accession": "0001127602-21-030504",
+        "form": "4",
+        "filed_date": "2021-12-08",
+        "acceptance_source": "2021-12-08T13:27:31.000Z"
+      },
+      {
+        "accession": "0001127602-21-030503",
+        "form": "4",
+        "filed_date": "2021-12-08",
+        "acceptance_source": "2021-12-08T13:26:43.000Z"
+      },
+      {
+        "accession": "0001127602-21-030502",
+        "form": "4",
+        "filed_date": "2021-12-08",
+        "acceptance_source": "2021-12-08T13:25:47.000Z"
+      },
+      {
+        "accession": "0001127602-21-030501",
+        "form": "4",
+        "filed_date": "2021-12-08",
+        "acceptance_source": "2021-12-08T13:24:57.000Z"
+      },
+      {
+        "accession": "0001127602-21-030399",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:29:55.000Z"
+      },
+      {
+        "accession": "0001127602-21-030398",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:29:03.000Z"
+      },
+      {
+        "accession": "0001127602-21-030397",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:28:16.000Z"
+      },
+      {
+        "accession": "0001127602-21-030396",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:27:26.000Z"
+      },
+      {
+        "accession": "0001127602-21-030395",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:26:30.000Z"
+      },
+      {
+        "accession": "0001127602-21-030394",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:25:41.000Z"
+      },
+      {
+        "accession": "0001127602-21-030393",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:24:49.000Z"
+      },
+      {
+        "accession": "0001127602-21-030392",
+        "form": "4",
+        "filed_date": "2021-12-06",
+        "acceptance_source": "2021-12-07T01:23:46.000Z"
+      },
+      {
+        "accession": "0001127602-21-029396",
+        "form": "4",
+        "filed_date": "2021-11-17",
+        "acceptance_source": "2021-11-17T15:33:12.000Z"
+      },
+      {
+        "accession": "0000833444-21-000046",
+        "form": "10-K",
+        "filed_date": "2021-11-15",
+        "acceptance_source": "2021-11-15T15:23:32.000Z"
+      },
+      {
+        "accession": "0001127602-21-029078",
+        "form": "4",
+        "filed_date": "2021-11-15",
+        "acceptance_source": "2021-11-15T15:05:43.000Z"
+      },
+      {
+        "accession": "0000833444-21-000043",
+        "form": "8-K",
+        "filed_date": "2021-11-05",
+        "acceptance_source": "2021-11-05T10:58:05.000Z"
+      },
+      {
+        "accession": "0001127602-21-026340",
+        "form": "4",
+        "filed_date": "2021-10-01",
+        "acceptance_source": "2021-10-01T21:11:48.000Z"
+      },
+      {
+        "accession": "0001127602-21-026281",
+        "form": "3",
+        "filed_date": "2021-10-01",
+        "acceptance_source": "2021-10-01T20:13:16.000Z"
+      },
+      {
+        "accession": "0001127602-21-026072",
+        "form": "4",
+        "filed_date": "2021-09-29",
+        "acceptance_source": "2021-09-29T22:59:46.000Z"
+      },
+      {
+        "accession": "0000876661-21-001390",
+        "form": "CERT",
+        "filed_date": "2021-09-24",
+        "acceptance_source": "2021-09-24T12:14:13.000Z"
+      },
+      {
+        "accession": "0001193125-21-279441",
+        "form": "8-A12B",
+        "filed_date": "2021-09-22",
+        "acceptance_source": "2021-09-22T20:21:51.000Z"
+      },
+      {
+        "accession": "0001193125-21-275152",
+        "form": "8-K",
+        "filed_date": "2021-09-16",
+        "acceptance_source": "2021-09-16T20:22:00.000Z"
+      },
+      {
+        "accession": "0001193125-21-273981",
+        "form": "424B5",
+        "filed_date": "2021-09-15",
+        "acceptance_source": "2021-09-15T20:22:18.000Z"
+      },
+      {
+        "accession": "0001193125-21-271659",
+        "form": "FWP",
+        "filed_date": "2021-09-13",
+        "acceptance_source": "2021-09-13T21:20:00.000Z"
+      },
+      {
+        "accession": "0001193125-21-270958",
+        "form": "424B5",
+        "filed_date": "2021-09-13",
+        "acceptance_source": "2021-09-13T12:31:27.000Z"
+      },
+      {
+        "accession": "0001127602-21-024716",
+        "form": "4",
+        "filed_date": "2021-09-02",
+        "acceptance_source": "2021-09-02T13:27:53.000Z"
+      },
+      {
+        "accession": "0000876661-21-001273",
+        "form": "25-NSE",
+        "filed_date": "2021-09-01",
+        "acceptance_source": "2021-09-01T17:21:13.000Z"
+      },
+      {
+        "accession": "0001127602-21-023077",
+        "form": "4",
+        "filed_date": "2021-08-04",
+        "acceptance_source": "2021-08-04T20:42:11.000Z"
+      },
+      {
+        "accession": "0000833444-21-000040",
+        "form": "10-Q",
+        "filed_date": "2021-07-30",
+        "acceptance_source": "2021-07-30T15:21:32.000Z"
+      },
+      {
+        "accession": "0000833444-21-000038",
+        "form": "8-K",
+        "filed_date": "2021-07-30",
+        "acceptance_source": "2021-07-30T11:02:11.000Z"
+      },
+      {
+        "accession": "0001127602-21-021682",
+        "form": "4",
+        "filed_date": "2021-07-07",
+        "acceptance_source": "2021-07-07T20:51:18.000Z"
+      },
+      {
+        "accession": "0000833444-21-000034",
+        "form": "11-K",
+        "filed_date": "2021-06-25",
+        "acceptance_source": "2021-06-25T17:48:35.000Z"
+      },
+      {
+        "accession": "0000833444-21-000033",
+        "form": "11-K",
+        "filed_date": "2021-06-25",
+        "acceptance_source": "2021-06-25T17:45:04.000Z"
+      },
+      {
+        "accession": "0000833444-21-000031",
+        "form": "11-K",
+        "filed_date": "2021-06-25",
+        "acceptance_source": "2021-06-25T17:40:08.000Z"
+      },
+      {
+        "accession": "0001127602-21-019432",
+        "form": "4",
+        "filed_date": "2021-06-08",
+        "acceptance_source": "2021-06-08T20:11:01.000Z"
+      },
+      {
+        "accession": "0001127602-21-019268",
+        "form": "4",
+        "filed_date": "2021-06-04",
+        "acceptance_source": "2021-06-04T20:28:33.000Z"
+      },
+      {
+        "accession": "0001127602-21-019266",
+        "form": "4",
+        "filed_date": "2021-06-04",
+        "acceptance_source": "2021-06-04T20:26:40.000Z"
+      },
+      {
+        "accession": "0000833444-21-000026",
+        "form": "SD",
+        "filed_date": "2021-05-28",
+        "acceptance_source": "2021-05-28T17:15:43.000Z"
+      },
+      {
+        "accession": "0001127602-21-016271",
+        "form": "4",
+        "filed_date": "2021-05-11",
+        "acceptance_source": "2021-05-11T21:37:38.000Z"
+      },
+      {
+        "accession": "0000833444-21-000023",
+        "form": "8-K",
+        "filed_date": "2021-05-03",
+        "acceptance_source": "2021-05-03T21:01:28.000Z"
+      },
+      {
+        "accession": "0000833444-21-000020",
+        "form": "10-Q",
+        "filed_date": "2021-04-30",
+        "acceptance_source": "2021-04-30T15:45:45.000Z"
+      },
+      {
+        "accession": "0000833444-21-000017",
+        "form": "8-K",
+        "filed_date": "2021-04-30",
+        "acceptance_source": "2021-04-30T11:01:32.000Z"
+      },
+      {
+        "accession": "0001127602-21-010445",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:23:43.000Z"
+      },
+      {
+        "accession": "0001127602-21-010443",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:22:45.000Z"
+      },
+      {
+        "accession": "0001193125-21-079865",
+        "form": "S-8",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:21:57.000Z"
+      },
+      {
+        "accession": "0001127602-21-010440",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:21:47.000Z"
+      },
+      {
+        "accession": "0001127602-21-010437",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:20:47.000Z"
+      },
+      {
+        "accession": "0001127602-21-010436",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:19:46.000Z"
+      },
+      {
+        "accession": "0001127602-21-010433",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:18:45.000Z"
+      },
+      {
+        "accession": "0001127602-21-010432",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:17:45.000Z"
+      },
+      {
+        "accession": "0001127602-21-010430",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:16:29.000Z"
+      },
+      {
+        "accession": "0001127602-21-010429",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:14:44.000Z"
+      },
+      {
+        "accession": "0001127602-21-010426",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:11:52.000Z"
+      },
+      {
+        "accession": "0001127602-21-010423",
+        "form": "4",
+        "filed_date": "2021-03-12",
+        "acceptance_source": "2021-03-12T22:10:23.000Z"
+      },
+      {
+        "accession": "0000833444-21-000013",
+        "form": "8-K",
+        "filed_date": "2021-03-11",
+        "acceptance_source": "2021-03-11T22:06:17.000Z"
+      },
+      {
+        "accession": "0001127602-21-009887",
+        "form": "4",
+        "filed_date": "2021-03-09",
+        "acceptance_source": "2021-03-09T21:09:29.000Z"
+      },
+      {
+        "accession": "0001127602-21-009886",
+        "form": "4",
+        "filed_date": "2021-03-09",
+        "acceptance_source": "2021-03-09T21:06:41.000Z"
+      },
+      {
+        "accession": "0001127602-21-009770",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:54:05.000Z"
+      },
+      {
+        "accession": "0001127602-21-009769",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:53:04.000Z"
+      },
+      {
+        "accession": "0001127602-21-009768",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:52:14.000Z"
+      },
+      {
+        "accession": "0001127602-21-009767",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:51:25.000Z"
+      },
+      {
+        "accession": "0001127602-21-009766",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:50:32.000Z"
+      },
+      {
+        "accession": "0001127602-21-009765",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:49:35.000Z"
+      },
+      {
+        "accession": "0001127602-21-009763",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:48:44.000Z"
+      },
+      {
+        "accession": "0001127602-21-009762",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:47:41.000Z"
+      },
+      {
+        "accession": "0001127602-21-009761",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:46:31.000Z"
+      },
+      {
+        "accession": "0001127602-21-009759",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:45:25.000Z"
+      },
+      {
+        "accession": "0001127602-21-009756",
+        "form": "4",
+        "filed_date": "2021-03-08",
+        "acceptance_source": "2021-03-08T22:41:42.000Z"
+      },
+      {
+        "accession": "0001127602-21-009490",
+        "form": "4",
+        "filed_date": "2021-03-05",
+        "acceptance_source": "2021-03-05T13:59:00.000Z"
+      },
+      {
+        "accession": "0000876661-21-000284",
+        "form": "25-NSE",
+        "filed_date": "2021-03-02",
+        "acceptance_source": "2021-03-02T14:18:15.000Z"
+      },
+      {
+        "accession": "0001127602-21-007131",
+        "form": "4",
+        "filed_date": "2021-02-22",
+        "acceptance_source": "2021-02-22T23:16:36.000Z"
+      },
+      {
+        "accession": "0001193125-21-045768",
+        "form": "8-K",
+        "filed_date": "2021-02-17",
+        "acceptance_source": "2021-02-17T12:09:05.000Z"
+      },
+      {
+        "accession": "0001193125-21-038610",
+        "form": "SC 13G/A",
+        "filed_date": "2021-02-11",
+        "acceptance_source": "2021-02-11T21:46:59.000Z"
+      },
+      {
+        "accession": "0001104659-21-018423",
+        "form": "SC 13G/A",
+        "filed_date": "2021-02-10",
+        "acceptance_source": "2021-02-10T16:10:55.000Z"
+      },
+      {
+        "accession": "0000834237-21-004626",
+        "form": "SC 13G/A",
+        "filed_date": "2021-01-29",
+        "acceptance_source": "2021-01-29T22:21:09.000Z"
+      },
+      {
+        "accession": "0000833444-21-000011",
+        "form": "10-Q",
+        "filed_date": "2021-01-29",
+        "acceptance_source": "2021-01-29T15:37:10.000Z"
+      },
+      {
+        "accession": "0000833444-21-000009",
+        "form": "8-K",
+        "filed_date": "2021-01-29",
+        "acceptance_source": "2021-01-29T11:06:23.000Z"
+      },
+      {
+        "accession": "0001193125-21-014772",
+        "form": "DEFA14A",
+        "filed_date": "2021-01-22",
+        "acceptance_source": "2021-01-22T21:23:51.000Z"
+      },
+      {
+        "accession": "0001193125-21-014765",
+        "form": "DEF 14A",
+        "filed_date": "2021-01-22",
+        "acceptance_source": "2021-01-22T21:21:56.000Z"
+      },
+      {
+        "accession": "0001127602-21-001766",
+        "form": "4",
+        "filed_date": "2021-01-15",
+        "acceptance_source": "2021-01-15T21:17:49.000Z"
+      },
+      {
+        "accession": "0001127602-21-001674",
+        "form": "4",
+        "filed_date": "2021-01-14",
+        "acceptance_source": "2021-01-14T21:22:55.000Z"
+      },
+      {
+        "accession": "0001127602-21-001499",
+        "form": "4",
+        "filed_date": "2021-01-12",
+        "acceptance_source": "2021-01-12T21:28:40.000Z"
+      },
+      {
+        "accession": "0000833444-21-000004",
+        "form": "8-K",
+        "filed_date": "2021-01-07",
+        "acceptance_source": "2021-01-07T12:06:53.000Z"
+      },
+      {
+        "accession": "0001127602-20-031276",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:37:41.000Z"
+      },
+      {
+        "accession": "0001127602-20-031275",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:36:42.000Z"
+      },
+      {
+        "accession": "0001127602-20-031274",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:35:36.000Z"
+      },
+      {
+        "accession": "0001127602-20-031273",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:34:41.000Z"
+      },
+      {
+        "accession": "0001127602-20-031272",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:33:43.000Z"
+      },
+      {
+        "accession": "0001127602-20-031269",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:32:37.000Z"
+      },
+      {
+        "accession": "0001127602-20-031266",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:31:39.000Z"
+      },
+      {
+        "accession": "0001127602-20-031264",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:29:00.000Z"
+      },
+      {
+        "accession": "0001127602-20-031262",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:27:59.000Z"
+      },
+      {
+        "accession": "0001127602-20-031261",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:26:57.000Z"
+      },
+      {
+        "accession": "0001127602-20-031260",
+        "form": "4",
+        "filed_date": "2020-12-14",
+        "acceptance_source": "2020-12-14T21:25:49.000Z"
+      },
+      {
+        "accession": "0001127602-20-031059",
+        "form": "4",
+        "filed_date": "2020-12-10",
+        "acceptance_source": "2020-12-10T19:55:05.000Z"
+      },
+      {
+        "accession": "0001127602-20-031058",
+        "form": "4",
+        "filed_date": "2020-12-10",
+        "acceptance_source": "2020-12-10T19:52:30.000Z"
+      },
+      {
+        "accession": "0001127602-20-030930",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-09T01:47:35.000Z"
+      },
+      {
+        "accession": "0001127602-20-030921",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:54:42.000Z"
+      },
+      {
+        "accession": "0001127602-20-030920",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:53:47.000Z"
+      },
+      {
+        "accession": "0001127602-20-030919",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:52:49.000Z"
+      },
+      {
+        "accession": "0001127602-20-030918",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:51:50.000Z"
+      },
+      {
+        "accession": "0001127602-20-030916",
+        "form": "4",
+        "filed_date": "2020-12-08",
+        "acceptance_source": "2020-12-08T23:50:18.000Z"
+      },
+      {
+        "accession": "0001127602-20-030730",
+        "form": "4",
+        "filed_date": "2020-12-07",
+        "acceptance_source": "2020-12-07T23:05:55.000Z"
+      },
+      {
+        "accession": "0001127602-20-030728",
+        "form": "4",
+        "filed_date": "2020-12-07",
+        "acceptance_source": "2020-12-07T23:01:54.000Z"
+      },
+      {
+        "accession": "0001127602-20-030725",
+        "form": "4",
+        "filed_date": "2020-12-07",
+        "acceptance_source": "2020-12-07T23:00:50.000Z"
+      },
+      {
+        "accession": "0001127602-20-030724",
+        "form": "4",
+        "filed_date": "2020-12-07",
+        "acceptance_source": "2020-12-07T22:59:43.000Z"
+      },
+      {
+        "accession": "0001127602-20-030723",
+        "form": "4",
+        "filed_date": "2020-12-07",
+        "acceptance_source": "2020-12-07T22:57:12.000Z"
+      },
+      {
+        "accession": "0000876661-20-001121",
+        "form": "25-NSE",
+        "filed_date": "2020-12-04",
+        "acceptance_source": "2020-12-04T19:03:47.000Z"
+      },
+      {
+        "accession": "0001127602-20-030537",
+        "form": "4",
+        "filed_date": "2020-12-04",
+        "acceptance_source": "2020-12-04T16:03:31.000Z"
+      },
+      {
+        "accession": "0000833444-20-000048",
+        "form": "10-K",
+        "filed_date": "2020-11-16",
+        "acceptance_source": "2020-11-16T14:57:25.000Z"
+      },
+      {
+        "accession": "0001127602-20-028634",
+        "form": "4",
+        "filed_date": "2020-11-10",
+        "acceptance_source": "2020-11-10T21:27:27.000Z"
+      },
+      {
+        "accession": "0001127602-20-028273",
+        "form": "4",
+        "filed_date": "2020-11-05",
+        "acceptance_source": "2020-11-05T22:33:48.000Z"
+      },
+      {
+        "accession": "0001127602-20-028271",
+        "form": "4",
+        "filed_date": "2020-11-05",
+        "acceptance_source": "2020-11-05T22:31:38.000Z"
+      },
+      {
+        "accession": "0001127602-20-028097",
+        "form": "4",
+        "filed_date": "2020-11-04",
+        "acceptance_source": "2020-11-04T19:06:56.000Z"
+      },
+      {
+        "accession": "0000833444-20-000043",
+        "form": "8-K",
+        "filed_date": "2020-11-03",
+        "acceptance_source": "2020-11-03T12:02:49.000Z"
+      },
+      {
+        "accession": "0001127602-20-027360",
+        "form": "3",
+        "filed_date": "2020-10-21",
+        "acceptance_source": "2020-10-21T16:40:52.000Z"
+      },
+      {
+        "accession": "0001127602-20-026387",
+        "form": "4",
+        "filed_date": "2020-10-02",
+        "acceptance_source": "2020-10-02T22:13:38.000Z"
+      },
+      {
+        "accession": "0001127602-20-026056",
+        "form": "4",
+        "filed_date": "2020-10-01",
+        "acceptance_source": "2020-10-01T21:32:55.000Z"
+      },
+      {
+        "accession": "0000876661-20-000807",
+        "form": "CERT",
+        "filed_date": "2020-09-22",
+        "acceptance_source": "2020-09-22T21:22:47.000Z"
+      },
+      {
+        "accession": "0001127602-20-025538",
+        "form": "3",
+        "filed_date": "2020-09-22",
+        "acceptance_source": "2020-09-22T13:57:05.000Z"
+      },
+      {
+        "accession": "0001193125-20-250357",
+        "form": "8-A12B",
+        "filed_date": "2020-09-22",
+        "acceptance_source": "2020-09-21T22:31:59.000Z"
+      },
+      {
+        "accession": "0001127602-20-025279",
+        "form": "4",
+        "filed_date": "2020-09-17",
+        "acceptance_source": "2020-09-17T16:51:46.000Z"
+      },
+      {
+        "accession": "0001193125-20-246240",
+        "form": "8-K",
+        "filed_date": "2020-09-15",
+        "acceptance_source": "2020-09-15T20:21:58.000Z"
+      },
+      {
+        "accession": "0001127602-20-025085",
+        "form": "4",
+        "filed_date": "2020-09-14",
+        "acceptance_source": "2020-09-14T22:36:41.000Z"
+      },
+      {
+        "accession": "0001193125-20-244119",
+        "form": "8-K",
+        "filed_date": "2020-09-11",
+        "acceptance_source": "2020-09-11T20:14:11.000Z"
+      },
+      {
+        "accession": "0001193125-20-243757",
+        "form": "424B5",
+        "filed_date": "2020-09-11",
+        "acceptance_source": "2020-09-11T12:34:39.000Z"
+      },
+      {
+        "accession": "0001193125-20-242549",
+        "form": "424B5",
+        "filed_date": "2020-09-10",
+        "acceptance_source": "2020-09-10T10:04:44.000Z"
+      },
+      {
+        "accession": "0001193125-20-242275",
+        "form": "FWP",
+        "filed_date": "2020-09-09",
+        "acceptance_source": "2020-09-09T21:11:00.000Z"
+      },
+      {
+        "accession": "0001193125-20-241461",
+        "form": "424B5",
+        "filed_date": "2020-09-09",
+        "acceptance_source": "2020-09-09T10:09:33.000Z"
+      },
+      {
+        "accession": "0001193125-20-241108",
+        "form": "FWP",
+        "filed_date": "2020-09-08",
+        "acceptance_source": "2020-09-08T21:12:59.000Z"
+      },
+      {
+        "accession": "0001193125-20-240595",
+        "form": "424B5",
+        "filed_date": "2020-09-08",
+        "acceptance_source": "2020-09-08T12:20:43.000Z"
+      },
+      {
+        "accession": "0001193125-20-240092",
+        "form": "POSASR",
+        "filed_date": "2020-09-04",
+        "acceptance_source": "2020-09-04T20:17:42.000Z"
+      },
+      {
+        "accession": "0001127602-20-024691",
+        "form": "4",
+        "filed_date": "2020-09-03",
+        "acceptance_source": "2020-09-03T18:16:38.000Z"
+      },
+      {
+        "accession": "0000833444-20-000038",
+        "form": "8-K",
+        "filed_date": "2020-08-18",
+        "acceptance_source": "2020-08-18T11:04:58.000Z"
+      },
+      {
+        "accession": "0001127602-20-022727",
+        "form": "4",
+        "filed_date": "2020-08-04",
+        "acceptance_source": "2020-08-04T21:45:33.000Z"
+      },
+      {
+        "accession": "0001127602-20-022726",
+        "form": "4",
+        "filed_date": "2020-08-04",
+        "acceptance_source": "2020-08-04T21:42:59.000Z"
+      },
+      {
+        "accession": "0001127602-20-022723",
+        "form": "4",
+        "filed_date": "2020-08-04",
+        "acceptance_source": "2020-08-04T21:37:12.000Z"
+      },
+      {
+        "accession": "0000833444-20-000036",
+        "form": "10-Q",
+        "filed_date": "2020-07-31",
+        "acceptance_source": "2020-07-31T18:20:33.000Z"
+      },
+      {
+        "accession": "0000833444-20-000034",
+        "form": "8-K",
+        "filed_date": "2020-07-31",
+        "acceptance_source": "2020-07-31T12:37:00.000Z"
+      },
+      {
+        "accession": "0001127602-20-020841",
+        "form": "4",
+        "filed_date": "2020-07-02",
+        "acceptance_source": "2020-07-02T19:24:17.000Z"
+      },
+      {
+        "accession": "0000833444-20-000030",
+        "form": "11-K",
+        "filed_date": "2020-06-25",
+        "acceptance_source": "2020-06-25T16:49:13.000Z"
+      },
+      {
+        "accession": "0000833444-20-000028",
+        "form": "11-K",
+        "filed_date": "2020-06-25",
+        "acceptance_source": "2020-06-25T16:37:08.000Z"
+      },
+      {
+        "accession": "0000833444-20-000026",
+        "form": "11-K",
+        "filed_date": "2020-06-25",
+        "acceptance_source": "2020-06-25T16:26:54.000Z"
+      },
+      {
+        "accession": "0001127602-20-019710",
+        "form": "4",
+        "filed_date": "2020-06-16",
+        "acceptance_source": "2020-06-16T18:46:58.000Z"
+      },
+      {
+        "accession": "0000833444-20-000020",
+        "form": "8-K",
+        "filed_date": "2020-06-12",
+        "acceptance_source": "2020-06-12T10:36:33.000Z"
+      },
+      {
+        "accession": "0001127602-20-018658",
+        "form": "4",
+        "filed_date": "2020-06-03",
+        "acceptance_source": "2020-06-03T19:29:07.000Z"
+      },
+      {
+        "accession": "0000833444-20-000017",
+        "form": "SD",
+        "filed_date": "2020-05-26",
+        "acceptance_source": "2020-05-26T20:21:33.000Z"
+      },
+      {
+        "accession": "0001127602-20-015298",
+        "form": "4",
+        "filed_date": "2020-05-04",
+        "acceptance_source": "2020-05-04T22:34:28.000Z"
+      },
+      {
+        "accession": "0000833444-20-000015",
+        "form": "10-Q",
+        "filed_date": "2020-05-01",
+        "acceptance_source": "2020-05-01T15:06:09.000Z"
+      },
+      {
+        "accession": "0000833444-20-000013",
+        "form": "8-K",
+        "filed_date": "2020-05-01",
+        "acceptance_source": "2020-05-01T10:06:31.000Z"
+      },
+      {
+        "accession": "0001127602-20-012684",
+        "form": "4",
+        "filed_date": "2020-04-02",
+        "acceptance_source": "2020-04-02T20:05:13.000Z"
+      },
+      {
+        "accession": "0000876661-20-000252",
+        "form": "25-NSE",
+        "filed_date": "2020-03-30",
+        "acceptance_source": "2020-03-30T17:09:11.000Z"
+      },
+      {
+        "accession": "0000833444-20-000010",
+        "form": "8-K",
+        "filed_date": "2020-03-12",
+        "acceptance_source": "2020-03-12T11:01:29.000Z"
+      },
+      {
+        "accession": "0001127602-20-010134",
+        "form": "4",
+        "filed_date": "2020-03-10",
+        "acceptance_source": "2020-03-10T22:24:04.000Z"
+      },
+      {
+        "accession": "0001127602-20-009798",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:07:45.000Z"
+      },
+      {
+        "accession": "0001127602-20-009796",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:06:41.000Z"
+      },
+      {
+        "accession": "0001127602-20-009793",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:05:20.000Z"
+      },
+      {
+        "accession": "0001127602-20-009790",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:04:02.000Z"
+      },
+      {
+        "accession": "0001127602-20-009788",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:02:44.000Z"
+      },
+      {
+        "accession": "0001127602-20-009787",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:01:40.000Z"
+      },
+      {
+        "accession": "0001127602-20-009785",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T21:00:25.000Z"
+      },
+      {
+        "accession": "0001127602-20-009783",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T20:58:56.000Z"
+      },
+      {
+        "accession": "0001127602-20-009781",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T20:57:46.000Z"
+      },
+      {
+        "accession": "0001127602-20-009780",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T20:55:10.000Z"
+      },
+      {
+        "accession": "0001127602-20-009758",
+        "form": "4",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T20:30:15.000Z"
+      },
+      {
+        "accession": "0000833444-20-000008",
+        "form": "8-K",
+        "filed_date": "2020-03-06",
+        "acceptance_source": "2020-03-06T17:22:33.000Z"
+      },
+      {
+        "accession": "0001127602-20-008849",
+        "form": "4",
+        "filed_date": "2020-03-03",
+        "acceptance_source": "2020-03-03T19:29:04.000Z"
+      },
+      {
+        "accession": "0001193125-20-035048",
+        "form": "SC 13G/A",
+        "filed_date": "2020-02-13",
+        "acceptance_source": "2020-02-13T17:47:09.000Z"
+      },
+      {
+        "accession": "0001104659-20-018269",
+        "form": "SC 13G/A",
+        "filed_date": "2020-02-12",
+        "acceptance_source": "2020-02-12T14:23:55.000Z"
+      },
+      {
+        "accession": "0001477932-20-000543",
+        "form": "PX14A6G",
+        "filed_date": "2020-02-11",
+        "acceptance_source": "2020-02-11T17:01:18.000Z"
+      },
+      {
+        "accession": "0000834237-20-005999",
+        "form": "SC 13G/A",
+        "filed_date": "2020-02-05",
+        "acceptance_source": "2020-02-05T17:16:23.000Z"
+      },
+      {
+        "accession": "0001127602-20-003605",
+        "form": "4",
+        "filed_date": "2020-02-04",
+        "acceptance_source": "2020-02-04T23:29:28.000Z"
+      },
+      {
+        "accession": "0001193125-20-021311",
+        "form": "S-3ASR",
+        "filed_date": "2020-01-31",
+        "acceptance_source": "2020-01-31T21:10:08.000Z"
+      },
+      {
+        "accession": "0000833444-20-000006",
+        "form": "10-Q",
+        "filed_date": "2020-01-31",
+        "acceptance_source": "2020-01-31T15:44:53.000Z"
+      },
+      {
+        "accession": "0000833444-20-000003",
+        "form": "8-K",
+        "filed_date": "2020-01-31",
+        "acceptance_source": "2020-01-31T11:20:31.000Z"
+      },
+      {
+        "accession": "0001127602-20-002348",
+        "form": "4/A",
+        "filed_date": "2020-01-24",
+        "acceptance_source": "2020-01-24T19:08:09.000Z"
+      },
+      {
+        "accession": "0001193125-20-010087",
+        "form": "DEFA14A",
+        "filed_date": "2020-01-17",
+        "acceptance_source": "2020-01-17T21:40:05.000Z"
+      },
+      {
+        "accession": "0001193125-20-010062",
+        "form": "DEF 14A",
+        "filed_date": "2020-01-17",
+        "acceptance_source": "2020-01-17T21:29:11.000Z"
+      },
+      {
+        "accession": "0001127602-20-000813",
+        "form": "4",
+        "filed_date": "2020-01-03",
+        "acceptance_source": "2020-01-03T22:10:39.000Z"
+      }
+    ]
+  }
+]

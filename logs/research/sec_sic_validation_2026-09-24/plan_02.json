@@ -1,0 +1,149 @@
+[
+  {
+    "kind": "header",
+    "cik": "0000202058",
+    "accession": "0000202058-18-000063",
+    "url": "https://www.sec.gov/Archives/edgar/data/202058/000020205818000063/0000202058-18-000063-index-headers.html",
+    "reason": "additional transition candidate LHX"
+  },
+  {
+    "kind": "header",
+    "cik": "0000202058",
+    "accession": "0000202058-26-000015",
+    "url": "https://www.sec.gov/Archives/edgar/data/202058/000020205826000015/0000202058-26-000015-index-headers.html",
+    "reason": "additional transition candidate LHX"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0000833444-18-000053",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344418000053/0000833444-18-000053-index-headers.html",
+    "reason": "additional transition candidate JCI"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0000833444-25-000097",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344425000097/0000833444-25-000097-index-headers.html",
+    "reason": "additional transition candidate JCI"
+  },
+  {
+    "kind": "header",
+    "cik": "0000032604",
+    "accession": "0000032604-18-000044",
+    "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260418000044/0000032604-18-000044-index-headers.html",
+    "reason": "additional transition candidate EMR"
+  },
+  {
+    "kind": "header",
+    "cik": "0000032604",
+    "accession": "0000032604-25-000087",
+    "url": "https://www.sec.gov/Archives/edgar/data/32604/000003260425000087/0000032604-25-000087-index-headers.html",
+    "reason": "additional transition candidate EMR"
+  },
+  {
+    "kind": "header",
+    "cik": "0001551182",
+    "accession": "0001551182-18-000074",
+    "url": "https://www.sec.gov/Archives/edgar/data/1551182/000155118218000074/0001551182-18-000074-index-headers.html",
+    "reason": "additional transition candidate ETN"
+  },
+  {
+    "kind": "header",
+    "cik": "0001551182",
+    "accession": "0001551182-26-000007",
+    "url": "https://www.sec.gov/Archives/edgar/data/1551182/000155118226000007/0001551182-26-000007-index-headers.html",
+    "reason": "additional transition candidate ETN"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001047469-18-001114",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000104746918001114/0001047469-18-001114-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-20-015105",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828020015105/0001628280-20-015105-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-23-026269",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828023026269/0001628280-23-026269-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001564590-18-003046",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000156459018003046/0001564590-18-003046-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000089",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000089/0001418091-20-000089-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-22-000147",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809122000147/0001418091-22-000147-index-headers.html",
+    "reason": "former issuer first/middle/last regular filing"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-20-000009",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384020000009/0000773840-20-000009-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-21-000015",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384021000015/0000773840-21-000015-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-22-000018",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384022000018/0000773840-22-000018-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-23-000013",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384023000013/0000773840-23-000013-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-24-000014",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384024000014/0000773840-24-000014-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-25-000010",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384025000010/0000773840-25-000010-index-headers.html",
+    "reason": "HON interior annual transition search"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-000366",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319000366/0000930413-19-000366-index-headers.html",
+    "reason": "HON interior annual transition search"
+  }
+]

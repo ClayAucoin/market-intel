@@ -1,0 +1,182 @@
+[
+  {
+    "kind": "header",
+    "cik": "0001069183",
+    "accession": "0001069183-18-000020",
+    "url": "https://www.sec.gov/Archives/edgar/data/1069183/000106918318000020/0001069183-18-000020-index-headers.html",
+    "reason": "candidate endpoint AXON"
+  },
+  {
+    "kind": "header",
+    "cik": "0001069183",
+    "accession": "0001628280-26-011360",
+    "url": "https://www.sec.gov/Archives/edgar/data/1069183/000162828026011360/0001628280-26-011360-index-headers.html",
+    "reason": "candidate endpoint AXON"
+  },
+  {
+    "kind": "header",
+    "cik": "0001393818",
+    "accession": "0001193125-18-067079",
+    "url": "https://www.sec.gov/Archives/edgar/data/1393818/000119312518067079/0001193125-18-067079-index-headers.html",
+    "reason": "candidate endpoint BX"
+  },
+  {
+    "kind": "header",
+    "cik": "0001393818",
+    "accession": "0001193125-26-082531",
+    "url": "https://www.sec.gov/Archives/edgar/data/1393818/000119312526082531/0001193125-26-082531-index-headers.html",
+    "reason": "candidate endpoint BX"
+  },
+  {
+    "kind": "header",
+    "cik": "0000313616",
+    "accession": "0000313616-18-000038",
+    "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361618000038/0000313616-18-000038-index-headers.html",
+    "reason": "candidate endpoint DHR"
+  },
+  {
+    "kind": "header",
+    "cik": "0000313616",
+    "accession": "0000313616-26-000062",
+    "url": "https://www.sec.gov/Archives/edgar/data/313616/000031361626000062/0000313616-26-000062-index-headers.html",
+    "reason": "candidate endpoint DHR"
+  },
+  {
+    "kind": "header",
+    "cik": "0001659166",
+    "accession": "0001659166-18-000100",
+    "url": "https://www.sec.gov/Archives/edgar/data/1659166/000165916618000100/0001659166-18-000100-index-headers.html",
+    "reason": "candidate endpoint FTV"
+  },
+  {
+    "kind": "header",
+    "cik": "0001659166",
+    "accession": "0001659166-26-000007",
+    "url": "https://www.sec.gov/Archives/edgar/data/1659166/000165916626000007/0001659166-26-000007-index-headers.html",
+    "reason": "candidate endpoint FTV"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-18-000292",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041318000292/0000930413-18-000292-index-headers.html",
+    "reason": "candidate endpoint HON"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-26-000013",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384026000013/0000773840-26-000013-index-headers.html",
+    "reason": "candidate endpoint HON"
+  },
+  {
+    "kind": "header",
+    "cik": "0000051143",
+    "accession": "0001047469-18-001117",
+    "url": "https://www.sec.gov/Archives/edgar/data/51143/000104746918001117/0001047469-18-001117-index-headers.html",
+    "reason": "candidate endpoint IBM"
+  },
+  {
+    "kind": "header",
+    "cik": "0000051143",
+    "accession": "0000051143-26-000010",
+    "url": "https://www.sec.gov/Archives/edgar/data/51143/000005114326000010/0000051143-26-000010-index-headers.html",
+    "reason": "candidate endpoint IBM"
+  },
+  {
+    "kind": "header",
+    "cik": "0001404912",
+    "accession": "0001404912-18-000005",
+    "url": "https://www.sec.gov/Archives/edgar/data/1404912/000140491218000005/0001404912-18-000005-index-headers.html",
+    "reason": "candidate endpoint KKR"
+  },
+  {
+    "kind": "header",
+    "cik": "0001404912",
+    "accession": "0001404912-26-000007",
+    "url": "https://www.sec.gov/Archives/edgar/data/1404912/000140491226000007/0001404912-26-000007-index-headers.html",
+    "reason": "candidate endpoint KKR"
+  },
+  {
+    "kind": "header",
+    "cik": "0000066740",
+    "accession": "0001558370-18-000535",
+    "url": "https://www.sec.gov/Archives/edgar/data/66740/000155837018000535/0001558370-18-000535-index-headers.html",
+    "reason": "candidate endpoint MMM"
+  },
+  {
+    "kind": "header",
+    "cik": "0000066740",
+    "accession": "0000066740-26-000014",
+    "url": "https://www.sec.gov/Archives/edgar/data/66740/000006674026000014/0000066740-26-000014-index-headers.html",
+    "reason": "candidate endpoint MMM"
+  },
+  {
+    "kind": "header",
+    "cik": "0000882835",
+    "accession": "0000882835-18-000011",
+    "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283518000011/0000882835-18-000011-index-headers.html",
+    "reason": "candidate endpoint ROP"
+  },
+  {
+    "kind": "header",
+    "cik": "0000882835",
+    "accession": "0000882835-26-000009",
+    "url": "https://www.sec.gov/Archives/edgar/data/882835/000088283526000009/0000882835-26-000009-index-headers.html",
+    "reason": "candidate endpoint ROP"
+  },
+  {
+    "kind": "header",
+    "cik": "0001811074",
+    "accession": "0001811074-21-000013",
+    "url": "https://www.sec.gov/Archives/edgar/data/1811074/000181107421000013/0001811074-21-000013-index-headers.html",
+    "reason": "candidate endpoint TPL"
+  },
+  {
+    "kind": "header",
+    "cik": "0001811074",
+    "accession": "0001811074-26-000018",
+    "url": "https://www.sec.gov/Archives/edgar/data/1811074/000181107426000018/0001811074-26-000018-index-headers.html",
+    "reason": "candidate endpoint TPL"
+  },
+  {
+    "kind": "header",
+    "cik": "0001437107",
+    "accession": "0001437107-18-000028",
+    "url": "https://www.sec.gov/Archives/edgar/data/1437107/000143710718000028/0001437107-18-000028-index-headers.html",
+    "reason": "candidate endpoint WBD"
+  },
+  {
+    "kind": "header",
+    "cik": "0001437107",
+    "accession": "0001437107-26-000020",
+    "url": "https://www.sec.gov/Archives/edgar/data/1437107/000143710726000020/0001437107-26-000020-index-headers.html",
+    "reason": "candidate endpoint WBD"
+  },
+  {
+    "kind": "header",
+    "cik": "0001512673",
+    "accession": "0001512673-18-000004",
+    "url": "https://www.sec.gov/Archives/edgar/data/1512673/000151267318000004/0001512673-18-000004-index-headers.html",
+    "reason": "candidate endpoint XYZ"
+  },
+  {
+    "kind": "header",
+    "cik": "0001512673",
+    "accession": "0001628280-26-012254",
+    "url": "https://www.sec.gov/Archives/edgar/data/1512673/000162828026012254/0001628280-26-012254-index-headers.html",
+    "reason": "candidate endpoint XYZ"
+  },
+  {
+    "kind": "submissions",
+    "cik": "0000718877",
+    "url": "https://data.sec.gov/submissions/CIK0000718877.json",
+    "reason": "Former issuer missing local cache"
+  },
+  {
+    "kind": "submissions",
+    "cik": "0001418091",
+    "url": "https://data.sec.gov/submissions/CIK0001418091.json",
+    "reason": "Former issuer missing local cache"
+  }
+]
