@@ -1,0 +1,63 @@
+{
+  "kind": "body",
+  "cik": "0000718877",
+  "accession": "0001628280-21-002828",
+  "document": "atvi-20201231.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021002828/atvi-20201231.htm",
+  "retrieved_at": "2026-09-24T22:07:04.295102+00:00",
+  "sha256": "5cde40dbf23471a88c71e7a0e182ada6064cd46d19b061ec04469caff6124b00",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0000718877_0001628280-21-002828.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0000718877",
+        "context": "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "ACTIVISION BLIZZARD,\u00a0INC.",
+        "context": "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common Stock, par value $0.000001 per share",
+        "context": "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "ATVI",
+        "context": "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Global Select Market",
+        "context": "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231"
+      }
+    ],
+    "contexts": {
+      "i5eb48749bd0643689368ec77dc8935b0_D20200101-20201231": "0000718877 2020-01-01 2020-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "executive offices) (Zip Code) ( 310 ) 255-2000 (Registrant\u2019s telephone number, including area code) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common Stock, par value $0.000001 per share ATVI The Nasdaq Global Select Market Securities registered pursuant to Section 12(g) of the Act: None Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes \u2612 No \u2610 Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 o"
+      },
+      {
+        "term": "distribution",
+        "text": "-31 0000718877 atvi:ProductSalesSoftwareRoyaltiesAmortizationandIntellectualPropertyLicensesMember 2018-01-01 2018-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2019-01-01 2019-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2018-01-01 2018-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesA"
+      },
+      {
+        "term": "distribution",
+        "text": "018-01-01 2018-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2019-01-01 2019-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2018-01-01 2018-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2019-01-01 2019-12-31 0000718877 atvi:InGameSubscri"
+      },
+      {
+        "term": "distribution",
+        "text": "020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2019-01-01 2019-12-31 0000718877 atvi:InGameSubscriptionAndOtherGameOperationsAndDistributionMember 2018-01-01 2018-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2020-01-01 2020-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2019-01-01 2019-12-31 0000718877 atvi:InGameSubscriptionAndOtherSoftwareRoyaltiesAmortizationAndIntellectualPropertyLicensesMember 2018-01-01 2018-12-3"
+      }
+    ],
+    "interval_proven": false
+  }
+}

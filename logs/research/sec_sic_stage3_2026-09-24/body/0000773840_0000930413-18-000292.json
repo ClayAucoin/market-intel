@@ -1,0 +1,55 @@
+{
+  "kind": "body",
+  "cik": "0000773840",
+  "accession": "0000930413-18-000292",
+  "document": "c89913_10k.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041318000292/c89913_10k.htm",
+  "retrieved_at": "2026-09-24T22:05:52.957140+00:00",
+  "sha256": "f74914328b0374e4409f0fb00cea5e71c75180e247e16122fafe3f139c2f17f9",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0000773840_0000930413-18-000292.html.gz",
+  "identity": {
+    "facts": [],
+    "contexts": {},
+    "snippets": [
+      {
+        "term": "spin-off",
+        "text": "nts and business decisions may differ significantly from those envisaged by our forward-looking statements, including with respect to any changes in or abandonment of the proposed spin-offs. We do not undertake to update or revise any of our forward-looking statements. Our forward-looking statements are also subject to risks and uncertainties that can affect our performance in both the near-and long-term. These forward-looking statements should be considered in light of the information included in this Form 10-K, including, in particular, the factors discussed below. These factors may be revised or su"
+      },
+      {
+        "term": "spin-off",
+        "text": "k contractual protections, insurance or indemnities, or with regard to divested businesses, claims by purchasers to whom we have provided contractual indemnification. The proposed spin-offs of our Homes and Global Distribution business and of our Transportation Systems business into two stand-alone, publicly-traded companies are each contingent upon the satisfaction of a number of conditions, may not be completed on the currently contemplated timeline, or at all, and may not achieve the intended benefits. On October 10, 2017, the Company announced its intention to separately spin-off our Homes and Glo"
+      },
+      {
+        "term": "spin-off",
+        "text": "t be completed on the currently contemplated timeline, or at all, and may not achieve the intended benefits. On October 10, 2017, the Company announced its intention to separately spin-off our Homes and Global Distribution business, which is part of our Home and Building Technologies segment, and our Transportation Systems business, which is part of our Aerospace segment, into two stand-alone, publicly-traded companies. Completion of each proposed spin-off is subject to readiness of each spin-off to operate as an independent public company, finalization of the financial statements of the spun-off busi"
+      },
+      {
+        "term": "separation",
+        "text": "pin-off is subject to readiness of each spin-off to operate as an independent public company, finalization of the financial statements of the spun-off business, assurance that the separation will be tax-free to our shareowners for U.S. federal income tax purposes, finalization of the capital structure of the three corporations, the effectiveness of appropriate filings with the U.S. Securities and Exchange Commission, final approval of the Board of Directors, and other customary matters. Each proposed spin-off is complex in nature, and may be affected by unanticipated developments, credit and equity mark"
+      },
+      {
+        "term": "separation",
+        "text": "ermore, if the spin-offs are completed, we cannot assure you that each will be successful in meeting its objectives. There is the potential for business disruption and significant separation costs. Any of these factors could have a material adverse effect on our business, financial condition, results of operations, cash flows and/or the price of our common stock. 8 Our future growth is largely dependent upon our ability to develop new technologies and introduce new products that achieve market acceptance in increasingly competitive markets with acceptable margins. Our future growth rate depends upon a n"
+      },
+      {
+        "term": "separation",
+        "text": "mately $250 million in 2018. \u2022 Environmental remediation costs\u2014we expect to spend approximately $225 million in 2018 for remedial response and voluntary clean-up costs. \u2022 Spin-off separation costs\u2014we expect to incur significant cash expenditures associated with the announced spin-off transactions, including third party professional services and tax costs, the amounts of which are still being determined. We continuously assess the relative strength of each business in our portfolio as to strategic fit, market position, profit and cash flow contribution in order to upgrade our combined portfolio and ident"
+      },
+      {
+        "term": "distribution",
+        "text": "ion, chemicals and petrochemicals, biofuels, life sciences, and metals, minerals and mining industries. Through its metering business, Process Solutions also enables utilities and distribution companies to deploy advanced capabilities that transform operations, improve reliability and environmental sustainability, and better serve customers. Advanced Materials manufactures a wide variety of high-performance products, including fluorocarbons, hydrofluoroolefins, specialty films, waxes, additives, advanced fibers, customized research chemicals and intermediates, and electronic materials and chemicals. Safet"
+      },
+      {
+        "term": "distribution",
+        "text": "g activities where feasible. We do not presently anticipate that a shortage of raw materials will cause any material adverse impacts during 2018. Patents, Trademarks, Licenses and Distribution Rights Our segments are not dependent upon any single patent or related group of patents, or any licenses or distribution rights. In our judgment, our intellectual property rights are adequate for the conduct of our business. We believe that, in the aggregate, the rights under our patents, trademarks and licenses are generally important to our operations, but we do not consider any individual patent, trademark or an"
+      },
+      {
+        "term": "distribution",
+        "text": "se impacts during 2018. Patents, Trademarks, Licenses and Distribution Rights Our segments are not dependent upon any single patent or related group of patents, or any licenses or distribution rights. In our judgment, our intellectual property rights are adequate for the conduct of our business. We believe that, in the aggregate, the rights under our patents, trademarks and licenses are generally important to our operations, but we do not consider any individual patent, trademark or any licensing or distribution rights related to a specific process or product to be of material importance in relation to ou"
+      }
+    ],
+    "interval_proven": false
+  }
+}

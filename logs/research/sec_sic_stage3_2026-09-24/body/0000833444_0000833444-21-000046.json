@@ -1,0 +1,348 @@
+{
+  "kind": "body",
+  "cik": "0000833444",
+  "accession": "0000833444-21-000046",
+  "document": "jci-20210930.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344421000046/jci-20210930.htm",
+  "retrieved_at": "2026-09-24T22:05:56.418018+00:00",
+  "sha256": "675e82a08ab0facc8a68baa901bb9150b8f82004df217fc16658e0ebefe1dedd",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0000833444_0000833444-21-000046.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0000833444",
+        "context": "i81320d2f38c74441b3a92fd2b9d84dc0_D20201001-20210930"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "JOHNSON CONTROLS INTERNATIONAL PLC",
+        "context": "i81320d2f38c74441b3a92fd2b9d84dc0_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Ordinary Shares, Par Value $0.01",
+        "context": "i1d6885a5a4064914b7e9338483c0bce5_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI",
+        "context": "i1d6885a5a4064914b7e9338483c0bce5_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i1d6885a5a4064914b7e9338483c0bce5_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "4.625% Notes due 2023",
+        "context": "i687832927bd34b118d69553ae999e1b3_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI23",
+        "context": "i687832927bd34b118d69553ae999e1b3_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i687832927bd34b118d69553ae999e1b3_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.000% Senior Notes due 2023",
+        "context": "iccccc94126334b14b9af45697a7aaf39_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI23A",
+        "context": "iccccc94126334b14b9af45697a7aaf39_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "iccccc94126334b14b9af45697a7aaf39_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "3.625% Senior Notes due 2024",
+        "context": "i527af495c887459fb158ffdb2144e867_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI24A",
+        "context": "i527af495c887459fb158ffdb2144e867_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i527af495c887459fb158ffdb2144e867_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.375% Notes due 2025",
+        "context": "ic91c5f8b05f7489e909c5fd9e16e9add_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI25A",
+        "context": "ic91c5f8b05f7489e909c5fd9e16e9add_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "ic91c5f8b05f7489e909c5fd9e16e9add_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "3.900% Notes due 2026",
+        "context": "i7d4954efd41543aba29d45c637e2b513_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI26A",
+        "context": "i7d4954efd41543aba29d45c637e2b513_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i7d4954efd41543aba29d45c637e2b513_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "0.375% Senior Notes due 2027",
+        "context": "i597f22c9412b4445a1f4712a4296f1cb_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI27",
+        "context": "i597f22c9412b4445a1f4712a4296f1cb_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i597f22c9412b4445a1f4712a4296f1cb_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.750% Senior Notes due 2030",
+        "context": "i18ebf4f553984966bd462fb7a4879e41_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI30",
+        "context": "i18ebf4f553984966bd462fb7a4879e41_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i18ebf4f553984966bd462fb7a4879e41_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "2.000%  Sustainability-Linked Senior Notes due 2031",
+        "context": "i0facd59b9a224591ac1a67ca64115bc2_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI31",
+        "context": "i0facd59b9a224591ac1a67ca64115bc2_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i0facd59b9a224591ac1a67ca64115bc2_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.000% Senior Notes due 2032",
+        "context": "id165570c16dd4980b8bfa57fcecc9335_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI32",
+        "context": "id165570c16dd4980b8bfa57fcecc9335_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "id165570c16dd4980b8bfa57fcecc9335_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "6.000% Notes due 2036",
+        "context": "i85d00bb76a1f434ab0556fcd75a261ad_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI36A",
+        "context": "i85d00bb76a1f434ab0556fcd75a261ad_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i85d00bb76a1f434ab0556fcd75a261ad_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "5.70% Senior Notes due 2041",
+        "context": "i6b9793ce308745bdaee6a58d11a900b0_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI41B",
+        "context": "i6b9793ce308745bdaee6a58d11a900b0_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i6b9793ce308745bdaee6a58d11a900b0_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "5.250% Senior Notes due 2041",
+        "context": "icf2967208fda412db6b522180b1e414b_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI41C",
+        "context": "icf2967208fda412db6b522180b1e414b_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "icf2967208fda412db6b522180b1e414b_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "4.625% Senior Notes due 2044",
+        "context": "i72448f94bc914d6792d7c5dcd697546a_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI44A",
+        "context": "i72448f94bc914d6792d7c5dcd697546a_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i72448f94bc914d6792d7c5dcd697546a_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "5.125% Notes due 2045",
+        "context": "ia821e9f517fd4279963e7fb9928aa4d6_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI45B",
+        "context": "ia821e9f517fd4279963e7fb9928aa4d6_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "ia821e9f517fd4279963e7fb9928aa4d6_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "6.950% Debentures due December\u00a01, 2045",
+        "context": "if297f42d69a24f9c8260c0b9ab1a7b1e_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI45A",
+        "context": "if297f42d69a24f9c8260c0b9ab1a7b1e_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "if297f42d69a24f9c8260c0b9ab1a7b1e_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "4.500% Senior Notes due 2047",
+        "context": "idacebb683a1c4938b4f581b645889dae_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI47",
+        "context": "idacebb683a1c4938b4f581b645889dae_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "idacebb683a1c4938b4f581b645889dae_D20201001-20210930"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "4.950% Senior Notes due 2064",
+        "context": "i2c563cf94b674c8bab9b6b03ddc5c3f7_D20201001-20210930"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "JCI64A",
+        "context": "i2c563cf94b674c8bab9b6b03ddc5c3f7_D20201001-20210930"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i2c563cf94b674c8bab9b6b03ddc5c3f7_D20201001-20210930"
+      }
+    ],
+    "contexts": {
+      "i81320d2f38c74441b3a92fd2b9d84dc0_D20201001-20210930": "0000833444 2020-10-01 2021-09-30",
+      "i1d6885a5a4064914b7e9338483c0bce5_D20201001-20210930": "0000833444 jci:OrdinarySharesParValue001Domain 2020-10-01 2021-09-30",
+      "i687832927bd34b118d69553ae999e1b3_D20201001-20210930": "0000833444 jci:Notes4625PercentDue2023Domain 2020-10-01 2021-09-30",
+      "iccccc94126334b14b9af45697a7aaf39_D20201001-20210930": "0000833444 jci:Notes1000PercentDue2023Domain 2020-10-01 2021-09-30",
+      "i527af495c887459fb158ffdb2144e867_D20201001-20210930": "0000833444 jci:Notes3625PercentDue2024Domain 2020-10-01 2021-09-30",
+      "ic91c5f8b05f7489e909c5fd9e16e9add_D20201001-20210930": "0000833444 jci:Notes1375PercentDue2025Domain 2020-10-01 2021-09-30",
+      "i7d4954efd41543aba29d45c637e2b513_D20201001-20210930": "0000833444 jci:Notes3900PercentDue2026Domain 2020-10-01 2021-09-30",
+      "i597f22c9412b4445a1f4712a4296f1cb_D20201001-20210930": "0000833444 jci:Notes0375PercentDue2027Domain 2020-10-01 2021-09-30",
+      "i18ebf4f553984966bd462fb7a4879e41_D20201001-20210930": "0000833444 jci:Notes1750PercentDue2030Domain 2020-10-01 2021-09-30",
+      "i0facd59b9a224591ac1a67ca64115bc2_D20201001-20210930": "0000833444 jci:SustainabilityNotes2000PercentDue2031Domain 2020-10-01 2021-09-30",
+      "id165570c16dd4980b8bfa57fcecc9335_D20201001-20210930": "0000833444 jci:Notes1000PercentDue2032Domain 2020-10-01 2021-09-30",
+      "i85d00bb76a1f434ab0556fcd75a261ad_D20201001-20210930": "0000833444 jci:Notes6000PercentDue2036Domain 2020-10-01 2021-09-30",
+      "i6b9793ce308745bdaee6a58d11a900b0_D20201001-20210930": "0000833444 jci:Notes5700PercentDue2041Domain 2020-10-01 2021-09-30",
+      "icf2967208fda412db6b522180b1e414b_D20201001-20210930": "0000833444 jci:Notes5250PercentDue2041Domain 2020-10-01 2021-09-30",
+      "i72448f94bc914d6792d7c5dcd697546a_D20201001-20210930": "0000833444 jci:Notes4625PercentDue2044Domain 2020-10-01 2021-09-30",
+      "ia821e9f517fd4279963e7fb9928aa4d6_D20201001-20210930": "0000833444 jci:Notes5125PercentDue2045Domain 2020-10-01 2021-09-30",
+      "if297f42d69a24f9c8260c0b9ab1a7b1e_D20201001-20210930": "0000833444 jci:Debentures6950PercentDueDecember12045Domain 2020-10-01 2021-09-30",
+      "idacebb683a1c4938b4f581b645889dae_D20201001-20210930": "0000833444 jci:Notes4500PercentDue2047Domain 2020-10-01 2021-09-30",
+      "i2c563cf94b674c8bab9b6b03ddc5c3f7_D20201001-20210930": "0000833444 jci:Notes4950PercentDue2064Domain 2020-10-01 2021-09-30"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "0 (Address of Principal Executive Offices and Postal Code) (Registrant's Telephone Number) Securities Registered Pursuant to Section 12(b) of the Exchange Act: Title of Each Class Trading Symbol Name of Each Exchange on Which Registered Ordinary Shares, Par Value $0.01 JCI New York Stock Exchange 4.625% Notes due 2023 JCI23 New York Stock Exchange 1.000% Senior Notes due 2023 JCI23A New York Stock Exchange 3.625% Senior Notes due 2024 JCI24A New York Stock Exchange 1.375% Notes due 2025 JCI25A New York Stock Exchange 3.900% Notes due 2026 JCI26A New York Stock Exchange 0.375% Senior Notes due 2027 JCI27 New"
+      },
+      {
+        "term": "spin-off",
+        "text": "tions with Tyco\u2019s portfolio of fire and security solutions. Following the Merger, Tyco changed its name to \u201cJohnson Controls International plc.\u201d In 2016, the Company completed the spin-off of its automotive business into Adient plc, an independent, publicly traded company. In 2019, the Company sold its Power Solutions business to BCP Acquisitions LLC, an entity controlled by 3 investment funds managed by Brookfield Capital Partners LLC, completing the Company\u2019s transformation into a pure-play building technologies and solutions provider. The Company is a global leader in engineering, manufacturing and"
+      },
+      {
+        "term": "separation",
+        "text": "continually evaluate the performance and strategic fit of all of our businesses and may sell businesses or product lines. Divestitures involve risks, including difficulties in the separation of operations, services, products and personnel, the diversion of management's attention from other business concerns, the disruption of our business, the potential loss of key employees and the retention of uncertain environmental or other contingent liabilities related to the divested business. Some divestitures may be dilutive to earnings. In addition, divestitures may result in significant asset impairment charg"
+      },
+      {
+        "term": "separation",
+        "text": " applicable. 117 Johnson Controls International plc Index to Exhibits (a) (1) and (2) Financial Statements and Supplementary Data - See Item 8 (b) Exhibit Index: Exhibit Title 2.1 Separation and Distribution Agreement, dated as of September 8, 2016, by and between Johnson Controls International plc and Adient Limited (incorporated by reference to Exhibit 2.1 to the registrant\u2019s Current Report on Form 8-K filed September 9, 2016) 2.2 Agreement and Plan of Merger by and among Johnson Controls, Inc., Johnson Controls International plc (formerly Tyco International plc) and Jagara Merger Sub LLC, dated as of"
+      },
+      {
+        "term": "distribution",
+        "text": " acquired York International, a global supplier of heating, ventilating, air-conditioning (\"HVAC\") and refrigeration equipment and services. In 2014, Johnson Controls acquired Air Distribution Technologies, Inc., one of the largest independent providers of air distribution and ventilation products in North America. In 2015, Johnson Controls formed a joint venture with Hitachi to expand its building related product offerings. In 2016, Johnson Controls, Inc. and Tyco completed their combination (the \"Merger\"), combining Johnson Controls portfolio of building efficiency solutions with Tyco\u2019s portfolio of fir"
+      },
+      {
+        "term": "distribution",
+        "text": "itioning (\"HVAC\") and refrigeration equipment and services. In 2014, Johnson Controls acquired Air Distribution Technologies, Inc., one of the largest independent providers of air distribution and ventilation products in North America. In 2015, Johnson Controls formed a joint venture with Hitachi to expand its building related product offerings. In 2016, Johnson Controls, Inc. and Tyco completed their combination (the \"Merger\"), combining Johnson Controls portfolio of building efficiency solutions with Tyco\u2019s portfolio of fire and security solutions. Following the Merger, Tyco changed its name to \u201cJohnson"
+      },
+      {
+        "term": "distribution",
+        "text": " in each of the jurisdictions in which we operate. The COVID-19 outbreak has impacted, and may continue to impact, our office locations, manufacturing and servicing facilities and distribution centers, as well as those of our third-party vendors, including the effects of facility closures, reductions in operating hours and other social distancing efforts. In response to the challenges presented by COVID-19, we modified our business practices, including restricting non-essential employee travel, implementing remote work protocols, and limiting physical participation in meetings, events and conferences, and"
+      }
+    ],
+    "interval_proven": false
+  }
+}

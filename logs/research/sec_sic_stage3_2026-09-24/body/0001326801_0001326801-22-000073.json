@@ -1,0 +1,51 @@
+{
+  "kind": "body",
+  "cik": "0001326801",
+  "accession": "0001326801-22-000073",
+  "document": "fb-20220528.htm",
+  "expected_form": "8-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000073/fb-20220528.htm",
+  "retrieved_at": "2026-09-24T22:06:10.828493+00:00",
+  "sha256": "4733cdc344416c55564a5364419a343bc56b90f86f358a481c2e4233bed89885",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001326801_0001326801-22-000073.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001326801",
+        "context": "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Meta Platforms, Inc.",
+        "context": "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class A Common Stock, $0.000006 par value",
+        "context": "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "FB",
+        "context": "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Stock Market LLC",
+        "context": "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528"
+      }
+    ],
+    "contexts": {
+      "i9e27fd1ff3034a97a295010bfa1efc16_D20220528-20220528": "0001326801 2022-05-28 2022-05-28"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c)) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Class A Common Stock, $0.000006 par value FB The Nasdaq Stock Market LLC Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (\u00a7230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (\u00a7240.12b-2 of this chapter). Emerging growth company \u2610 If an emerging growth company, indic"
+      }
+    ],
+    "interval_proven": false
+  }
+}

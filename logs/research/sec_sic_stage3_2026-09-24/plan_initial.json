@@ -1,0 +1,927 @@
+[
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-21-000010",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000010/0000320193-21-000010-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-21-000056",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000056/0000320193-21-000056-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-21-000065",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000065/0000320193-21-000065-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-21-000105",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/0000320193-21-000105-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-22-000007",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000007/0000320193-22-000007-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-22-000070",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000070/0000320193-22-000070-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-22-000108",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000108/0000320193-22-000108-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0001193125-21-001982",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000119312521001982/0001193125-21-001982-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0000320193-22-000006",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000006/0000320193-22-000006-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000320193",
+    "accession": "0001193125-21-001987",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000119312521001987/0001193125-21-001987-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0000320193",
+    "accession": "0000320193-21-000105",
+    "document": "aapl-20210925.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019321000105/aapl-20210925.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-18-000180",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041318000180/0000930413-18-000180-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-000246",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319000246/0000930413-19-000246-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-18-000800",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041318000800/0000930413-18-000800-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001231",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001231/0000930413-19-001231-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001411",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001411/0000930413-19-001411-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001412",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001412/0000930413-19-001412-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0001193125-19-125772",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000119312519125772/0001193125-19-125772-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001540",
+    "expected_form": "13F-HR",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001540/0000930413-19-001540-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-19-000005",
+    "expected_form": "SD",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384019000005/0000773840-19-000005-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001940",
+    "expected_form": "11-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001940/0000930413-19-001940-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-001941",
+    "expected_form": "11-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319001941/0000930413-19-001941-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000930413-19-002021",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041319002021/0000930413-19-002021-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-19-000012",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384019000012/0000773840-19-000012-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000773840",
+    "accession": "0000773840-19-000015",
+    "expected_form": "8-K/A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384019000015/0000773840-19-000015-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0000773840",
+    "accession": "0000930413-18-000292",
+    "document": "c89913_10k.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000093041318000292/c89913_10k.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0000833444-21-000004",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344421000004/0000833444-21-000004-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0000833444-22-000003",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344422000003/0000833444-22-000003-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0001193125-21-014765",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000119312521014765/0001193125-21-014765-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0000833444-21-000050",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344421000050/0000833444-21-000050-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0001193125-22-014793",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000119312522014793/0001193125-22-014793-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000833444",
+    "accession": "0001193125-22-014802",
+    "expected_form": "DEFA14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000119312522014802/0001193125-22-014802-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0000833444",
+    "accession": "0000833444-21-000046",
+    "document": "jci-20210930.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/833444/000083344421000046/jci-20210930.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000014",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000014/0001326801-21-000014-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000033",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000033/0001326801-21-000033-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000049",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000049/0001326801-21-000049-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000065",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000065/0001326801-21-000065-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000018",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000018/0001326801-22-000018-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000082",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000082/0001326801-22-000082-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000108",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000108/0001326801-22-000108-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000011",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000011/0001326801-21-000011-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000006",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000006/0001326801-22-000006-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000022",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000022/0001326801-21-000022-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001326801",
+    "accession": "0001326801-21-000014",
+    "document": "fb-20201231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000014/fb-20201231.htm"
+  },
+  {
+    "kind": "body",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000082",
+    "document": "meta-20220630.htm",
+    "expected_form": "10-Q",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000082/meta-20220630.htm"
+  },
+  {
+    "kind": "body",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000073",
+    "document": "fb-20220528.htm",
+    "expected_form": "8-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000073/fb-20220528.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000010",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000010/0001652044-21-000010-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000020",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000020/0001652044-21-000020-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000047",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000047/0001652044-21-000047-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000057",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000057/0001652044-21-000057-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-22-000019",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204422000019/0001652044-22-000019-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-22-000071",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204422000071/0001652044-22-000071-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-22-000090",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204422000090/0001652044-22-000090-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000006",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000006/0001652044-21-000006-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001652044-22-000009",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204422000009/0001652044-22-000009-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001652044",
+    "accession": "0001308179-21-000256",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000130817921000256/0001308179-21-000256-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001652044",
+    "accession": "0001652044-21-000010",
+    "document": "goog-20201231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000010/goog-20201231.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-23-000023",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/0000040545-23-000023-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-23-000136",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000136/0000040545-23-000136-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-23-000198",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000198/0000040545-23-000198-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-23-000238",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000238/0000040545-23-000238-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-24-000027",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000027/0000040545-24-000027-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-24-000113",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000113/0000040545-24-000113-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-24-000176",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000176/0000040545-24-000176-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-24-000200",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000200/0000040545-24-000200-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0001193125-23-001157",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000119312523001157/0001193125-23-001157-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0000040545-24-000024",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054524000024/0000040545-24-000024-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000040545",
+    "accession": "0001308179-23-000208",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000130817923000208/0001308179-23-000208-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0000040545",
+    "accession": "0000040545-23-000023",
+    "document": "ge-20221231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/ge-20221231.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-23-000025",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000025/0001932393-23-000025-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-23-000112",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000112/0001932393-23-000112-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-23-000125",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000125/0001932393-23-000125-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-24-000013",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239324000013/0001932393-24-000013-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-24-000034",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239324000034/0001932393-24-000034-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-24-000044",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239324000044/0001932393-24-000044-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001193125-23-001161",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000119312523001161/0001193125-23-001161-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-24-000006",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239324000006/0001932393-24-000006-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001932393",
+    "accession": "0001932393-23-000070",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000070/0001932393-23-000070-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001932393",
+    "accession": "0001932393-23-000025",
+    "document": "gehc-20221231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000025/gehc-20221231.htm"
+  },
+  {
+    "kind": "body",
+    "cik": "0001932393",
+    "accession": "0001193125-23-001161",
+    "document": "d386556d8k.htm",
+    "expected_form": "8-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1932393/000119312523001161/d386556d8k.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-21-002828",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021002828/0001628280-21-002828-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-21-008889",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021008889/0001628280-21-008889-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-21-015351",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021015351/0001628280-21-015351-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-21-021200",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021021200/0001628280-21-021200-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-22-003992",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828022003992/0001628280-22-003992-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-22-011987",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828022011987/0001628280-22-011987-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-22-019955",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828022019955/0001628280-22-019955-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001628280-22-028658",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828022028658/0001628280-22-028658-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001104659-21-012239",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000110465921012239/0001104659-21-012239-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001104659-22-004729",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000110465922004729/0001104659-22-004729-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000718877",
+    "accession": "0001308179-21-000286",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000130817921000286/0001308179-21-000286-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0000718877",
+    "accession": "0001628280-21-002828",
+    "document": "atvi-20201231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/718877/000162828021002828/atvi-20201231.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000037",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000037/0001418091-20-000037-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000158",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000158/0001418091-20-000158-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000202",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000202/0001418091-20-000202-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-21-000031",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809121000031/0001418091-21-000031-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-21-000085",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809121000085/0001418091-21-000085-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-21-000155",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809121000155/0001418091-21-000155-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-21-000209",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809121000209/0001418091-21-000209-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000019",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000019/0001418091-20-000019-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001193125-21-016213",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000119312521016213/0001193125-21-016213-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001418091",
+    "accession": "0001140361-20-008934",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000114036120008934/0001140361-20-008934-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001418091",
+    "accession": "0001418091-20-000037",
+    "document": "twtr-20191231.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000037/twtr-20191231.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000008",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000008/0001175454-20-000008-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000020",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000020/0001175454-20-000020-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000033",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000033/0001175454-20-000033-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000046",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000046/0001175454-20-000046-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-21-000022",
+    "expected_form": "10-K",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545421000022/0001175454-21-000022-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-21-000028",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545421000028/0001175454-21-000028-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-21-000047",
+    "expected_form": "10-Q",
+    "reason": "Complete periodic window",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545421000047/0001175454-21-000047-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000003",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000003/0001175454-20-000003-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001175454-21-000011",
+    "expected_form": "8-K",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545421000011/0001175454-21-000011-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0001175454",
+    "accession": "0001140361-20-009870",
+    "expected_form": "DEF 14A",
+    "reason": "Broader-form comparison",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000114036120009870/0001140361-20-009870-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001175454",
+    "accession": "0001175454-20-000008",
+    "document": "flt10-k12312019.htm",
+    "expected_form": "10-K",
+    "reason": "Dated cover/identity evidence",
+    "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000008/flt10-k12312019.htm"
+  }
+]

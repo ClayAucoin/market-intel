@@ -1,0 +1,22 @@
+{
+  "filing_policy": "Retain complete 10-K/10-Q family as mandatory baseline; test a separately reviewed issuer-FILER 8-K/8-K/A layer next. Do not automatically adopt unrestricted Rule B.",
+  "other_forms": "Keep verified SD, proxy, 11-K and 13F observations as separately tagged research evidence; require issuer-role checks and form-specific review before granting equal default lookup authority. Ownership/subject-only SIC is excluded.",
+  "identity_policy": "Maintain stable security_id and evidence-backed effective-dated security-to-CIK bindings independently from ticker/share-class history. Preserve source acceptance and asserted effective dates separately; unresolved issuer binding is UNKNOWN for validated security classification.",
+  "timestamp_policy": "Use verified header acceptance for this study. Quarantine header/submissions disagreements for source-specific review; do not globally reinterpret Z suffixes or change production parser.",
+  "recommendation": "Supports another gated bounded study, not universe-wide or production classification.",
+  "next_scale": {
+    "issuers": 20,
+    "years_per_issuer": 2,
+    "maximum_new_SEC_attempts": 240,
+    "authorization_required": true,
+    "design": "Ten new deliberately adverse issuers plus these ten reused; complete periodic and issuer 8-K catalogues only where budget allows, prewindow seed evidence, reviewed security bindings. Report unfinished form coverage if cap binds; never expand cap implicitly."
+  },
+  "blockers": [
+    "No independent full-window security-to-CIK intervals for the 11 local securities",
+    "Broader forms sampled, not exhaustive; only two observed transitions",
+    "22 former-issuer source acceptance-clock disagreements",
+    "No prewindow seed for HON/GEHC and stale seeds for other issuers at window edges",
+    "Current retrieval vintage is not contemporaneous SEC archive proof; continuity between observations remains unproved",
+    "Prior financial-fact lineage, price-vintage and exceptional timestamp limitations remain"
+  ]
+}

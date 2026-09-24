@@ -1,0 +1,80 @@
+{
+  "kind": "body",
+  "cik": "0001652044",
+  "accession": "0001652044-21-000010",
+  "document": "goog-20201231.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204421000010/goog-20201231.htm",
+  "retrieved_at": "2026-09-24T22:06:13.981449+00:00",
+  "sha256": "38fd8f0b25a16a53b86522ebce9b52456620abb5af55755d736883a73ff4c607",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001652044_0001652044-21-000010.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001652044",
+        "context": "id34910c22088476485653e04230dc8fb_D20200101-20201231"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Alphabet Inc.",
+        "context": "id34910c22088476485653e04230dc8fb_D20200101-20201231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class\u00a0A Common Stock, $0.001 par value",
+        "context": "i98721cf93d0648b2b781093b3dd284c1_D20200101-20201231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GOOGL",
+        "context": "i98721cf93d0648b2b781093b3dd284c1_D20200101-20201231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "Nasdaq Stock Market LLC",
+        "context": "i98721cf93d0648b2b781093b3dd284c1_D20200101-20201231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class C Capital Stock, $0.001 par value",
+        "context": "i0206b6b3b2b14e22a469ede9ddd0d158_D20200101-20201231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GOOG",
+        "context": "i0206b6b3b2b14e22a469ede9ddd0d158_D20200101-20201231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "Nasdaq Stock Market LLC",
+        "context": "i0206b6b3b2b14e22a469ede9ddd0d158_D20200101-20201231"
+      }
+    ],
+    "contexts": {
+      "id34910c22088476485653e04230dc8fb_D20200101-20201231": "0001652044 2020-01-01 2020-12-31",
+      "i98721cf93d0648b2b781093b3dd284c1_D20200101-20201231": "0001652044 us-gaap:CommonClassAMember 2020-01-01 2020-12-31",
+      "i0206b6b3b2b14e22a469ede9ddd0d158_D20200101-20201231": "0001652044 goog:CapitalClassCMember 2020-01-01 2020-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "offices, including zip code) ( 650 ) 253-000 0 (Registrant's telephone number, including area code) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Class A Common Stock, $0.001 par value GOOGL Nasdaq Stock Market LLC (Nasdaq Global Select Market) Class C Capital Stock, $0.001 par value GOOG Nasdaq Stock Market LLC (Nasdaq Global Select Market) Securities registered pursuant to Section 12(g) of the Act: Title of each class None ___________________________________________ Indicate by check mark if the registrant is a w"
+      },
+      {
+        "term": "distribution",
+        "text": "ers, primarily based on our ability to generate sales leads, and ultimately customers, and to deliver their advertisements in an efficient and effective manner across a variety of distribution channels. \u2022 Content providers, primarily based on the quality of our advertiser base, our ability to help these partners generate revenues from advertising, and the terms of our agreements with them. Ongoing Commitment to Sustainability At Google, we build technology that helps people do more for the planet. We strive to build sustainability into everything we do, including designing and operating efficient data cen"
+      },
+      {
+        "term": "distribution",
+        "text": "evenues generated from our Google Network Members could also decrease in the future if we pay a larger percentage of advertising fees to them. We may also pay increased TAC to our distribution partners as well as increased content acquisition 11 Table of Contents Alphabet Inc. costs to content providers. We may also face an increase in infrastructure costs, supporting businesses such as Search, Google Cloud, and YouTube. Many of our expenses are less variable in nature and may not correlate to changes in revenues. Due to these factors and the evolving nature of our business, our historical revenue growth "
+      },
+      {
+        "term": "distribution",
+        "text": " and our internet-based services. We rely on other companies to manufacture many of our finished products, to design certain of our components and parts, and to participate in the distribution of our products and services. Our business could be negatively affected if we are not able to engage these companies with the necessary capabilities or capacity on reasonable terms, or if those we engage fail to meet their obligations (whether due to financial difficulties or other reasons), or make adverse changes in the pricing or other material terms of our arrangements with them. We have experienced and/or may e"
+      }
+    ],
+    "interval_proven": false
+  }
+}

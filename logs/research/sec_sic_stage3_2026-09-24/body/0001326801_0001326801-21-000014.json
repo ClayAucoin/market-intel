@@ -1,0 +1,63 @@
+{
+  "kind": "body",
+  "cik": "0001326801",
+  "accession": "0001326801-21-000014",
+  "document": "fb-20201231.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680121000014/fb-20201231.htm",
+  "retrieved_at": "2026-09-24T22:06:09.435147+00:00",
+  "sha256": "35d9ee3b627c988c50270b2f272197c9f9e357a276c7b06da7008a51688222a5",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001326801_0001326801-21-000014.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001326801",
+        "context": "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Facebook, Inc.",
+        "context": "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class A Common Stock, $0.000006 par value",
+        "context": "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "FB",
+        "context": "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Stock Market LLC",
+        "context": "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231"
+      }
+    ],
+    "contexts": {
+      "ia430c26f2c43408bb9b46d03e798cb25_D20200101-20201231": "0001326801 2020-01-01 2020-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "e) ( 650 ) 543-4800 (Registrant's telephone number, including area code) __________________________ Securities registered pursuant to Section 12(b) of the Ac t Title of each class Trading symbol(s) Name of each exchange on which registered Class A Common Stock, $0.000006 par value FB The Nasdaq Stock Market LLC Securities registered pursuant to Section 12(g) of the Act: None Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes \u2610 No \u2612 Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 or Sectio"
+      },
+      {
+        "term": "distribution",
+        "text": "and regulations involve matters including privacy, data use, data protection and personal information, rights of publicity, content, intellectual property, advertising, marketing, distribution, data security, data retention and deletion, data localization and storage, data disclosure, artificial intelligence, electronic contracts and other communications, competition, protection of minors, consumer protection, telecommunications, product liability, e-commerce, taxation, economic or other trade prohibitions or sanctions, anti-corruption and political law compliance, securities law compliance, and online pa"
+      },
+      {
+        "term": "distribution",
+        "text": "tribute our products, give preferential treatment to competitive products, limit our ability to deliver, target, or measure the effectiveness of ads, or charge fees related to the distribution of our products or our delivery of ads could adversely affect the usage of Facebook or our other products and monetization on mobile devices. For example, Apple previously released an update to its Safari browser that limits the use of third-party cookies, which reduces our ability to provide the most relevant ads to our users and impacts monetization, and more recently announced changes to iOS 14 that will limit ou"
+      },
+      {
+        "term": "distribution",
+        "text": "products that do not offer access to Facebook or our other products, our user growth and user engagement could be harmed. From time to time, we may also take actions regarding the distribution of our products or the operation of our business based on what we believe to be in our long-term best interests. Such actions may adversely affect our users and our relationships with the operators of mobile operating systems, handset manufacturers, mobile carriers, browser developers, other business partners, or advertisers, and there is no assurance that these actions will result in the anticipated long-term benef"
+      }
+    ],
+    "interval_proven": false
+  }
+}

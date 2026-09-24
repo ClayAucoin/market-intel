@@ -1,0 +1,63 @@
+{
+  "kind": "body",
+  "cik": "0001175454",
+  "accession": "0001175454-20-000008",
+  "document": "flt10-k12312019.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545420000008/flt10-k12312019.htm",
+  "retrieved_at": "2026-09-24T22:07:21.458013+00:00",
+  "sha256": "a60dd863d4d21bd0ddd504402a946ec5245cf8b68557bf1059e4b388b7c8d21c",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001175454_0001175454-20-000008.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001175454",
+        "context": "FD2019Q4YTD"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "FLEETCOR TECHNOLOGIES, INC.",
+        "context": "FD2019Q4YTD"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common Stock, $0.001 par value per share",
+        "context": "FD2019Q4YTD"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "FLT",
+        "context": "FD2019Q4YTD"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "NYSE",
+        "context": "FD2019Q4YTD"
+      }
+    ],
+    "contexts": {
+      "FD2019Q4YTD": "0001175454 2019-01-01 2019-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": " executive offices) (Zip Code) Registrant\u2019s telephone number, including area code: ( 770 ) 449-0479 Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common Stock, $0.001 par value per share FLT NYSE Securities registered pursuant to Section 12(g) of the Act: NONE __________________________________________________________ Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes \u2612 No \u2610 Indicate by check mark if the registrant is not required to file repo"
+      },
+      {
+        "term": "distribution",
+        "text": "rketers, value-added resellers (VARs) and referral partners. We believe that our size and scale, product breadth and specialization, geographic reach, proprietary networks, robust distribution capabilities and advanced technology contribute to our industry leading position. Products and services We offer specialized payment solutions predominately for commercial businesses. Our payment solutions are intended to provide our customers with a payment method superior to that which they formerly used, whether they used a competitor\u2019s product or another alternative method such as cash or check. Our solutions ar"
+      },
+      {
+        "term": "distribution",
+        "text": "ss numerous industry verticals and particularly those verticals with significant vehicle fueling needs such as trucking, construction, manufacturing, energy, and consumer products distribution. Our indirect channel includes our partners, such as major oil companies, leasing companies and fuel marketers. We generally provide our fuel payments solutions to our partners who offer our services under their own brands on a \u201cwhite-label\u201d basis. In turn, we leverage our partners\u2019 brands, retail outlets, websites, and sales forces to help distribute our fuel payment products. 6 Table of Contents In Brazil, we have"
+      },
+      {
+        "term": "distribution",
+        "text": "-brand this product with BR Distribuidora (Petrobas) or Ipiranga Distribuidora, depending on which fuel distributor provides fuel to our fleet clients via its retail and wholesale distribution operations. With regard to our fuel payment products, we compete with independent fuel card issuers, major oil companies and petroleum marketers. Excluding major oil companies, our most significant competitors in this product category include WEX, U.S. Bank Voyager Fleet Systems, World Fuel Services, Edenred, Sodexo, Alelo, DKV, and Radius Payment Solutions. Long haul transportation services In addition to, and ofte"
+      }
+    ],
+    "interval_proven": false
+  }
+}

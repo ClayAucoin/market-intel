@@ -1,0 +1,188 @@
+{
+  "kind": "body",
+  "cik": "0000040545",
+  "accession": "0000040545-23-000023",
+  "document": "ge-20221231.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054523000023/ge-20221231.htm",
+  "retrieved_at": "2026-09-24T22:06:37.365303+00:00",
+  "sha256": "46145e2d6c5b0c20eff7a4f111047915ea61216cbfa70292d05c38f9aca4c275",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0000040545_0000040545-23-000023.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0000040545",
+        "context": "if0cc44b875a84cd3909cdd03262feb78_D20220101-20221231"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "GENERAL ELECTRIC COMPANY",
+        "context": "if0cc44b875a84cd3909cdd03262feb78_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common stock, par value $0.01 per share",
+        "context": "i9367dcda086d447a8409da63bb68165f_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE",
+        "context": "i9367dcda086d447a8409da63bb68165f_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i9367dcda086d447a8409da63bb68165f_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.250% Notes due 2023",
+        "context": "i8c32083aee494ac589873b4bd72a453a_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE 23E",
+        "context": "i8c32083aee494ac589873b4bd72a453a_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i8c32083aee494ac589873b4bd72a453a_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "0.875% Notes due 2025",
+        "context": "i4fd5aa64c12c4b809904ab6406affd6d_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE 25",
+        "context": "i4fd5aa64c12c4b809904ab6406affd6d_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i4fd5aa64c12c4b809904ab6406affd6d_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.875% Notes due 2027",
+        "context": "i4a362331ca2842c59d50737392dfede2_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE 27E",
+        "context": "i4a362331ca2842c59d50737392dfede2_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i4a362331ca2842c59d50737392dfede2_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.500% Notes due 2029",
+        "context": "ib55698c1de6d48cc954f30ee4f41a97c_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE 29",
+        "context": "ib55698c1de6d48cc954f30ee4f41a97c_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "ib55698c1de6d48cc954f30ee4f41a97c_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "7 1/2% Guaranteed Subordinated Notes due 2035",
+        "context": "i71c2f11601d7419e9abf64e52d29b3de_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE /35",
+        "context": "i71c2f11601d7419e9abf64e52d29b3de_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i71c2f11601d7419e9abf64e52d29b3de_D20220101-20221231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "2.125% Notes due 2037",
+        "context": "i4e2bb906dd664312b8b2d2a593c060a5_D20220101-20221231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GE 37",
+        "context": "i4e2bb906dd664312b8b2d2a593c060a5_D20220101-20221231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i4e2bb906dd664312b8b2d2a593c060a5_D20220101-20221231"
+      }
+    ],
+    "contexts": {
+      "if0cc44b875a84cd3909cdd03262feb78_D20220101-20221231": "0000040545 2022-01-01 2022-12-31",
+      "i9367dcda086d447a8409da63bb68165f_D20220101-20221231": "0000040545 us-gaap:CommonStockMember 2022-01-01 2022-12-31",
+      "i8c32083aee494ac589873b4bd72a453a_D20220101-20221231": "0000040545 ge:A1.250NotesDue2023Member 2022-01-01 2022-12-31",
+      "i4fd5aa64c12c4b809904ab6406affd6d_D20220101-20221231": "0000040545 ge:A0.875NotesDue2025Member 2022-01-01 2022-12-31",
+      "i4a362331ca2842c59d50737392dfede2_D20220101-20221231": "0000040545 ge:A1.875NotesDue2027Member 2022-01-01 2022-12-31",
+      "ib55698c1de6d48cc954f30ee4f41a97c_D20220101-20221231": "0000040545 ge:A1.500NotesDue2029Member 2022-01-01 2022-12-31",
+      "i71c2f11601d7419e9abf64e52d29b3de_D20220101-20221231": "0000040545 ge:A7.5GuaranteedSubordinatedNotesDue2035Member 2022-01-01 2022-12-31",
+      "i4e2bb906dd664312b8b2d2a593c060a5_D20220101-20221231": "0000040545 ge:A2.125NotesDue2037Member 2022-01-01 2022-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "executive offices) (Zip Code) (Registrant\u2019s telephone number, including area code) ( 617 ) 443-3000 Securities Registered Pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common stock, par value $0.01 per share GE New York Stock Exchange 1.250% Notes due 2023 GE 23E New York Stock Exchange 0.875% Notes due 2025 GE 25 New York Stock Exchange 1.875% Notes due 2027 GE 27E New York Stock Exchange 1.500% Notes due 2029 GE 29 New York Stock Exchange 7 1/2% Guaranteed Subordinated Notes due 2035 GE /35 New York Stock Exchange 2.125% Notes due 203"
+      },
+      {
+        "term": "ticker symbol",
+        "text": "n December 31 for each year indicated. With respect to \u201cMarket Information,\u201d in the United States, General Electric common stock is listed on the New York Stock Exchange under the ticker symbol \"GE\" (its principal market). General Electric common stock is also listed on the London Stock Exchange, Euronext Paris and the SIX Swiss Exchange. As of January 31, 2023, there were approximately 276,000 shareholder accounts of record. PURCHASES OF EQUITY SECURITIES BY THE ISSUER AND AFFILIATED PURCHASERS . On March 6, 2022, the Board of Directors authorized up to $3 billion of common share repurchases. We repurchas"
+      },
+      {
+        "term": "spin-off",
+        "text": "g statements by their nature address matters that are, to different degrees, uncertain, such as statements about planned and potential transactions, including our plan to pursue a spin-off of our portfolio of energy businesses that are planned to be combined as GE Vernova (Renewable Energy, Power, Digital and Energy Financial Services); the impacts of macroeconomic and market conditions and volatility on our business operations, financial results and financial position and on the global supply chain and world economy; our expected financial performance, including cash flows, revenues, organic growth, "
+      },
+      {
+        "term": "spin-off",
+        "text": " materially different than those expressed in our forward-looking statements include: \u2022 our success in executing planned and potential transactions, including our plan to pursue a spin-off of GE Vernova, and sales or other dispositions of our equity interests in AerCap Holdings N.V. (AerCap) and GE HealthCare, the timing for such transactions, the ability to satisfy any applicable pre-conditions, and the expected proceeds, consideration and benefits to GE; \u2022 changes in macroeconomic and market conditions and market volatility, including impacts related to the COVID-19 pandemic, risk of recession, infl"
+      },
+      {
+        "term": "spin-off",
+        "text": "cation plans, including de-leveraging actions to reduce GE's indebtedness, the capital structures of the public companies that we plan to form from our businesses with the planned spin-off, the timing and amount of dividends, share repurchases, acquisitions, organic investments, and other priorities; \u2022 downgrades of our current short- and long-term credit ratings or ratings outlooks, or changes in rating application or methodology, and the related impact on our funding profile, costs, liquidity and competitive position; \u2022 the amount and timing of our cash flows and earnings, which may be impacted by m"
+      },
+      {
+        "term": "separation",
+        "text": "68 Note 1 6 Shareholders' Equity 71 Note 1 7 Share-Based Compensation 72 Note 18 Earnings Per Share Information 73 Note 19 Other Income (Loss) 73 Note 20 Restructuring Charges and Separation Costs 74 Note 2 1 Fair Value Measurements 75 Note 2 2 Financial Instruments 75 Note 2 3 Variable Interest Entities 77 Note 2 4 Commitments, Guarantees, Product Warranties and Other Loss Contingencies 77 Note 2 5 Operating Segments 80 Note 2 6 Summarized Financial Information 83 Note 2 7 Quarterly Information 85 Note 2 8 Subsequent Event 85 Directors, Executive Officers and Corporate Governance 86 Exhibits and Financ"
+      },
+      {
+        "term": "separation",
+        "text": "reviously Aviation), HealthCare (previously Healthcare), Renewable Energy and Power. The composition of these reporting segments is unchanged. On January 3, 2023, we completed the separation of the HealthCare business from GE through the spin-off of GE HealthCare Technologies Inc. (GE HealthCare). In the spin-off, GE made a pro-rata distribution of approximately 80.1% of the shares of GE HealthCare\u2019s common stock to GE shareholders, retaining approximately 19.9% of GE HealthCare common stock. This spin-off marked the culmination of our first business separation in accordance with the November 2021 strat"
+      },
+      {
+        "term": "separation",
+        "text": " shares of GE HealthCare\u2019s common stock to GE shareholders, retaining approximately 19.9% of GE HealthCare common stock. This spin-off marked the culmination of our first business separation in accordance with the November 2021 strategic plan, and we are working toward the planned spin-off of GE Vernova. Over our more than 130-year history, GE\u2019s innovation and technology have improved quality of life around the world by adapting and innovating solutions to pressing global challenges related to the future of flight, the energy transition and precision healthcare. At GE Aerospace, with a differentiated pr"
+      },
+      {
+        "term": "distribution",
+        "text": ", 2023, we completed the separation of the HealthCare business from GE through the spin-off of GE HealthCare Technologies Inc. (GE HealthCare). In the spin-off, GE made a pro-rata distribution of approximately 80.1% of the shares of GE HealthCare\u2019s common stock to GE shareholders, retaining approximately 19.9% of GE HealthCare common stock. This spin-off marked the culmination of our first business separation in accordance with the November 2021 strategic plan, and we are working toward the planned spin-off of GE Vernova. Over our more than 130-year history, GE\u2019s innovation and technology have improved qu"
+      },
+      {
+        "term": "distribution",
+        "text": "poses for the Company or its shareholders. If either of the separation transactions were ultimately determined to be taxable, we would incur a significant tax liability, while the distributions to the Company\u2019s shareholders would become taxable and the new independent companies might incur income tax liabilities as well. Furthermore, there can be no assurance that each separate company will be successful as a standalone public company. Whether or not the GE Vernova separation transaction is completed, our businesses may face material challenges as a result of the GE HealthCare separation and in connection"
+      },
+      {
+        "term": "distribution",
+        "text": "tions and discontinued operations may not equal the total per-share amounts for net earnings (loss) for the respective quarters. NOTE 28. SUBSEQUENT EVENT. On January 3, 2023 (the Distribution Date), GE completed the previously announced separation of its HealthCare business, into a separate, independent publicly traded company, GE HealthCare Technologies, Inc. (GE HealthCare). The Separation was structured as a tax-free spin-off, and was achieved through GE's pro-rata distribution of approximately 80.1 % of the outstanding shares of GE HealthCare to holders of GE common stock. On the Distribution Date, e"
+      }
+    ],
+    "interval_proven": false
+  }
+}

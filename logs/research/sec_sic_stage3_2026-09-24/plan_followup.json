@@ -1,0 +1,28 @@
+[
+  {
+    "kind": "body",
+    "cik": "0000773840",
+    "accession": "0000773840-19-000013",
+    "expected_form": "10-Q",
+    "reason": "Follow-up: 2018 cover lacks ticker tags; test later cover",
+    "document": "hon0630201910q.htm",
+    "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384019000013/hon0630201910q.htm"
+  },
+  {
+    "kind": "header",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000070",
+    "expected_form": "8-K",
+    "reason": "Follow-up: verify ticker announcement candidate; initial June 1 document only shows FB",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000070/0001326801-22-000070-index-headers.html"
+  },
+  {
+    "kind": "body",
+    "cik": "0001326801",
+    "accession": "0001326801-22-000070",
+    "expected_form": "8-K",
+    "reason": "Follow-up: verify ticker announcement candidate; initial June 1 document only shows FB",
+    "document": "fb-20220531.htm",
+    "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000070/fb-20220531.htm"
+  }
+]

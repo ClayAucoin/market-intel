@@ -1,0 +1,63 @@
+{
+  "kind": "body",
+  "cik": "0001326801",
+  "accession": "0001326801-22-000082",
+  "document": "meta-20220630.htm",
+  "expected_form": "10-Q",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000082/meta-20220630.htm",
+  "retrieved_at": "2026-09-24T22:06:10.189144+00:00",
+  "sha256": "1f74e0a54428ef7f8224b2cdedcea4b90f7bf270dae49249c990bed3ba97a0ba",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001326801_0001326801-22-000082.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001326801",
+        "context": "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Meta Platforms, Inc.",
+        "context": "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class A Common Stock, $0.000006 par value",
+        "context": "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "META",
+        "context": "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Stock Market LLC",
+        "context": "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630"
+      }
+    ],
+    "contexts": {
+      "i29bc165ba5764a109fcc7bf21ef893dd_D20220101-20220630": "0001326801 2022-01-01 2022-06-30"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "0 (Registrant's telephone number, including area code) ____________________________________________ Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading symbol(s) Name of each exchange on which registered Class A Common Stock, $0.000006 par value META The Nasdaq Stock Market LLC Indicate by check mark whether the registrant (1) has filed all reports required to be filed by Section 13 or 15(d) of the Securities Exchange Act of 1934 (Exchange Act) during the preceding 12 months (or for such shorter period that the registrant was required to file such reports), and (2) has be"
+      },
+      {
+        "term": "distribution",
+        "text": "bles, and related software and content. Cost of Revenue and Operating Expenses Cost of revenue. Our cost of revenue consists primarily of expenses associated with the delivery and distribution of our products. These include expenses related to the operation of our data centers and technical infrastructure, such as depreciation expense from servers, network infrastructure and buildings, as well as payroll and related expenses which include share-based compensation for employees on our operations teams, and energy and bandwidth costs. Cost of revenue also includes costs associated with partner arrangements,"
+      },
+      {
+        "term": "distribution",
+        "text": "tribute our products, give preferential treatment to competitive products, limit our ability to deliver, target, or measure the effectiveness of ads, or charge fees related to the distribution of our products or our delivery of ads have in the past adversely affected, and could in the future adversely affect, the usage of our products and monetization on mobile devices. For example, Apple previously released an update to its Safari browser that limits the use of third-party cookies, which reduces our ability to provide the most relevant ads to our users and impacts monetization, and also released changes "
+      },
+      {
+        "term": "distribution",
+        "text": "ducts that do not offer access to our products, our user 60 Table of Contents growth and user engagement could be harmed. From time to time, we may also take actions regarding the distribution of our products or the operation of our business based on what we believe to be in our long-term best interests. Such actions may adversely affect our users and our relationships with the operators of mobile operating systems, handset manufacturers, mobile carriers, browser developers, other business partners, or advertisers, and there is no assurance that these actions will result in the anticipated long-term benef"
+      }
+    ],
+    "interval_proven": false
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "kind": "body",
+  "cik": "0001326801",
+  "accession": "0001326801-22-000070",
+  "expected_form": "8-K",
+  "reason": "Follow-up: verify ticker announcement candidate; initial June 1 document only shows FB",
+  "document": "fb-20220531.htm",
+  "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000070/fb-20220531.htm",
+  "retrieved_at": "2026-09-24T22:07:59.685709+00:00",
+  "sha256": "2ad8aaf484479e2f7573c0691e1bdae2b575627da64483f0091fc6d7fa579ccf",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001326801_0001326801-22-000070.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001326801",
+        "context": "i4f50aa80428946c2b67114644de59a43_D20220531-20220531"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Meta Platforms, Inc.",
+        "context": "i4f50aa80428946c2b67114644de59a43_D20220531-20220531"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Class A Common Stock, $0.000006 par value",
+        "context": "i4f50aa80428946c2b67114644de59a43_D20220531-20220531"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "FB",
+        "context": "i4f50aa80428946c2b67114644de59a43_D20220531-20220531"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Stock Market LLC",
+        "context": "i4f50aa80428946c2b67114644de59a43_D20220531-20220531"
+      }
+    ],
+    "contexts": {
+      "i4f50aa80428946c2b67114644de59a43_D20220531-20220531": "0001326801 2022-05-31 2022-05-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c)) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Class A Common Stock, $0.000006 par value FB The Nasdaq Stock Market LLC Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (\u00a7230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (\u00a7240.12b-2 of this chapter). Emerging growth company \u2610 If an emerging growth company, indic"
+      },
+      {
+        "term": "ticker symbol",
+        "text": "r Events. On May 31, 2022, Meta Platforms, Inc. issued a press release announcing that its Class A common stock will begin trading on The Nasdaq Global Select Market under the new ticker symbol 'META' prior to market open on June 9, 2022. A copy of the press release is attached hereto as Exhibit 99.1 and is incorporated herein by reference. Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Exhibit Title or Description 99.1 Press release dated May 31, 2022 104 Cover Page Interactive Data File (the cover page XBRL tags are embedded within the inline XBRL document) SIGNATURES Pursuant t"
+      },
+      {
+        "term": "June 9, 2022",
+        "text": "c. issued a press release announcing that its Class A common stock will begin trading on The Nasdaq Global Select Market under the new ticker symbol 'META' prior to market open on June 9, 2022. A copy of the press release is attached hereto as Exhibit 99.1 and is incorporated herein by reference. Item 9.01 Financial Statements and Exhibits. (d) Exhibits Exhibit Number Exhibit Title or Description 99.1 Press release dated May 31, 2022 104 Cover Page Interactive Data File (the cover page XBRL tags are embedded within the inline XBRL document) SIGNATURES Pursuant to the requirements of the Securities Exchang"
+      }
+    ],
+    "interval_proven": false
+  }
+}

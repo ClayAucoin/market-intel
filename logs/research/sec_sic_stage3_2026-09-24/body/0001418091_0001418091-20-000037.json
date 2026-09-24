@@ -1,0 +1,59 @@
+{
+  "kind": "body",
+  "cik": "0001418091",
+  "accession": "0001418091-20-000037",
+  "document": "twtr-20191231.htm",
+  "expected_form": "10-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1418091/000141809120000037/twtr-20191231.htm",
+  "retrieved_at": "2026-09-24T22:07:08.537230+00:00",
+  "sha256": "60eec80f6b6930b64d5a190e06ac72d8323c515c21c1d4babffbad23f1fc6114",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001418091_0001418091-20-000037.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001418091",
+        "context": "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Twitter, Inc.",
+        "context": "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common Stock, par value $0.000005 per share",
+        "context": "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "TWTR",
+        "context": "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "New York Stock Exchange",
+        "context": "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231"
+      }
+    ],
+    "contexts": {
+      "i39f4d34365b940509d5141802f5cb4fd_D20190101-20191231": "0001418091 2019-01-01 2019-12-31"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "t\u2019s telephone number, including area code) ________________________________________________________ Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common Stock, par value $0.000005 per share TWTR New York Stock Exchange Securities registered pursuant to Section 12(g) of the Act: None Indicate by check mark if the registrant is a well-known seasoned issuer, as defined in Rule 405 of the Securities Act. Yes \u2612 No \u2610 Indicate by check mark if the registrant is not required to file reports pursuant to Section 13 or 15(d) "
+      },
+      {
+        "term": "distribution",
+        "text": "tform for public self-expression and conversation in real time. Twitter allows people to consume, create, distribute and discover content and has democratized content creation and distribution. Through Topics, Trends, and Moments, we help people discover what\u2019s happening live. We also continue to implement live broadcasts across Twitter, including through partnerships with media outlets and our platform partners. Media outlets and our platform partners also help extend the reach of Twitter content by distributing Tweets beyond our products to complement their content. Periscope is a mobile application tha"
+      },
+      {
+        "term": "distribution",
+        "text": "cipients of the securities in this transaction represented their intentions to acquire the securities for investment only and not with a view to or for sale in connection with any distribution thereof, and appropriate legends were placed upon the stock certificates issued in this transaction. All recipients had adequate access, through their relationships with us or otherwise, to information about us. The issuance of these securities was made without any general solicitation or advertising. 30 Table of Contents Performance Graph This performance graph shall not be deemed \u201csoliciting material\u201d or to be \u201cfi"
+      }
+    ],
+    "interval_proven": false
+  }
+}

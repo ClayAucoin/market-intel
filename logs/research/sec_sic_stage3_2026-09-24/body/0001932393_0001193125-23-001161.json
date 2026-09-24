@@ -1,0 +1,87 @@
+{
+  "kind": "body",
+  "cik": "0001932393",
+  "accession": "0001193125-23-001161",
+  "document": "d386556d8k.htm",
+  "expected_form": "8-K",
+  "reason": "Dated cover/identity evidence",
+  "url": "https://www.sec.gov/Archives/edgar/data/1932393/000119312523001161/d386556d8k.htm",
+  "retrieved_at": "2026-09-24T22:06:41.682347+00:00",
+  "sha256": "d1b11d494813d7e2e796efbb80386158c458f345ca3dfabeb86a824a74a201d2",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0001932393_0001193125-23-001161.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0001932393",
+        "context": "duration_2023-01-03_to_2023-01-03"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "GE HEALTHCARE TECHNOLOGIES INC.",
+        "context": "duration_2023-01-03_to_2023-01-03"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common stock, par value $0.01 per share",
+        "context": "duration_2023-01-03_to_2023-01-03"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "GEHC",
+        "context": "duration_2023-01-03_to_2023-01-03"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The Nasdaq Stock Market LLC",
+        "context": "duration_2023-01-03_to_2023-01-03"
+      }
+    ],
+    "contexts": {
+      "duration_2023-01-03_to_2023-01-03": "0001932393 2023-01-03 2023-01-03"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": "-commencement communications pursuant to Rule 13e-4(c) under the Exchange Act (17 CFR 240.13e-4(c)) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common stock, par value $0.01 per share GEHC The Nasdaq Stock Market LLC Indicate by check mark whether the registrant is an emerging growth company as defined in Rule 405 of the Securities Act of 1933 (\u00a7 230.405 of this chapter) or Rule 12b-2 of the Securities Exchange Act of 1934 (\u00a7 240.12b-2 of this chapter). Emerging Growth Company \u2610 If an emerging growth company, ind"
+      },
+      {
+        "term": "spin-off",
+        "text": " shares of the common stock of GE HealthCare Technologies Inc. (\u201cGE HealthCare,\u201d the \u201cCompany,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d) by GE to holders of GE common stock on a pro rata basis (the \u201cSpin-Off\u201d). Each holder of record of GE common stock received one share of our common stock for every three shares of GE common stock held on December 16, 2022 (the \u201cRecord Date\u201d). On or prior to the Distribution Date, in connection with the Spin-Off, we entered into several agreements with GE that set forth the principal actions taken or to be taken in connection with the Spin-Off and that govern the relationship between us"
+      },
+      {
+        "term": "spin-off",
+        "text": "one share of our common stock for every three shares of GE common stock held on December 16, 2022 (the \u201cRecord Date\u201d). On or prior to the Distribution Date, in connection with the Spin-Off, we entered into several agreements with GE that set forth the principal actions taken or to be taken in connection with the Spin-Off and that govern the relationship between us and GE following the Spin-Off, including the following agreements: \u2022 a Separation and Distribution Agreement; \u2022 a Transition Services Agreement; \u2022 a Tax Matters Agreement; \u2022 an Employee Matters Agreement; \u2022 a Trademark License Agreement; \u2022 a"
+      },
+      {
+        "term": "spin-off",
+        "text": "the Distribution Date, in connection with the Spin-Off, we entered into several agreements with GE that set forth the principal actions taken or to be taken in connection with the Spin-Off and that govern the relationship between us and GE following the Spin-Off, including the following agreements: \u2022 a Separation and Distribution Agreement; \u2022 a Transition Services Agreement; \u2022 a Tax Matters Agreement; \u2022 an Employee Matters Agreement; \u2022 a Trademark License Agreement; \u2022 a Real Estate Matters Agreement; and \u2022 a Stockholder and Registration Rights Agreement. The descriptions included below of the Separati"
+      },
+      {
+        "term": "separation",
+        "text": "pal actions taken or to be taken in connection with the Spin-Off and that govern the relationship between us and GE following the Spin-Off, including the following agreements: \u2022 a Separation and Distribution Agreement; \u2022 a Transition Services Agreement; \u2022 a Tax Matters Agreement; \u2022 an Employee Matters Agreement; \u2022 a Trademark License Agreement; \u2022 a Real Estate Matters Agreement; and \u2022 a Stockholder and Registration Rights Agreement. The descriptions included below of the Separation and Distribution Agreement, Transition Services Agreement, Tax Matters Agreement, Employee Matters Agreement, Trademark Lic"
+      },
+      {
+        "term": "separation",
+        "text": "atters Agreement; \u2022 a Trademark License Agreement; \u2022 a Real Estate Matters Agreement; and \u2022 a Stockholder and Registration Rights Agreement. The descriptions included below of the Separation and Distribution Agreement, Transition Services Agreement, Tax Matters Agreement, Employee Matters Agreement, Trademark License Agreement, Real Estate Matters Agreement, and Stockholder and Registration Rights Agreement do not purport to be complete and are qualified in their entirety by reference to the full text of such agreements, which are filed as Exhibits 2.1, 10.1, 10.2, 10.3, 10.4, 10.5, and 10.6, respective"
+      },
+      {
+        "term": "separation",
+        "text": "of such agreements, which are filed as Exhibits 2.1, 10.1, 10.2, 10.3, 10.4, 10.5, and 10.6, respectively, to this Current Report on Form 8-K and incorporated herein by reference. Separation and Distribution Agreement We entered into a Separation and Distribution Agreement with GE before the Spin-Off. The Separation and Distribution Agreement sets forth our agreements with GE regarding the principal actions to be taken in connection with the Spin-Off. It also sets forth other agreements that govern aspects of our relationship with GE following the Spin-Off. Transfer of Assets and Assumption of Liabiliti"
+      },
+      {
+        "term": "distribution",
+        "text": " or revised financial accounting standards provided pursuant to Section 13(a) of the Exchange Act. \u2610 Item 1.01 Entry into a Material Definitive Agreement. On January 3, 2023 (the \u201cDistribution Date\u201d), General Electric Company (\u201cGE\u201d) completed the previously announced distribution of approximately 80.1% of the shares of the common stock of GE HealthCare Technologies Inc. (\u201cGE HealthCare,\u201d the \u201cCompany,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d) by GE to holders of GE common stock on a pro rata basis (the \u201cSpin-Off\u201d). Each holder of record of GE common stock received one share of our common stock for every three shares of GE c"
+      },
+      {
+        "term": "distribution",
+        "text": "hange Act. \u2610 Item 1.01 Entry into a Material Definitive Agreement. On January 3, 2023 (the \u201cDistribution Date\u201d), General Electric Company (\u201cGE\u201d) completed the previously announced distribution of approximately 80.1% of the shares of the common stock of GE HealthCare Technologies Inc. (\u201cGE HealthCare,\u201d the \u201cCompany,\u201d \u201cwe,\u201d \u201cus,\u201d or \u201cour\u201d) by GE to holders of GE common stock on a pro rata basis (the \u201cSpin-Off\u201d). Each holder of record of GE common stock received one share of our common stock for every three shares of GE common stock held on December 16, 2022 (the \u201cRecord Date\u201d). On or prior to the Distributi"
+      },
+      {
+        "term": "distribution",
+        "text": "der of record of GE common stock received one share of our common stock for every three shares of GE common stock held on December 16, 2022 (the \u201cRecord Date\u201d). On or prior to the Distribution Date, in connection with the Spin-Off, we entered into several agreements with GE that set forth the principal actions taken or to be taken in connection with the Spin-Off and that govern the relationship between us and GE following the Spin-Off, including the following agreements: \u2022 a Separation and Distribution Agreement; \u2022 a Transition Services Agreement; \u2022 a Tax Matters Agreement; \u2022 an Employee Matters Agreement"
+      }
+    ],
+    "interval_proven": false
+  }
+}

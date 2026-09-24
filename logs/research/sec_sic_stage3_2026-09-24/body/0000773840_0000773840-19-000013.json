@@ -1,0 +1,136 @@
+{
+  "kind": "body",
+  "cik": "0000773840",
+  "accession": "0000773840-19-000013",
+  "expected_form": "10-Q",
+  "reason": "Follow-up: 2018 cover lacks ticker tags; test later cover",
+  "document": "hon0630201910q.htm",
+  "url": "https://www.sec.gov/Archives/edgar/data/773840/000077384019000013/hon0630201910q.htm",
+  "retrieved_at": "2026-09-24T22:07:58.383246+00:00",
+  "sha256": "83b9b1fb6db7749bc16cae46c24f46e184db1c456d8720c322f614b56055f663",
+  "raw_gzip": "logs/research/sec_sic_stage3_2026-09-24/body/0000773840_0000773840-19-000013.html.gz",
+  "identity": {
+    "facts": [
+      {
+        "concept": "EntityCentralIndexKey",
+        "value": "0000773840",
+        "context": "FD2019Q2YTD"
+      },
+      {
+        "concept": "EntityRegistrantName",
+        "value": "Honeywell International Inc",
+        "context": "FD2019Q2YTD"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "Common Stock, par value $1 per share*",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_us-gaap_CommonStockMember"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "HON",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_us-gaap_CommonStockMember"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The New York Stock Exchange",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_us-gaap_CommonStockMember"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "0.650% Senior Notes due 2020",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes65Due2020Member"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "HON 20",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes65Due2020Member"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The New York Stock Exchange",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes65Due2020Member"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "1.300% Senior Notes due 2023",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes130Due2023Member"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "HON 23A",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes130Due2023Member"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The New York Stock Exchange",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes130Due2023Member"
+      },
+      {
+        "concept": "Security12bTitle",
+        "value": "2.250% Senior Notes due 2028",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes225Due2028Member"
+      },
+      {
+        "concept": "TradingSymbol",
+        "value": "HON 28A",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes225Due2028Member"
+      },
+      {
+        "concept": "SecurityExchangeName",
+        "value": "The New York Stock Exchange",
+        "context": "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes225Due2028Member"
+      }
+    ],
+    "contexts": {
+      "FD2019Q2YTD": "0000773840 2019-01-01 2019-06-30",
+      "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_us-gaap_CommonStockMember": "0000773840 us-gaap:CommonStockMember 2019-01-01 2019-06-30",
+      "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes65Due2020Member": "0000773840 hon:EuroNotes65Due2020Member 2019-01-01 2019-06-30",
+      "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes130Due2023Member": "0000773840 hon:EuroNotes130Due2023Member 2019-01-01 2019-06-30",
+      "FD2019Q2YTD_us-gaap_StatementClassOfStockAxis_hon_EuroNotes225Due2028Member": "0000773840 hon:EuroNotes225Due2028Member 2019-01-01 2019-06-30"
+    },
+    "snippets": [
+      {
+        "term": "trading symbol",
+        "text": ") Not Applicable (Former name, former address and former fiscal year, if changed since last report) Securities registered pursuant to Section 12(b) of the Act: Title of each class Trading Symbol(s) Name of each exchange on which registered Common Stock, par value $1 per share* HON The New York Stock Exchange 0.650% Senior Notes due 2020 HON 20 The New York Stock Exchange 1.300% Senior Notes due 2023 HON 23A The New York Stock Exchange 2.250% Senior Notes due 2028 HON 28A The New York Stock Exchange * The common stock is also listed on the London Stock Exchange Indicate by check mark whether the registrant ("
+      },
+      {
+        "term": "spin-off",
+        "text": "es. Our actual closing dates for the three and six months ended June 30, 2019 and 2018 were June 29, 2019 and June 30, 2018. On October 1, 2018, the Company completed the tax-free spin-off to Honeywell shareowners of its Transportation Systems business, previously part of Aerospace, into a standalone publicly-traded company, Garrett Motion Inc. (\u201cGarrett\u201d). On October 29, 2018, the Company completed the tax-free spin-off to Honeywell shareowners of its Homes and Global Distribution business, previously part of Home and Building Technologies (renamed Honeywell Building Technologies following the spin-o"
+      },
+      {
+        "term": "spin-off",
+        "text": "Systems business, previously part of Aerospace, into a standalone publicly-traded company, Garrett Motion Inc. (\u201cGarrett\u201d). On October 29, 2018, the Company completed the tax-free spin-off to Honeywell shareowners of its Homes and Global Distribution business, previously part of Home and Building Technologies (renamed Honeywell Building Technologies following the spin-off), into a standalone publicly-traded company, Resideo Technologies, Inc. (\u201cResideo\u201d). The assets and liabilities associated with Garrett and Resideo have been removed from the Company\u2019s Consolidated Balance Sheet as of the effective d"
+      },
+      {
+        "term": "spin-off",
+        "text": "ff to Honeywell shareowners of its Homes and Global Distribution business, previously part of Home and Building Technologies (renamed Honeywell Building Technologies following the spin-off), into a standalone publicly-traded company, Resideo Technologies, Inc. (\u201cResideo\u201d). The assets and liabilities associated with Garrett and Resideo have been removed from the Company\u2019s Consolidated Balance Sheet as of the effective dates of the respective spin-offs. The results of operations for Garrett and Resideo are included in the Consolidated Statement of Operations through the effective dates of the respective"
+      },
+      {
+        "term": "separation",
+        "text": "ty income of affiliated companies ( 11 ) ( 13 ) ( 20 ) ( 24 ) Loss (gain) on sale of non-strategic business and assets ( 1 ) \u2014 ( 1 ) \u2014 Foreign exchange ( 43 ) ( 11 ) ( 54 ) ( 12 ) Separation costs \u2014 63 \u2014 118 Other (net) 9 1 7 50 $ ( 305 ) $ ( 316 ) $ ( 590 ) $ ( 584 ) Separation costs are associated with the spin-offs of our Homes and Global Distribution business and Transportation Systems business, and are primarily associated with third party services. Note 5. Income Taxes The effective tax rate decreased for the quarter and six months ended June 30, 2019 compared to the quarter and six months ended J"
+      },
+      {
+        "term": "separation",
+        "text": "strategic business and assets ( 1 ) \u2014 ( 1 ) \u2014 Foreign exchange ( 43 ) ( 11 ) ( 54 ) ( 12 ) Separation costs \u2014 63 \u2014 118 Other (net) 9 1 7 50 $ ( 305 ) $ ( 316 ) $ ( 590 ) $ ( 584 ) Separation costs are associated with the spin-offs of our Homes and Global Distribution business and Transportation Systems business, and are primarily associated with third party services. Note 5. Income Taxes The effective tax rate decreased for the quarter and six months ended June 30, 2019 compared to the quarter and six months ended June 30, 2018 primarily from tax costs incurred in the prior year related to the 2018 spin"
+      },
+      {
+        "term": "separation",
+        "text": "r (income) expense $ (305 ) $ (316 ) $ (590 ) $ (584 ) Other income decreased for the quarter primarily due to lower pension non-service income, partially offset by the absence of separation costs, higher interest income, and higher foreign exchange income. Other income increased for the six months primarily due to the absence of separation costs, higher interest income, and higher foreign exchange income, partially offset by lower pension non-service income. 32 Tax Expense (Benefit) Three Months Ended June 30, Six Months Ended June 30, 2019 2018 2019 2018 Tax expense (benefit) $ 426 $ 718 $ 832 $ 1,177"
+      },
+      {
+        "term": "distribution",
+        "text": "n:PerformanceMaterialsAndTechnologiesMember 2018-01-01 2018-06-30 0000773840 hon:BuildingSolutionsMember hon:HomeAndBuildingTechnologiesMember 2019-04-01 2019-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuildingTechnologiesMember 2019-04-01 2019-06-30 0000773840 hon:FluorineProductsMember hon:PerformanceMaterialsAndTechnologiesMember 2019-01-01 2019-06-30 0000773840 hon:CommercialAviationOriginalEquipmentMember hon:AerospaceMember 2019-04-01 2019-06-30 0000773840 hon:UopMember hon:PerformanceMaterialsAndTechnologiesMember 2019-01-01 2019-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuil"
+      },
+      {
+        "term": "distribution",
+        "text": "iationOriginalEquipmentMember hon:AerospaceMember 2019-04-01 2019-06-30 0000773840 hon:UopMember hon:PerformanceMaterialsAndTechnologiesMember 2019-01-01 2019-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuildingTechnologiesMember 2018-01-01 2018-06-30 0000773840 hon:WarehouseAndWorkflowSolutionsMember hon:SafetyAndProductivitySolutionsMember 2018-04-01 2018-06-30 0000773840 hon:SafetyAndRetailMember hon:SafetyAndProductivitySolutionsMember 2019-01-01 2019-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuildingTechnologiesMember 2018-04-01 2018-06-30 0000773840 hon:CommercialAviationOrigin"
+      },
+      {
+        "term": "distribution",
+        "text": "r hon:SafetyAndProductivitySolutionsMember 2018-04-01 2018-06-30 0000773840 hon:SafetyAndRetailMember hon:SafetyAndProductivitySolutionsMember 2019-01-01 2019-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuildingTechnologiesMember 2018-04-01 2018-06-30 0000773840 hon:CommercialAviationOriginalEquipmentMember hon:AerospaceMember 2018-04-01 2018-06-30 0000773840 hon:DefenseServicesMember hon:AerospaceMember 2018-01-01 2018-06-30 0000773840 hon:CommercialAviationAftermarketMember hon:AerospaceMember 2018-04-01 2018-06-30 0000773840 hon:DistributionAdiMember hon:HomeAndBuildingTechnologiesMember 2019"
+      }
+    ],
+    "interval_proven": false
+  }
+}
