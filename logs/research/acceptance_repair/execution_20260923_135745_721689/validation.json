@@ -1,0 +1,20 @@
+{
+  "receipt_sha256": "22dde770fd20bf48781077f48c9568af57ec2ac7444080b7fd82c0020d3cfede",
+  "manifest_sha256": "f8bdc0b837287a2cd3d22a97115de268d1550863d72428b38a407c8ff9afed74",
+  "tests_passed": 212,
+  "tests_log_sha256": "d2cb1f8ea8ff34d2ef5dccc90ff68660c73558e5956be6d4702ab36e49dc1cf4",
+  "py_compile_passed": [
+    "src/backtesting/apply_acceptance_repair.py",
+    "tests/test_apply_acceptance_repair.py"
+  ],
+  "git_diff_check_passed": true,
+  "protected_state_matches": {
+    "non_acceptance_filing_sha256": true,
+    "protected_tables": true,
+    "paper_accounts": true,
+    "backtest_event_counts": true,
+    "filing_columns": true
+  },
+  "backup_hash_verified": true,
+  "runner_hash_verified": true
+}

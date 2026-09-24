@@ -1,0 +1,422 @@
+{
+  "manifest_sha256": "f8bdc0b837287a2cd3d22a97115de268d1550863d72428b38a407c8ff9afed74",
+  "manifest_path": "logs/research/acceptance_repair/manifest.json.gz",
+  "runner_sha256": "679fdc3516187b026b40eb3f67b5d358ebf0390f3b4d303c5a4d827e939a856e",
+  "started_at": "2026-09-23 13:57:45.721878+00:00",
+  "apply_requested": true,
+  "execution_state": "COMMITTED_AND_VERIFIED",
+  "counts": {
+    "safely_correctable": 29837,
+    "already_correct": 984,
+    "exceptional_offset": 71,
+    "unresolved_source": 205
+  },
+  "correction_statistics": {
+    "database_minus_source_seconds": {
+      "14400.0": 19829,
+      "18000.0": 10008
+    },
+    "utc_calendar_date_changes": 16706,
+    "calendar_candidate_date_changes": 3578,
+    "event_rows_rebuilt": 0
+  },
+  "before": {
+    "metadata": {
+      "snapshot": "2026-09-23 13:57:45.823672+00:00",
+      "read_only": "on"
+    },
+    "filings": {
+      "total": 31097,
+      "verified_categories": {
+        "already_correct": 984,
+        "safely_correctable": 29837,
+        "unresolved_source": 205,
+        "exceptional_offset": 71
+      },
+      "safe_old_remaining": 29837,
+      "safe_corrected": 0,
+      "identities_and_filing_dates_match": true
+    },
+    "non_acceptance_filing_sha256": "2911bc9f781f05b0153a0265471304f5dd387908514a885409984e52ad783c04",
+    "protected_tables": {
+      "companies": {
+        "rows": 8071,
+        "sha256": "a3975a14825ce17487eb50ae244eab10ba0bc860e1ad61c28cd78a50d5a9c1cd"
+      },
+      "financial_facts": {
+        "rows": 173028,
+        "sha256": "b895bf17a2e0e8ec9de0f57e1667573607b0cedbd82e52d2eab51b35fb28324d"
+      },
+      "backtest_events": {
+        "rows": 14824,
+        "sha256": "86e544084bbc1d170c9ccd1e1d6e031b4178a16dd09c2b36600223f74837348c"
+      },
+      "paper_accounts": {
+        "rows": 1,
+        "sha256": "c3b49051991b7e920ca02c979486e468bfadc2fc55958a3155824c301d6b57cc"
+      },
+      "paper_signals": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "paper_positions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "index_membership_history": {
+        "rows": 667,
+        "sha256": "3f2fe5ba55ef03a0aa433ed8b585da4d48cdac6da4caaa72585c6d4c2d9d002e"
+      }
+    },
+    "paper_accounts": [
+      {
+        "id": 1,
+        "cash": "10000",
+        "prospective_cutover_at": "2026-09-20 10:32:26.133136+00:00"
+      }
+    ],
+    "backtest_event_counts": {
+      "total": 14824,
+      "historical_membership": 14741
+    },
+    "filing_columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": "nextval('filings_id_seq'::regclass)"
+      },
+      {
+        "column_name": "company_id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "accession_number",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "form",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "filing_date",
+        "udt_name": "date",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "report_date",
+        "udt_name": "date",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "acceptance_datetime",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_document",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_doc_description",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "filing_url",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      }
+    ]
+  },
+  "backup": {
+    "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/filings_before.jsonl.gz",
+    "sha256": "aaa7f32e05b9fbcd7f4b1a955909a14559b25c52961b81d221a5aaafff8ea372",
+    "rows": 31097,
+    "mode": "0600",
+    "scope": "complete public.filings rows; schema metadata in receipt",
+    "read_back_verified": true
+  },
+  "transaction": {
+    "transaction_id": 864672,
+    "execution_time": "2026-09-23 13:57:50.072783+00:00"
+  },
+  "updates": 29837,
+  "inside_transaction_after": {
+    "metadata": {
+      "snapshot": "2026-09-23 13:57:48.337711+00:00",
+      "read_only": "off"
+    },
+    "filings": {
+      "total": 31097,
+      "verified_categories": {
+        "already_correct": 984,
+        "safely_correctable": 29837,
+        "unresolved_source": 205,
+        "exceptional_offset": 71
+      },
+      "safe_old_remaining": 0,
+      "safe_corrected": 29837,
+      "identities_and_filing_dates_match": true
+    },
+    "non_acceptance_filing_sha256": "2911bc9f781f05b0153a0265471304f5dd387908514a885409984e52ad783c04",
+    "protected_tables": {
+      "companies": {
+        "rows": 8071,
+        "sha256": "a3975a14825ce17487eb50ae244eab10ba0bc860e1ad61c28cd78a50d5a9c1cd"
+      },
+      "financial_facts": {
+        "rows": 173028,
+        "sha256": "b895bf17a2e0e8ec9de0f57e1667573607b0cedbd82e52d2eab51b35fb28324d"
+      },
+      "backtest_events": {
+        "rows": 14824,
+        "sha256": "86e544084bbc1d170c9ccd1e1d6e031b4178a16dd09c2b36600223f74837348c"
+      },
+      "paper_accounts": {
+        "rows": 1,
+        "sha256": "c3b49051991b7e920ca02c979486e468bfadc2fc55958a3155824c301d6b57cc"
+      },
+      "paper_signals": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "paper_positions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "index_membership_history": {
+        "rows": 667,
+        "sha256": "3f2fe5ba55ef03a0aa433ed8b585da4d48cdac6da4caaa72585c6d4c2d9d002e"
+      }
+    },
+    "paper_accounts": [
+      {
+        "id": 1,
+        "cash": "10000",
+        "prospective_cutover_at": "2026-09-20 10:32:26.133136+00:00"
+      }
+    ],
+    "backtest_event_counts": {
+      "total": 14824,
+      "historical_membership": 14741
+    },
+    "filing_columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": "nextval('filings_id_seq'::regclass)"
+      },
+      {
+        "column_name": "company_id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "accession_number",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "form",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "filing_date",
+        "udt_name": "date",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "report_date",
+        "udt_name": "date",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "acceptance_datetime",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_document",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_doc_description",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "filing_url",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      }
+    ]
+  },
+  "commit_acknowledged_at": "2026-09-23 13:57:52.311140+00:00",
+  "read_only_post_commit": {
+    "metadata": {
+      "snapshot": "2026-09-23 13:57:52.329660+00:00",
+      "read_only": "on"
+    },
+    "filings": {
+      "total": 31097,
+      "verified_categories": {
+        "already_correct": 984,
+        "safely_correctable": 29837,
+        "unresolved_source": 205,
+        "exceptional_offset": 71
+      },
+      "safe_old_remaining": 0,
+      "safe_corrected": 29837,
+      "identities_and_filing_dates_match": true
+    },
+    "non_acceptance_filing_sha256": "2911bc9f781f05b0153a0265471304f5dd387908514a885409984e52ad783c04",
+    "protected_tables": {
+      "companies": {
+        "rows": 8071,
+        "sha256": "a3975a14825ce17487eb50ae244eab10ba0bc860e1ad61c28cd78a50d5a9c1cd"
+      },
+      "financial_facts": {
+        "rows": 173028,
+        "sha256": "b895bf17a2e0e8ec9de0f57e1667573607b0cedbd82e52d2eab51b35fb28324d"
+      },
+      "backtest_events": {
+        "rows": 14824,
+        "sha256": "86e544084bbc1d170c9ccd1e1d6e031b4178a16dd09c2b36600223f74837348c"
+      },
+      "paper_accounts": {
+        "rows": 1,
+        "sha256": "c3b49051991b7e920ca02c979486e468bfadc2fc55958a3155824c301d6b57cc"
+      },
+      "paper_signals": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "paper_positions": {
+        "rows": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "index_membership_history": {
+        "rows": 667,
+        "sha256": "3f2fe5ba55ef03a0aa433ed8b585da4d48cdac6da4caaa72585c6d4c2d9d002e"
+      }
+    },
+    "paper_accounts": [
+      {
+        "id": 1,
+        "cash": "10000",
+        "prospective_cutover_at": "2026-09-20 10:32:26.133136+00:00"
+      }
+    ],
+    "backtest_event_counts": {
+      "total": 14824,
+      "historical_membership": 14741
+    },
+    "filing_columns": [
+      {
+        "column_name": "id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": "nextval('filings_id_seq'::regclass)"
+      },
+      {
+        "column_name": "company_id",
+        "udt_name": "int8",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "accession_number",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "form",
+        "udt_name": "varchar",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "filing_date",
+        "udt_name": "date",
+        "is_nullable": "NO",
+        "column_default": null
+      },
+      {
+        "column_name": "report_date",
+        "udt_name": "date",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "acceptance_datetime",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_document",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "primary_doc_description",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      },
+      {
+        "column_name": "created_at",
+        "udt_name": "timestamptz",
+        "is_nullable": "YES",
+        "column_default": "CURRENT_TIMESTAMP"
+      },
+      {
+        "column_name": "filing_url",
+        "udt_name": "text",
+        "is_nullable": "YES",
+        "column_default": null
+      }
+    ]
+  },
+  "elapsed_seconds": 8.94
+}
