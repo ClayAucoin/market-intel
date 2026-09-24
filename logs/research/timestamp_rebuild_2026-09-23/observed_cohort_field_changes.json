@@ -1,0 +1,349 @@
+{
+  "original_194_changes": {
+    "entry_date": [
+      {
+        "security_id": 551,
+        "ticker": "GPN",
+        "period_end": "2019-03-31",
+        "old": "2019-05-03",
+        "current": "2019-05-02"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2019-06-30",
+        "old": "2019-08-08",
+        "current": "2019-08-07"
+      },
+      {
+        "security_id": 671,
+        "ticker": "J",
+        "period_end": "2019-12-27",
+        "old": "2020-02-05",
+        "current": "2020-02-04"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2020-09-26",
+        "old": "2020-10-29",
+        "current": "2020-10-28"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-03-31",
+        "old": "2021-05-07",
+        "current": "2021-05-06"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2021-03-31",
+        "old": "2021-05-07",
+        "current": "2021-05-06"
+      },
+      {
+        "security_id": 511,
+        "ticker": "DOV",
+        "period_end": "2021-06-30",
+        "old": "2021-07-21",
+        "current": "2021-07-20"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2021-06-26",
+        "old": "2021-07-29",
+        "current": "2021-07-28"
+      },
+      {
+        "security_id": 209,
+        "ticker": "SPG",
+        "period_end": "2021-06-30",
+        "old": "2021-08-05",
+        "current": "2021-08-04"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-06-30",
+        "old": "2021-08-06",
+        "current": "2021-08-05"
+      },
+      {
+        "security_id": 227,
+        "ticker": "ECL",
+        "period_end": "2021-06-30",
+        "old": "2021-08-06",
+        "current": "2021-08-05"
+      },
+      {
+        "security_id": 617,
+        "ticker": "TSN",
+        "period_end": "2021-07-03",
+        "old": "2021-08-10",
+        "current": "2021-08-09"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-12-31",
+        "old": "2022-02-08",
+        "current": "2022-02-07"
+      },
+      {
+        "security_id": 390,
+        "ticker": "ROP",
+        "period_end": "2022-03-31",
+        "old": "2022-05-05",
+        "current": "2022-05-04"
+      },
+      {
+        "security_id": 6707,
+        "ticker": "ADI",
+        "period_end": "2025-05-03",
+        "old": "2025-05-23",
+        "current": "2025-05-22"
+      },
+      {
+        "security_id": 255,
+        "ticker": "HPE",
+        "period_end": "2026-04-30",
+        "old": "2026-06-03",
+        "current": "2026-06-02"
+      }
+    ],
+    "revenue_acceleration": [],
+    "operating_margin_change": [],
+    "pre_excess_20d": [
+      {
+        "security_id": 551,
+        "ticker": "GPN",
+        "period_end": "2019-03-31",
+        "old": "3.08",
+        "current": "1.76"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2019-06-30",
+        "old": "0.29",
+        "current": "2.37"
+      },
+      {
+        "security_id": 671,
+        "ticker": "J",
+        "period_end": "2019-12-27",
+        "old": "3.77",
+        "current": "2.04"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2020-09-26",
+        "old": "5.32",
+        "current": "2.03"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-03-31",
+        "old": "2.11",
+        "current": "-2.12"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2021-03-31",
+        "old": "2.37",
+        "current": "1.69"
+      },
+      {
+        "security_id": 511,
+        "ticker": "DOV",
+        "period_end": "2021-06-30",
+        "old": "8.41",
+        "current": "3.88"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2021-06-26",
+        "old": "4.77",
+        "current": "2.69"
+      },
+      {
+        "security_id": 209,
+        "ticker": "SPG",
+        "period_end": "2021-06-30",
+        "old": "1.27",
+        "current": "-0.41"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-06-30",
+        "old": "2.27",
+        "current": "-1.88"
+      },
+      {
+        "security_id": 227,
+        "ticker": "ECL",
+        "period_end": "2021-06-30",
+        "old": "1.46",
+        "current": "2.07"
+      },
+      {
+        "security_id": 617,
+        "ticker": "TSN",
+        "period_end": "2021-07-03",
+        "old": "5.39",
+        "current": "-4.90"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-12-31",
+        "old": "7.13",
+        "current": "8.21"
+      },
+      {
+        "security_id": 390,
+        "ticker": "ROP",
+        "period_end": "2022-03-31",
+        "old": "2.28",
+        "current": "2.59"
+      },
+      {
+        "security_id": 6707,
+        "ticker": "ADI",
+        "period_end": "2025-05-03",
+        "old": "1.89",
+        "current": "12.50"
+      },
+      {
+        "security_id": 255,
+        "ticker": "HPE",
+        "period_end": "2026-04-30",
+        "old": "89.79",
+        "current": "59.25"
+      }
+    ],
+    "excess_30d": [
+      {
+        "security_id": 551,
+        "ticker": "GPN",
+        "period_end": "2019-03-31",
+        "old": "8.67",
+        "current": "9.22"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2019-06-30",
+        "old": "1.35",
+        "current": "-4.98"
+      },
+      {
+        "security_id": 671,
+        "ticker": "J",
+        "period_end": "2019-12-27",
+        "old": "7.96",
+        "current": "10.93"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2020-09-26",
+        "old": "8.98",
+        "current": "7.40"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-03-31",
+        "old": "2.95",
+        "current": "5.07"
+      },
+      {
+        "security_id": 518,
+        "ticker": "CNP",
+        "period_end": "2021-03-31",
+        "old": "5.41",
+        "current": "4.43"
+      },
+      {
+        "security_id": 511,
+        "ticker": "DOV",
+        "period_end": "2021-06-30",
+        "old": "3.21",
+        "current": "9.71"
+      },
+      {
+        "security_id": 301,
+        "ticker": "GRMN",
+        "period_end": "2021-06-26",
+        "old": "10.48",
+        "current": "12.52"
+      },
+      {
+        "security_id": 209,
+        "ticker": "SPG",
+        "period_end": "2021-06-30",
+        "old": "0.87",
+        "current": "1.35"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-06-30",
+        "old": "8.78",
+        "current": "11.07"
+      },
+      {
+        "security_id": 227,
+        "ticker": "ECL",
+        "period_end": "2021-06-30",
+        "old": "1.71",
+        "current": "1.11"
+      },
+      {
+        "security_id": 617,
+        "ticker": "TSN",
+        "period_end": "2021-07-03",
+        "old": "-3.48",
+        "current": "0.23"
+      },
+      {
+        "security_id": 204,
+        "ticker": "REGN",
+        "period_end": "2021-12-31",
+        "old": "6.43",
+        "current": "5.35"
+      },
+      {
+        "security_id": 390,
+        "ticker": "ROP",
+        "period_end": "2022-03-31",
+        "old": "-4.83",
+        "current": "-2.27"
+      },
+      {
+        "security_id": 6707,
+        "ticker": "ADI",
+        "period_end": "2025-05-03",
+        "old": "6.52",
+        "current": "1.46"
+      },
+      {
+        "security_id": 255,
+        "ticker": "HPE",
+        "period_end": "2026-04-30",
+        "old": "-19.47",
+        "current": "-33.06"
+      }
+    ]
+  },
+  "historical_entry_split_crossings": []
+}

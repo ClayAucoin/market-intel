@@ -1,0 +1,2993 @@
+{
+  "scope": "File-only checkpoint review; no database/external operations or Git mutations",
+  "initial_status": {
+    "modified": 104,
+    "untracked": 90,
+    "staged": 0
+  },
+  "commits": {
+    "1": {
+      "message": "fix(sec): normalize acceptance timestamps using explicit source semantics",
+      "why": "Production parser, both writers, both validation paths and focused parser/freshness regressions.",
+      "files": [
+        "src/sec/acceptance_time.py",
+        "src/sec/filing_repository.py",
+        "src/sec/import_universe_filings.py",
+        "src/sec/json_cache.py",
+        "src/sec/sec_submissions.py",
+        "tests/test_sec_acceptance_time.py",
+        "tests/test_sec_production_freshness.py"
+      ],
+      "bytes": 101010
+    },
+    "2": {
+      "message": "research(sec): preserve bounded SIC pilot and cached header evidence",
+      "why": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures.",
+      "files": [
+        "logs/research/sec_sic_pilot/README.md",
+        "logs/research/sec_sic_pilot/headers/0000019617_0000019617-18-000057.json",
+        "logs/research/sec_sic_pilot/headers/0000019617_0000019617-22-000319.json",
+        "logs/research/sec_sic_pilot/headers/0000019617_0001628280-26-054343.json",
+        "logs/research/sec_sic_pilot/headers/0000040545_0000040545-18-000014.json",
+        "logs/research/sec_sic_pilot/headers/0000040545_0000040545-22-000027.json",
+        "logs/research/sec_sic_pilot/headers/0000040545_0000040545-26-000049.json",
+        "logs/research/sec_sic_pilot/headers/0000320193_0000320193-18-000007.json",
+        "logs/research/sec_sic_pilot/headers/0000320193_0000320193-22-000059.json",
+        "logs/research/sec_sic_pilot/headers/0000320193_0000320193-26-000020.json",
+        "logs/research/sec_sic_pilot/headers/0000789019_0001193125-26-323660.json",
+        "logs/research/sec_sic_pilot/headers/0000789019_0001564590-18-001129.json",
+        "logs/research/sec_sic_pilot/headers/0000789019_0001564590-22-015675.json",
+        "logs/research/sec_sic_pilot/headers/0000849399_0000849399-18-000004.json",
+        "logs/research/sec_sic_pilot/headers/0000849399_0000849399-20-000007.json",
+        "logs/research/sec_sic_pilot/headers/0000849399_0000849399-22-000019.json",
+        "logs/research/sec_sic_pilot/headers/0000849399_0000849399-26-000031.json",
+        "logs/research/sec_sic_pilot/headers/0001031296_0001031296-18-000015.json",
+        "logs/research/sec_sic_pilot/headers/0001031296_0001031296-22-000020.json",
+        "logs/research/sec_sic_pilot/headers/0001031296_0001031296-26-000085.json",
+        "logs/research/sec_sic_pilot/headers/0001109357_0001109357-22-000059.json",
+        "logs/research/sec_sic_pilot/headers/0001109357_0001109357-26-000063.json",
+        "logs/research/sec_sic_pilot/headers/0001109357_0001628280-18-001324.json",
+        "logs/research/sec_sic_pilot/headers/0001175454_0001175454-18-000027.json",
+        "logs/research/sec_sic_pilot/headers/0001175454_0001175454-21-000039.json",
+        "logs/research/sec_sic_pilot/headers/0001175454_0001628280-24-008060.json",
+        "logs/research/sec_sic_pilot/headers/0001326801_0001326801-18-000009.json",
+        "logs/research/sec_sic_pilot/headers/0001326801_0001326801-22-000057.json",
+        "logs/research/sec_sic_pilot/headers/0001326801_0001628280-26-050705.json",
+        "logs/research/sec_sic_pilot/headers/0001652044_0001652044-18-000007.json",
+        "logs/research/sec_sic_pilot/headers/0001652044_0001652044-22-000029.json",
+        "logs/research/sec_sic_pilot/headers/0001652044_0001652044-26-000071.json",
+        "logs/research/sec_sic_pilot/headers/0001868275_0001868275-22-000044.json",
+        "logs/research/sec_sic_pilot/headers/0001868275_0001868275-24-000054.json",
+        "logs/research/sec_sic_pilot/headers/0001868275_0001868275-26-000104.json",
+        "logs/research/sec_sic_pilot/headers/0001932393_0001932393-23-000087.json",
+        "logs/research/sec_sic_pilot/headers/0001932393_0001932393-24-000050.json",
+        "logs/research/sec_sic_pilot/headers/0001932393_0001932393-26-000031.json",
+        "logs/research/sec_sic_pilot/pilot_2026-09-23_051959.json",
+        "logs/research/sec_sic_pilot/pilot_2026-09-23_052233.json",
+        "src/backtesting/sec_sic_pilot.py",
+        "tests/test_sec_sic_pilot.py"
+      ],
+      "bytes": 1711653
+    },
+    "3": {
+      "message": "research(sec): archive acceptance audit and guarded timestamp repair",
+      "why": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence.",
+      "files": [
+        "logs/research/acceptance_repair/README.md",
+        "logs/research/acceptance_repair/execution_20260923_135745_721689/SUMMARY.md",
+        "logs/research/acceptance_repair/execution_20260923_135745_721689/receipt.json",
+        "logs/research/acceptance_repair/execution_20260923_135745_721689/receipt.json.sha256",
+        "logs/research/acceptance_repair/execution_20260923_135745_721689/regression_tests.txt",
+        "logs/research/acceptance_repair/execution_20260923_135745_721689/validation.json",
+        "logs/research/acceptance_repair/manifest.json.gz",
+        "logs/research/acceptance_repair/manifest.json.gz.sha256",
+        "logs/research/acceptance_repair/preflight_20260923_132450.json",
+        "logs/research/acceptance_repair/preflight_20260923_135055.json",
+        "logs/research/acceptance_signal_impact_2026-09-23_131228.json",
+        "logs/research/acceptance_timezone_2026-09-23.md",
+        "logs/research/acceptance_timezone_2026-09-23_123358.json.gz",
+        "logs/research/acceptance_timezone_2026-09-23_131057.json.gz",
+        "logs/research/acceptance_timezone_completion_2026-09-23.md",
+        "src/backtesting/acceptance_repair_manifest.py",
+        "src/backtesting/apply_acceptance_repair.py",
+        "src/backtesting/audit_acceptance_signal_impact.py",
+        "src/backtesting/audit_acceptance_timezone.py",
+        "tests/test_acceptance_repair_manifest.py",
+        "tests/test_apply_acceptance_repair.py",
+        "tests/test_audit_acceptance_signal_impact.py",
+        "tests/test_audit_acceptance_timezone.py"
+      ],
+      "bytes": 5900769
+    },
+    "4": {
+      "message": "research(backtest): preserve corrected baseline and rebuild provenance",
+      "why": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports.",
+      "files": [
+        "logs/research/timestamp_rebuild_2026-09-23/INTERVENING_REBUILD_PROVENANCE.md",
+        "logs/research/timestamp_rebuild_2026-09-23/PREFLIGHT_STOP.md",
+        "logs/research/timestamp_rebuild_2026-09-23/before_20260924_023350.json.summary.json",
+        "logs/research/timestamp_rebuild_2026-09-23/deterministic_replay.json.gz",
+        "logs/research/timestamp_rebuild_2026-09-23/local_source_confirmation.json",
+        "logs/research/timestamp_rebuild_2026-09-23/observed_cohort_field_changes.json",
+        "logs/research/timestamp_rebuild_2026-09-23/observed_intervening_changes.json",
+        "logs/research/timestamp_rebuild_2026-09-23/prior_saved_signal_statistics.json",
+        "logs/research/timestamp_rebuild_2026-09-23/provenance_summary.json",
+        "logs/research/timestamp_rebuild_2026-09-23/provenance_verification.json",
+        "src/backtesting/investigate_event_provenance.py",
+        "src/backtesting/timestamp_rebuild_preflight.py",
+        "tests/test_investigate_event_provenance.py",
+        "tests/test_timestamp_rebuild_preflight.py",
+        "logs/research/git_checkpoint_review_2026-09-24.md",
+        "logs/research/git_checkpoint_review_2026-09-24.json"
+      ],
+      "bytes": 1952106
+    }
+  },
+  "files": [
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000019617.json",
+      "bytes": 16246147,
+      "expanded_bytes": 16246147,
+      "sha256": "94b000aa5e34355bc1a34355ebe67634743545194c8d89cca8b0ad019d3060f3",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000040704.json",
+      "bytes": 9176859,
+      "expanded_bytes": 9176859,
+      "sha256": "ac4ee389ee02afa2b6763261fa284348eb21ab00685175c4f855d49ba1294795",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000070858.json",
+      "bytes": 13967513,
+      "expanded_bytes": 13967513,
+      "sha256": "e13e9cf0ef31b802e12607009a21b31a9dfa85744449990cef122dbd0cc7c5a1",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000072971.json",
+      "bytes": 15915942,
+      "expanded_bytes": 15915942,
+      "sha256": "dfead0e815416af0c2059d3cf805787fc6745001ca3fd2efc3d3d43e89fb5f25",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000091419.json",
+      "bytes": 7224013,
+      "expanded_bytes": 7224013,
+      "sha256": "5f29ba74ec6278f1db65f709f2fdc4c204f16506753d0c0d4cf1376e01ec7d1e",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000831001.json",
+      "bytes": 18173990,
+      "expanded_bytes": 18173990,
+      "sha256": "86a29df8466afce6ede4e271c1eed0cc0fbb9760f003879a9492744b62ea760e",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000886982.json",
+      "bytes": 12276800,
+      "expanded_bytes": 12276800,
+      "sha256": "a638149008d662e730394df378f1e77427f3ae47d506e261dd4cfcd0a8ccd918",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000895421.json",
+      "bytes": 14558570,
+      "expanded_bytes": 14558570,
+      "sha256": "da6a0313c8bda2efb999ec2a6d81fadcca49c0abe3d6e674acf027991fd5a01d",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0001090012.json",
+      "bytes": 10313134,
+      "expanded_bytes": 10313134,
+      "sha256": "8344e027e64daf050b6cf7f4f77fb6e4521aa5df18acf96800dfda7cac863f88",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0001564708.json",
+      "bytes": 6403682,
+      "expanded_bytes": 6403682,
+      "sha256": "a68ddba00f52e3608f49e44a21382e51740090eaad8f7207a463cec813f65218",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000004977.json",
+      "bytes": 307805,
+      "expanded_bytes": 307805,
+      "sha256": "1ce05827a05f7c881ea836d8806f168927c04a281aee10a8e314fb4274f8ae30",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000006281.json",
+      "bytes": 306373,
+      "expanded_bytes": 306373,
+      "sha256": "5fe94e7fed7b1932423f027b4c797ab0134a17abf159e6e1e6c5dd13f59f080c",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000019617.json",
+      "bytes": 8450717,
+      "expanded_bytes": 8450717,
+      "sha256": "069c3f5e3c597f167402aa9b6e0d5453163dca0009a057e215c20868bf0b52ed",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000021344.json",
+      "bytes": 303762,
+      "expanded_bytes": 303762,
+      "sha256": "c6eb4201d53908c4397d206a651097e8a9e3ffad8fdba72c81c0f0b2550db923",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000031791.json",
+      "bytes": 305470,
+      "expanded_bytes": 305470,
+      "sha256": "1bb2c68a4847d810de6037d2091213ccc4bc663d1f5537d6b43da6710c6f074d",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000034088.json",
+      "bytes": 307220,
+      "expanded_bytes": 307220,
+      "sha256": "cb0596adef6237cee9432750a44fb93e5e82ebf646427ccb6b5f5e141e53f57e",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000035527.json",
+      "bytes": 308018,
+      "expanded_bytes": 308018,
+      "sha256": "15401ea318e7baff8765201ece9ce3d457bec79969362b382f5ac472224f66fa",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000036270.json",
+      "bytes": 304101,
+      "expanded_bytes": 304101,
+      "sha256": "08c441a4727ffb3832574230d6f9d4ae38c936f9db110d1d715e81e79fe7a49f",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040533.json",
+      "bytes": 299623,
+      "expanded_bytes": 299623,
+      "sha256": "cae7c0a374a70574a67c563e59b5305320ac8e3a8909133e5f678401e6b199d7",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040545.json",
+      "bytes": 311856,
+      "expanded_bytes": 311856,
+      "sha256": "da10209030b8256a9a78f6a63682f41c138fc90b4be0b1366ad017f4903b13ac",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040704.json",
+      "bytes": 303263,
+      "expanded_bytes": 303263,
+      "sha256": "194ced1ba9433486395f10c2c886c104c62ff93389341958f1bc7a9b39917144",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000047111.json",
+      "bytes": 305399,
+      "expanded_bytes": 305399,
+      "sha256": "559f03c49eb3f2f15ad1d6f5f415b8b8f52b15504748fc99025aac1f8f0f97b3",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000052988.json",
+      "bytes": 303189,
+      "expanded_bytes": 303189,
+      "sha256": "26146bd6fbab40e892dd5460bf4d2eb578480f4a4e314b6158c824d9e9f3b643",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000059478.json",
+      "bytes": 303453,
+      "expanded_bytes": 303453,
+      "sha256": "879ae5ba1726ec488d68d6581c5aa801a1567d7cf6b8f7bc07368b2a837ae3ed",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000063908.json",
+      "bytes": 302531,
+      "expanded_bytes": 302531,
+      "sha256": "2cf087c0817ec41ad29455fafbc2cf87fc6b83284ca9771ae2e1aab2c2586ce6",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000066740.json",
+      "bytes": 304700,
+      "expanded_bytes": 304700,
+      "sha256": "1e4b7d0484248707b5f00e3d1ef51f89731b7236d7309bb64950cd9bb2f20879",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000070858.json",
+      "bytes": 3422147,
+      "expanded_bytes": 3422147,
+      "sha256": "0c99455cd1eb4ba7ad3adef5bc1449e481bf0626d6e927e7ad1c1533767133b1",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000072971.json",
+      "bytes": 356676,
+      "expanded_bytes": 356676,
+      "sha256": "b9f309c42aa264c246b68ce50a1e051a9aa6704112e217ea06f4f464503e1fb9",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000077360.json",
+      "bytes": 299168,
+      "expanded_bytes": 299168,
+      "sha256": "8d6e11166aa8e532e10f6f3c13b77d6c634476b1d2aac96dc08e17d93394324d",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000079282.json",
+      "bytes": 302660,
+      "expanded_bytes": 302660,
+      "sha256": "231b89bd77d8c6da86952b7704f4e73ba12f7b0bcce980f8ce7aeaed615c13d8",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000091419.json",
+      "bytes": 305560,
+      "expanded_bytes": 305560,
+      "sha256": "501c3e2b8cc0b60e6dbcbcf97edfc87715c3cb558a559227bcd1da73867cb2c8",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000091576.json",
+      "bytes": 308194,
+      "expanded_bytes": 308194,
+      "sha256": "f97fcaba4526269f469d8ce948368cc9d7a3cb68b7c66de45bcdbbfb70b22bbf",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000093410.json",
+      "bytes": 303205,
+      "expanded_bytes": 303205,
+      "sha256": "23f2e17435d07f63f78681429e3984ef85bbd53ecad5fb8138d7598e801a52bf",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000093751.json",
+      "bytes": 307750,
+      "expanded_bytes": 307750,
+      "sha256": "8d30969cd818b08e84f1abb26983eba61ed7b7639eef853daaf24c633b064ff2",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000096021.json",
+      "bytes": 307012,
+      "expanded_bytes": 307012,
+      "sha256": "00734e0a326663a459d14999e0ae9a6a43bf0fe1e46c7ed316f30af10b4eb866",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000315293.json",
+      "bytes": 301427,
+      "expanded_bytes": 301427,
+      "sha256": "f4eba1a67c9ec1979a2dbfecbb8984992aa06a0776a56d96ae3f7d589dd904f0",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000319201.json",
+      "bytes": 303809,
+      "expanded_bytes": 303809,
+      "sha256": "528757325919c59c7ab7a43a14dd28a1cda9b718b25b0e53caac4e554f94188f",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000320193.json",
+      "bytes": 308756,
+      "expanded_bytes": 308756,
+      "sha256": "ef766e7c4b1d9e2d8b32f7faa3642c4c42552ceab8132791d43bdc5164146950",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000320335.json",
+      "bytes": 323059,
+      "expanded_bytes": 323059,
+      "sha256": "ce2063930563500f48b978754d68c137b00f76cec98371ca0128bf7dc2dbfac8",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000354950.json",
+      "bytes": 306514,
+      "expanded_bytes": 306514,
+      "sha256": "5dc57a7e889a3e9e80cfd0379a272445f84b527a22360ab5d6f703696fa57315",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000720005.json",
+      "bytes": 293971,
+      "expanded_bytes": 293971,
+      "sha256": "6ab85fa2b376af9101884a1789baea61e2e8135b16fd25aafd823215b4d3c393",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000723254.json",
+      "bytes": 299090,
+      "expanded_bytes": 299090,
+      "sha256": "a1055c8e0cd811370d4e526d8bf8319d8dbccde51e03b66d4bd7d8b4e4e1326f",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000723531.json",
+      "bytes": 302507,
+      "expanded_bytes": 302507,
+      "sha256": "aacbd4fd6f00d282b8e4be1383099a73f56a63861d0b1e378bc49e0d780c281b",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000732712.json",
+      "bytes": 320729,
+      "expanded_bytes": 320729,
+      "sha256": "546622456f0b4fb870d99ee0e1100182538408185d2e1bbd6c0d348291c79075",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000764478.json",
+      "bytes": 291396,
+      "expanded_bytes": 291396,
+      "sha256": "46facce534715bc5a8fc3b485bbaef8de67992645f586ca80ff1589ae7a0bdab",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000796343.json",
+      "bytes": 308741,
+      "expanded_bytes": 308741,
+      "sha256": "9899d966cec79d1eabcd1ab5df6aebb6c34e9a3493d9d59ff3a6736c84924542",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000798354.json",
+      "bytes": 304399,
+      "expanded_bytes": 304399,
+      "sha256": "317fcad6f7b83b04cd19eb1bcadd7be508c3d689c30f383b2a2d333d197c60d2",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000804328.json",
+      "bytes": 304554,
+      "expanded_bytes": 304554,
+      "sha256": "7fc7a200288dd45e6c8dd5bc34a608dc36f5c87c8a14d66d7402ede418f7f654",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000831001.json",
+      "bytes": 4305009,
+      "expanded_bytes": 4305009,
+      "sha256": "8448fb0705a32340a6d1b13e4a474ade2a1c4a71beb826f462606ba6bd38ee19",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000833444.json",
+      "bytes": 304614,
+      "expanded_bytes": 304614,
+      "sha256": "3a7993afc22ce799e23f13a9916d718c7d118600e7429a7af975c5731ad1552c",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000842023.json",
+      "bytes": 313176,
+      "expanded_bytes": 313176,
+      "sha256": "711044c4c2613c77bb809ecc6b023fc2d3b26f994a85f67afb6c3e16fd433d5c",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000866787.json",
+      "bytes": 292292,
+      "expanded_bytes": 292292,
+      "sha256": "ac3a3369b249d279d55b454caf874c62b39f8e83c91f551ad2e52d2b55d6e1f4",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000878927.json",
+      "bytes": 298750,
+      "expanded_bytes": 298750,
+      "sha256": "45bcd93b154d3ed1460f1b822f565b7736c17b57d07ba07fcd78f71f50040e86",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000882095.json",
+      "bytes": 306066,
+      "expanded_bytes": 306066,
+      "sha256": "e5e99ec91c24b537824f5c67dfc63bac2aa7af12fb614ff862ec491af70c894f",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000884887.json",
+      "bytes": 300849,
+      "expanded_bytes": 300849,
+      "sha256": "7d9188f7d30606ceae620516c4c6d873975f1f558c7d57001ebeeadc44608e0e",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000885725.json",
+      "bytes": 291046,
+      "expanded_bytes": 291046,
+      "sha256": "a203baef29d4bbd80b915c80e04fb8a2a006fa05e34fc7cabe9c9c59d1f02ee6",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000886982.json",
+      "bytes": 4924579,
+      "expanded_bytes": 4924579,
+      "sha256": "6907295ffd7d4ceefd86d299b0d7be0c21c000b70d7f11ca3283880aa4b20537",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000895421.json",
+      "bytes": 6807042,
+      "expanded_bytes": 6807042,
+      "sha256": "1579055b9357e9409f26788c74ccddde07160a18773d297b3bb8b71adae3e7a8",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000909832.json",
+      "bytes": 304499,
+      "expanded_bytes": 304499,
+      "sha256": "e7061126290115df633e33316519ec88625d9edaab8f215d079765d650ba97be",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000912595.json",
+      "bytes": 305059,
+      "expanded_bytes": 305059,
+      "sha256": "74df386269946fc7e9c706914cebb078aeb5533ebcbc82b071f0025a55865194",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000915913.json",
+      "bytes": 308580,
+      "expanded_bytes": 308580,
+      "sha256": "da42431f749c93e68657ebff4ab192e84ea2f4da24b76ad71634b7a1450e5aa4",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000920148.json",
+      "bytes": 304291,
+      "expanded_bytes": 304291,
+      "sha256": "eabb487bbbb70e0bbd84eaa19ca491d17eb5707d2c19e880faa5414bd9190b31",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000936395.json",
+      "bytes": 306288,
+      "expanded_bytes": 306288,
+      "sha256": "ebf31567c5d842d9704909fc33c6d566a89f2babc937551cebfef001e09bc705",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000946581.json",
+      "bytes": 303641,
+      "expanded_bytes": 303641,
+      "sha256": "7ceb405da5d71a642a7e02a9137b50d93eccab4274f7c02dd4510748f1ab1ace",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001000228.json",
+      "bytes": 303228,
+      "expanded_bytes": 303228,
+      "sha256": "c9c12d193be59f1ed437e73855af8e2b0aa574588e8e4b44b2d0ba3455c76bc8",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001002047.json",
+      "bytes": 302083,
+      "expanded_bytes": 302083,
+      "sha256": "184cfe7b76c59b9b25906a7223f90ca638ad384764c0e741b8614f3f02b2bb3a",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001014473.json",
+      "bytes": 308369,
+      "expanded_bytes": 308369,
+      "sha256": "6a17c0715f21d0e2cc78ae9103eaaa6fd9a65b4207ebaa76dfbac94de3a3d830",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001045810.json",
+      "bytes": 305373,
+      "expanded_bytes": 305373,
+      "sha256": "32a2e2c0be2f90d48ea4abcff355cc9daa06d0632937bff5cb035d5fd6e2cc34",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001053507.json",
+      "bytes": 307017,
+      "expanded_bytes": 307017,
+      "sha256": "7a1c4db1a3ad133cfc54142b0fcb08315041697d8c190c5c2893ccf18eab5e8d",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001090012.json",
+      "bytes": 304137,
+      "expanded_bytes": 304137,
+      "sha256": "09e4f85e2dbc6aef1cdf3b31b2035bd4b28f92d4abf241b2fc346d1137f8b7ce",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001090872.json",
+      "bytes": 302907,
+      "expanded_bytes": 302907,
+      "sha256": "b62b1c862beb7b524eab8be0a79b22d3c673876fc3159be278b97a39d20fb518",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001120193.json",
+      "bytes": 301453,
+      "expanded_bytes": 301453,
+      "sha256": "29e52e21728006629fc03d814edafac46f93fdb3df46450426288504813d40b7",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001137774.json",
+      "bytes": 303624,
+      "expanded_bytes": 303624,
+      "sha256": "1196cb3f5af98fb3e0f141e967ed5c34f99266ce6fe43edc159c2d00f640bd62",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001137789.json",
+      "bytes": 307587,
+      "expanded_bytes": 307587,
+      "sha256": "849d6ce983adcc24d0c091f537b4b257839a15bdefd55bb2e714a178698ae908",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001145197.json",
+      "bytes": 305404,
+      "expanded_bytes": 305404,
+      "sha256": "462984c166671a9da7246e9d3cf20a48d6afc29b5604bad6c847f95242157b86",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001174922.json",
+      "bytes": 313965,
+      "expanded_bytes": 313965,
+      "sha256": "83adeb7f3ecde5a0b4efd7cb6a33789385f2194fa93fd32c5d32aa9ae8371f4b",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001260221.json",
+      "bytes": 301606,
+      "expanded_bytes": 301606,
+      "sha256": "4c5f557099832438a27c717426134302c4a1e5abae865fad2ec60dfdf9f4a977",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001327567.json",
+      "bytes": 300799,
+      "expanded_bytes": 300799,
+      "sha256": "105ca19c0629dbd8ed674f92c847f6cf2c930fa66df8dc50dff00540836dd47c",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001327811.json",
+      "bytes": 306736,
+      "expanded_bytes": 306736,
+      "sha256": "524b7cd1c5b341bfd38541ec26ecb5760f4dcaa5cc86162fa22e4682842aba33",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001341439.json",
+      "bytes": 303242,
+      "expanded_bytes": 303242,
+      "sha256": "47c29acc4a0750f32ab948ea3d7cac4c5a8292e3aaf7d9e374b1566541abb260",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001390777.json",
+      "bytes": 301618,
+      "expanded_bytes": 301618,
+      "sha256": "d193beb29a43a31e18f07baa199fe59eb69c787afe4e36221f6a3c6caed1e6e6",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001393818.json",
+      "bytes": 309339,
+      "expanded_bytes": 309339,
+      "sha256": "98b7840426bfe811779f490091e2e4ac647b1fb2cdeaab1e3639919cab69aea1",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001402057.json",
+      "bytes": 307274,
+      "expanded_bytes": 307274,
+      "sha256": "c333f25172bc93d2a298ae6de4aecf45e36074b39ff7f64610f19aeddd9f10a4",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001403161.json",
+      "bytes": 304793,
+      "expanded_bytes": 304793,
+      "sha256": "2adc8d2bebc9b6e63d87b9941154bf13c135a1a081164fae1f6108c25b4f4c52",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001478242.json",
+      "bytes": 307466,
+      "expanded_bytes": 307466,
+      "sha256": "58d69b22f7f6401aae08651c2552a8c90d6716d8366cc8126f3faed4e47ee6c6",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001512673.json",
+      "bytes": 305412,
+      "expanded_bytes": 305412,
+      "sha256": "e09c5df801d52ad7cc28ab1cfe268d2f2e7164cf9ca52ecf652d47abba1b4368",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001535527.json",
+      "bytes": 301373,
+      "expanded_bytes": 301373,
+      "sha256": "c3a8732f3f3ffa3923ee1524f3c0142abbac96d51df6a8065dc9f92cd4b7aa9b",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001561550.json",
+      "bytes": 301923,
+      "expanded_bytes": 301923,
+      "sha256": "2fb5705c1679c6a32e03c4ce049434c98e4f6e763c01686be9354165a7cdd1a4",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001564708.json",
+      "bytes": 315236,
+      "expanded_bytes": 315236,
+      "sha256": "a9a8ef8b0cefdb8ae27cb799135257a44971598e2101f9d637092e33c483c340",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001571996.json",
+      "bytes": 299733,
+      "expanded_bytes": 299733,
+      "sha256": "522dd2b7263051bff1c4b2a35a2c9f5bb1d516e67aa6bdd3c33872dd15ace84f",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001601046.json",
+      "bytes": 308572,
+      "expanded_bytes": 308572,
+      "sha256": "283b44b896ca2d20c4fac38df28cb0d53e5976aa7f57ba2dc01a895774c8abf4",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001613103.json",
+      "bytes": 305318,
+      "expanded_bytes": 305318,
+      "sha256": "a30d9083117b8a4ea3db19ca3c30aa626f5eaf460a70badd3819f4d2f3157a36",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001633978.json",
+      "bytes": 304770,
+      "expanded_bytes": 304770,
+      "sha256": "d95de593611d4380da5818be3b058db162dc11050688e9e7477dda495bfe3842",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001679788.json",
+      "bytes": 304830,
+      "expanded_bytes": 304830,
+      "sha256": "f7e5bef791689cd4a83ea6b3abc648e8d58aab33543a3351d9cae15e37d6ab11",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001705696.json",
+      "bytes": 242192,
+      "expanded_bytes": 242192,
+      "sha256": "005099838089682129055b9d19ba95210a88e5718d34768aa5b85f466f7edac0",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001783879.json",
+      "bytes": 304861,
+      "expanded_bytes": 304861,
+      "sha256": "022893703427a763ba20aa304eb31a5830d420b3a42098c49a442bc28f6fb87a",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001811074.json",
+      "bytes": 295022,
+      "expanded_bytes": 295022,
+      "sha256": "2e3687e212e33ef7023d1ea2f089dd5786c15bc4265fc4732229ca63863bbe9b",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001932393.json",
+      "bytes": 136280,
+      "expanded_bytes": 136280,
+      "sha256": "81abadc60ee1307e855a15bc3935b474a3743584cbbceab6159825ce6462eedf",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0002115436.json",
+      "bytes": 11486,
+      "expanded_bytes": 11486,
+      "sha256": "a47253261e99bf69a85e1f3b4bb79bcd10a53fae12fa8bcd8a2e8f75d3c81feb",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "exclude_restore_candidate",
+      "reason": "Scheduled SEC refresh cache, not a code/research fixture change. Preserve current evidence outside Git before any separately authorized restore."
+    },
+    {
+      "path": "logs/research/acceptance_repair/README.md",
+      "bytes": 12355,
+      "expanded_bytes": 12355,
+      "sha256": "3161d5e18abf3e987e6933885981251b9f8f48f20cbe07b26884f8531a20c7fc",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135613_911626/receipt.json",
+      "bytes": 935,
+      "expanded_bytes": 935,
+      "sha256": "b12d52871d31b08c709716296e6645c5eb9b989f2fcf884c30ca27e42969ef11",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Aborted sandbox preparation; retain locally; successful receipt records completed operation."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135646_830619/filings_before.jsonl.gz",
+      "bytes": 1300759,
+      "expanded_bytes": 13366852,
+      "sha256": "aaa7f32e05b9fbcd7f4b1a955909a14559b25c52961b81d221a5aaafff8ea372",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Access-controlled full-row backup; local only, duplicate of successful execution backup."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135646_830619/receipt.json",
+      "bytes": 4616,
+      "expanded_bytes": 4616,
+      "sha256": "bca0a4fd75c2e132256a134520fd99d3c5e52f8dec514fa4c8e1235a738a7c9a",
+      "privacy_flags": {
+        "sensitive_key": 2
+      },
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Intermediate read-only preparation receipt; retain locally; final receipt supersedes it."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/SUMMARY.md",
+      "bytes": 7997,
+      "expanded_bytes": 7997,
+      "sha256": "21b4ebac6ebc383edb4e04d67eff811a38d779e6e971c800dd17e527ad425588",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/filings_before.jsonl.gz",
+      "bytes": 1300759,
+      "expanded_bytes": 13366852,
+      "sha256": "aaa7f32e05b9fbcd7f4b1a955909a14559b25c52961b81d221a5aaafff8ea372",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Access-controlled rollback backup; preserve locally, do not publish; manifest supplies public timestamp before-images."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/receipt.json",
+      "bytes": 11937,
+      "expanded_bytes": 11937,
+      "sha256": "22dde770fd20bf48781077f48c9568af57ec2ac7444080b7fd82c0020d3cfede",
+      "privacy_flags": {
+        "sensitive_key": 6
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/receipt.json.sha256",
+      "bytes": 79,
+      "expanded_bytes": 79,
+      "sha256": "343e3be33a0152f2f9dc3cb05abc5a663111caf84cf333006c66f93546e668d0",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/regression_tests.txt",
+      "bytes": 1608,
+      "expanded_bytes": 1608,
+      "sha256": "d2cb1f8ea8ff34d2ef5dccc90ff68660c73558e5956be6d4702ab36e49dc1cf4",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/execution_20260923_135745_721689/validation.json",
+      "bytes": 712,
+      "expanded_bytes": 712,
+      "sha256": "79ff91caf71a879fa223173fc6e0687e791e5647f271e0115136a5cce5482678",
+      "privacy_flags": {
+        "sensitive_key": 1
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/manifest.json.gz",
+      "bytes": 1588990,
+      "expanded_bytes": 19791740,
+      "sha256": "f8bdc0b837287a2cd3d22a97115de268d1550863d72428b38a407c8ff9afed74",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/manifest.json.gz.sha256",
+      "bytes": 83,
+      "expanded_bytes": 83,
+      "sha256": "f2174fa27d7fe0141b3cef30db5cd2ea84510a3424d35b6f493200022f591d40",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/preflight_20260923_132417.json",
+      "bytes": 349,
+      "expanded_bytes": 349,
+      "sha256": "053e7351b19b4b915fbc0dd92d5354195fb705533d470321127ffe007da44b1d",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Superseded initial preflight lacking historical subset count; retain locally."
+    },
+    {
+      "path": "logs/research/acceptance_repair/preflight_20260923_132450.json",
+      "bytes": 410,
+      "expanded_bytes": 410,
+      "sha256": "9cb106130b1dc805026d6369ba7588df84548ceeadc22cf941b247b302bc49e6",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_repair/preflight_20260923_135055.json",
+      "bytes": 410,
+      "expanded_bytes": 410,
+      "sha256": "2b0bd9e238c6f7188e71f71cb95df0ec0880d359184e1626a771346f62047819",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_signal_impact_2026-09-23_131228.json",
+      "bytes": 188145,
+      "expanded_bytes": 188145,
+      "sha256": "514997bc575c8e1c58b843fc20978fb0141b3e91c273bc18e1ad3ea578e00e4f",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_timezone_2026-09-23.md",
+      "bytes": 19169,
+      "expanded_bytes": 19169,
+      "sha256": "d33c0d03c2dcf768116ca4c5d012b2637b8b1f31bb5056b30e0d32bd178ce7ad",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_timezone_2026-09-23_122141.json.gz",
+      "bytes": 2095335,
+      "expanded_bytes": 32047746,
+      "sha256": "31096bee629fd2b978927d71b22a0d7124ff18f67356ee36c997d0ad4bbc54ee",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Superseded initial audit snapshot; retain locally. Other two snapshots are explicit tool/pin dependencies."
+    },
+    {
+      "path": "logs/research/acceptance_timezone_2026-09-23_123358.json.gz",
+      "bytes": 2096553,
+      "expanded_bytes": 32127482,
+      "sha256": "5d448d056986f88cbd78e09512093bb862d25e387cf0835f55147c8c0825c6c7",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_timezone_2026-09-23_131057.json.gz",
+      "bytes": 1888193,
+      "expanded_bytes": 23483123,
+      "sha256": "718e4029d2674e1943bb95c26cbaa2bedf0b77b0d0e5c917d29022f2ee56548d",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/acceptance_timezone_completion_2026-09-23.md",
+      "bytes": 15659,
+      "expanded_bytes": 15659,
+      "sha256": "99f351fac074a93561e24d36af4a4ff763ce74a495016364085af7a0b05c5fdc",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/README.md",
+      "bytes": 13842,
+      "expanded_bytes": 13842,
+      "sha256": "8425747efe38bfe768ca3455c28c65f7f622d3e7ca0a221cdc102b9eee38613e",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000019617_0000019617-18-000057.json",
+      "bytes": 53331,
+      "expanded_bytes": 53331,
+      "sha256": "1f50bf40d66a70335c6f1198028d7cb1e4480a00bcb11bebe3a855e91d921b9d",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000019617_0000019617-22-000319.json",
+      "bytes": 40001,
+      "expanded_bytes": 40001,
+      "sha256": "1ab5aabfd170634b26471195089a189c7cab0b8b2808637baa0490e92e64754c",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000019617_0001628280-26-054343.json",
+      "bytes": 44166,
+      "expanded_bytes": 44166,
+      "sha256": "b2d7ecd10afe653bc948e57c821000b71fe3669a56456c8c90d79f0676b3ee96",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000040545_0000040545-18-000014.json",
+      "bytes": 63853,
+      "expanded_bytes": 63853,
+      "sha256": "e541d418f98ba4e081c5af8c527cf98fe4bb4b466029bf1aefec7206176d472c",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000040545_0000040545-22-000027.json",
+      "bytes": 27361,
+      "expanded_bytes": 27361,
+      "sha256": "558aa426fad81982a73a4062dd0602e37fb4baf058f4bd5c23e81492d9b2a8be",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000040545_0000040545-26-000049.json",
+      "bytes": 29770,
+      "expanded_bytes": 29770,
+      "sha256": "dd20491b7fb66f360605889a1589aefa2ab87793fd7e67c0a54414ee71cb7911",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000320193_0000320193-18-000007.json",
+      "bytes": 18803,
+      "expanded_bytes": 18803,
+      "sha256": "e5807a02a4c01bc4d19b4167f086f5b1abd4b7218b5f28858deb728e6bd26f6f",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000320193_0000320193-22-000059.json",
+      "bytes": 16998,
+      "expanded_bytes": 16998,
+      "sha256": "cf389aac8c9a3ae233d6ab531b6703cd0c41e8355b1dd2346e006495dec13516",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000320193_0000320193-26-000020.json",
+      "bytes": 16823,
+      "expanded_bytes": 16823,
+      "sha256": "2c98f4f87924876107fa511bbd01c26ffb481bd2f028d8bc6adb00bb34a34122",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000789019_0001193125-26-323660.json",
+      "bytes": 30516,
+      "expanded_bytes": 30516,
+      "sha256": "ad0cbc4ddd5e50fe25fe418c273e3cdbeaa79a410e3d5218846d0271acaf25ae",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000789019_0001564590-18-001129.json",
+      "bytes": 27177,
+      "expanded_bytes": 27177,
+      "sha256": "92867fef0d512e480aa60612d75edf16073036f04c67e7ff12bfcacd604e65fd",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000789019_0001564590-22-015675.json",
+      "bytes": 26225,
+      "expanded_bytes": 26225,
+      "sha256": "25801f7e9f537a3cacc77f0f6f9041f7fd9daf831745dd88351599a7ef85fe15",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000849399_0000849399-18-000004.json",
+      "bytes": 27251,
+      "expanded_bytes": 27251,
+      "sha256": "523752c401b2da4175c933546878616bd0f3b2386c8496044015b25cd2eed9fe",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000849399_0000849399-20-000007.json",
+      "bytes": 27408,
+      "expanded_bytes": 27408,
+      "sha256": "dfbfab394e4ca64aac171dd907bd9a4ce7d88e2c8369e04788b8ed4dba3e30bb",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000849399_0000849399-22-000019.json",
+      "bytes": 25628,
+      "expanded_bytes": 25628,
+      "sha256": "ac294209c8ed491c1f1d63e6b6bb51d53094714384ffee981d7d369336bb6a83",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0000849399_0000849399-26-000031.json",
+      "bytes": 23927,
+      "expanded_bytes": 23927,
+      "sha256": "9f75d97c4a3a3d036763b4bb02d905b4f9fad5a771a867d8f2b259d3a7ba988b",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001031296_0001031296-18-000015.json",
+      "bytes": 39619,
+      "expanded_bytes": 39619,
+      "sha256": "0c69774fbba7c52128d7060a7c6d35265d660e6adf7f050f6a0aed4cbcb3570e",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001031296_0001031296-22-000020.json",
+      "bytes": 16774,
+      "expanded_bytes": 16774,
+      "sha256": "cebf44de4a4322462b265fa6fbbc7fb5cb90a3c9410a34d327bad4c50e40323b",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001031296_0001031296-26-000085.json",
+      "bytes": 23367,
+      "expanded_bytes": 23367,
+      "sha256": "fb02a9db42e34f2eb5b3fbb24c02e5d62f36a72ca1443c9176e3d307a12ce4fe",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001109357_0001109357-22-000059.json",
+      "bytes": 50322,
+      "expanded_bytes": 50322,
+      "sha256": "1a89517568900def1d1561244e1ae2bf91d9b1ddd496b78eed58faae0bcdde78",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001109357_0001109357-26-000063.json",
+      "bytes": 55635,
+      "expanded_bytes": 55635,
+      "sha256": "87f464113201df8df2fd376967287bf2d902a4788a39f3ebac8c245276ef390d",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001109357_0001628280-18-001324.json",
+      "bytes": 99151,
+      "expanded_bytes": 99151,
+      "sha256": "71ba18bf56e9124e2bc5145702f7a7ea8ad771bcdba6da3145790302dba43ab3",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001175454_0001175454-18-000027.json",
+      "bytes": 21043,
+      "expanded_bytes": 21043,
+      "sha256": "3539df857d0dcb21dc6fe7fec9f40af67089f558ddd979c221439c4916fe96de",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001175454_0001175454-21-000039.json",
+      "bytes": 21652,
+      "expanded_bytes": 21652,
+      "sha256": "7443ee309cc21e409a6a539249a2878eb194a056e6f8e77481e16c106539b33a",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001175454_0001628280-24-008060.json",
+      "bytes": 30316,
+      "expanded_bytes": 30316,
+      "sha256": "54f6ca3ca827c0f4a79b5082d81ea125817f5aecc7e0995e2b01d74a6d618253",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001326801_0001326801-18-000009.json",
+      "bytes": 22515,
+      "expanded_bytes": 22515,
+      "sha256": "4df1b1b43f83362c650d4e39fe2a3a2284bf6a752c06985714a503fe55bf137a",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001326801_0001326801-22-000057.json",
+      "bytes": 25199,
+      "expanded_bytes": 25199,
+      "sha256": "e05db6fd9204283ee17d20c190d7621abdf3d75f325dd6d0c64ece2e9176d319",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001326801_0001628280-26-050705.json",
+      "bytes": 23864,
+      "expanded_bytes": 23864,
+      "sha256": "03dc98f60c6a77517678e450e188d7d0c68e1564d40d66d48835e656b4b239fe",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001652044_0001652044-18-000007.json",
+      "bytes": 25781,
+      "expanded_bytes": 25781,
+      "sha256": "72fa25f4b07f1f924daf92bf50ba4d4d731ed4f9f5317a0256d16c5073f9e296",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001652044_0001652044-22-000029.json",
+      "bytes": 21698,
+      "expanded_bytes": 21698,
+      "sha256": "1bc05f0c932476c33cdba204bc7573eccccdd80a90d961b4f806e8823709517a",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001652044_0001652044-26-000071.json",
+      "bytes": 24949,
+      "expanded_bytes": 24949,
+      "sha256": "c1af65a7aaf3c9bd19750178ef767a3f3a97802b8d1ba75394e715126208184c",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001868275_0001868275-22-000044.json",
+      "bytes": 32590,
+      "expanded_bytes": 32590,
+      "sha256": "a347dc800f9fa85c093a327cdef9628b9acc89fdf679021ca10d89a800c3476c",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001868275_0001868275-24-000054.json",
+      "bytes": 29054,
+      "expanded_bytes": 29054,
+      "sha256": "a6de9a416f059c6026fad801f8e5755caa5788652b342a7b8e3cad6c8b219838",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001868275_0001868275-26-000104.json",
+      "bytes": 31125,
+      "expanded_bytes": 31125,
+      "sha256": "df51c0bcd7b60b022db694eea2e373b15b01a33d1fefaaead2d1e9c5c8e7e7b2",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001932393_0001932393-23-000087.json",
+      "bytes": 28199,
+      "expanded_bytes": 28199,
+      "sha256": "b56e7ed04eb91f91ce5feab0e9352be3cc9c3d5fe49b637c3450e7c75916ec3a",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001932393_0001932393-24-000050.json",
+      "bytes": 23977,
+      "expanded_bytes": 23977,
+      "sha256": "50be31526d4d34b85d6c908680dc27ff6f36088c6330cac94de814ef226c9895",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/headers/0001932393_0001932393-26-000031.json",
+      "bytes": 29262,
+      "expanded_bytes": 29262,
+      "sha256": "13c6b69beaef29bd34285e5f2498e9f091d2061c1312cab6adfec395ac515a44",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/pilot_2026-09-23_051959.json",
+      "bytes": 76384,
+      "expanded_bytes": 76384,
+      "sha256": "45c67fd4737bbecb93b231f6a3caf3be46892a108085808e8281dc4a1a6fea96",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/sec_sic_pilot/pilot_2026-09-23_052233.json",
+      "bytes": 428107,
+      "expanded_bytes": 428107,
+      "sha256": "17e0b4d215f5a4bb7eee011002b6d13ce5a74f49f741206d0c03a6767dedf864",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/INTERVENING_REBUILD_PROVENANCE.md",
+      "bytes": 11619,
+      "expanded_bytes": 11619,
+      "sha256": "12df96c71cd79abe06bdb5f9fcaf136377253cabec876fb46cf6eed74517e10e",
+      "privacy_flags": {
+        "home_path": 2
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/PREFLIGHT_STOP.md",
+      "bytes": 10763,
+      "expanded_bytes": 10763,
+      "sha256": "824ec8adbab828cb68d3a3a33c589872d3fa802f99f6a8327be68744d7f55aa8",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/before_20260924_023350.json.gz",
+      "bytes": 5538027,
+      "expanded_bytes": 79594605,
+      "sha256": "d6b75a95278e45223bd294a30f2b1d6fac5d077e23c373187c7866735bc99770",
+      "privacy_flags": {
+        "sensitive_key": 4
+      },
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Large full preflight snapshot with duplicated filing/fact data; preserve locally and publish summary/hash plus canonical event output."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/before_20260924_023350.json.summary.json",
+      "bytes": 2780,
+      "expanded_bytes": 2780,
+      "sha256": "7f8debeaf06ab69f026bed9d4a3108a6de7ab4b4376514f8a2e3359cc91dbe18",
+      "privacy_flags": {
+        "sensitive_key": 3
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/deterministic_replay.json.gz",
+      "bytes": 1802695,
+      "expanded_bytes": 11756130,
+      "sha256": "bd96dc86a7a7cd541b51fb6bc86c4fd381adedf63b7c75b05c1336d7a0f2f3f2",
+      "privacy_flags": {
+        "home_path": 4
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/journal_provenance.json",
+      "bytes": 548967,
+      "expanded_bytes": 548967,
+      "sha256": "238dc35ee3ac4fa123bd2aca66f8955b01066e41221ebdc1147e52a7c93d71c1",
+      "privacy_flags": {
+        "home_path": 1
+      },
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "Raw filtered host/process log is redundant for Git; retain locally. Report and verification preserve chronology and source hash."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/local_source_confirmation.json",
+      "bytes": 2139,
+      "expanded_bytes": 2139,
+      "sha256": "1d461b44d010afb54779070f243ae0150c25bd024865ba9779b6653c56c1e5b8",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/observed_cohort_field_changes.json",
+      "bytes": 7888,
+      "expanded_bytes": 7888,
+      "sha256": "dbd81b1a3c947712f41e4b0bb1d5d5969782baf4dad3cd9bd55febcbb5844a56",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/observed_intervening_changes.json",
+      "bytes": 64344,
+      "expanded_bytes": 64344,
+      "sha256": "aec2b1a35eefbc66a80fa3fe2116d30f32a7f7fc9eae87f1f25d2707c3bc9839",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/prior_saved_signal_statistics.json",
+      "bytes": 1206,
+      "expanded_bytes": 1206,
+      "sha256": "088b8d60c5c4990d87e5690f792bffc9664985b538c0a860e19805d0fc13f6ad",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/provenance_inputs.json.gz",
+      "bytes": 24366859,
+      "expanded_bytes": 143986090,
+      "sha256": "2ee8f3627a2c0269680972fed94b89c9753dba2f4431442e07a538be6a40ef7c",
+      "privacy_flags": {
+        "sensitive_key": 1
+      },
+      "status": "untracked",
+      "disposition": "retain_local",
+      "reason": "24 MB compressed / 144 MB expanded full replay input archive with 1.27 million vendor-price rows; preserve locally. Redistribution scope not established; no need to publish entire price database."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/provenance_summary.json",
+      "bytes": 16824,
+      "expanded_bytes": 16824,
+      "sha256": "2decb68306b479c12264561e3611294e870376844203796ebe03dd84f68735b6",
+      "privacy_flags": {
+        "home_path": 4
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "logs/research/timestamp_rebuild_2026-09-23/provenance_verification.json",
+      "bytes": 4938,
+      "expanded_bytes": 4938,
+      "sha256": "516c395b770b5db3e5e335d53c2282dd035c1bc150850c591059df48d479f41a",
+      "privacy_flags": {
+        "home_path": 2,
+        "sensitive_key": 1
+      },
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "src/backtesting/acceptance_repair_manifest.py",
+      "bytes": 10805,
+      "expanded_bytes": 10805,
+      "sha256": "022080e1fa41b015de9849fee8a1cbd7d8cc83cfcc09119cd58810eba72407aa",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "src/backtesting/apply_acceptance_repair.py",
+      "bytes": 16466,
+      "expanded_bytes": 16466,
+      "sha256": "679fdc3516187b026b40eb3f67b5d358ebf0390f3b4d303c5a4d827e939a856e",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "src/backtesting/audit_acceptance_signal_impact.py",
+      "bytes": 7870,
+      "expanded_bytes": 7870,
+      "sha256": "85b23086e66548b277f318f3ba44943cc414209414a701cb51306ee1f4bde4cc",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "src/backtesting/audit_acceptance_timezone.py",
+      "bytes": 15295,
+      "expanded_bytes": 15295,
+      "sha256": "13003d0f332207ee6ef39257ad94ceec8728a6aece2442eb4f29233c9186341b",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "src/backtesting/investigate_event_provenance.py",
+      "bytes": 12809,
+      "expanded_bytes": 12809,
+      "sha256": "a0fa7a2c1931674ad63b409bea370a091adcd48d6b10b19d815442aa2d3ccef4",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "src/backtesting/sec_sic_pilot.py",
+      "bytes": 13771,
+      "expanded_bytes": 13771,
+      "sha256": "e11c480c963f2515ea3348bae93718ed93921b008544936b153dd0b69dedb6a0",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "src/backtesting/timestamp_rebuild_preflight.py",
+      "bytes": 8419,
+      "expanded_bytes": 8419,
+      "sha256": "9f23670bd0b1e54cbbad6832dc3c223ca7ea7b4a9ed0fe717aafba52276d4837",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "src/sec/acceptance_time.py",
+      "bytes": 1653,
+      "expanded_bytes": 1653,
+      "sha256": "43da92af8122df616f309f2ad38162e7bf6938ded7026564aea1e55ef6115b2b",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "src/sec/filing_repository.py",
+      "bytes": 1304,
+      "expanded_bytes": 1304,
+      "sha256": "f3122ff485eb95cd95c44ad821ea651944fdc18ef26fee7c2a6f7f8287d6883e",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "src/sec/import_universe_filings.py",
+      "bytes": 16103,
+      "expanded_bytes": 16103,
+      "sha256": "a3606307e35d8ad31b30635ae2d5f82c31c1de17f057a5997739ea75f52507b7",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "src/sec/json_cache.py",
+      "bytes": 3746,
+      "expanded_bytes": 3746,
+      "sha256": "2b6531acb00a98cb962d89ae52865f50bd7ae8e94f5b753738767e9cdfd455c9",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "src/sec/sec_submissions.py",
+      "bytes": 10056,
+      "expanded_bytes": 10056,
+      "sha256": "47cb6c5fee0b050995f338ec907149b7ff1f379839ed7bbaf7d7609b67d2a293",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "tests/test_acceptance_repair_manifest.py",
+      "bytes": 5700,
+      "expanded_bytes": 5700,
+      "sha256": "c7fd78e15480fa3a663ba9f301d22bdef505c1be356e7aebb5d2f90dfd6cdf79",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "tests/test_apply_acceptance_repair.py",
+      "bytes": 7619,
+      "expanded_bytes": 7619,
+      "sha256": "75b788cf4c7889587ef1e7291090aaa9efb4523e22600b0b91c814da924f5ab4",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "tests/test_audit_acceptance_signal_impact.py",
+      "bytes": 1187,
+      "expanded_bytes": 1187,
+      "sha256": "ec3ad91072834e77c8ef7af85b79593c9ac543edbecac7e98b5744eb9edc1a02",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "tests/test_audit_acceptance_timezone.py",
+      "bytes": 3527,
+      "expanded_bytes": 3527,
+      "sha256": "d286828d0dc467a5544d11738ef049e19740f782323ab493ec08119ffffbb24c",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 3,
+      "reason": "Frozen legacy audit, signal-impact supplement, evidence-keyed manifest, guarded repair runner, focused tests and final execution evidence."
+    },
+    {
+      "path": "tests/test_investigate_event_provenance.py",
+      "bytes": 2937,
+      "expanded_bytes": 2937,
+      "sha256": "a86b2fc6b75ec2afd1a50a1996c3d3d662e7915c56ad0e6213c3240c2c1a78e2",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    },
+    {
+      "path": "tests/test_sec_acceptance_time.py",
+      "bytes": 5491,
+      "expanded_bytes": 5491,
+      "sha256": "dfbf5c8d76fe91885995a84abdf3d36c47958967db8dfb7567d9fab56f902af2",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "tests/test_sec_production_freshness.py",
+      "bytes": 62657,
+      "expanded_bytes": 62657,
+      "sha256": "89422a7d32904b0a02c307fe9e1df723688b769f4bd507a5465a7cab545b8bcf",
+      "privacy_flags": {},
+      "status": "modified",
+      "disposition": "commit",
+      "commit": 1,
+      "reason": "Production parser, both writers, both validation paths and focused parser/freshness regressions."
+    },
+    {
+      "path": "tests/test_sec_sic_pilot.py",
+      "bytes": 4219,
+      "expanded_bytes": 4219,
+      "sha256": "da20a8966d58447fe8c2f3cc26bf1cfe3c0352c775901f4c65707b1988ba92e6",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 2,
+      "reason": "Isolated pilot code/tests, both historical pilot snapshots, README and all 37 indispensable offline header fixtures."
+    },
+    {
+      "path": "tests/test_timestamp_rebuild_preflight.py",
+      "bytes": 2745,
+      "expanded_bytes": 2745,
+      "sha256": "a9528cb63ebf9b9f71f408ee0ca28be941343731cb565b9ed45181afcb528fae",
+      "privacy_flags": {},
+      "status": "untracked",
+      "disposition": "commit",
+      "commit": 4,
+      "reason": "Read-only preflight/replay tooling, focused tests, historical comparisons, baseline event output and verification reports."
+    }
+  ],
+  "cache_head_comparison": [
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000019617.json",
+      "head_sha256": "3d1a63416e5b1fcca125df0bb320c4122136eba229e3c8bacf5433ebef141c7f",
+      "working_sha256": "94b000aa5e34355bc1a34355ebe67634743545194c8d89cca8b0ad019d3060f3",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000040704.json",
+      "head_sha256": "7fe32f33d2c875fcb0cbb69d41e80131da8348df7568282fd4a380e56393e507",
+      "working_sha256": "ac4ee389ee02afa2b6763261fa284348eb21ab00685175c4f855d49ba1294795",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000070858.json",
+      "head_sha256": "65af9bdfb1d4a27fc650984506e91734a23ece9f108c41871111d39f5b6afe11",
+      "working_sha256": "e13e9cf0ef31b802e12607009a21b31a9dfa85744449990cef122dbd0cc7c5a1",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000072971.json",
+      "head_sha256": "12361ec511ca0f1a3affd63cec2f6ad1cf8396b68c522a0b6a0e4acc027a6851",
+      "working_sha256": "dfead0e815416af0c2059d3cf805787fc6745001ca3fd2efc3d3d43e89fb5f25",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000091419.json",
+      "head_sha256": "6eb3d3e831fd65f0c2b7ed2615c7f3943817681b4981a989a33ac4e8554d6bcc",
+      "working_sha256": "5f29ba74ec6278f1db65f709f2fdc4c204f16506753d0c0d4cf1376e01ec7d1e",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000831001.json",
+      "head_sha256": "d139bde3437f18e853eae2d5d03c4b38ff82ca975d8661c824b867d077980830",
+      "working_sha256": "86a29df8466afce6ede4e271c1eed0cc0fbb9760f003879a9492744b62ea760e",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000886982.json",
+      "head_sha256": "a7f8ed34ab0cc23474d28df8fdbadebf2a9bf21e68c669d1f914ca39a253b55c",
+      "working_sha256": "a638149008d662e730394df378f1e77427f3ae47d506e261dd4cfcd0a8ccd918",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0000895421.json",
+      "head_sha256": "2ea3e5fde9c3d6c9fabbf2350034898a07d7cc0ad04e8910cef52c85d8677ce3",
+      "working_sha256": "da6a0313c8bda2efb999ec2a6d81fadcca49c0abe3d6e674acf027991fd5a01d",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0001090012.json",
+      "head_sha256": "530cc7f5008a524e3a4a377792d9f67064bd2d535ca0589d85224ee310ec5c86",
+      "working_sha256": "8344e027e64daf050b6cf7f4f77fb6e4521aa5df18acf96800dfda7cac863f88",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/companyfacts/CIK0001564708.json",
+      "head_sha256": "b8caf595dbbeefc7deb525169069afa9652886b0ccc7c401a84c3c0fa2d6bf5e",
+      "working_sha256": "a68ddba00f52e3608f49e44a21382e51740090eaad8f7207a463cec813f65218",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000004977.json",
+      "head_sha256": "378af8e51c1116c1c38ff1f503cc7479f9f5e74d53ae8e8b63a37544c00539de",
+      "working_sha256": "1ce05827a05f7c881ea836d8806f168927c04a281aee10a8e314fb4274f8ae30",
+      "pinned_sha256": "378af8e51c1116c1c38ff1f503cc7479f9f5e74d53ae8e8b63a37544c00539de",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000006281.json",
+      "head_sha256": "123575d864549595fbe387ae9fdfd40f3f097b6e5b7d43c694ac88f3e1da797b",
+      "working_sha256": "5fe94e7fed7b1932423f027b4c797ab0134a17abf159e6e1e6c5dd13f59f080c",
+      "pinned_sha256": "123575d864549595fbe387ae9fdfd40f3f097b6e5b7d43c694ac88f3e1da797b",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000019617.json",
+      "head_sha256": "72979eb58166b66c5fb85d708ff7fbf16fc8e65314bacc8d7c8c7d74ba8688b8",
+      "working_sha256": "069c3f5e3c597f167402aa9b6e0d5453163dca0009a057e215c20868bf0b52ed",
+      "pinned_sha256": "72979eb58166b66c5fb85d708ff7fbf16fc8e65314bacc8d7c8c7d74ba8688b8",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000021344.json",
+      "head_sha256": "fd26a01d574c07cccafbe6d68928aee34c6693c2c87dd15ee27f812e1fb03bae",
+      "working_sha256": "c6eb4201d53908c4397d206a651097e8a9e3ffad8fdba72c81c0f0b2550db923",
+      "pinned_sha256": "fd26a01d574c07cccafbe6d68928aee34c6693c2c87dd15ee27f812e1fb03bae",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000031791.json",
+      "head_sha256": "7372b6ae0fd5f64cac4fd627a837ddc0c7f3963b0a1048d86f0b106e9784c8b8",
+      "working_sha256": "1bb2c68a4847d810de6037d2091213ccc4bc663d1f5537d6b43da6710c6f074d",
+      "pinned_sha256": "7372b6ae0fd5f64cac4fd627a837ddc0c7f3963b0a1048d86f0b106e9784c8b8",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000034088.json",
+      "head_sha256": "e080a317c2857859dcb20513a8335e8a78a22602fd2f53996af9734451db9435",
+      "working_sha256": "cb0596adef6237cee9432750a44fb93e5e82ebf646427ccb6b5f5e141e53f57e",
+      "pinned_sha256": "e080a317c2857859dcb20513a8335e8a78a22602fd2f53996af9734451db9435",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000035527.json",
+      "head_sha256": "3bc4a5605b72bf23804594073fcc39c07a9b9cd2ed9418f26e1398eb9ac3d19a",
+      "working_sha256": "15401ea318e7baff8765201ece9ce3d457bec79969362b382f5ac472224f66fa",
+      "pinned_sha256": "3bc4a5605b72bf23804594073fcc39c07a9b9cd2ed9418f26e1398eb9ac3d19a",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000036270.json",
+      "head_sha256": "20234fe5ca1938cb6f0bcefd4a412157c01e5e8f3a6398701e76ee3f362facb0",
+      "working_sha256": "08c441a4727ffb3832574230d6f9d4ae38c936f9db110d1d715e81e79fe7a49f",
+      "pinned_sha256": "20234fe5ca1938cb6f0bcefd4a412157c01e5e8f3a6398701e76ee3f362facb0",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040533.json",
+      "head_sha256": "f65f35dc62f4d52990c24c5f4b614f0f06a2487cbd2c0ea5301ecd4cb55f6985",
+      "working_sha256": "cae7c0a374a70574a67c563e59b5305320ac8e3a8909133e5f678401e6b199d7",
+      "pinned_sha256": "f65f35dc62f4d52990c24c5f4b614f0f06a2487cbd2c0ea5301ecd4cb55f6985",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040545.json",
+      "head_sha256": "7cca15c17ba7fc617e93f5d3073e122b7a4c4917ecfa5774bfc3aaf57cac52d1",
+      "working_sha256": "da10209030b8256a9a78f6a63682f41c138fc90b4be0b1366ad017f4903b13ac",
+      "pinned_sha256": "7cca15c17ba7fc617e93f5d3073e122b7a4c4917ecfa5774bfc3aaf57cac52d1",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000040704.json",
+      "head_sha256": "1a3df692e4b6778adf67ac61397790cfdf60f68e60613512abc4bbc4438e35f3",
+      "working_sha256": "194ced1ba9433486395f10c2c886c104c62ff93389341958f1bc7a9b39917144",
+      "pinned_sha256": "1a3df692e4b6778adf67ac61397790cfdf60f68e60613512abc4bbc4438e35f3",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000047111.json",
+      "head_sha256": "d34dc94184b82502647a39915cb0c0a8f2039daefbae6c91530e3008892fc24f",
+      "working_sha256": "559f03c49eb3f2f15ad1d6f5f415b8b8f52b15504748fc99025aac1f8f0f97b3",
+      "pinned_sha256": "d34dc94184b82502647a39915cb0c0a8f2039daefbae6c91530e3008892fc24f",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000052988.json",
+      "head_sha256": "ddc37686b64f947090ecefe75764c71890aa56c611156ee3f668a0e49cbfd0ea",
+      "working_sha256": "26146bd6fbab40e892dd5460bf4d2eb578480f4a4e314b6158c824d9e9f3b643",
+      "pinned_sha256": "ddc37686b64f947090ecefe75764c71890aa56c611156ee3f668a0e49cbfd0ea",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000059478.json",
+      "head_sha256": "8947a470023ffeb664e5070db95914a3016e15554ad7a964b746052304371d91",
+      "working_sha256": "879ae5ba1726ec488d68d6581c5aa801a1567d7cf6b8f7bc07368b2a837ae3ed",
+      "pinned_sha256": "8947a470023ffeb664e5070db95914a3016e15554ad7a964b746052304371d91",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000063908.json",
+      "head_sha256": "dee138de060396c655678c57d2f892c5f63656257ad111c415417c9108fa3147",
+      "working_sha256": "2cf087c0817ec41ad29455fafbc2cf87fc6b83284ca9771ae2e1aab2c2586ce6",
+      "pinned_sha256": "dee138de060396c655678c57d2f892c5f63656257ad111c415417c9108fa3147",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000066740.json",
+      "head_sha256": "3c542646f9d8a6cbbb816a38b8861ab107150ffc706a9d7e84c1ee179a8c91a0",
+      "working_sha256": "1e4b7d0484248707b5f00e3d1ef51f89731b7236d7309bb64950cd9bb2f20879",
+      "pinned_sha256": "3c542646f9d8a6cbbb816a38b8861ab107150ffc706a9d7e84c1ee179a8c91a0",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000070858.json",
+      "head_sha256": "1d0291916dfff6a567bb2f5adb28e1bbc0e353542bb59821e8fb67e880a3e4a1",
+      "working_sha256": "0c99455cd1eb4ba7ad3adef5bc1449e481bf0626d6e927e7ad1c1533767133b1",
+      "pinned_sha256": "1d0291916dfff6a567bb2f5adb28e1bbc0e353542bb59821e8fb67e880a3e4a1",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000072971.json",
+      "head_sha256": "8c3bc833369482390f8e9bd9ddecbe04b61905e228fe66ffbd873a8cfeeeb3ae",
+      "working_sha256": "b9f309c42aa264c246b68ce50a1e051a9aa6704112e217ea06f4f464503e1fb9",
+      "pinned_sha256": "8c3bc833369482390f8e9bd9ddecbe04b61905e228fe66ffbd873a8cfeeeb3ae",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000077360.json",
+      "head_sha256": "063331c73a5c5fb40355767ea3f8fa1692ebf0310e94ba60b11e3b4855d1b016",
+      "working_sha256": "8d6e11166aa8e532e10f6f3c13b77d6c634476b1d2aac96dc08e17d93394324d",
+      "pinned_sha256": "063331c73a5c5fb40355767ea3f8fa1692ebf0310e94ba60b11e3b4855d1b016",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000079282.json",
+      "head_sha256": "b8e5746001b27c1a3aa47c933391266d0363696a72deba2d4056a23d4768f7b3",
+      "working_sha256": "231b89bd77d8c6da86952b7704f4e73ba12f7b0bcce980f8ce7aeaed615c13d8",
+      "pinned_sha256": "b8e5746001b27c1a3aa47c933391266d0363696a72deba2d4056a23d4768f7b3",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000091419.json",
+      "head_sha256": "9fc9b6e89550d0acc582a3cddc242bfef682fe358f2f5047aa1e98981185df14",
+      "working_sha256": "501c3e2b8cc0b60e6dbcbcf97edfc87715c3cb558a559227bcd1da73867cb2c8",
+      "pinned_sha256": "9fc9b6e89550d0acc582a3cddc242bfef682fe358f2f5047aa1e98981185df14",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000091576.json",
+      "head_sha256": "0216239759d11eb914a93e4d73a73e593ae04dbba77137dd9550c9ffd89071db",
+      "working_sha256": "f97fcaba4526269f469d8ce948368cc9d7a3cb68b7c66de45bcdbbfb70b22bbf",
+      "pinned_sha256": "0216239759d11eb914a93e4d73a73e593ae04dbba77137dd9550c9ffd89071db",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000093410.json",
+      "head_sha256": "1e43b78564858ca216c20dc02cb5b0f5eae25d8a5775ebc838534caab6dbb5ac",
+      "working_sha256": "23f2e17435d07f63f78681429e3984ef85bbd53ecad5fb8138d7598e801a52bf",
+      "pinned_sha256": "1e43b78564858ca216c20dc02cb5b0f5eae25d8a5775ebc838534caab6dbb5ac",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000093751.json",
+      "head_sha256": "89dc30507339a5ccc448ff418f6f36876cd98f05b856ed2f3eb39078d78d18fd",
+      "working_sha256": "8d30969cd818b08e84f1abb26983eba61ed7b7639eef853daaf24c633b064ff2",
+      "pinned_sha256": "89dc30507339a5ccc448ff418f6f36876cd98f05b856ed2f3eb39078d78d18fd",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000096021.json",
+      "head_sha256": "576250ccaf761986d53b730c4f632eb233ca1868f7db2d18cb3ac41b53386733",
+      "working_sha256": "00734e0a326663a459d14999e0ae9a6a43bf0fe1e46c7ed316f30af10b4eb866",
+      "pinned_sha256": "576250ccaf761986d53b730c4f632eb233ca1868f7db2d18cb3ac41b53386733",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000315293.json",
+      "head_sha256": "f5a87546c0915d8b05049caccc9df6739432b48bf1074c9e5b0b096868d8853f",
+      "working_sha256": "f4eba1a67c9ec1979a2dbfecbb8984992aa06a0776a56d96ae3f7d589dd904f0",
+      "pinned_sha256": "f5a87546c0915d8b05049caccc9df6739432b48bf1074c9e5b0b096868d8853f",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000319201.json",
+      "head_sha256": "afdbbf339db5d26f475ef7a74bdfcee9ebc90622df0bd3efb3ee2966176eee66",
+      "working_sha256": "528757325919c59c7ab7a43a14dd28a1cda9b718b25b0e53caac4e554f94188f",
+      "pinned_sha256": "afdbbf339db5d26f475ef7a74bdfcee9ebc90622df0bd3efb3ee2966176eee66",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000320193.json",
+      "head_sha256": "1d32bab20d10552293a9fb420092ab4b33147fed730608e85e06606927903b62",
+      "working_sha256": "ef766e7c4b1d9e2d8b32f7faa3642c4c42552ceab8132791d43bdc5164146950",
+      "pinned_sha256": "1d32bab20d10552293a9fb420092ab4b33147fed730608e85e06606927903b62",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000320335.json",
+      "head_sha256": "9033bd2bb14d5e9363fe7adc945bd3279b88054c2847f04f14162c74d6babac5",
+      "working_sha256": "ce2063930563500f48b978754d68c137b00f76cec98371ca0128bf7dc2dbfac8",
+      "pinned_sha256": "9033bd2bb14d5e9363fe7adc945bd3279b88054c2847f04f14162c74d6babac5",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000354950.json",
+      "head_sha256": "dc1a11c93705e1d4ed6a22f82ebd5d1b7c363f35eede0f4cdd71ae8cc1bab243",
+      "working_sha256": "5dc57a7e889a3e9e80cfd0379a272445f84b527a22360ab5d6f703696fa57315",
+      "pinned_sha256": "dc1a11c93705e1d4ed6a22f82ebd5d1b7c363f35eede0f4cdd71ae8cc1bab243",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000720005.json",
+      "head_sha256": "4fc77b01a4b785ca96bcc1d58ed9d0485d01ba32cd0689da8555429808bd8e08",
+      "working_sha256": "6ab85fa2b376af9101884a1789baea61e2e8135b16fd25aafd823215b4d3c393",
+      "pinned_sha256": "4fc77b01a4b785ca96bcc1d58ed9d0485d01ba32cd0689da8555429808bd8e08",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000723254.json",
+      "head_sha256": "edcc6b94fd9d25f79cfe8a17c3f80a0e051ad1336f3cfccc7f08a72f14b08a2e",
+      "working_sha256": "a1055c8e0cd811370d4e526d8bf8319d8dbccde51e03b66d4bd7d8b4e4e1326f",
+      "pinned_sha256": "edcc6b94fd9d25f79cfe8a17c3f80a0e051ad1336f3cfccc7f08a72f14b08a2e",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000723531.json",
+      "head_sha256": "f95768c93b7cf8144af1c957966d69feb5bdbf01f6d5406ed3f31a987f006e13",
+      "working_sha256": "aacbd4fd6f00d282b8e4be1383099a73f56a63861d0b1e378bc49e0d780c281b",
+      "pinned_sha256": "f95768c93b7cf8144af1c957966d69feb5bdbf01f6d5406ed3f31a987f006e13",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000732712.json",
+      "head_sha256": "08fdcb46cdb27b34bd9d5b4b00a1e81a89401336475a85337e498e3e3ee26218",
+      "working_sha256": "546622456f0b4fb870d99ee0e1100182538408185d2e1bbd6c0d348291c79075",
+      "pinned_sha256": "08fdcb46cdb27b34bd9d5b4b00a1e81a89401336475a85337e498e3e3ee26218",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000764478.json",
+      "head_sha256": "9c3828046f76bae19061bbe18eb30e1b8624d5486fe4c303ff3cf3795dc0b1d5",
+      "working_sha256": "46facce534715bc5a8fc3b485bbaef8de67992645f586ca80ff1589ae7a0bdab",
+      "pinned_sha256": "9c3828046f76bae19061bbe18eb30e1b8624d5486fe4c303ff3cf3795dc0b1d5",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000796343.json",
+      "head_sha256": "043f526cfd3d8dcdb9e404926d268873dc27631b399a00d4157ae55e9daa9c27",
+      "working_sha256": "9899d966cec79d1eabcd1ab5df6aebb6c34e9a3493d9d59ff3a6736c84924542",
+      "pinned_sha256": "043f526cfd3d8dcdb9e404926d268873dc27631b399a00d4157ae55e9daa9c27",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000798354.json",
+      "head_sha256": "57df2a66d5900ea739b4ecf6a38f7bc3bfd7411a35c364ba8f4f12d04efdd1e4",
+      "working_sha256": "317fcad6f7b83b04cd19eb1bcadd7be508c3d689c30f383b2a2d333d197c60d2",
+      "pinned_sha256": "57df2a66d5900ea739b4ecf6a38f7bc3bfd7411a35c364ba8f4f12d04efdd1e4",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000804328.json",
+      "head_sha256": "cda76334fc0bba7522fb0079efbb0e4f77a5957e8b42fac09be014b484e11527",
+      "working_sha256": "7fc7a200288dd45e6c8dd5bc34a608dc36f5c87c8a14d66d7402ede418f7f654",
+      "pinned_sha256": "cda76334fc0bba7522fb0079efbb0e4f77a5957e8b42fac09be014b484e11527",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000831001.json",
+      "head_sha256": "8c9e22fbfbe11a8b993a67490abec3fb207cd0ee6c44ec7b895cb4c9fed7593e",
+      "working_sha256": "8448fb0705a32340a6d1b13e4a474ade2a1c4a71beb826f462606ba6bd38ee19",
+      "pinned_sha256": "8c9e22fbfbe11a8b993a67490abec3fb207cd0ee6c44ec7b895cb4c9fed7593e",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000833444.json",
+      "head_sha256": "7e80539be986add8fb7c38401d1d145b5e096d2dc7d6419d318f7e25031e0bae",
+      "working_sha256": "3a7993afc22ce799e23f13a9916d718c7d118600e7429a7af975c5731ad1552c",
+      "pinned_sha256": "7e80539be986add8fb7c38401d1d145b5e096d2dc7d6419d318f7e25031e0bae",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000842023.json",
+      "head_sha256": "bdf022b189afb675437c06b3d7d4dd866f1e2f832073450984a7e37455ee98b9",
+      "working_sha256": "711044c4c2613c77bb809ecc6b023fc2d3b26f994a85f67afb6c3e16fd433d5c",
+      "pinned_sha256": "bdf022b189afb675437c06b3d7d4dd866f1e2f832073450984a7e37455ee98b9",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000866787.json",
+      "head_sha256": "45addc06197577c9ef69629c86bc0f3d8fb18c5c6144d5c6f22e5ed7bcab7237",
+      "working_sha256": "ac3a3369b249d279d55b454caf874c62b39f8e83c91f551ad2e52d2b55d6e1f4",
+      "pinned_sha256": "45addc06197577c9ef69629c86bc0f3d8fb18c5c6144d5c6f22e5ed7bcab7237",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000878927.json",
+      "head_sha256": "352614c097255685f36181006947cf4db9f664cdb79470a8f3f57e472d148680",
+      "working_sha256": "45bcd93b154d3ed1460f1b822f565b7736c17b57d07ba07fcd78f71f50040e86",
+      "pinned_sha256": "352614c097255685f36181006947cf4db9f664cdb79470a8f3f57e472d148680",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000882095.json",
+      "head_sha256": "2b3940582197a40d6539e0f4ecb3ecea3612278109c73930bc86e7e51946fd67",
+      "working_sha256": "e5e99ec91c24b537824f5c67dfc63bac2aa7af12fb614ff862ec491af70c894f",
+      "pinned_sha256": "2b3940582197a40d6539e0f4ecb3ecea3612278109c73930bc86e7e51946fd67",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000884887.json",
+      "head_sha256": "df7e8943730a96265a699283f0e1b7572aaee8b5a9c2c2911628d79c1366f02d",
+      "working_sha256": "7d9188f7d30606ceae620516c4c6d873975f1f558c7d57001ebeeadc44608e0e",
+      "pinned_sha256": "df7e8943730a96265a699283f0e1b7572aaee8b5a9c2c2911628d79c1366f02d",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000885725.json",
+      "head_sha256": "3fea7e4c18a11edb5d7b7d9fc003467761f1f79d466b8dd16a11331a469c3c0c",
+      "working_sha256": "a203baef29d4bbd80b915c80e04fb8a2a006fa05e34fc7cabe9c9c59d1f02ee6",
+      "pinned_sha256": "3fea7e4c18a11edb5d7b7d9fc003467761f1f79d466b8dd16a11331a469c3c0c",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000886982.json",
+      "head_sha256": "36d12ca95216512a292e8f96289efb5db2b1e7db0c2bdf2423f11ba0a475aa9c",
+      "working_sha256": "6907295ffd7d4ceefd86d299b0d7be0c21c000b70d7f11ca3283880aa4b20537",
+      "pinned_sha256": "36d12ca95216512a292e8f96289efb5db2b1e7db0c2bdf2423f11ba0a475aa9c",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000895421.json",
+      "head_sha256": "6bc455712fd1c0ca47966b1d81d4298a5f486a475d3d6afaaa072f1716b137fd",
+      "working_sha256": "1579055b9357e9409f26788c74ccddde07160a18773d297b3bb8b71adae3e7a8",
+      "pinned_sha256": "6bc455712fd1c0ca47966b1d81d4298a5f486a475d3d6afaaa072f1716b137fd",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000909832.json",
+      "head_sha256": "932a3ded67a2422e9de35a26792cab595cc2ef94d9dd80b80e26adf894397fb9",
+      "working_sha256": "e7061126290115df633e33316519ec88625d9edaab8f215d079765d650ba97be",
+      "pinned_sha256": "932a3ded67a2422e9de35a26792cab595cc2ef94d9dd80b80e26adf894397fb9",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000912595.json",
+      "head_sha256": "4dc5602cb580191107cf9ff19cf191f28380f2e978c351c81f855926b6908933",
+      "working_sha256": "74df386269946fc7e9c706914cebb078aeb5533ebcbc82b071f0025a55865194",
+      "pinned_sha256": "4dc5602cb580191107cf9ff19cf191f28380f2e978c351c81f855926b6908933",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000915913.json",
+      "head_sha256": "929700c98115f1d6be54ef5662e9e1397410f1759016cc7f42dd0f0cefe7e852",
+      "working_sha256": "da42431f749c93e68657ebff4ab192e84ea2f4da24b76ad71634b7a1450e5aa4",
+      "pinned_sha256": "929700c98115f1d6be54ef5662e9e1397410f1759016cc7f42dd0f0cefe7e852",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000920148.json",
+      "head_sha256": "4ea4fc1ddfa6027eb824935bb63bf6788f5ecce16aff0f65f84df479c3038aba",
+      "working_sha256": "eabb487bbbb70e0bbd84eaa19ca491d17eb5707d2c19e880faa5414bd9190b31",
+      "pinned_sha256": "4ea4fc1ddfa6027eb824935bb63bf6788f5ecce16aff0f65f84df479c3038aba",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000936395.json",
+      "head_sha256": "f2805cacbfdefc94867202d7a9342514cc6adbc489dfafcbd5095acd0dbeb294",
+      "working_sha256": "ebf31567c5d842d9704909fc33c6d566a89f2babc937551cebfef001e09bc705",
+      "pinned_sha256": "f2805cacbfdefc94867202d7a9342514cc6adbc489dfafcbd5095acd0dbeb294",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0000946581.json",
+      "head_sha256": "08fe2af516746985c48d8998347623f0900d004934ace3a6144da360cbce6d26",
+      "working_sha256": "7ceb405da5d71a642a7e02a9137b50d93eccab4274f7c02dd4510748f1ab1ace",
+      "pinned_sha256": "08fe2af516746985c48d8998347623f0900d004934ace3a6144da360cbce6d26",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001000228.json",
+      "head_sha256": "27742067f696fbd753553bb3035c21a9a8112e1f764b241afba8254fde85be37",
+      "working_sha256": "c9c12d193be59f1ed437e73855af8e2b0aa574588e8e4b44b2d0ba3455c76bc8",
+      "pinned_sha256": "27742067f696fbd753553bb3035c21a9a8112e1f764b241afba8254fde85be37",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001002047.json",
+      "head_sha256": "54487af9580b61506af1c9279c4ff1d88b803e5260d228d39c5001d97b623b65",
+      "working_sha256": "184cfe7b76c59b9b25906a7223f90ca638ad384764c0e741b8614f3f02b2bb3a",
+      "pinned_sha256": "54487af9580b61506af1c9279c4ff1d88b803e5260d228d39c5001d97b623b65",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001014473.json",
+      "head_sha256": "4fa3123b9dc77e7d97f58e904a3bb6a7c1bed04e11ede551aab772537e7c63d9",
+      "working_sha256": "6a17c0715f21d0e2cc78ae9103eaaa6fd9a65b4207ebaa76dfbac94de3a3d830",
+      "pinned_sha256": "4fa3123b9dc77e7d97f58e904a3bb6a7c1bed04e11ede551aab772537e7c63d9",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001045810.json",
+      "head_sha256": "bc0970abb1ecbf48c14025236f41429b12267d9b110b0c55b4b028ae4e550d25",
+      "working_sha256": "32a2e2c0be2f90d48ea4abcff355cc9daa06d0632937bff5cb035d5fd6e2cc34",
+      "pinned_sha256": "bc0970abb1ecbf48c14025236f41429b12267d9b110b0c55b4b028ae4e550d25",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001053507.json",
+      "head_sha256": "57e451b93a43cd68fb1371399e017e14c4835251eb093a4fd4e8cd439a893993",
+      "working_sha256": "7a1c4db1a3ad133cfc54142b0fcb08315041697d8c190c5c2893ccf18eab5e8d",
+      "pinned_sha256": "57e451b93a43cd68fb1371399e017e14c4835251eb093a4fd4e8cd439a893993",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001090012.json",
+      "head_sha256": "035e25a94e4252f4c54e16f682293785d70b8b0ee8e2fee6753a0f1d7096ab3e",
+      "working_sha256": "09e4f85e2dbc6aef1cdf3b31b2035bd4b28f92d4abf241b2fc346d1137f8b7ce",
+      "pinned_sha256": "035e25a94e4252f4c54e16f682293785d70b8b0ee8e2fee6753a0f1d7096ab3e",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001090872.json",
+      "head_sha256": "1c8ba2f9862bde5cac93ed04e8a68860a41221d1ee0c0c8f99a1c5b2eee535b4",
+      "working_sha256": "b62b1c862beb7b524eab8be0a79b22d3c673876fc3159be278b97a39d20fb518",
+      "pinned_sha256": "1c8ba2f9862bde5cac93ed04e8a68860a41221d1ee0c0c8f99a1c5b2eee535b4",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001120193.json",
+      "head_sha256": "14b6d78bee8f15f58138ec11c4e0d77ef63adbf54afbb2d9b9f3e0d5d1594317",
+      "working_sha256": "29e52e21728006629fc03d814edafac46f93fdb3df46450426288504813d40b7",
+      "pinned_sha256": "14b6d78bee8f15f58138ec11c4e0d77ef63adbf54afbb2d9b9f3e0d5d1594317",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001137774.json",
+      "head_sha256": "c6c3152775bd7be68e6f6383ba16f5653aca30f69c062af5b3d4a16d3b2bbe15",
+      "working_sha256": "1196cb3f5af98fb3e0f141e967ed5c34f99266ce6fe43edc159c2d00f640bd62",
+      "pinned_sha256": "c6c3152775bd7be68e6f6383ba16f5653aca30f69c062af5b3d4a16d3b2bbe15",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001137789.json",
+      "head_sha256": "9ab968f3cb470ef7c3148c2452a1ee6799dc50a80d95b6fc69decdf9cd30e4c5",
+      "working_sha256": "849d6ce983adcc24d0c091f537b4b257839a15bdefd55bb2e714a178698ae908",
+      "pinned_sha256": "9ab968f3cb470ef7c3148c2452a1ee6799dc50a80d95b6fc69decdf9cd30e4c5",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001145197.json",
+      "head_sha256": "adceee8748d8d4dae3fb3f02ca840254c501b5a1ebcda49e624a66f1822102d6",
+      "working_sha256": "462984c166671a9da7246e9d3cf20a48d6afc29b5604bad6c847f95242157b86",
+      "pinned_sha256": "adceee8748d8d4dae3fb3f02ca840254c501b5a1ebcda49e624a66f1822102d6",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001174922.json",
+      "head_sha256": "067f1dfd38c1076da9849fb9e70b9d655e366130338aff31924973b4e8fdc0c3",
+      "working_sha256": "83adeb7f3ecde5a0b4efd7cb6a33789385f2194fa93fd32c5d32aa9ae8371f4b",
+      "pinned_sha256": "067f1dfd38c1076da9849fb9e70b9d655e366130338aff31924973b4e8fdc0c3",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001260221.json",
+      "head_sha256": "d30d46df66014215ec1e2aa3e1720ee6b5e4917bc9d0fbfec3c99ff3e00f6a21",
+      "working_sha256": "4c5f557099832438a27c717426134302c4a1e5abae865fad2ec60dfdf9f4a977",
+      "pinned_sha256": "d30d46df66014215ec1e2aa3e1720ee6b5e4917bc9d0fbfec3c99ff3e00f6a21",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001327567.json",
+      "head_sha256": "38dc8a5cb87d1fe8cae706d27a0e7fcfef2000e855521fccae46a58e995b4306",
+      "working_sha256": "105ca19c0629dbd8ed674f92c847f6cf2c930fa66df8dc50dff00540836dd47c",
+      "pinned_sha256": "38dc8a5cb87d1fe8cae706d27a0e7fcfef2000e855521fccae46a58e995b4306",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001327811.json",
+      "head_sha256": "4394704df51e86c2019e17dd2419c16124b9dee15288994aee9be7f4d07ce91a",
+      "working_sha256": "524b7cd1c5b341bfd38541ec26ecb5760f4dcaa5cc86162fa22e4682842aba33",
+      "pinned_sha256": "4394704df51e86c2019e17dd2419c16124b9dee15288994aee9be7f4d07ce91a",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001341439.json",
+      "head_sha256": "1686351b1e848bfd750aa1f06ca1ec62ff0c0bf966666dfa992b0fc097445c31",
+      "working_sha256": "47c29acc4a0750f32ab948ea3d7cac4c5a8292e3aaf7d9e374b1566541abb260",
+      "pinned_sha256": "1686351b1e848bfd750aa1f06ca1ec62ff0c0bf966666dfa992b0fc097445c31",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001390777.json",
+      "head_sha256": "160ae4894efed7df11f6e180f347112f04c2dd78d973a605c382d8f52a2fa7f5",
+      "working_sha256": "d193beb29a43a31e18f07baa199fe59eb69c787afe4e36221f6a3c6caed1e6e6",
+      "pinned_sha256": "160ae4894efed7df11f6e180f347112f04c2dd78d973a605c382d8f52a2fa7f5",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001393818.json",
+      "head_sha256": "dc4d13451a8021e6f08694f708c9a94d81eea792d99da1285d0f22a764c123f0",
+      "working_sha256": "98b7840426bfe811779f490091e2e4ac647b1fb2cdeaab1e3639919cab69aea1",
+      "pinned_sha256": "dc4d13451a8021e6f08694f708c9a94d81eea792d99da1285d0f22a764c123f0",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001402057.json",
+      "head_sha256": "eb33a767d6be3f0d24719fe28c2452557da625ba8342875eec77b40d6729f62c",
+      "working_sha256": "c333f25172bc93d2a298ae6de4aecf45e36074b39ff7f64610f19aeddd9f10a4",
+      "pinned_sha256": "eb33a767d6be3f0d24719fe28c2452557da625ba8342875eec77b40d6729f62c",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001403161.json",
+      "head_sha256": "0b8630cc21ebc543ff0eba067084020581e9bb20697817abc9fcf94be8df3fc9",
+      "working_sha256": "2adc8d2bebc9b6e63d87b9941154bf13c135a1a081164fae1f6108c25b4f4c52",
+      "pinned_sha256": "0b8630cc21ebc543ff0eba067084020581e9bb20697817abc9fcf94be8df3fc9",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001478242.json",
+      "head_sha256": "f5244fcedf52529b0021e751ada7dc6c01bee829b8a00dcae943fb31c316737e",
+      "working_sha256": "58d69b22f7f6401aae08651c2552a8c90d6716d8366cc8126f3faed4e47ee6c6",
+      "pinned_sha256": "f5244fcedf52529b0021e751ada7dc6c01bee829b8a00dcae943fb31c316737e",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001512673.json",
+      "head_sha256": "df8b288cd3b7357d3bd1abcc873fe5715197e29d919fa820d1de881c25affd23",
+      "working_sha256": "e09c5df801d52ad7cc28ab1cfe268d2f2e7164cf9ca52ecf652d47abba1b4368",
+      "pinned_sha256": "df8b288cd3b7357d3bd1abcc873fe5715197e29d919fa820d1de881c25affd23",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001535527.json",
+      "head_sha256": "323f803df586aa905f3f73f71d5ab31d165a3a2447a2c372ac039abe6f204e3a",
+      "working_sha256": "c3a8732f3f3ffa3923ee1524f3c0142abbac96d51df6a8065dc9f92cd4b7aa9b",
+      "pinned_sha256": "323f803df586aa905f3f73f71d5ab31d165a3a2447a2c372ac039abe6f204e3a",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001561550.json",
+      "head_sha256": "f07e823390b54cdf0e907de237facfbd8d4d37cb94188cb8e81f38b0c3826a04",
+      "working_sha256": "2fb5705c1679c6a32e03c4ce049434c98e4f6e763c01686be9354165a7cdd1a4",
+      "pinned_sha256": "f07e823390b54cdf0e907de237facfbd8d4d37cb94188cb8e81f38b0c3826a04",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001564708.json",
+      "head_sha256": "f2ebf3415bed026363813edf86e3708c18ae93718361c91458e74a429e62ede7",
+      "working_sha256": "a9a8ef8b0cefdb8ae27cb799135257a44971598e2101f9d637092e33c483c340",
+      "pinned_sha256": "f2ebf3415bed026363813edf86e3708c18ae93718361c91458e74a429e62ede7",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001571996.json",
+      "head_sha256": "34ff697698d019a70aa4e957a925d2a4392e7e924566e7b82293464057568e64",
+      "working_sha256": "522dd2b7263051bff1c4b2a35a2c9f5bb1d516e67aa6bdd3c33872dd15ace84f",
+      "pinned_sha256": "34ff697698d019a70aa4e957a925d2a4392e7e924566e7b82293464057568e64",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001601046.json",
+      "head_sha256": "f1159d6deca743116a1afb3f6495cbcbc196325dfb8389818b385127787f8a0e",
+      "working_sha256": "283b44b896ca2d20c4fac38df28cb0d53e5976aa7f57ba2dc01a895774c8abf4",
+      "pinned_sha256": "f1159d6deca743116a1afb3f6495cbcbc196325dfb8389818b385127787f8a0e",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001613103.json",
+      "head_sha256": "b9ff6adb3a0789b89674f605a3b404f94a6e95f3bb6c297616d20f79c6c34ba2",
+      "working_sha256": "a30d9083117b8a4ea3db19ca3c30aa626f5eaf460a70badd3819f4d2f3157a36",
+      "pinned_sha256": "b9ff6adb3a0789b89674f605a3b404f94a6e95f3bb6c297616d20f79c6c34ba2",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001633978.json",
+      "head_sha256": "6c9ac6b49c0117bdd36fd05f2b010b6c3f3984226abb75240d49517414b0c7e8",
+      "working_sha256": "d95de593611d4380da5818be3b058db162dc11050688e9e7477dda495bfe3842",
+      "pinned_sha256": "6c9ac6b49c0117bdd36fd05f2b010b6c3f3984226abb75240d49517414b0c7e8",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001679788.json",
+      "head_sha256": "8f64ca5305618ddaa450e26f7fa27611413179befe8bbb5ef8a77a46fd2b6e67",
+      "working_sha256": "f7e5bef791689cd4a83ea6b3abc648e8d58aab33543a3351d9cae15e37d6ab11",
+      "pinned_sha256": "8f64ca5305618ddaa450e26f7fa27611413179befe8bbb5ef8a77a46fd2b6e67",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001705696.json",
+      "head_sha256": "96ac812146751a13983ff19def6df2fcf0e5772ebe90d50af664dcfbd022d2a6",
+      "working_sha256": "005099838089682129055b9d19ba95210a88e5718d34768aa5b85f466f7edac0",
+      "pinned_sha256": "96ac812146751a13983ff19def6df2fcf0e5772ebe90d50af664dcfbd022d2a6",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001783879.json",
+      "head_sha256": "9ce072660637d831a216f3fd8fc936530cf24b78ae54928120aad43bf3a6c514",
+      "working_sha256": "022893703427a763ba20aa304eb31a5830d420b3a42098c49a442bc28f6fb87a",
+      "pinned_sha256": "9ce072660637d831a216f3fd8fc936530cf24b78ae54928120aad43bf3a6c514",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001811074.json",
+      "head_sha256": "d6846728b14c2774998d3b3f3820b2ca75d0b634edb7fc05002aee7b1af791b5",
+      "working_sha256": "2e3687e212e33ef7023d1ea2f089dd5786c15bc4265fc4732229ca63863bbe9b",
+      "pinned_sha256": "d6846728b14c2774998d3b3f3820b2ca75d0b634edb7fc05002aee7b1af791b5",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0001932393.json",
+      "head_sha256": "19b469ded597dabc7516e3ed4ca2216bf2cad88da21e481417438fb8b666d2c1",
+      "working_sha256": "81abadc60ee1307e855a15bc3935b474a3743584cbbceab6159825ce6462eedf",
+      "pinned_sha256": "19b469ded597dabc7516e3ed4ca2216bf2cad88da21e481417438fb8b666d2c1",
+      "head_matches_pin": true,
+      "working_matches_pin": false
+    },
+    {
+      "path": "data/cache/sec/submissions/CIK0002115436.json",
+      "head_sha256": "345ca7c54b879af75a5e260cc1f7e11b0f22d5d77a1e967794412b6f36efa2a4",
+      "working_sha256": "a47253261e99bf69a85e1f3b4bb79bcd10a53fae12fa8bcd8a2e8f75d3c81feb",
+      "pinned_sha256": null,
+      "head_matches_pin": false,
+      "working_matches_pin": false
+    }
+  ],
+  "additional_review_files": [
+    "logs/research/git_checkpoint_review_2026-09-24.md",
+    "logs/research/git_checkpoint_review_2026-09-24.json"
+  ],
+  "ignored_research_files": [
+    "logs/research/timestamp_rebuild_2026-09-23/provenance_tests.log"
+  ],
+  "validation": {
+    "offline_tests": 219,
+    "result": "PASS",
+    "python_files_compiled": 21,
+    "diff_check": "PASS",
+    "pinned_sources": {
+      "total": 1139,
+      "current_matches": 1051,
+      "current_changed": 88,
+      "changed_HEAD_matches_pin": 88
+    },
+    "manifest_sha256": "f8bdc0b837287a2cd3d22a97115de268d1550863d72428b38a407c8ff9afed74",
+    "source_audit_hash_verified": true,
+    "receipt_sidecar_verified": true
+  }
+}

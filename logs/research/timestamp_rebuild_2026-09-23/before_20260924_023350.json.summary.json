@@ -1,0 +1,117 @@
+{
+  "snapshot": "logs/research/timestamp_rebuild_2026-09-23/before_20260924_023350.json.gz",
+  "sha256": "d6b75a95278e45223bd294a30f2b1d6fac5d077e23c373187c7866735bc99770",
+  "total_events": 14825,
+  "historical_events": 14742,
+  "exact_signal_events": 191,
+  "duplicate_stable_keys": [],
+  "filings": 31098,
+  "added_filings": 1,
+  "missing_filings": 0,
+  "changed_manifest_filings": 0,
+  "unchanged_manifest_categories": {
+    "already_correct": 984,
+    "safely_correctable": 29837,
+    "unresolved_source": 205,
+    "exceptional_offset": 71
+  },
+  "matches_repair_protected_tables": {
+    "companies": true,
+    "financial_facts": false,
+    "backtest_events": false,
+    "paper_accounts": true,
+    "paper_signals": true,
+    "paper_positions": true,
+    "index_membership_history": true
+  },
+  "protected_counts": {
+    "companies": {
+      "prior": 8071,
+      "current": 8071
+    },
+    "financial_facts": {
+      "prior": 173028,
+      "current": 173033
+    },
+    "backtest_events": {
+      "prior": 14824,
+      "current": 14825
+    },
+    "paper_accounts": {
+      "prior": 1,
+      "current": 1
+    },
+    "paper_signals": {
+      "prior": 0,
+      "current": 0
+    },
+    "paper_positions": {
+      "prior": 0,
+      "current": 0
+    },
+    "index_membership_history": {
+      "prior": 667,
+      "current": 667
+    }
+  },
+  "paper_accounts": [
+    {
+      "id": 1,
+      "cash": "10000",
+      "prospective_cutover_at": "2026-09-20 10:32:26.133136+00:00"
+    }
+  ],
+  "paper_matches_repair": true,
+  "saved_exact_event_changes": 16,
+  "saved_exact_fact_dependency_changes": 0,
+  "exact_signal_statistics": {
+    "train": {
+      "events": 142,
+      "completed": 142,
+      "standard": {
+        "n": 142,
+        "average": "1.43",
+        "median": "1.07",
+        "win_rate": "54.23"
+      },
+      "distribution": {
+        "n": 142,
+        "minimum": "-20.80",
+        "p10": "-9.83",
+        "p25": "-4.24",
+        "median": "1.07",
+        "p75": "6.66",
+        "p90": "12.58",
+        "maximum": "31.37",
+        "average": "1.43",
+        "trimmed_average": "0.99"
+      },
+      "sum_excess": "203.40",
+      "mean_excess_unrounded": "1.432394366197183098591549296"
+    },
+    "test": {
+      "events": 49,
+      "completed": 48,
+      "standard": {
+        "n": 48,
+        "average": "4.09",
+        "median": "2.28",
+        "win_rate": "58.33"
+      },
+      "distribution": {
+        "n": 48,
+        "minimum": "-33.06",
+        "p10": "-9.54",
+        "p25": "-4.62",
+        "median": "2.28",
+        "p75": "10.29",
+        "p90": "23.76",
+        "maximum": "48.06",
+        "average": "4.09",
+        "trimmed_average": "3.14"
+      },
+      "sum_excess": "196.24",
+      "mean_excess_unrounded": "4.088333333333333333333333333"
+    }
+  }
+}

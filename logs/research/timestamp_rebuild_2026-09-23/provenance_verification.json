@@ -1,0 +1,154 @@
+{
+  "live_snapshot": {
+    "snapshot": "2026-09-24 02:51:28.833116+00:00",
+    "read_only": "on"
+  },
+  "current_matches_saved_preflight": {
+    "companies": true,
+    "financial_facts": true,
+    "backtest_events": true,
+    "paper_accounts": true,
+    "paper_signals": true,
+    "paper_positions": true,
+    "index_membership_history": true
+  },
+  "paper_matches_repair": true,
+  "original_manifest_filings_unchanged": true,
+  "historical_id_range": [
+    385246,
+    399987
+  ],
+  "historical_ids_contiguous": true,
+  "historical_created_at": [
+    "2026-09-23 22:21:43.265306+00:00"
+  ],
+  "historical_xmin_groups": 502,
+  "builder_journal_errors": 0,
+  "systemd_configuration": {
+    "/etc/systemd/system/market-intel-daily.service": [
+      "Type=oneshot",
+      "User=clay",
+      "WorkingDirectory=/home/clay/projects/market-intel",
+      "ExecStart=/home/clay/projects/market-intel/.venv/bin/python -m src.run_daily_market_intel"
+    ],
+    "/etc/systemd/system/market-intel-daily.timer": [
+      "OnCalendar=Mon..Fri *-*-* 17:00:00 America/Chicago",
+      "Persistent=true",
+      "Unit=market-intel-daily.service"
+    ]
+  },
+  "sec_production_report": {
+    "run_id": "df2f9fba28cc47a5890cb798c40f2977",
+    "start_timestamp": "2026-09-23T22:00:04.328127+00:00",
+    "end_timestamp": "2026-09-23T22:19:57.218194+00:00",
+    "mode": "production-refresh",
+    "universe": "expanded_500",
+    "status": "PASS",
+    "freshness": "PASS",
+    "filing_coverage": {
+      "targeted": 30113,
+      "available": 17611,
+      "reused": 30110,
+      "persisted": 1,
+      "unresolved": 2,
+      "issuers_complete": 501,
+      "issuers_attempted": 501,
+      "status": "GAPS"
+    }
+  },
+  "ftv_event": {
+    "id": 390995,
+    "security_id": 663,
+    "period_end": "2026-04-03",
+    "entry_date": "2026-04-30",
+    "entry_price": "62.0496306496",
+    "revenue_yoy": "-27.46",
+    "revenue_acceleration": "63.96",
+    "eps_yoy": "-12.00",
+    "gross_margin_change": "3.42",
+    "operating_margin_change": "2.08",
+    "return_30d": "-5.46",
+    "spy_return_30d": "6.14",
+    "excess_30d": "-11.60",
+    "return_90d": "-4.04",
+    "spy_return_90d": "2.34",
+    "excess_90d": "-6.38",
+    "return_180d": null,
+    "spy_return_180d": null,
+    "excess_180d": null,
+    "created_at": "2026-09-23 22:21:43.265306+00:00",
+    "updated_at": "2026-09-23 22:21:43.265306+00:00",
+    "pre_return_20d": "11.70",
+    "pre_return_60d": "15.12",
+    "pre_excess_20d": "2.28",
+    "pre_excess_60d": "12.51",
+    "pre_volatility_20d": "22.94",
+    "previous_close": "61.6899805605",
+    "entry_open": "62.0496306496",
+    "opening_gap_pct": "0.58",
+    "spy_opening_gap_pct": "0.43",
+    "opening_gap_excess": "0.15",
+    "exit_date_30d": "2026-06-01",
+    "exit_date_90d": "2026-07-29",
+    "exit_date_180d": null,
+    "ticker": "FTV",
+    "membership_qualified": true,
+    "xmin": "867992"
+  },
+  "adbe_event": {
+    "id": 385482,
+    "security_id": 149,
+    "period_end": "2026-08-28",
+    "entry_date": "2026-09-23",
+    "entry_price": "239.48",
+    "revenue_yoy": "12.89",
+    "revenue_acceleration": "0.20",
+    "eps_yoy": "10.53",
+    "gross_margin_change": "-0.57",
+    "operating_margin_change": "-1.47",
+    "return_30d": null,
+    "spy_return_30d": null,
+    "excess_30d": null,
+    "return_90d": null,
+    "spy_return_90d": null,
+    "excess_90d": null,
+    "return_180d": null,
+    "spy_return_180d": null,
+    "excess_180d": null,
+    "created_at": "2026-09-23 22:21:43.265306+00:00",
+    "updated_at": "2026-09-23 22:21:43.265306+00:00",
+    "pre_return_20d": "-13.76",
+    "pre_return_60d": "17.52",
+    "pre_excess_20d": "-15.06",
+    "pre_excess_60d": "11.43",
+    "pre_volatility_20d": "47.95",
+    "previous_close": "238.25",
+    "entry_open": "239.48",
+    "opening_gap_pct": "0.52",
+    "spy_opening_gap_pct": "-0.08",
+    "opening_gap_excess": "0.60",
+    "exit_date_30d": null,
+    "exit_date_90d": null,
+    "exit_date_180d": null,
+    "ticker": "ADBE",
+    "membership_qualified": true,
+    "xmin": "867799"
+  },
+  "ftv_reconstructed_timing": {
+    "2026-04-30": {
+      "pre_excess_20d": "2.28",
+      "qualifies": true
+    },
+    "2026-05-01": {
+      "pre_excess_20d": "-2.72",
+      "qualifies": false
+    }
+  },
+  "artifact_hashes": {
+    "logs/research/timestamp_rebuild_2026-09-23/provenance_inputs.json.gz": "2ee8f3627a2c0269680972fed94b89c9753dba2f4431442e07a538be6a40ef7c",
+    "logs/research/timestamp_rebuild_2026-09-23/deterministic_replay.json.gz": "bd96dc86a7a7cd541b51fb6bc86c4fd381adedf63b7c75b05c1336d7a0f2f3f2",
+    "logs/research/timestamp_rebuild_2026-09-23/journal_provenance.json": "238dc35ee3ac4fa123bd2aca66f8955b01066e41221ebdc1147e52a7c93d71c1",
+    "logs/daily_market_intel_2026-09-23_17-00-04.log": "da245c19cc8c1a176c9683471f07df38b8d54317b7eb414425965729a9964f29",
+    "logs/sec-production/df2f9fba28cc47a5890cb798c40f2977.json": "53dee204fc6cdac267e9233e30927251a7d299070abad0b224611fbfa2764221"
+  }
+}

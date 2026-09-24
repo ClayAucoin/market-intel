@@ -1,0 +1,58 @@
+{
+  "train": {
+    "events": 146,
+    "standard": {
+      "n": 146,
+      "average": "1.43",
+      "median": "1.37",
+      "win_rate": "55.48"
+    },
+    "distribution": {
+      "n": 146,
+      "minimum": "-20.80",
+      "p10": "-9.73",
+      "p25": "-4.18",
+      "median": "1.37",
+      "p75": "6.42",
+      "p90": "12.18",
+      "maximum": "31.37",
+      "average": "1.43",
+      "trimmed_average": "1.00"
+    },
+    "saved_total": {
+      "events": 146,
+      "securities": 106,
+      "completed": 146,
+      "sum_excess_pp": "208.47",
+      "mean_excess_pp": "1.427876712328767123287671233"
+    }
+  },
+  "test": {
+    "events": 48,
+    "standard": {
+      "n": 47,
+      "average": "4.82",
+      "median": "3.06",
+      "win_rate": "59.57"
+    },
+    "distribution": {
+      "n": 47,
+      "minimum": "-27.00",
+      "p10": "-7.69",
+      "p25": "-4.49",
+      "median": "3.06",
+      "p75": "10.84",
+      "p90": "23.90",
+      "maximum": "48.06",
+      "average": "4.82",
+      "trimmed_average": "3.62"
+    },
+    "saved_total": {
+      "events": 48,
+      "securities": 37,
+      "completed": 47,
+      "sum_excess_pp": "226.49",
+      "mean_excess_pp": "4.818936170212765957446808511"
+    }
+  }
+}

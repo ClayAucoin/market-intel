@@ -1,0 +1,1884 @@
+{
+  "added_filings": [
+    {
+      "id": 503172,
+      "company_id": 612,
+      "accession_number": "0001628280-26-063201",
+      "form": "10-Q",
+      "filing_date": "2026-09-23",
+      "report_date": "2026-08-30",
+      "acceptance_datetime": "2026-09-23 15:44:38+00:00",
+      "primary_document": "gis-20260830.htm",
+      "primary_doc_description": "10-Q",
+      "created_at": "2026-09-23 22:12:53.960847+00:00",
+      "filing_url": "https://www.sec.gov/Archives/edgar/data/40704/000162828026063201/gis-20260830.htm",
+      "cik": "0000040704",
+      "display_ticker": "GIS"
+    }
+  ],
+  "timestamp_only_baseline_links": 14741,
+  "missing_fact_links": 0,
+  "original_member_keys_missing": [],
+  "current_new_member_keys": [
+    [
+      149,
+      "2026-08-28"
+    ]
+  ],
+  "old_event_ids_still_present": 0,
+  "entry_shift_days": {
+    "0": 12818,
+    "-3": 435,
+    "-1": 1458,
+    "-4": 26,
+    "-2": 4
+  },
+  "removed_signals": [
+    {
+      "old": {
+        "id": 383683,
+        "security_id": 617,
+        "period_end": "2021-07-03",
+        "entry_date": "2021-08-10",
+        "entry_price": "65.8202072683",
+        "revenue_yoy": "24.51",
+        "revenue_acceleration": "20.73",
+        "eps_yoy": "42.36",
+        "gross_margin_change": "-0.12",
+        "operating_margin_change": "0.78",
+        "return_30d": "-2.04",
+        "spy_return_30d": "1.44",
+        "excess_30d": "-3.48",
+        "return_90d": "5.47",
+        "spy_return_90d": "6.29",
+        "excess_90d": "-0.82",
+        "return_180d": "29.18",
+        "spy_return_180d": "1.74",
+        "excess_180d": "27.44",
+        "created_at": "2026-09-22 16:37:24.755917+00:00",
+        "updated_at": "2026-09-22 16:37:24.755917+00:00",
+        "pre_return_20d": "6.55",
+        "pre_return_60d": "-3.51",
+        "pre_excess_20d": "5.39",
+        "pre_excess_60d": "-11.63",
+        "pre_volatility_20d": "33.71",
+        "previous_close": "65.5741979874",
+        "entry_open": "65.8202072683",
+        "opening_gap_pct": "0.38",
+        "spy_opening_gap_pct": "0.11",
+        "opening_gap_excess": "0.27",
+        "exit_date_30d": "2021-09-09",
+        "exit_date_90d": "2021-11-08",
+        "exit_date_180d": "2022-02-07",
+        "ticker": "TSN",
+        "sector": "Consumer Staples",
+        "membership_matches": 1,
+        "split": "train",
+        "checks": {
+          "revenue_late": false,
+          "revenue_missing_evidence": false,
+          "revenue_derived_lineage_unproven": false,
+          "revenue_direct_sources_available": true,
+          "revenue_ambiguous_selection": false,
+          "operating_margin_late": false,
+          "operating_margin_missing_evidence": false,
+          "operating_margin_derived_lineage_unproven": false,
+          "operating_margin_direct_sources_available": true,
+          "operating_margin_ambiguous_selection": false,
+          "revenue_stored_value_differs": false,
+          "margin_stored_value_differs": false,
+          "completed_exit_date_mismatch": false,
+          "missing_exit": false,
+          "completed_missing_exit": false,
+          "invalid_exit_price": false,
+          "missing_or_invalid_entry": false,
+          "stored_exit_differs_from_current_price_lookup": false,
+          "boundary_crossing": false,
+          "momentum_insufficient_or_invalid": false,
+          "momentum_dates_misaligned": false,
+          "momentum_stored_value_differs": false,
+          "no_dated_ticker_history": true,
+          "ambiguous_dated_ticker_history": false,
+          "historical_ticker_differs": false,
+          "ticker_shared_by_security_ids": false,
+          "duplicate_membership_join": false
+        },
+        "exit_mismatch_days": 0,
+        "provenance": {
+          "revenue": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 547142,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2021-07-03",
+                "value": "12478000000",
+                "filed_date": "2021-08-09",
+                "accession_number": "0000100493-21-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2021-08-09 15:34:34+00:00"
+              },
+              {
+                "id": 547138,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2020-06-27",
+                "value": "10022000000",
+                "filed_date": "2020-08-03",
+                "accession_number": "0000100493-20-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2020-08-03 15:33:59+00:00"
+              },
+              {
+                "id": 547141,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2021-04-03",
+                "value": "11300000000",
+                "filed_date": "2021-05-10",
+                "accession_number": "0000100493-21-000075",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2021-05-10 15:33:23+00:00"
+              },
+              {
+                "id": 547137,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2020-03-28",
+                "value": "10888000000",
+                "filed_date": "2020-05-04",
+                "accession_number": "0000100493-20-000074",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2020-05-04 15:46:34+00:00"
+              }
+            ]
+          },
+          "operating_margin": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 547142,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2021-07-03",
+                "value": "12478000000",
+                "filed_date": "2021-08-09",
+                "accession_number": "0000100493-21-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2021-08-09 15:34:34+00:00"
+              },
+              {
+                "id": 547138,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "revenue",
+                "period_end": "2020-06-27",
+                "value": "10022000000",
+                "filed_date": "2020-08-03",
+                "accession_number": "0000100493-20-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2020-08-03 15:33:59+00:00"
+              },
+              {
+                "id": 547347,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "operating_income",
+                "period_end": "2021-07-03",
+                "value": "1062000000",
+                "filed_date": "2021-08-09",
+                "accession_number": "0000100493-21-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2021-08-09 15:34:34+00:00"
+              },
+              {
+                "id": 547343,
+                "security_id": 617,
+                "company_id": 621,
+                "metric": "operating_income",
+                "period_end": "2020-06-27",
+                "value": "775000000",
+                "filed_date": "2020-08-03",
+                "accession_number": "0000100493-20-000103",
+                "is_derived": false,
+                "filing_company_id": 621,
+                "acceptance_datetime": "2020-08-03 15:33:59+00:00"
+              }
+            ]
+          }
+        },
+        "price_evidence": {
+          "TSN": {
+            "entry": [
+              {
+                "trade_date": "2021-08-10",
+                "adjusted_open": "65.8202072683",
+                "adjusted_close": "67.4828906843"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-09",
+              "adjusted_open": "64.8623729398",
+              "adjusted_close": "64.4784709561"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "61.5447356272"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "60.8830554923"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "60.3740707731"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "60.8830554923"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "60.5691815821"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "60.1619938068"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "60.5182831102"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "60.6285631327"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "59.9923322337"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "60.5013169529"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "60.4419354023"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "60.8830554923"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "60.7473262339"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "61.0103016721"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "60.6200800541"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "60.866089335"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "60.8321570204"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "59.6869414022"
+              },
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_close": "59.5003136719"
+              },
+              {
+                "trade_date": "2021-08-06",
+                "adjusted_close": "60.3316553799"
+              },
+              {
+                "trade_date": "2021-08-09",
+                "adjusted_close": "65.5741979874"
+              }
+            ]
+          },
+          "SPY": {
+            "entry": [
+              {
+                "trade_date": "2021-08-10",
+                "adjusted_open": "413.5973519088",
+                "adjusted_close": "413.662763478"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-09",
+              "adjusted_open": "421.1570604037",
+              "adjusted_close": "419.5498047039"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "408.4298379438"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "407.0375059713"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "407.6448991137"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "406.2525671412"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "403.0660892712"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "397.1136364761"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "402.8044429945"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "406.0656769435"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "406.9160273428"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "411.1023677702"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "412.1115748375"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "410.2333283511"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "410.0651271732"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "411.7658279718"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "409.766102857"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "408.9064079478"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "412.233053466"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "410.2052948215"
+              },
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_close": "412.8030685688"
+              },
+              {
+                "trade_date": "2021-08-06",
+                "adjusted_close": "413.4852177902"
+              },
+              {
+                "trade_date": "2021-08-09",
+                "adjusted_close": "413.1488154344"
+              }
+            ]
+          }
+        },
+        "active_ticker_history": [],
+        "reconstructed_revenue_acceleration": "20.73",
+        "reconstructed_operating_margin_change": "0.78"
+      },
+      "current": {
+        "id": 398425,
+        "security_id": 617,
+        "period_end": "2021-07-03",
+        "entry_date": "2021-08-09",
+        "entry_price": "63.6230898972",
+        "revenue_yoy": "24.51",
+        "revenue_acceleration": "20.73",
+        "eps_yoy": "42.36",
+        "gross_margin_change": "-0.12",
+        "operating_margin_change": "0.78",
+        "return_30d": "2.14",
+        "spy_return_30d": "1.91",
+        "excess_30d": "0.23",
+        "return_90d": "9.11",
+        "spy_return_90d": "6.33",
+        "excess_90d": "2.78",
+        "return_180d": "33.64",
+        "spy_return_180d": "1.77",
+        "excess_180d": "31.87",
+        "created_at": "2026-09-23 22:21:43.265306+00:00",
+        "updated_at": "2026-09-23 22:21:43.265306+00:00",
+        "pre_return_20d": "-3.30",
+        "pre_return_60d": "-9.65",
+        "pre_excess_20d": "-4.90",
+        "pre_excess_60d": "-19.16",
+        "pre_volatility_20d": "13.50",
+        "previous_close": "60.3316553799",
+        "entry_open": "63.6230898972",
+        "opening_gap_pct": "5.46",
+        "spy_opening_gap_pct": "-0.01",
+        "opening_gap_excess": "5.47",
+        "exit_date_30d": "2021-09-08",
+        "exit_date_90d": "2021-11-08",
+        "exit_date_180d": "2022-02-07",
+        "display_ticker": "TSN",
+        "membership_qualified": true,
+        "stable_key": [
+          617,
+          "2021-07-03"
+        ],
+        "split": "train",
+        "exact_signal": false
+      }
+    },
+    {
+      "old": {
+        "id": 381964,
+        "security_id": 204,
+        "period_end": "2021-03-31",
+        "entry_date": "2021-05-07",
+        "entry_price": "493.0157926023",
+        "revenue_yoy": "38.32",
+        "revenue_acceleration": "26.64",
+        "eps_yoy": "85.82",
+        "gross_margin_change": null,
+        "operating_margin_change": "5.71",
+        "return_30d": "3.50",
+        "spy_return_30d": "0.55",
+        "excess_30d": "2.95",
+        "return_90d": "21.08",
+        "spy_return_90d": "5.56",
+        "excess_90d": "15.52",
+        "return_180d": "31.05",
+        "spy_return_180d": "11.40",
+        "excess_180d": "19.65",
+        "created_at": "2026-09-22 16:37:24.755917+00:00",
+        "updated_at": "2026-09-22 16:37:24.755917+00:00",
+        "pre_return_20d": "4.69",
+        "pre_return_60d": "1.63",
+        "pre_excess_20d": "2.11",
+        "pre_excess_60d": "-6.11",
+        "pre_volatility_20d": "25.45",
+        "previous_close": "494.0986521855",
+        "entry_open": "493.0157926023",
+        "opening_gap_pct": "-0.22",
+        "spy_opening_gap_pct": "0.20",
+        "opening_gap_excess": "-0.42",
+        "exit_date_30d": "2021-06-07",
+        "exit_date_90d": "2021-08-05",
+        "exit_date_180d": "2021-11-03",
+        "ticker": "REGN",
+        "sector": "Healthcare",
+        "membership_matches": 1,
+        "split": "train",
+        "checks": {
+          "revenue_late": false,
+          "revenue_missing_evidence": false,
+          "revenue_derived_lineage_unproven": true,
+          "revenue_direct_sources_available": false,
+          "revenue_ambiguous_selection": false,
+          "operating_margin_late": false,
+          "operating_margin_missing_evidence": false,
+          "operating_margin_derived_lineage_unproven": false,
+          "operating_margin_direct_sources_available": true,
+          "operating_margin_ambiguous_selection": false,
+          "revenue_stored_value_differs": false,
+          "margin_stored_value_differs": false,
+          "completed_exit_date_mismatch": false,
+          "missing_exit": false,
+          "completed_missing_exit": false,
+          "invalid_exit_price": false,
+          "missing_or_invalid_entry": false,
+          "stored_exit_differs_from_current_price_lookup": false,
+          "boundary_crossing": false,
+          "momentum_insufficient_or_invalid": false,
+          "momentum_dates_misaligned": false,
+          "momentum_stored_value_differs": false,
+          "no_dated_ticker_history": true,
+          "ambiguous_dated_ticker_history": false,
+          "historical_ticker_differs": false,
+          "ticker_shared_by_security_ids": false,
+          "duplicate_membership_join": false
+        },
+        "exit_mismatch_days": 0,
+        "provenance": {
+          "revenue": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": true,
+            "direct_sources_available": false,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 131659,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2021-03-31",
+                "value": "2528700000",
+                "filed_date": "2021-05-06",
+                "accession_number": "0001804220-21-000017",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-05-06 15:21:52+00:00"
+              },
+              {
+                "id": 131655,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-03-31",
+                "value": "1828200000",
+                "filed_date": "2020-05-05",
+                "accession_number": "0001804220-20-000011",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-05-05 15:51:29+00:00"
+              },
+              {
+                "id": 131658,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-12-31",
+                "value": "2422900000",
+                "filed_date": "2021-02-08",
+                "accession_number": "0001804220-21-000008",
+                "is_derived": true,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-02-08 19:13:00+00:00"
+              },
+              {
+                "id": 131654,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2019-12-31",
+                "value": "2169500000",
+                "filed_date": "2020-02-07",
+                "accession_number": "0001532176-20-000008",
+                "is_derived": true,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-02-07 19:04:34+00:00"
+              }
+            ]
+          },
+          "operating_margin": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 131659,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2021-03-31",
+                "value": "2528700000",
+                "filed_date": "2021-05-06",
+                "accession_number": "0001804220-21-000017",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-05-06 15:21:52+00:00"
+              },
+              {
+                "id": 131655,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-03-31",
+                "value": "1828200000",
+                "filed_date": "2020-05-05",
+                "accession_number": "0001804220-20-000011",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-05-05 15:51:29+00:00"
+              },
+              {
+                "id": 131852,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "operating_income",
+                "period_end": "2021-03-31",
+                "value": "1112700000",
+                "filed_date": "2021-05-06",
+                "accession_number": "0001804220-21-000017",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-05-06 15:21:52+00:00"
+              },
+              {
+                "id": 131848,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "operating_income",
+                "period_end": "2020-03-31",
+                "value": "700100000",
+                "filed_date": "2020-05-05",
+                "accession_number": "0001804220-20-000011",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-05-05 15:51:29+00:00"
+              }
+            ]
+          }
+        },
+        "price_evidence": {
+          "REGN": {
+            "entry": [
+              {
+                "trade_date": "2021-05-07",
+                "adjusted_open": "493.0157926023",
+                "adjusted_close": "492.1863829974"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-06-07",
+              "adjusted_open": "506.9494974547",
+              "adjusted_close": "510.2588130445"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-04-08",
+                "adjusted_close": "471.9837048911"
+              },
+              {
+                "trade_date": "2021-04-09",
+                "adjusted_close": "470.8046373606"
+              },
+              {
+                "trade_date": "2021-04-12",
+                "adjusted_close": "468.4564104302"
+              },
+              {
+                "trade_date": "2021-04-13",
+                "adjusted_close": "472.6574577657"
+              },
+              {
+                "trade_date": "2021-04-14",
+                "adjusted_close": "476.7396075351"
+              },
+              {
+                "trade_date": "2021-04-15",
+                "adjusted_close": "490.0957674602"
+              },
+              {
+                "trade_date": "2021-04-16",
+                "adjusted_close": "497.9826393448"
+              },
+              {
+                "trade_date": "2021-04-19",
+                "adjusted_close": "495.0993733669"
+              },
+              {
+                "trade_date": "2021-04-20",
+                "adjusted_close": "499.7859190973"
+              },
+              {
+                "trade_date": "2021-04-21",
+                "adjusted_close": "501.826993982"
+              },
+              {
+                "trade_date": "2021-04-22",
+                "adjusted_close": "485.9244445162"
+              },
+              {
+                "trade_date": "2021-04-23",
+                "adjusted_close": "484.1508891553"
+              },
+              {
+                "trade_date": "2021-04-26",
+                "adjusted_close": "496.5657766821"
+              },
+              {
+                "trade_date": "2021-04-27",
+                "adjusted_close": "487.2917665264"
+              },
+              {
+                "trade_date": "2021-04-28",
+                "adjusted_close": "483.288881801"
+              },
+              {
+                "trade_date": "2021-04-29",
+                "adjusted_close": "480.5443296502"
+              },
+              {
+                "trade_date": "2021-04-30",
+                "adjusted_close": "476.8783213622"
+              },
+              {
+                "trade_date": "2021-05-03",
+                "adjusted_close": "484.1310728942"
+              },
+              {
+                "trade_date": "2021-05-04",
+                "adjusted_close": "480.7226759994"
+              },
+              {
+                "trade_date": "2021-05-05",
+                "adjusted_close": "477.9880319791"
+              },
+              {
+                "trade_date": "2021-05-06",
+                "adjusted_close": "494.0986521855"
+              }
+            ]
+          },
+          "SPY": {
+            "entry": [
+              {
+                "trade_date": "2021-05-07",
+                "adjusted_open": "391.0698376104",
+                "adjusted_close": "393.1467761844"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-06-07",
+              "adjusted_open": "393.5845166014",
+              "adjusted_close": "393.2119715657"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-04-08",
+                "adjusted_close": "380.4802449703"
+              },
+              {
+                "trade_date": "2021-04-09",
+                "adjusted_close": "383.2463918605"
+              },
+              {
+                "trade_date": "2021-04-12",
+                "adjusted_close": "383.3860962489"
+              },
+              {
+                "trade_date": "2021-04-13",
+                "adjusted_close": "384.5223586078"
+              },
+              {
+                "trade_date": "2021-04-14",
+                "adjusted_close": "383.2091373569"
+              },
+              {
+                "trade_date": "2021-04-15",
+                "adjusted_close": "387.3257600015"
+              },
+              {
+                "trade_date": "2021-04-16",
+                "adjusted_close": "388.6203540006"
+              },
+              {
+                "trade_date": "2021-04-19",
+                "adjusted_close": "386.7110606926"
+              },
+              {
+                "trade_date": "2021-04-20",
+                "adjusted_close": "383.8797184212"
+              },
+              {
+                "trade_date": "2021-04-21",
+                "adjusted_close": "387.5120325193"
+              },
+              {
+                "trade_date": "2021-04-22",
+                "adjusted_close": "383.9728546801"
+              },
+              {
+                "trade_date": "2021-04-23",
+                "adjusted_close": "388.1360454541"
+              },
+              {
+                "trade_date": "2021-04-26",
+                "adjusted_close": "388.9463309068"
+              },
+              {
+                "trade_date": "2021-04-27",
+                "adjusted_close": "388.8625082738"
+              },
+              {
+                "trade_date": "2021-04-28",
+                "adjusted_close": "388.7507447631"
+              },
+              {
+                "trade_date": "2021-04-29",
+                "adjusted_close": "391.2281692505"
+              },
+              {
+                "trade_date": "2021-04-30",
+                "adjusted_close": "388.6576085041"
+              },
+              {
+                "trade_date": "2021-05-03",
+                "adjusted_close": "389.4958348345"
+              },
+              {
+                "trade_date": "2021-05-04",
+                "adjusted_close": "387.0929193542"
+              },
+              {
+                "trade_date": "2021-05-05",
+                "adjusted_close": "387.2139964908"
+              },
+              {
+                "trade_date": "2021-05-06",
+                "adjusted_close": "390.3061202872"
+              }
+            ]
+          }
+        },
+        "active_ticker_history": [],
+        "reconstructed_revenue_acceleration": "26.64",
+        "reconstructed_operating_margin_change": "5.71"
+      },
+      "current": {
+        "id": 396706,
+        "security_id": 204,
+        "period_end": "2021-03-31",
+        "entry_date": "2021-05-06",
+        "entry_price": "478.6716929842",
+        "revenue_yoy": "38.32",
+        "revenue_acceleration": "26.64",
+        "eps_yoy": "85.82",
+        "gross_margin_change": null,
+        "operating_margin_change": "5.71",
+        "return_30d": "6.60",
+        "spy_return_30d": "1.53",
+        "excess_30d": "5.07",
+        "return_90d": "20.25",
+        "spy_return_90d": "5.92",
+        "excess_90d": "14.33",
+        "return_180d": "32.22",
+        "spy_return_180d": "11.81",
+        "excess_180d": "20.41",
+        "created_at": "2026-09-23 22:21:43.265306+00:00",
+        "updated_at": "2026-09-23 22:21:43.265306+00:00",
+        "pre_return_20d": "0.13",
+        "pre_return_60d": "-2.52",
+        "pre_excess_20d": "-2.12",
+        "pre_excess_60d": "-9.33",
+        "pre_volatility_20d": "23.01",
+        "previous_close": "477.9880319791",
+        "entry_open": "478.6716929842",
+        "opening_gap_pct": "0.14",
+        "spy_opening_gap_pct": "0.02",
+        "opening_gap_excess": "0.12",
+        "exit_date_30d": "2021-06-07",
+        "exit_date_90d": "2021-08-04",
+        "exit_date_180d": "2021-11-02",
+        "display_ticker": "REGN",
+        "membership_qualified": true,
+        "stable_key": [
+          204,
+          "2021-03-31"
+        ],
+        "split": "train",
+        "exact_signal": false
+      }
+    },
+    {
+      "old": {
+        "id": 382699,
+        "security_id": 209,
+        "period_end": "2021-06-30",
+        "entry_date": "2021-08-05",
+        "entry_price": "99.6731278557",
+        "revenue_yoy": "18.09",
+        "revenue_acceleration": "26.47",
+        "eps_yoy": null,
+        "gross_margin_change": null,
+        "operating_margin_change": "5.77",
+        "return_30d": "3.42",
+        "spy_return_30d": "2.55",
+        "excess_30d": "0.87",
+        "return_90d": "29.20",
+        "spy_return_90d": "5.91",
+        "excess_90d": "23.29",
+        "return_180d": "15.77",
+        "spy_return_180d": "3.59",
+        "excess_180d": "12.18",
+        "created_at": "2026-09-22 16:37:24.755917+00:00",
+        "updated_at": "2026-09-22 16:37:24.755917+00:00",
+        "pre_return_20d": "2.31",
+        "pre_return_60d": "2.62",
+        "pre_excess_20d": "1.27",
+        "pre_excess_60d": "-2.76",
+        "pre_volatility_20d": "42.18",
+        "previous_close": "98.5778187583",
+        "entry_open": "99.6731278557",
+        "opening_gap_pct": "1.11",
+        "spy_opening_gap_pct": "0.28",
+        "opening_gap_excess": "0.83",
+        "exit_date_30d": "2021-09-07",
+        "exit_date_90d": "2021-11-03",
+        "exit_date_180d": "2022-02-01",
+        "ticker": "SPG",
+        "sector": "Real Estate",
+        "membership_matches": 1,
+        "split": "train",
+        "checks": {
+          "revenue_late": false,
+          "revenue_missing_evidence": false,
+          "revenue_derived_lineage_unproven": false,
+          "revenue_direct_sources_available": true,
+          "revenue_ambiguous_selection": false,
+          "operating_margin_late": false,
+          "operating_margin_missing_evidence": false,
+          "operating_margin_derived_lineage_unproven": false,
+          "operating_margin_direct_sources_available": true,
+          "operating_margin_ambiguous_selection": false,
+          "revenue_stored_value_differs": false,
+          "margin_stored_value_differs": false,
+          "completed_exit_date_mismatch": false,
+          "missing_exit": false,
+          "completed_missing_exit": false,
+          "invalid_exit_price": false,
+          "missing_or_invalid_entry": false,
+          "stored_exit_differs_from_current_price_lookup": false,
+          "boundary_crossing": false,
+          "momentum_insufficient_or_invalid": false,
+          "momentum_dates_misaligned": false,
+          "momentum_stored_value_differs": false,
+          "no_dated_ticker_history": true,
+          "ambiguous_dated_ticker_history": false,
+          "historical_ticker_differs": false,
+          "ticker_shared_by_security_ids": false,
+          "duplicate_membership_join": false
+        },
+        "exit_mismatch_days": 0,
+        "provenance": {
+          "revenue": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 134604,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2021-06-30",
+                "value": "1254146000",
+                "filed_date": "2021-08-04",
+                "accession_number": "0001558370-21-010076",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2021-08-04 14:12:57+00:00"
+              },
+              {
+                "id": 134600,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2020-06-30",
+                "value": "1062041000",
+                "filed_date": "2020-08-10",
+                "accession_number": "0001558370-20-010195",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2020-08-11 00:17:01+00:00"
+              },
+              {
+                "id": 134603,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2021-03-31",
+                "value": "1239951000",
+                "filed_date": "2021-05-10",
+                "accession_number": "0001558370-21-006672",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2021-05-11 00:16:28+00:00"
+              },
+              {
+                "id": 134599,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2020-03-31",
+                "value": "1353360000",
+                "filed_date": "2020-05-11",
+                "accession_number": "0001558370-20-006251",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2020-05-12 00:18:11+00:00"
+              }
+            ]
+          },
+          "operating_margin": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 134604,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2021-06-30",
+                "value": "1254146000",
+                "filed_date": "2021-08-04",
+                "accession_number": "0001558370-21-010076",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2021-08-04 14:12:57+00:00"
+              },
+              {
+                "id": 134600,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "revenue",
+                "period_end": "2020-06-30",
+                "value": "1062041000",
+                "filed_date": "2020-08-10",
+                "accession_number": "0001558370-20-010195",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2020-08-11 00:17:01+00:00"
+              },
+              {
+                "id": 134793,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "operating_income",
+                "period_end": "2021-06-30",
+                "value": "604723000",
+                "filed_date": "2021-08-04",
+                "accession_number": "0001558370-21-010076",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2021-08-04 14:12:57+00:00"
+              },
+              {
+                "id": 134789,
+                "security_id": 209,
+                "company_id": 213,
+                "metric": "operating_income",
+                "period_end": "2020-06-30",
+                "value": "450868000",
+                "filed_date": "2020-08-10",
+                "accession_number": "0001558370-20-010195",
+                "is_derived": false,
+                "filing_company_id": 213,
+                "acceptance_datetime": "2020-08-11 00:17:01+00:00"
+              }
+            ]
+          }
+        },
+        "price_evidence": {
+          "SPG": {
+            "entry": [
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_open": "99.6731278557",
+                "adjusted_close": "102.6603344847"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-07",
+              "adjusted_open": "103.3726683732",
+              "adjusted_close": "103.0816072144"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-07",
+                "adjusted_close": "96.3489030428"
+              },
+              {
+                "trade_date": "2021-07-08",
+                "adjusted_close": "95.8127377504"
+              },
+              {
+                "trade_date": "2021-07-09",
+                "adjusted_close": "99.3361096719"
+              },
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "99.7803609141"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "96.9769823853"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "97.6203807362"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "96.9233658561"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "95.360827004"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "89.7617294506"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "96.226350976"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "97.9880369367"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "95.8203972546"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "95.0927443578"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "97.2986815608"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "96.4101790762"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "95.9123113047"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "96.4484765971"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "96.9080468478"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "96.7548567642"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "99.2212171092"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "98.5778187583"
+              }
+            ]
+          },
+          "SPY": {
+            "entry": [
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_open": "411.3640140469",
+                "adjusted_close": "412.8030685688"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-07",
+              "adjusted_open": "423.0353068901",
+              "adjusted_close": "421.8672431548"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-07",
+                "adjusted_close": "405.9815763546"
+              },
+              {
+                "trade_date": "2021-07-08",
+                "adjusted_close": "402.6736198562"
+              },
+              {
+                "trade_date": "2021-07-09",
+                "adjusted_close": "406.9720944021"
+              },
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "408.4298379438"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "407.0375059713"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "407.6448991137"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "406.2525671412"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "403.0660892712"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "397.1136364761"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "402.8044429945"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "406.0656769435"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "406.9160273428"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "411.1023677702"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "412.1115748375"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "410.2333283511"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "410.0651271732"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "411.7658279718"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "409.766102857"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "408.9064079478"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "412.233053466"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "410.2052948215"
+              }
+            ]
+          }
+        },
+        "active_ticker_history": [],
+        "reconstructed_revenue_acceleration": "26.47",
+        "reconstructed_operating_margin_change": "5.77"
+      },
+      "current": {
+        "id": 397441,
+        "security_id": 209,
+        "period_end": "2021-06-30",
+        "entry_date": "2021-08-04",
+        "entry_price": "99.6271708306",
+        "revenue_yoy": "18.09",
+        "revenue_acceleration": "26.47",
+        "eps_yoy": null,
+        "gross_margin_change": null,
+        "operating_margin_change": "5.77",
+        "return_30d": "4.37",
+        "spy_return_30d": "3.02",
+        "excess_30d": "1.35",
+        "return_90d": "23.62",
+        "spy_return_90d": "5.37",
+        "excess_90d": "18.25",
+        "return_180d": "15.69",
+        "spy_return_180d": "3.00",
+        "excess_180d": "12.69",
+        "created_at": "2026-09-23 22:21:43.265306+00:00",
+        "updated_at": "2026-09-23 22:21:43.265306+00:00",
+        "pre_return_20d": "1.49",
+        "pre_return_60d": "4.79",
+        "pre_excess_20d": "-0.41",
+        "pre_excess_60d": "-0.06",
+        "pre_volatility_20d": "42.48",
+        "previous_close": "99.2212171092",
+        "entry_open": "99.6271708306",
+        "opening_gap_pct": "0.41",
+        "spy_opening_gap_pct": "-0.31",
+        "opening_gap_excess": "0.72",
+        "exit_date_30d": "2021-09-03",
+        "exit_date_90d": "2021-11-02",
+        "exit_date_180d": "2022-01-31",
+        "display_ticker": "SPG",
+        "membership_qualified": true,
+        "stable_key": [
+          209,
+          "2021-06-30"
+        ],
+        "split": "train",
+        "exact_signal": false
+      }
+    },
+    {
+      "old": {
+        "id": 381965,
+        "security_id": 204,
+        "period_end": "2021-06-30",
+        "entry_date": "2021-08-06",
+        "entry_price": "597.5494428222",
+        "revenue_yoy": "163.24",
+        "revenue_acceleration": "124.92",
+        "eps_yoy": "267.54",
+        "gross_margin_change": null,
+        "operating_margin_change": "31.51",
+        "return_30d": "10.90",
+        "spy_return_30d": "2.12",
+        "excess_30d": "8.78",
+        "return_90d": "7.39",
+        "spy_return_90d": "5.95",
+        "excess_90d": "1.44",
+        "return_180d": "3.28",
+        "spy_return_180d": "4.15",
+        "excess_180d": "-0.87",
+        "created_at": "2026-09-22 16:37:24.755917+00:00",
+        "updated_at": "2026-09-22 16:37:24.755917+00:00",
+        "pre_return_20d": "4.79",
+        "pre_return_60d": "20.21",
+        "pre_excess_20d": "2.27",
+        "pre_excess_60d": "13.21",
+        "pre_volatility_20d": "19.58",
+        "previous_close": "596.9351387307",
+        "entry_open": "597.5494428222",
+        "opening_gap_pct": "0.10",
+        "spy_opening_gap_pct": "0.08",
+        "opening_gap_excess": "0.02",
+        "exit_date_30d": "2021-09-07",
+        "exit_date_90d": "2021-11-04",
+        "exit_date_180d": "2022-02-02",
+        "ticker": "REGN",
+        "sector": "Healthcare",
+        "membership_matches": 1,
+        "split": "train",
+        "checks": {
+          "revenue_late": false,
+          "revenue_missing_evidence": false,
+          "revenue_derived_lineage_unproven": false,
+          "revenue_direct_sources_available": true,
+          "revenue_ambiguous_selection": false,
+          "operating_margin_late": false,
+          "operating_margin_missing_evidence": false,
+          "operating_margin_derived_lineage_unproven": false,
+          "operating_margin_direct_sources_available": true,
+          "operating_margin_ambiguous_selection": false,
+          "revenue_stored_value_differs": false,
+          "margin_stored_value_differs": false,
+          "completed_exit_date_mismatch": false,
+          "missing_exit": false,
+          "completed_missing_exit": false,
+          "invalid_exit_price": false,
+          "missing_or_invalid_entry": false,
+          "stored_exit_differs_from_current_price_lookup": false,
+          "boundary_crossing": false,
+          "momentum_insufficient_or_invalid": false,
+          "momentum_dates_misaligned": false,
+          "momentum_stored_value_differs": false,
+          "no_dated_ticker_history": true,
+          "ambiguous_dated_ticker_history": false,
+          "historical_ticker_differs": false,
+          "ticker_shared_by_security_ids": false,
+          "duplicate_membership_join": false
+        },
+        "exit_mismatch_days": 0,
+        "provenance": {
+          "revenue": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 131660,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2021-06-30",
+                "value": "5138500000",
+                "filed_date": "2021-08-05",
+                "accession_number": "0001804220-21-000025",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-08-05 15:11:05+00:00"
+              },
+              {
+                "id": 131656,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-06-30",
+                "value": "1952000000",
+                "filed_date": "2020-08-05",
+                "accession_number": "0001804220-20-000022",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-08-05 15:36:56+00:00"
+              },
+              {
+                "id": 131659,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2021-03-31",
+                "value": "2528700000",
+                "filed_date": "2021-05-06",
+                "accession_number": "0001804220-21-000017",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-05-06 15:21:52+00:00"
+              },
+              {
+                "id": 131655,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-03-31",
+                "value": "1828200000",
+                "filed_date": "2020-05-05",
+                "accession_number": "0001804220-20-000011",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-05-05 15:51:29+00:00"
+              }
+            ]
+          },
+          "operating_margin": {
+            "late": false,
+            "missing_evidence": false,
+            "derived_lineage_unproven": false,
+            "direct_sources_available": true,
+            "ambiguous_selection": false,
+            "inputs": [
+              {
+                "id": 131660,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2021-06-30",
+                "value": "5138500000",
+                "filed_date": "2021-08-05",
+                "accession_number": "0001804220-21-000025",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-08-05 15:11:05+00:00"
+              },
+              {
+                "id": 131656,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "revenue",
+                "period_end": "2020-06-30",
+                "value": "1952000000",
+                "filed_date": "2020-08-05",
+                "accession_number": "0001804220-20-000022",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-08-05 15:36:56+00:00"
+              },
+              {
+                "id": 131853,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "operating_income",
+                "period_end": "2021-06-30",
+                "value": "3347200000",
+                "filed_date": "2021-08-05",
+                "accession_number": "0001804220-21-000025",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2021-08-05 15:11:05+00:00"
+              },
+              {
+                "id": 131849,
+                "security_id": 204,
+                "company_id": 208,
+                "metric": "operating_income",
+                "period_end": "2020-06-30",
+                "value": "656400000",
+                "filed_date": "2020-08-05",
+                "accession_number": "0001804220-20-000022",
+                "is_derived": false,
+                "filing_company_id": 208,
+                "acceptance_datetime": "2020-08-05 15:36:56+00:00"
+              }
+            ]
+          }
+        },
+        "price_evidence": {
+          "REGN": {
+            "entry": [
+              {
+                "trade_date": "2021-08-06",
+                "adjusted_open": "597.5494428222",
+                "adjusted_close": "605.2480602271"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-07",
+              "adjusted_open": "673.1782029917",
+              "adjusted_close": "662.6656765224"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-08",
+                "adjusted_close": "569.6382391805"
+              },
+              {
+                "trade_date": "2021-07-09",
+                "adjusted_close": "575.067894699"
+              },
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "568.7564155652"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "571.7090384567"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "575.7218313125"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "583.9059471123"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "577.8818037633"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "579.8535217345"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "581.8450559666"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "578.3573940277"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "581.4883632683"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "580.9632323514"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "572.4719645058"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "575.67229066"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "581.0226811344"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "577.7728143277"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "569.3310871347"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "571.8279360228"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "581.1217624395"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "575.6128418769"
+              },
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_close": "596.9351387307"
+              }
+            ]
+          },
+          "SPY": {
+            "entry": [
+              {
+                "trade_date": "2021-08-06",
+                "adjusted_open": "413.1207819048",
+                "adjusted_close": "413.4852177902"
+              }
+            ],
+            "exit": {
+              "trade_date": "2021-09-07",
+              "adjusted_open": "423.0353068901",
+              "adjusted_close": "421.8672431548"
+            },
+            "prior": [
+              {
+                "trade_date": "2021-07-08",
+                "adjusted_close": "402.6736198562"
+              },
+              {
+                "trade_date": "2021-07-09",
+                "adjusted_close": "406.9720944021"
+              },
+              {
+                "trade_date": "2021-07-12",
+                "adjusted_close": "408.4298379438"
+              },
+              {
+                "trade_date": "2021-07-13",
+                "adjusted_close": "407.0375059713"
+              },
+              {
+                "trade_date": "2021-07-14",
+                "adjusted_close": "407.6448991137"
+              },
+              {
+                "trade_date": "2021-07-15",
+                "adjusted_close": "406.2525671412"
+              },
+              {
+                "trade_date": "2021-07-16",
+                "adjusted_close": "403.0660892712"
+              },
+              {
+                "trade_date": "2021-07-19",
+                "adjusted_close": "397.1136364761"
+              },
+              {
+                "trade_date": "2021-07-20",
+                "adjusted_close": "402.8044429945"
+              },
+              {
+                "trade_date": "2021-07-21",
+                "adjusted_close": "406.0656769435"
+              },
+              {
+                "trade_date": "2021-07-22",
+                "adjusted_close": "406.9160273428"
+              },
+              {
+                "trade_date": "2021-07-23",
+                "adjusted_close": "411.1023677702"
+              },
+              {
+                "trade_date": "2021-07-26",
+                "adjusted_close": "412.1115748375"
+              },
+              {
+                "trade_date": "2021-07-27",
+                "adjusted_close": "410.2333283511"
+              },
+              {
+                "trade_date": "2021-07-28",
+                "adjusted_close": "410.0651271732"
+              },
+              {
+                "trade_date": "2021-07-29",
+                "adjusted_close": "411.7658279718"
+              },
+              {
+                "trade_date": "2021-07-30",
+                "adjusted_close": "409.766102857"
+              },
+              {
+                "trade_date": "2021-08-02",
+                "adjusted_close": "408.9064079478"
+              },
+              {
+                "trade_date": "2021-08-03",
+                "adjusted_close": "412.233053466"
+              },
+              {
+                "trade_date": "2021-08-04",
+                "adjusted_close": "410.2052948215"
+              },
+              {
+                "trade_date": "2021-08-05",
+                "adjusted_close": "412.8030685688"
+              }
+            ]
+          }
+        },
+        "active_ticker_history": [],
+        "reconstructed_revenue_acceleration": "124.92",
+        "reconstructed_operating_margin_change": "31.51"
+      },
+      "current": {
+        "id": 396707,
+        "security_id": 204,
+        "period_end": "2021-06-30",
+        "entry_date": "2021-08-05",
+        "entry_price": "583.2086128872",
+        "revenue_yoy": "163.24",
+        "revenue_acceleration": "124.92",
+        "eps_yoy": "267.54",
+        "gross_margin_change": null,
+        "operating_margin_change": "31.51",
+        "return_30d": "13.62",
+        "spy_return_30d": "2.55",
+        "excess_30d": "11.07",
+        "return_90d": "10.79",
+        "spy_return_90d": "5.91",
+        "excess_90d": "4.88",
+        "return_180d": "4.20",
+        "spy_return_180d": "3.59",
+        "excess_180d": "0.61",
+        "created_at": "2026-09-23 22:21:43.265306+00:00",
+        "updated_at": "2026-09-23 22:21:43.265306+00:00",
+        "pre_return_20d": "-0.84",
+        "pre_return_60d": "15.65",
+        "pre_excess_20d": "-1.88",
+        "pre_excess_60d": "10.27",
+        "pre_volatility_20d": "16.22",
+        "previous_close": "575.6128418769",
+        "entry_open": "583.2086128872",
+        "opening_gap_pct": "1.32",
+        "spy_opening_gap_pct": "0.28",
+        "opening_gap_excess": "1.04",
+        "exit_date_30d": "2021-09-07",
+        "exit_date_90d": "2021-11-03",
+        "exit_date_180d": "2022-02-01",
+        "display_ticker": "REGN",
+        "membership_qualified": true,
+        "stable_key": [
+          204,
+          "2021-06-30"
+        ],
+        "split": "train",
+        "exact_signal": false
+      }
+    }
+  ],
+  "new_signals": [
+    {
+      "current": {
+        "id": 390995,
+        "security_id": 663,
+        "period_end": "2026-04-03",
+        "entry_date": "2026-04-30",
+        "entry_price": "62.0496306496",
+        "revenue_yoy": "-27.46",
+        "revenue_acceleration": "63.96",
+        "eps_yoy": "-12.00",
+        "gross_margin_change": "3.42",
+        "operating_margin_change": "2.08",
+        "return_30d": "-5.46",
+        "spy_return_30d": "6.14",
+        "excess_30d": "-11.60",
+        "return_90d": "-4.04",
+        "spy_return_90d": "2.34",
+        "excess_90d": "-6.38",
+        "return_180d": null,
+        "spy_return_180d": null,
+        "excess_180d": null,
+        "created_at": "2026-09-23 22:21:43.265306+00:00",
+        "updated_at": "2026-09-23 22:21:43.265306+00:00",
+        "pre_return_20d": "11.70",
+        "pre_return_60d": "15.12",
+        "pre_excess_20d": "2.28",
+        "pre_excess_60d": "12.51",
+        "pre_volatility_20d": "22.94",
+        "previous_close": "61.6899805605",
+        "entry_open": "62.0496306496",
+        "opening_gap_pct": "0.58",
+        "spy_opening_gap_pct": "0.43",
+        "opening_gap_excess": "0.15",
+        "exit_date_30d": "2026-06-01",
+        "exit_date_90d": "2026-07-29",
+        "exit_date_180d": null,
+        "display_ticker": "FTV",
+        "membership_qualified": true,
+        "stable_key": [
+          663,
+          "2026-04-03"
+        ],
+        "split": "test",
+        "exact_signal": true
+      },
+      "prior_timing_link": {
+        "event_id": 376253,
+        "entry_date": "2026-05-01",
+        "fact_id": 481386,
+        "accession_number": "0001659166-26-000013",
+        "company_id": 667,
+        "filing_company_id": 667,
+        "filed_date": "2026-04-30",
+        "comparable": true,
+        "old_available": true,
+        "new_available": true,
+        "old_candidate": "2026-05-01",
+        "new_candidate": "2026-04-30"
+      }
+    }
+  ],
+  "event_created_at_range": [
+    "2026-09-04 22:40:46.780308+00:00",
+    "2026-09-23 22:21:43.265306+00:00"
+  ]
+}
