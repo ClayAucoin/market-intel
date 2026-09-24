@@ -1,0 +1,2315 @@
+{
+  "metadata": {
+    "snapshot": "2026-09-23 05:19:59.462584+00:00",
+    "read_only": "on"
+  },
+  "securities": [
+    {
+      "security_id": 2,
+      "ticker": "AAPL",
+      "company_id": 1,
+      "cik": "0000320193",
+      "reason": "ordinary continuously listed issuer",
+      "issuer_history": [
+        {
+          "company_id": 1,
+          "cik": "0000320193",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 2
+    },
+    {
+      "security_id": 10411,
+      "ticker": "ATVI",
+      "company_id": 10415,
+      "cik": "0000718877",
+      "reason": "acquired/former constituent",
+      "issuer_history": [],
+      "ticker_history": [],
+      "event_count": 0,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 179,
+      "ticker": "CEG",
+      "company_id": 183,
+      "cik": "0001868275",
+      "reason": "separate spinoff security",
+      "issuer_history": [
+        {
+          "company_id": 183,
+          "cik": "0001868275",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 18,
+      "exact_signal_count": 2
+    },
+    {
+      "security_id": 344,
+      "ticker": "EXC",
+      "company_id": 348,
+      "cik": "0001109357",
+      "reason": "spinoff parent",
+      "issuer_history": [
+        {
+          "company_id": 348,
+          "cik": "0001109357",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 33,
+      "exact_signal_count": 1
+    },
+    {
+      "security_id": 503,
+      "ticker": "FE",
+      "company_id": 507,
+      "cik": "0001031296",
+      "reason": "regulated utility",
+      "issuer_history": [
+        {
+          "company_id": 507,
+          "cik": "0001031296",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 34,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 10433,
+      "ticker": "FLT",
+      "company_id": 514,
+      "cik": "0001175454",
+      "reason": "historical ticker/name and missing-sector case",
+      "issuer_history": [],
+      "ticker_history": [],
+      "event_count": 19,
+      "exact_signal_count": 1
+    },
+    {
+      "security_id": 33,
+      "ticker": "GE",
+      "company_id": 37,
+      "cik": "0000040545",
+      "reason": "restructuring/spinoff parent",
+      "issuer_history": [
+        {
+          "company_id": 37,
+          "cik": "0000040545",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 440,
+      "ticker": "GEHC",
+      "company_id": 444,
+      "cik": "0001932393",
+      "reason": "separate spinoff security",
+      "issuer_history": [
+        {
+          "company_id": 444,
+          "cik": "0001932393",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 13,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 686,
+      "ticker": "GEN",
+      "company_id": 690,
+      "cik": "0000849399",
+      "reason": "known GEN/NLOK and earlier name/ticker changes",
+      "issuer_history": [
+        {
+          "company_id": 690,
+          "cik": "0000849399",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [
+        {
+          "ticker": "SYMC",
+          "effective_from": null,
+          "effective_to": "2019-11-04"
+        },
+        {
+          "ticker": "NLOK",
+          "effective_from": "2019-11-05",
+          "effective_to": "2022-11-07"
+        },
+        {
+          "ticker": "GEN",
+          "effective_from": "2022-11-08",
+          "effective_to": null
+        }
+      ],
+      "event_count": 33,
+      "exact_signal_count": 1
+    },
+    {
+      "security_id": 7468,
+      "ticker": "GOOG",
+      "company_id": 7,
+      "cik": "0001652044",
+      "reason": "Alphabet class C; shared issuer with GOOGL",
+      "issuer_history": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 1
+    },
+    {
+      "security_id": 3,
+      "ticker": "GOOGL",
+      "company_id": 7,
+      "cik": "0001652044",
+      "reason": "Alphabet class A; shared issuer with GOOG",
+      "issuer_history": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 1
+    },
+    {
+      "security_id": 11,
+      "ticker": "JPM",
+      "company_id": 15,
+      "cik": "0000019617",
+      "reason": "bank/financial issuer",
+      "issuer_history": [
+        {
+          "company_id": 15,
+          "cik": "0000019617",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 7,
+      "ticker": "META",
+      "company_id": 11,
+      "cik": "0001326801",
+      "reason": "FB/META name/ticker change",
+      "issuer_history": [
+        {
+          "company_id": 11,
+          "cik": "0001326801",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [
+        {
+          "ticker": "FB",
+          "effective_from": null,
+          "effective_to": "2022-06-08"
+        },
+        {
+          "ticker": "META",
+          "effective_from": "2022-06-09",
+          "effective_to": null
+        }
+      ],
+      "event_count": 35,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 4,
+      "ticker": "MSFT",
+      "company_id": 8,
+      "cik": "0000789019",
+      "reason": "ordinary issuer; different business from AAPL",
+      "issuer_history": [
+        {
+          "company_id": 8,
+          "cik": "0000789019",
+          "effective_from": null,
+          "effective_to": null,
+          "source": "SEC current ticker mapping"
+        }
+      ],
+      "ticker_history": [],
+      "event_count": 35,
+      "exact_signal_count": 0
+    },
+    {
+      "security_id": 10462,
+      "ticker": "TWTR",
+      "company_id": 10462,
+      "cik": "0001418091",
+      "reason": "acquired/delisted former constituent",
+      "issuer_history": [],
+      "ticker_history": [],
+      "event_count": 0,
+      "exact_signal_count": 0
+    }
+  ],
+  "targets": [
+    {
+      "id": 370540,
+      "security_id": 2,
+      "entry_date": "2018-02-05",
+      "period_end": "2017-12-30",
+      "exact_signal": false,
+      "ticker": "AAPL",
+      "decision_at": "2018-02-05 09:30:00-05:00",
+      "cik": "0000320193",
+      "company_id": 1,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 1,
+          "cik": "0000320193",
+          "acceptance_datetime": "2018-02-02 18:01:26+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000320193-18-000007",
+        "filing_date": "2018-02-02",
+        "acceptance_datetime": "2018-02-02 18:01:26+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3571",
+        "description": "ELECTRONIC COMPUTERS",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-02T08:01:26-05:00",
+        "accessions": [
+          "0000320193-18-000007"
+        ],
+        "observation_age_days": 3
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 370557,
+      "security_id": 2,
+      "entry_date": "2022-04-29",
+      "period_end": "2022-03-26",
+      "exact_signal": false,
+      "ticker": "AAPL",
+      "decision_at": "2022-04-29 09:30:00-04:00",
+      "cik": "0000320193",
+      "company_id": 1,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 1,
+          "cik": "0000320193",
+          "acceptance_datetime": "2022-04-29 02:03:58+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000320193-22-000059",
+        "filing_date": "2022-04-29",
+        "acceptance_datetime": "2022-04-29 02:03:58+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3571",
+        "description": "ELECTRONIC COMPUTERS",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-28T18:03:58-04:00",
+        "accessions": [
+          "0000320193-22-000059"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 370574,
+      "security_id": 2,
+      "entry_date": "2026-08-03",
+      "period_end": "2026-06-27",
+      "exact_signal": false,
+      "ticker": "AAPL",
+      "decision_at": "2026-08-03 09:30:00-04:00",
+      "cik": "0000320193",
+      "company_id": 1,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 1,
+          "cik": "0000320193",
+          "acceptance_datetime": "2026-07-31 14:01:02+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000320193-26-000020",
+        "filing_date": "2026-07-31",
+        "acceptance_datetime": "2026-07-31 14:01:02+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3571",
+        "description": "ELECTRONIC COMPUTERS",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-31T06:01:02-04:00",
+        "accessions": [
+          "0000320193-26-000020"
+        ],
+        "observation_age_days": 3
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 373045,
+      "security_id": 179,
+      "entry_date": "2022-05-13",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "CEG",
+      "decision_at": "2022-05-13 09:30:00-04:00",
+      "cik": "0001868275",
+      "company_id": 183,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 183,
+          "cik": "0001868275",
+          "acceptance_datetime": "2022-05-12 21:51:36+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001868275-22-000044",
+        "filing_date": "2022-05-12",
+        "acceptance_datetime": "2022-05-12 21:51:36+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2022-05-12T13:51:36-04:00",
+        "accessions": [
+          "0001868275-22-000044"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 373054,
+      "security_id": 179,
+      "entry_date": "2024-08-07",
+      "period_end": "2024-06-30",
+      "exact_signal": false,
+      "ticker": "CEG",
+      "decision_at": "2024-08-07 09:30:00-04:00",
+      "cik": "0001868275",
+      "company_id": 183,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 183,
+          "cik": "0001868275",
+          "acceptance_datetime": "2024-08-06 19:32:31+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001868275-24-000054",
+        "filing_date": "2024-08-06",
+        "acceptance_datetime": "2024-08-06 19:32:31+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2024-08-06T11:32:31-04:00",
+        "accessions": [
+          "0001868275-24-000054"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 373062,
+      "security_id": 179,
+      "entry_date": "2026-08-07",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "CEG",
+      "decision_at": "2026-08-07 09:30:00-04:00",
+      "cik": "0001868275",
+      "company_id": 183,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 183,
+          "cik": "0001868275",
+          "acceptance_datetime": "2026-08-06 20:22:28+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001868275-26-000104",
+        "filing_date": "2026-08-06",
+        "acceptance_datetime": "2026-08-06 20:22:28+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2026-08-06T12:22:28-04:00",
+        "accessions": [
+          "0001868275-26-000104"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375547,
+      "security_id": 344,
+      "entry_date": "2018-02-12",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "EXC",
+      "decision_at": "2018-02-12 09:30:00-05:00",
+      "cik": "0001109357",
+      "company_id": 348,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 348,
+          "cik": "0001109357",
+          "acceptance_datetime": "2018-02-09 18:40:06+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001628280-18-001324",
+        "filing_date": "2018-02-09",
+        "acceptance_datetime": "2018-02-09 18:40:06+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4931",
+        "description": "ELECTRIC & OTHER SERVICES COMBINED",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-09T08:40:06-05:00",
+        "accessions": [
+          "0001628280-18-001324"
+        ],
+        "observation_age_days": 3
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375563,
+      "security_id": 344,
+      "entry_date": "2022-05-10",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "EXC",
+      "decision_at": "2022-05-10 09:30:00-04:00",
+      "cik": "0001109357",
+      "company_id": 348,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 348,
+          "cik": "0001109357",
+          "acceptance_datetime": "2022-05-09 21:47:22+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001109357-22-000059",
+        "filing_date": "2022-05-09",
+        "acceptance_datetime": "2022-05-09 21:47:22+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4931",
+        "description": "ELECTRIC & OTHER SERVICES COMBINED",
+        "available_before_decision": true,
+        "accepted_at": "2022-05-09T13:47:22-04:00",
+        "accessions": [
+          "0001109357-22-000059"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375579,
+      "security_id": 344,
+      "entry_date": "2026-05-07",
+      "period_end": "2026-03-31",
+      "exact_signal": false,
+      "ticker": "EXC",
+      "decision_at": "2026-05-07 09:30:00-04:00",
+      "cik": "0001109357",
+      "company_id": 348,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 348,
+          "cik": "0001109357",
+          "acceptance_datetime": "2026-05-06 22:18:21+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001109357-26-000063",
+        "filing_date": "2026-05-06",
+        "acceptance_datetime": "2026-05-06 22:18:21+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4931",
+        "description": "ELECTRIC & OTHER SERVICES COMBINED",
+        "available_before_decision": true,
+        "accepted_at": "2026-05-06T14:18:21-04:00",
+        "accessions": [
+          "0001109357-26-000063"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375875,
+      "security_id": 503,
+      "entry_date": "2018-02-21",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "FE",
+      "decision_at": "2018-02-21 09:30:00-05:00",
+      "cik": "0001031296",
+      "company_id": 507,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 507,
+          "cik": "0001031296",
+          "acceptance_datetime": "2018-02-21 02:54:49+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001031296-18-000015",
+        "filing_date": "2018-02-20",
+        "acceptance_datetime": "2018-02-21 02:54:49+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-20T16:54:49-05:00",
+        "accessions": [
+          "0001031296-18-000015"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375892,
+      "security_id": 503,
+      "entry_date": "2022-04-22",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "FE",
+      "decision_at": "2022-04-22 09:30:00-04:00",
+      "cik": "0001031296",
+      "company_id": 507,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 507,
+          "cik": "0001031296",
+          "acceptance_datetime": "2022-04-22 00:30:41+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001031296-22-000020",
+        "filing_date": "2022-04-21",
+        "acceptance_datetime": "2022-04-22 00:30:41+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-21T16:30:41-04:00",
+        "accessions": [
+          "0001031296-22-000020"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 375908,
+      "security_id": 503,
+      "entry_date": "2026-04-29",
+      "period_end": "2026-03-31",
+      "exact_signal": false,
+      "ticker": "FE",
+      "decision_at": "2026-04-29 09:30:00-04:00",
+      "cik": "0001031296",
+      "company_id": 507,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 507,
+          "cik": "0001031296",
+          "acceptance_datetime": "2026-04-29 00:28:05+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001031296-26-000085",
+        "filing_date": "2026-04-28",
+        "acceptance_datetime": "2026-04-29 00:28:05+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "4911",
+        "description": "ELECTRIC SERVICES",
+        "available_before_decision": true,
+        "accepted_at": "2026-04-28T16:28:05-04:00",
+        "accessions": [
+          "0001031296-26-000085"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376059,
+      "security_id": 10433,
+      "entry_date": "2018-08-10",
+      "period_end": "2018-06-30",
+      "exact_signal": false,
+      "ticker": "FLT",
+      "decision_at": "2018-08-10 09:30:00-04:00",
+      "cik": "0001175454",
+      "company_id": 514,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 514,
+          "cik": "0001175454",
+          "acceptance_datetime": "2018-08-10 00:49:40+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001175454-18-000027",
+        "filing_date": "2018-08-09",
+        "acceptance_datetime": "2018-08-10 00:49:40+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7389",
+        "description": "SERVICES-BUSINESS SERVICES, NEC",
+        "available_before_decision": true,
+        "accepted_at": "2018-08-09T16:49:40-04:00",
+        "accessions": [
+          "0001175454-18-000027"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376068,
+      "security_id": 10433,
+      "entry_date": "2021-08-10",
+      "period_end": "2021-06-30",
+      "exact_signal": true,
+      "ticker": "FLT",
+      "decision_at": "2021-08-10 09:30:00-04:00",
+      "cik": "0001175454",
+      "company_id": 514,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 514,
+          "cik": "0001175454",
+          "acceptance_datetime": "2021-08-10 01:19:27+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001175454-21-000039",
+        "filing_date": "2021-08-09",
+        "acceptance_datetime": "2021-08-10 01:19:27+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7389",
+        "description": "SERVICES-BUSINESS SERVICES, NEC",
+        "available_before_decision": true,
+        "accepted_at": "2021-08-09T17:19:27-04:00",
+        "accessions": [
+          "0001175454-21-000039"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376077,
+      "security_id": 10433,
+      "entry_date": "2024-03-01",
+      "period_end": "2023-12-31",
+      "exact_signal": false,
+      "ticker": "FLT",
+      "decision_at": "2024-03-01 09:30:00-05:00",
+      "cik": "0001175454",
+      "company_id": 514,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 514,
+          "cik": "0001175454",
+          "acceptance_datetime": "2024-03-01 03:15:41+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001628280-24-008060",
+        "filing_date": "2024-02-29",
+        "acceptance_datetime": "2024-03-01 03:15:41+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7389",
+        "description": "SERVICES-BUSINESS SERVICES, NEC",
+        "available_before_decision": true,
+        "accepted_at": "2024-02-29T17:15:41-05:00",
+        "accessions": [
+          "0001628280-24-008060"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376296,
+      "security_id": 33,
+      "entry_date": "2018-02-26",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "GE",
+      "decision_at": "2018-02-26 09:30:00-05:00",
+      "cik": "0000040545",
+      "company_id": 37,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 37,
+          "cik": "0000040545",
+          "acceptance_datetime": "2018-02-24 02:52:20+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000040545-18-000014",
+        "filing_date": "2018-02-23",
+        "acceptance_datetime": "2018-02-24 02:52:20+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3600",
+        "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-23T16:52:20-05:00",
+        "accessions": [
+          "0000040545-18-000014"
+        ],
+        "observation_age_days": 2
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376313,
+      "security_id": 33,
+      "entry_date": "2022-04-27",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "GE",
+      "decision_at": "2022-04-27 09:30:00-04:00",
+      "cik": "0000040545",
+      "company_id": 37,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 37,
+          "cik": "0000040545",
+          "acceptance_datetime": "2022-04-26 14:26:07+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000040545-22-000027",
+        "filing_date": "2022-04-26",
+        "acceptance_datetime": "2022-04-26 14:26:07+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3600",
+        "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-26T06:26:07-04:00",
+        "accessions": [
+          "0000040545-22-000027"
+        ],
+        "observation_age_days": 1
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376330,
+      "security_id": 33,
+      "entry_date": "2026-07-17",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "GE",
+      "decision_at": "2026-07-17 09:30:00-04:00",
+      "cik": "0000040545",
+      "company_id": 37,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 37,
+          "cik": "0000040545",
+          "acceptance_datetime": "2026-07-16 14:39:27+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000040545-26-000049",
+        "filing_date": "2026-07-16",
+        "acceptance_datetime": "2026-07-16 14:39:27+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3600",
+        "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-16T06:39:27-04:00",
+        "accessions": [
+          "0000040545-26-000049"
+        ],
+        "observation_age_days": 1
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376331,
+      "security_id": 440,
+      "entry_date": "2023-04-26",
+      "period_end": "2023-03-31",
+      "exact_signal": null,
+      "ticker": "GEHC",
+      "decision_at": "2023-04-26 09:30:00-04:00",
+      "cik": "0001932393",
+      "company_id": 444,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 444,
+          "cik": "0001932393",
+          "acceptance_datetime": "2023-04-25 14:25:58+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001932393-23-000087",
+        "filing_date": "2023-04-25",
+        "acceptance_datetime": "2023-04-25 14:25:58+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3844",
+        "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+        "available_before_decision": true,
+        "accepted_at": "2023-04-25T06:25:58-04:00",
+        "accessions": [
+          "0001932393-23-000087"
+        ],
+        "observation_age_days": 1
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376337,
+      "security_id": 440,
+      "entry_date": "2024-10-31",
+      "period_end": "2024-09-30",
+      "exact_signal": false,
+      "ticker": "GEHC",
+      "decision_at": "2024-10-31 09:30:00-04:00",
+      "cik": "0001932393",
+      "company_id": 444,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 444,
+          "cik": "0001932393",
+          "acceptance_datetime": "2024-10-30 14:32:42+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001932393-24-000050",
+        "filing_date": "2024-10-30",
+        "acceptance_datetime": "2024-10-30 14:32:42+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3844",
+        "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+        "available_before_decision": true,
+        "accepted_at": "2024-10-30T06:32:42-04:00",
+        "accessions": [
+          "0001932393-24-000050"
+        ],
+        "observation_age_days": 1
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376343,
+      "security_id": 440,
+      "entry_date": "2026-04-30",
+      "period_end": "2026-03-31",
+      "exact_signal": false,
+      "ticker": "GEHC",
+      "decision_at": "2026-04-30 09:30:00-04:00",
+      "cik": "0001932393",
+      "company_id": 444,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 444,
+          "cik": "0001932393",
+          "acceptance_datetime": "2026-04-29 14:26:50+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001932393-26-000031",
+        "filing_date": "2026-04-29",
+        "acceptance_datetime": "2026-04-29 14:26:50+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "3844",
+        "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+        "available_before_decision": true,
+        "accepted_at": "2026-04-29T06:26:50-04:00",
+        "accessions": [
+          "0001932393-26-000031"
+        ],
+        "observation_age_days": 1
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376344,
+      "security_id": 686,
+      "entry_date": "2018-02-05",
+      "period_end": "2017-12-29",
+      "exact_signal": false,
+      "ticker": "GEN",
+      "decision_at": "2018-02-05 09:30:00-05:00",
+      "cik": "0000849399",
+      "company_id": 690,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 690,
+          "cik": "0000849399",
+          "acceptance_datetime": "2018-02-03 02:55:31+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000849399-18-000004",
+        "filing_date": "2018-02-02",
+        "acceptance_datetime": "2018-02-03 02:55:31+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-02T16:55:31-05:00",
+        "accessions": [
+          "0000849399-18-000004"
+        ],
+        "observation_age_days": 2
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376352,
+      "security_id": 686,
+      "entry_date": "2020-08-07",
+      "period_end": "2020-07-03",
+      "exact_signal": true,
+      "ticker": "GEN",
+      "decision_at": "2020-08-07 09:30:00-04:00",
+      "cik": "0000849399",
+      "company_id": 690,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [
+        "NLOK"
+      ],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 690,
+          "cik": "0000849399",
+          "acceptance_datetime": "2020-08-07 00:37:22+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000849399-20-000007",
+        "filing_date": "2020-08-06",
+        "acceptance_datetime": "2020-08-07 00:37:22+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2020-08-06T16:37:22-04:00",
+        "accessions": [
+          "0000849399-20-000007"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376360,
+      "security_id": 686,
+      "entry_date": "2022-08-08",
+      "period_end": "2022-07-01",
+      "exact_signal": false,
+      "ticker": "GEN",
+      "decision_at": "2022-08-08 09:30:00-04:00",
+      "cik": "0000849399",
+      "company_id": 690,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [
+        "NLOK"
+      ],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 690,
+          "cik": "0000849399",
+          "acceptance_datetime": "2022-08-06 00:04:55+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000849399-22-000019",
+        "filing_date": "2022-08-05",
+        "acceptance_datetime": "2022-08-06 00:04:55+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2022-08-05T16:04:55-04:00",
+        "accessions": [
+          "0000849399-22-000019"
+        ],
+        "observation_age_days": 2
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376376,
+      "security_id": 686,
+      "entry_date": "2026-08-10",
+      "period_end": "2026-07-03",
+      "exact_signal": false,
+      "ticker": "GEN",
+      "decision_at": "2026-08-10 09:30:00-04:00",
+      "cik": "0000849399",
+      "company_id": 690,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [
+        "GEN"
+      ],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 690,
+          "cik": "0000849399",
+          "acceptance_datetime": "2026-08-08 00:03:52+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000849399-26-000031",
+        "filing_date": "2026-08-07",
+        "acceptance_datetime": "2026-08-08 00:03:52+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2026-08-07T16:03:52-04:00",
+        "accessions": [
+          "0000849399-26-000031"
+        ],
+        "observation_age_days": 2
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376578,
+      "security_id": 7468,
+      "entry_date": "2018-02-06",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "GOOG",
+      "decision_at": "2018-02-06 09:30:00-05:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2018-02-06 06:46:29+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-18-000007",
+        "filing_date": "2018-02-06",
+        "acceptance_datetime": "2018-02-06 06:46:29+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-05T20:46:29-05:00",
+        "accessions": [
+          "0001652044-18-000007"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376595,
+      "security_id": 7468,
+      "entry_date": "2022-04-27",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "GOOG",
+      "decision_at": "2022-04-27 09:30:00-04:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2022-04-27 04:51:20+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-22-000029",
+        "filing_date": "2022-04-27",
+        "acceptance_datetime": "2022-04-27 04:51:20+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-26T20:51:20-04:00",
+        "accessions": [
+          "0001652044-22-000029"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376612,
+      "security_id": 7468,
+      "entry_date": "2026-07-23",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "GOOG",
+      "decision_at": "2026-07-23 09:30:00-04:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2026-07-23 05:15:54+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-26-000071",
+        "filing_date": "2026-07-23",
+        "acceptance_datetime": "2026-07-23 05:15:54+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-22T21:15:54-04:00",
+        "accessions": [
+          "0001652044-26-000071"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376613,
+      "security_id": 3,
+      "entry_date": "2018-02-06",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "GOOGL",
+      "decision_at": "2018-02-06 09:30:00-05:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2018-02-06 06:46:29+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-18-000007",
+        "filing_date": "2018-02-06",
+        "acceptance_datetime": "2018-02-06 06:46:29+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-05T20:46:29-05:00",
+        "accessions": [
+          "0001652044-18-000007"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376630,
+      "security_id": 3,
+      "entry_date": "2022-04-27",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "GOOGL",
+      "decision_at": "2022-04-27 09:30:00-04:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2022-04-27 04:51:20+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-22-000029",
+        "filing_date": "2022-04-27",
+        "acceptance_datetime": "2022-04-27 04:51:20+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-26T20:51:20-04:00",
+        "accessions": [
+          "0001652044-22-000029"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 376647,
+      "security_id": 3,
+      "entry_date": "2026-07-23",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "GOOGL",
+      "decision_at": "2026-07-23 09:30:00-04:00",
+      "cik": "0001652044",
+      "company_id": 7,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 7,
+          "cik": "0001652044",
+          "acceptance_datetime": "2026-07-23 05:15:54+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001652044-26-000071",
+        "filing_date": "2026-07-23",
+        "acceptance_datetime": "2026-07-23 05:15:54+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-22T21:15:54-04:00",
+        "accessions": [
+          "0001652044-26-000071"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 378159,
+      "security_id": 11,
+      "entry_date": "2018-02-28",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "JPM",
+      "decision_at": "2018-02-28 09:30:00-05:00",
+      "cik": "0000019617",
+      "company_id": 15,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 15,
+          "cik": "0000019617",
+          "acceptance_datetime": "2018-02-28 02:23:03+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000019617-18-000057",
+        "filing_date": "2018-02-27",
+        "acceptance_datetime": "2018-02-28 02:23:03+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "6021",
+        "description": "NATIONAL COMMERCIAL BANKS",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-27T16:23:03-05:00",
+        "accessions": [
+          "0000019617-18-000057"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 378176,
+      "security_id": 11,
+      "entry_date": "2022-05-04",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "JPM",
+      "decision_at": "2022-05-04 09:30:00-04:00",
+      "cik": "0000019617",
+      "company_id": 15,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 15,
+          "cik": "0000019617",
+          "acceptance_datetime": "2022-05-04 00:13:30+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0000019617-22-000319",
+        "filing_date": "2022-05-03",
+        "acceptance_datetime": "2022-05-04 00:13:30+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "6021",
+        "description": "NATIONAL COMMERCIAL BANKS",
+        "available_before_decision": true,
+        "accepted_at": "2022-05-03T16:13:30-04:00",
+        "accessions": [
+          "0000019617-22-000319"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 378193,
+      "security_id": 11,
+      "entry_date": "2026-08-07",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "JPM",
+      "decision_at": "2026-08-07 09:30:00-04:00",
+      "cik": "0000019617",
+      "company_id": 15,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 15,
+          "cik": "0000019617",
+          "acceptance_datetime": "2026-08-07 00:19:03+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001628280-26-054343",
+        "filing_date": "2026-08-06",
+        "acceptance_datetime": "2026-08-07 00:19:03+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "6021",
+        "description": "NATIONAL COMMERCIAL BANKS",
+        "available_before_decision": true,
+        "accepted_at": "2026-08-06T16:19:03-04:00",
+        "accessions": [
+          "0001628280-26-054343"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379404,
+      "security_id": 7,
+      "entry_date": "2018-02-02",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "META",
+      "decision_at": "2018-02-02 09:30:00-05:00",
+      "cik": "0001326801",
+      "company_id": 11,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 11,
+          "cik": "0001326801",
+          "acceptance_datetime": "2018-02-02 02:58:26+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001326801-18-000009",
+        "filing_date": "2018-02-01",
+        "acceptance_datetime": "2018-02-02 02:58:26+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2018-02-01T16:58:26-05:00",
+        "accessions": [
+          "0001326801-18-000009"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379421,
+      "security_id": 7,
+      "entry_date": "2022-04-28",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "META",
+      "decision_at": "2022-04-28 09:30:00-04:00",
+      "cik": "0001326801",
+      "company_id": 11,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 11,
+          "cik": "0001326801",
+          "acceptance_datetime": "2022-04-28 04:42:59+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001326801-22-000057",
+        "filing_date": "2022-04-28",
+        "acceptance_datetime": "2022-04-28 04:42:59+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-27T20:42:59-04:00",
+        "accessions": [
+          "0001326801-22-000057"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379438,
+      "security_id": 7,
+      "entry_date": "2026-07-30",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "META",
+      "decision_at": "2026-07-30 09:30:00-04:00",
+      "cik": "0001326801",
+      "company_id": 11,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [
+        "META"
+      ],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 11,
+          "cik": "0001326801",
+          "acceptance_datetime": "2026-07-30 02:58:51+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001628280-26-050705",
+        "filing_date": "2026-07-30",
+        "acceptance_datetime": "2026-07-30 02:58:51+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7370",
+        "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-29T18:58:51-04:00",
+        "accessions": [
+          "0001628280-26-050705"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379891,
+      "security_id": 4,
+      "entry_date": "2018-02-01",
+      "period_end": "2017-12-31",
+      "exact_signal": false,
+      "ticker": "MSFT",
+      "decision_at": "2018-02-01 09:30:00-05:00",
+      "cik": "0000789019",
+      "company_id": 8,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 8,
+          "cik": "0000789019",
+          "acceptance_datetime": "2018-02-01 02:10:10+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001564590-18-001129",
+        "filing_date": "2018-01-31",
+        "acceptance_datetime": "2018-02-01 02:10:10+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2018-01-31T16:10:10-05:00",
+        "accessions": [
+          "0001564590-18-001129"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379908,
+      "security_id": 4,
+      "entry_date": "2022-04-27",
+      "period_end": "2022-03-31",
+      "exact_signal": false,
+      "ticker": "MSFT",
+      "decision_at": "2022-04-27 09:30:00-04:00",
+      "cik": "0000789019",
+      "company_id": 8,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 8,
+          "cik": "0000789019",
+          "acceptance_datetime": "2022-04-27 00:08:55+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001564590-22-015675",
+        "filing_date": "2022-04-26",
+        "acceptance_datetime": "2022-04-27 00:08:55+00:00",
+        "form": "10-Q"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2022-04-26T16:08:55-04:00",
+        "accessions": [
+          "0001564590-22-015675"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    },
+    {
+      "id": 379925,
+      "security_id": 4,
+      "entry_date": "2026-07-30",
+      "period_end": "2026-06-30",
+      "exact_signal": false,
+      "ticker": "MSFT",
+      "decision_at": "2026-07-30 09:30:00-04:00",
+      "cik": "0000789019",
+      "company_id": 8,
+      "mapping": "EVENT_FACT_CORROBORATED_UNDATED_ISSUER",
+      "historical_tickers": [],
+      "fact_mapping_evidence": [
+        {
+          "company_id": 8,
+          "cik": "0000789019",
+          "acceptance_datetime": "2026-07-30 00:08:01+00:00"
+        }
+      ],
+      "requested_filing": {
+        "accession_number": "0001193125-26-323660",
+        "filing_date": "2026-07-29",
+        "acceptance_datetime": "2026-07-30 00:08:01+00:00",
+        "form": "10-K"
+      },
+      "lookup": {
+        "status": "CLASSIFIED",
+        "sic": "7372",
+        "description": "SERVICES-PREPACKAGED SOFTWARE",
+        "available_before_decision": true,
+        "accepted_at": "2026-07-29T16:08:01-04:00",
+        "accessions": [
+          "0001193125-26-323660"
+        ],
+        "observation_age_days": 0
+      },
+      "strict_dated_mapping_supported": false
+    }
+  ],
+  "observations": [
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-18-000007",
+      "sic": "3571",
+      "description": "ELECTRONIC COMPUTERS",
+      "accepted_at": "2018-02-02T08:01:26-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019318000007/0000320193-18-000007-index-headers.html",
+      "observed_at": "2026-09-23T05:19:59.902672+00:00",
+      "sha256": "55376b20c5ac243b4c4976543fbf10d7d957b27e53cac635a876525148092691",
+      "database_acceptance": "2018-02-02 18:01:26+00:00",
+      "filing_date": "2018-02-02",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-22-000059",
+      "sic": "3571",
+      "description": "ELECTRONIC COMPUTERS",
+      "accepted_at": "2022-04-28T18:03:58-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019322000059/0000320193-22-000059-index-headers.html",
+      "observed_at": "2026-09-23T05:20:00.049726+00:00",
+      "sha256": "d1f4d0c753bf7c55ea3bbe6d3868d88bf354ef7160fe6e91822320146f2a3990",
+      "database_acceptance": "2022-04-29 02:03:58+00:00",
+      "filing_date": "2022-04-29",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000320193",
+      "accession": "0000320193-26-000020",
+      "sic": "3571",
+      "description": "ELECTRONIC COMPUTERS",
+      "accepted_at": "2026-07-31T06:01:02-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/320193/000032019326000020/0000320193-26-000020-index-headers.html",
+      "observed_at": "2026-09-23T05:20:00.269380+00:00",
+      "sha256": "d62fc9a60b18ee213ccb2cb6990ba78e63d1668fe11362c0a758a77d56225902",
+      "database_acceptance": "2026-07-31 14:01:02+00:00",
+      "filing_date": "2026-07-31",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001868275",
+      "accession": "0001868275-22-000044",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2022-05-12T13:51:36-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1868275/000186827522000044/0001868275-22-000044-index-headers.html",
+      "observed_at": "2026-09-23T05:20:00.537383+00:00",
+      "sha256": "8b441e131b77776468683d22080eec0218129064aa894b76896aff1d05577f5f",
+      "database_acceptance": "2022-05-12 21:51:36+00:00",
+      "filing_date": "2022-05-12",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001868275",
+      "accession": "0001868275-24-000054",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2024-08-06T11:32:31-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1868275/000186827524000054/0001868275-24-000054-index-headers.html",
+      "observed_at": "2026-09-23T05:20:00.909377+00:00",
+      "sha256": "c35a3e6db4acede1755f0fb21dcd06e6c5ecd7daa26ae08c264fac9b2273aa3a",
+      "database_acceptance": "2024-08-06 19:32:31+00:00",
+      "filing_date": "2024-08-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001868275",
+      "accession": "0001868275-26-000104",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2026-08-06T12:22:28-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1868275/000186827526000104/0001868275-26-000104-index-headers.html",
+      "observed_at": "2026-09-23T05:20:01.052377+00:00",
+      "sha256": "59133f84a81a1ac517b60a444a41c32c63d13d29732581e9f64297f67a596d42",
+      "database_acceptance": "2026-08-06 20:22:28+00:00",
+      "filing_date": "2026-08-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001109357",
+      "accession": "0001628280-18-001324",
+      "sic": "4931",
+      "description": "ELECTRIC & OTHER SERVICES COMBINED",
+      "accepted_at": "2018-02-09T08:40:06-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1109357/000162828018001324/0001628280-18-001324-index-headers.html",
+      "observed_at": "2026-09-23T05:20:01.342641+00:00",
+      "sha256": "e8044b571d77c97d3948971e290ea0af48d2fdddca53bfd2c84393c83219c935",
+      "database_acceptance": "2018-02-09 18:40:06+00:00",
+      "filing_date": "2018-02-09",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001109357",
+      "accession": "0001109357-22-000059",
+      "sic": "4931",
+      "description": "ELECTRIC & OTHER SERVICES COMBINED",
+      "accepted_at": "2022-05-09T13:47:22-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935722000059/0001109357-22-000059-index-headers.html",
+      "observed_at": "2026-09-23T05:20:01.706619+00:00",
+      "sha256": "8923fa80b752eec5046ca88be5729752e4ea77782da37d7c82423471e085749e",
+      "database_acceptance": "2022-05-09 21:47:22+00:00",
+      "filing_date": "2022-05-09",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001109357",
+      "accession": "0001109357-26-000063",
+      "sic": "4931",
+      "description": "ELECTRIC & OTHER SERVICES COMBINED",
+      "accepted_at": "2026-05-06T14:18:21-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1109357/000110935726000063/0001109357-26-000063-index-headers.html",
+      "observed_at": "2026-09-23T05:20:02.159734+00:00",
+      "sha256": "3a99b008293f148e01a488e29502966c96f53034162a22623b4ecef88aa90a99",
+      "database_acceptance": "2026-05-06 22:18:21+00:00",
+      "filing_date": "2026-05-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001031296",
+      "accession": "0001031296-18-000015",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2018-02-20T16:54:49-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1031296/000103129618000015/0001031296-18-000015-index-headers.html",
+      "observed_at": "2026-09-23T05:20:02.568575+00:00",
+      "sha256": "46e3afaca10336d415402422aec21af10635cb7a7350293b4859355e67a2ddb8",
+      "database_acceptance": "2018-02-21 02:54:49+00:00",
+      "filing_date": "2018-02-20",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001031296",
+      "accession": "0001031296-22-000020",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2022-04-21T16:30:41-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1031296/000103129622000020/0001031296-22-000020-index-headers.html",
+      "observed_at": "2026-09-23T05:20:02.738317+00:00",
+      "sha256": "1e58e6f78f6507213b06160873c5caf9a5d8d0be9a96c90e55278c03ccd8481f",
+      "database_acceptance": "2022-04-22 00:30:41+00:00",
+      "filing_date": "2022-04-21",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001031296",
+      "accession": "0001031296-26-000085",
+      "sic": "4911",
+      "description": "ELECTRIC SERVICES",
+      "accepted_at": "2026-04-28T16:28:05-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1031296/000103129626000085/0001031296-26-000085-index-headers.html",
+      "observed_at": "2026-09-23T05:20:02.963407+00:00",
+      "sha256": "1a3f62cacc09551cfb90db31a3a1c8257933fd31a18e9ab4583a3175249ce6a2",
+      "database_acceptance": "2026-04-29 00:28:05+00:00",
+      "filing_date": "2026-04-28",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001175454",
+      "accession": "0001175454-18-000027",
+      "sic": "7389",
+      "description": "SERVICES-BUSINESS SERVICES, NEC",
+      "accepted_at": "2018-08-09T16:49:40-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545418000027/0001175454-18-000027-index-headers.html",
+      "observed_at": "2026-09-23T05:20:03.372459+00:00",
+      "sha256": "e8bef12aee37688af5ead19c5a0316d73f24ae45587197645e88ce26c92b7df8",
+      "database_acceptance": "2018-08-10 00:49:40+00:00",
+      "filing_date": "2018-08-09",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001175454",
+      "accession": "0001175454-21-000039",
+      "sic": "7389",
+      "description": "SERVICES-BUSINESS SERVICES, NEC",
+      "accepted_at": "2021-08-09T17:19:27-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1175454/000117545421000039/0001175454-21-000039-index-headers.html",
+      "observed_at": "2026-09-23T05:20:03.526523+00:00",
+      "sha256": "0ad39099fed16f2a38e9cc50aa806467b1a1a7be632a1918bff27b94a2359412",
+      "database_acceptance": "2021-08-10 01:19:27+00:00",
+      "filing_date": "2021-08-09",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001175454",
+      "accession": "0001628280-24-008060",
+      "sic": "7389",
+      "description": "SERVICES-BUSINESS SERVICES, NEC",
+      "accepted_at": "2024-02-29T17:15:41-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1175454/000162828024008060/0001628280-24-008060-index-headers.html",
+      "observed_at": "2026-09-23T05:20:03.819428+00:00",
+      "sha256": "64fbac799cd6e648948e10e38be065df2d8f68ab818c6125f51ecf508075a2f9",
+      "database_acceptance": "2024-03-01 03:15:41+00:00",
+      "filing_date": "2024-02-29",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-18-000014",
+      "sic": "3600",
+      "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+      "accepted_at": "2018-02-23T16:52:20-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054518000014/0000040545-18-000014-index-headers.html",
+      "observed_at": "2026-09-23T05:20:03.999508+00:00",
+      "sha256": "70ecc1df11376168c8bf72ac5e10a0cdfb53e8343f694b69f0e1a2356ec099e3",
+      "database_acceptance": "2018-02-24 02:52:20+00:00",
+      "filing_date": "2018-02-23",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-22-000027",
+      "sic": "3600",
+      "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+      "accepted_at": "2022-04-26T06:26:07-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054522000027/0000040545-22-000027-index-headers.html",
+      "observed_at": "2026-09-23T05:20:04.360432+00:00",
+      "sha256": "de9839f3fc520b0298d9adef0b93085a9e0d228c9f24999507ea03d256b5c677",
+      "database_acceptance": "2022-04-26 14:26:07+00:00",
+      "filing_date": "2022-04-26",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000040545",
+      "accession": "0000040545-26-000049",
+      "sic": "3600",
+      "description": "ELECTRONIC & OTHER ELECTRICAL EQUIPMENT (NO COMPUTER EQUIP)",
+      "accepted_at": "2026-07-16T06:39:27-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/40545/000004054526000049/0000040545-26-000049-index-headers.html",
+      "observed_at": "2026-09-23T05:20:04.503374+00:00",
+      "sha256": "2403ec8b3af8ff1e5b4fa7ed3ab5d10f0e6cc25b652f53e1750c5187664bc2dd",
+      "database_acceptance": "2026-07-16 14:39:27+00:00",
+      "filing_date": "2026-07-16",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001932393",
+      "accession": "0001932393-23-000087",
+      "sic": "3844",
+      "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+      "accepted_at": "2023-04-25T06:25:58-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239323000087/0001932393-23-000087-index-headers.html",
+      "observed_at": "2026-09-23T05:20:04.782486+00:00",
+      "sha256": "14531c569b3d2b076efc8c34994c560bc0bb889c08a8beaff0995fc5c2825e47",
+      "database_acceptance": "2023-04-25 14:25:58+00:00",
+      "filing_date": "2023-04-25",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001932393",
+      "accession": "0001932393-24-000050",
+      "sic": "3844",
+      "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+      "accepted_at": "2024-10-30T06:32:42-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239324000050/0001932393-24-000050-index-headers.html",
+      "observed_at": "2026-09-23T05:20:05.066450+00:00",
+      "sha256": "37b5595585c54081cee78e92686b8c742488776f89ec1bdfe1dba96c71088a24",
+      "database_acceptance": "2024-10-30 14:32:42+00:00",
+      "filing_date": "2024-10-30",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001932393",
+      "accession": "0001932393-26-000031",
+      "sic": "3844",
+      "description": "X-RAY APPARATUS & TUBES & RELATED IRRADIATION APPARATUS",
+      "accepted_at": "2026-04-29T06:26:50-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1932393/000193239326000031/0001932393-26-000031-index-headers.html",
+      "observed_at": "2026-09-23T05:20:05.268471+00:00",
+      "sha256": "563555d2a91fea248935e7c039afa99c064b70c6eb9d3476f1de66b5a8710362",
+      "database_acceptance": "2026-04-29 14:26:50+00:00",
+      "filing_date": "2026-04-29",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000849399",
+      "accession": "0000849399-18-000004",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2018-02-02T16:55:31-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/849399/000084939918000004/0000849399-18-000004-index-headers.html",
+      "observed_at": "2026-09-23T05:20:05.528459+00:00",
+      "sha256": "88cffdf5e3fb2300f9657e1e33b86db824c14fda52e60ae47974a73f0165ef9a",
+      "database_acceptance": "2018-02-03 02:55:31+00:00",
+      "filing_date": "2018-02-02",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000849399",
+      "accession": "0000849399-20-000007",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2020-08-06T16:37:22-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/849399/000084939920000007/0000849399-20-000007-index-headers.html",
+      "observed_at": "2026-09-23T05:20:05.837513+00:00",
+      "sha256": "6c0106c79bcbd42b47e6e4d737f2321d2eb574f44a10c7cb06d995b10a07707e",
+      "database_acceptance": "2020-08-07 00:37:22+00:00",
+      "filing_date": "2020-08-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000849399",
+      "accession": "0000849399-22-000019",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2022-08-05T16:04:55-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/849399/000084939922000019/0000849399-22-000019-index-headers.html",
+      "observed_at": "2026-09-23T05:20:05.999408+00:00",
+      "sha256": "f4bd70be1107281c03ece7e48d494ca59e012862775aabe450189248834b21f3",
+      "database_acceptance": "2022-08-06 00:04:55+00:00",
+      "filing_date": "2022-08-05",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000849399",
+      "accession": "0000849399-26-000031",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2026-08-07T16:03:52-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/849399/000084939926000031/0000849399-26-000031-index-headers.html",
+      "observed_at": "2026-09-23T05:20:06.233501+00:00",
+      "sha256": "0baa1fc02c1c233ce0559ffdd7295c3204908eda5fb5588f40d4b754eb25c962",
+      "database_acceptance": "2026-08-08 00:03:52+00:00",
+      "filing_date": "2026-08-07",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001652044",
+      "accession": "0001652044-18-000007",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2018-02-05T20:46:29-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204418000007/0001652044-18-000007-index-headers.html",
+      "observed_at": "2026-09-23T05:20:06.530512+00:00",
+      "sha256": "504376e76c156ea3afcfa2febcde0521f97d412ec213d74b76d3463a48944cb7",
+      "database_acceptance": "2018-02-06 06:46:29+00:00",
+      "filing_date": "2018-02-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001652044",
+      "accession": "0001652044-22-000029",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2022-04-26T20:51:20-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204422000029/0001652044-22-000029-index-headers.html",
+      "observed_at": "2026-09-23T05:20:06.750499+00:00",
+      "sha256": "d74214ea9a413f042e50f182b37048db24a6604c42719b1e8dc1852c551159e6",
+      "database_acceptance": "2022-04-27 04:51:20+00:00",
+      "filing_date": "2022-04-27",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001652044",
+      "accession": "0001652044-26-000071",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2026-07-22T21:15:54-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1652044/000165204426000071/0001652044-26-000071-index-headers.html",
+      "observed_at": "2026-09-23T05:20:06.991433+00:00",
+      "sha256": "da665d06512023e843e0d1f22540108e5c45816423c7b72da97a7aa86e476fdf",
+      "database_acceptance": "2026-07-23 05:15:54+00:00",
+      "filing_date": "2026-07-23",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000019617",
+      "accession": "0000019617-18-000057",
+      "sic": "6021",
+      "description": "NATIONAL COMMERCIAL BANKS",
+      "accepted_at": "2018-02-27T16:23:03-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961718000057/0000019617-18-000057-index-headers.html",
+      "observed_at": "2026-09-23T05:20:07.256434+00:00",
+      "sha256": "25397e8ad54b36f782a0f8a5f5dc5cd551c34b22d6be18c89abe165d1d744e1d",
+      "database_acceptance": "2018-02-28 02:23:03+00:00",
+      "filing_date": "2018-02-27",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000019617",
+      "accession": "0000019617-22-000319",
+      "sic": "6021",
+      "description": "NATIONAL COMMERCIAL BANKS",
+      "accepted_at": "2022-05-03T16:13:30-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000001961722000319/0000019617-22-000319-index-headers.html",
+      "observed_at": "2026-09-23T05:20:07.492438+00:00",
+      "sha256": "31b09c8f88fef99bcd23b560bbe64c25f0c55079dd483874246f74033102b512",
+      "database_acceptance": "2022-05-04 00:13:30+00:00",
+      "filing_date": "2022-05-03",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000019617",
+      "accession": "0001628280-26-054343",
+      "sic": "6021",
+      "description": "NATIONAL COMMERCIAL BANKS",
+      "accepted_at": "2026-08-06T16:19:03-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/19617/000162828026054343/0001628280-26-054343-index-headers.html",
+      "observed_at": "2026-09-23T05:20:07.749511+00:00",
+      "sha256": "0bcb46bcd3d89a1f18a746fd95e0c4b8897e9b5bb1a53df100d7ed50b2366a2f",
+      "database_acceptance": "2026-08-07 00:19:03+00:00",
+      "filing_date": "2026-08-06",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001326801",
+      "accession": "0001326801-18-000009",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2018-02-01T16:58:26-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680118000009/0001326801-18-000009-index-headers.html",
+      "observed_at": "2026-09-23T05:20:07.983464+00:00",
+      "sha256": "b9b4145a4205fdf862ef7174e42a506516b45eba5f02ac283b1a76399c421b6e",
+      "database_acceptance": "2018-02-02 02:58:26+00:00",
+      "filing_date": "2018-02-01",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001326801",
+      "accession": "0001326801-22-000057",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2022-04-27T20:42:59-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000132680122000057/0001326801-22-000057-index-headers.html",
+      "observed_at": "2026-09-23T05:20:08.290615+00:00",
+      "sha256": "d1ef5dfe5e715fab86a8e8d22a45fa0d12005394f1c42fe3198c29af369e5803",
+      "database_acceptance": "2022-04-28 04:42:59+00:00",
+      "filing_date": "2022-04-28",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0001326801",
+      "accession": "0001628280-26-050705",
+      "sic": "7370",
+      "description": "SERVICES-COMPUTER PROGRAMMING, DATA PROCESSING, ETC.",
+      "accepted_at": "2026-07-29T18:58:51-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026050705/0001628280-26-050705-index-headers.html",
+      "observed_at": "2026-09-23T05:20:08.489429+00:00",
+      "sha256": "b906179c144b666dd7e1001e040a1347ff400a02825cfc31e453bc5f183b3479",
+      "database_acceptance": "2026-07-30 02:58:51+00:00",
+      "filing_date": "2026-07-30",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-18-001129",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2018-01-31T16:10:10-05:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000156459018001129/0001564590-18-001129-index-headers.html",
+      "observed_at": "2026-09-23T05:20:08.834583+00:00",
+      "sha256": "df805c7280db4fc1777d3d18a85f59eca619126aac19c5cbcb647f0fb58fe6ef",
+      "database_acceptance": "2018-02-01 02:10:10+00:00",
+      "filing_date": "2018-01-31",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001564590-22-015675",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2022-04-26T16:08:55-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000156459022015675/0001564590-22-015675-index-headers.html",
+      "observed_at": "2026-09-23T05:20:09.128600+00:00",
+      "sha256": "6ca4b068200e37e4b81726575cb11cbcdaf7bbe73556d65513f72d158ab61506",
+      "database_acceptance": "2022-04-27 00:08:55+00:00",
+      "filing_date": "2022-04-26",
+      "acceptance_agrees_with_database": false
+    },
+    {
+      "cik": "0000789019",
+      "accession": "0001193125-26-323660",
+      "sic": "7372",
+      "description": "SERVICES-PREPACKAGED SOFTWARE",
+      "accepted_at": "2026-07-29T16:08:01-04:00",
+      "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/0001193125-26-323660-index-headers.html",
+      "observed_at": "2026-09-23T05:20:09.272416+00:00",
+      "sha256": "2aa156251d23566c43f90491c4ee413682a59780b7dbab6ee2a0c7e15ec4e66c",
+      "database_acceptance": "2026-07-30 00:08:01+00:00",
+      "filing_date": "2026-07-29",
+      "acceptance_agrees_with_database": false
+    }
+  ],
+  "failures": [],
+  "retrieval_requests": 37,
+  "budget": 40,
+  "counts": {
+    "CLASSIFIED": 40
+  }
+}
