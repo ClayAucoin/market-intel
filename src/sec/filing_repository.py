@@ -1,4 +1,5 @@
 from src.database import get_connection
+from src.sec.acceptance_time import parse_submissions_acceptance
 
 
 def save_filings(company_id, filings):
@@ -12,7 +13,7 @@ def save_filings(company_id, filings):
                 filing["form"],
                 filing["filing_date"],
                 filing["report_date"],
-                filing["acceptance_datetime"],
+                parse_submissions_acceptance(filing["acceptance_datetime"]),
                 filing["primary_document"],
                 filing["primary_doc_description"],
             )

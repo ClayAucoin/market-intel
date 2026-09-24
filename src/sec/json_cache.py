@@ -1,5 +1,6 @@
 """Atomic JSON replacement shared by SEC caches and operational reports."""
-from datetime import date, datetime
+from datetime import date
+from src.sec.acceptance_time import parse_submissions_acceptance
 import json
 import os
 from pathlib import Path
@@ -55,7 +56,7 @@ def validate_columns(data):
             if name == "filingDate":
                 date.fromisoformat(value)
             else:
-                datetime.strptime(value[:19], "%Y-%m-%dT%H:%M:%S")
+                parse_submissions_acceptance(value)
     if any(not isinstance(a, str) or not a for a in data["accessionNumber"]):
         raise ValueError("Invalid submissions accession")
     if any(isinstance(v, list) and len(v) != size for v in data.values()):

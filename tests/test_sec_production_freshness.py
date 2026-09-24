@@ -43,7 +43,7 @@ def facts(cik=1):
 
 def columnar(*accessions):
     return dict(accessionNumber=list(accessions), filingDate=['2026-09-18']*len(accessions),
-                acceptanceDateTime=['2026-09-18T08:00:00']*len(accessions))
+                acceptanceDateTime=['2026-09-18T08:00:00-04:00']*len(accessions))
 
 
 def main_json(*accessions, shards=()):
@@ -305,7 +305,7 @@ class SubmissionTests(OfflineTest):
         from src.paper_trading.paper_execution import EASTERN, freshness_reason
         data = main_json('old')
         data['filings']['recent']['filingDate'] = ['2026-09-17']
-        data['filings']['recent']['acceptanceDateTime'] = ['2026-09-17T08:00:00']
+        data['filings']['recent']['acceptanceDateTime'] = ['2026-09-17T08:00:00-04:00']
         self.download.return_value = data
         recovered = submissions.ProductionSubmissions()(1, {'old':{DAY-timedelta(days=1)}})[0]
         now = datetime(2026,9,18,18,tzinfo=EASTERN)
@@ -1154,7 +1154,7 @@ class FactLinkedPersistenceTests(OfflineTest):
         self.mock(self.requirements, 'observed_sessions', return_value=[DAY-timedelta(days=1)])
         data = self.payload['filings']['recent']
         data['filingDate'] = ['2026-09-16']
-        data['acceptanceDateTime'] = ['2026-09-16T08:00:00']
+        data['acceptanceDateTime'] = ['2026-09-16T08:00:00-04:00']
         results, report = self.run_refresh()
         self.assertEqual(results[0]['target'], 0)
         self.assertEqual(report['filing_coverage']['persisted'], 1)

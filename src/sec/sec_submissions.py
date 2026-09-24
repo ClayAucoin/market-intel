@@ -3,6 +3,7 @@ from datetime import date, datetime
 from pathlib import Path
 
 from src.sec.sec_http import get_sec_json
+from src.sec.acceptance_time import parse_submissions_acceptance
 from src.sec import production_report as reporting
 from src.sec.json_cache import atomic_json, validate_columns, validate_submissions
 
@@ -379,8 +380,7 @@ class ProductionSubmissions:
         def complete(record):
             try:
                 return (parse_date(record.get("filingDate")) is not None
-                        and datetime.strptime(record.get("acceptanceDateTime", "")[:19],
-                                              "%Y-%m-%dT%H:%M:%S") is not None)
+                        and parse_submissions_acceptance(record.get("acceptanceDateTime")) is not None)
             except (ValueError, TypeError):
                 return False
 

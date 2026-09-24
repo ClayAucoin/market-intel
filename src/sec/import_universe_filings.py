@@ -7,7 +7,7 @@ from src.sec import production_report as reporting
 from datetime import (
     datetime,
 )
-from zoneinfo import ZoneInfo
+from src.sec.acceptance_time import EASTERN, parse_submissions_acceptance
 
 from src.universe.company_universe import (
     DEFAULT_UNIVERSE,
@@ -23,11 +23,6 @@ from src.sec.sec_submissions import (
 )
 
 
-EASTERN = ZoneInfo(
-    "America/New_York"
-)
-
-
 def parse_date(value):
     if not value:
         return None
@@ -38,30 +33,9 @@ def parse_date(value):
     ).date()
 
 
-def parse_acceptance_datetime(
-    value,
-):
-    if not value:
-        return None
-
-    #
-    # SEC acceptance timestamps represent
-    # the EDGAR acceptance clock time.
-    #
-    # Keep the first YYYY-MM-DDTHH:MM:SS
-    # portion and explicitly interpret it
-    # as Eastern time.
-    #
-    text = value[:19]
-
-    parsed = datetime.strptime(
-        text,
-        "%Y-%m-%dT%H:%M:%S",
-    )
-
-    return parsed.replace(
-        tzinfo=EASTERN
-    )
+def parse_acceptance_datetime(value):
+    """SEC submissions ISO timestamps carry their own timezone."""
+    return parse_submissions_acceptance(value)
 
 
 def get_universe_name():
