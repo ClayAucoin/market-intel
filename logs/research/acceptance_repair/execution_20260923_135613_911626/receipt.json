@@ -1,0 +1,29 @@
+{
+  "manifest_sha256": "f8bdc0b837287a2cd3d22a97115de268d1550863d72428b38a407c8ff9afed74",
+  "manifest_path": "logs/research/acceptance_repair/manifest.json.gz",
+  "runner_sha256": "679fdc3516187b026b40eb3f67b5d358ebf0390f3b4d303c5a4d827e939a856e",
+  "started_at": "2026-09-23 13:56:13.911814+00:00",
+  "apply_requested": false,
+  "execution_state": "ABORTED_NO_COMMIT",
+  "counts": {
+    "safely_correctable": 29837,
+    "already_correct": 984,
+    "exceptional_offset": 71,
+    "unresolved_source": 205
+  },
+  "correction_statistics": {
+    "database_minus_source_seconds": {
+      "14400.0": 19829,
+      "18000.0": 10008
+    },
+    "utc_calendar_date_changes": 16706,
+    "calendar_candidate_date_changes": 3578,
+    "event_rows_rebuilt": 0
+  },
+  "failure": {
+    "type": "OperationalError",
+    "guard": "Raw diagnostics suppressed",
+    "previous_state": "PREPARING",
+    "occurred_at": "2026-09-23 13:56:13.992471+00:00"
+  }
+}
