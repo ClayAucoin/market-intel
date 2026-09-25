@@ -1,7 +1,9 @@
 # Market Intel continuity note
+
 Updated September 25, 2026, America/Chicago.
 
 ## Read this first
+
 This note consolidates the communication rules recovered from earlier market-intel conversations, the repository's published AGENTS.md, and the current user-supplied Codex transcripts. It is a handoff reference, not an exhaustive archive of every conversation or proof of current live database state.
 
 **Latest reported checkpoint: the TTWO correction is tested and committed, but has NOT been applied to production.** No execution receipt has been provided. Clay is considering waiting for the five-hour usage window to reset. Do not confuse a prepared command, authorization prompt, or code commit with a completed database correction.
@@ -9,6 +11,7 @@ This note consolidates the communication rules recovered from earlier market-int
 ## Working agreement
 
 ### Roles and communication
+
 - Clay and the chat assistant make substantive technical and research decisions. The assistant should provide a clear recommendation rather than make Clay decipher implementation details.
 - Codex does the mechanical repository work: inspect files, implement agreed changes, debug, compile, and run focused tests or bounded diagnostics.
 - Codex must not independently choose investment strategy, signal definitions, scoring, portfolio rules, research methodology, or production behavior.
@@ -18,6 +21,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Do not assume browser project history has been transferred into the separate Codex session. Explicit context and repository instructions are the handoff.
 
 ### Task authorization and autonomous completion
+
 - Once Clay submits an agreed task prompt to Codex, that authorizes completion of its full stated scope. Do not ask for another "continue" or consent to perform steps already covered by that task.
 - Continue through necessary in-scope implementation, ordinary fixes, focused validation and completion documentation without waiting for Clay to return. Resolve routine implementation choices using the agreed requirements.
 - Write each task prompt with a concrete completion goal and any real stop conditions. A progress update is informational, not a request for permission or a reason to pause.
@@ -27,6 +31,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Preserve the TTWO application's explicit drift, timeout and uncertain-commit stop conditions. Do not automatically retry or roll back that operation.
 
 ### Model and credit discipline
+
 - EVERY next operational step must begin with **KEEP** or **CHANGE**, the exact Codex model, and the reasoning setting, plus a short reason.
 - Select a less costly suitable model for routine work. Earlier discussion considered GPT-5.6 Sol for routine work and GPT-6-Astra / Low for demanding research or sensitive operations.
 - The recovered history did not establish a complete, fixed model/effort matrix. Do not invent one or present a new recommendation as an old agreement.
@@ -36,7 +41,9 @@ This note consolidates the communication rules recovered from earlier market-int
 - Avoid repeatedly printing large files, repeating completed research, expanding already sufficient tests, or initiating optional work that does not address a concrete remaining problem.
 
 ### Who runs reports
+
 **Clay runs reports and long jobs in his own terminal. Codex reads the saved outputs.**
+
 - When a report is needed, the assistant supplies the exact manual command and output path.
 - The subsequent Codex prompt identifies those saved outputs and tells Codex to read them, not regenerate the report.
 - Codex may prepare or fix report code within an authorized coding task. That does not authorize executing the report.
@@ -46,6 +53,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - When the boundary is unclear, give Clay the manual execution command and have Codex consume its saved result.
 
 ### Permissions, scope and data protection
+
 - Check the working tree before editing and preserve unrelated changes.
 - Use the smallest change needed. No unrelated refactoring, dependency upgrades, formatting sweeps, or architecture changes.
 - The published AGENTS.md permits focused read-only schema/data inspection when needed; a task can impose a stricter boundary. Respect the current task's scope.
@@ -60,6 +68,7 @@ This note consolidates the communication rules recovered from earlier market-int
 ## Project knowledge that must carry forward
 
 ### Purpose and architecture
+
 - Market Intel is a personal stock-market research and prospective paper-trading system using SEC/XBRL financial data, filings, historical prices, backtests, signal research, scoring and notifications.
 - Working repository: ~/projects/market-intel on the Ubuntu VM, normally accessed through VS Code Remote SSH. GitHub repository: ClayAucoin/market-intel.
 - Python project with a virtual environment and PostgreSQL. Tiingo has been used for prices; SEC submissions and Company Facts are separate input sources.
@@ -68,6 +77,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Historical index analysis requires dated membership and security/ticker identity. Current membership and current tickers cannot substitute for history.
 
 ### Research rules
+
 - Research correctness takes priority over implementation convenience.
 - Avoid lookahead bias. Use information that was available at the historical decision time.
 - Preserve validated train/test boundaries, signal thresholds, holding periods, benchmark methodology, universe definitions and sector-confidence rules.
@@ -79,6 +89,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Historical security coverage, derived-fact lineage, vendor price vintages, and unresolved timestamps remain limitations that must not disappear from conclusions.
 
 ### Scheduled work and mutable event IDs
+
 - The daily workflow runs through src/run_daily_market_intel.py. Retrieved earlier material described market-intel-daily.service and a weekday 17:00 Chicago schedule; verify current scheduling locally before relying on it.
 - The historical event builder deletes and recreates events. IDs can change even when a security/period's calculated fields remain the same.
 - TTWO event 398505 was replaced by 413248. Target a stable business key together with the reviewed current ID and exact before-image.
@@ -86,6 +97,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Production filing refresh was inspected as reusing valid stored metadata. A separate non-production upsert path can overwrite acceptance timestamps. A one-off repair does not create a permanent source override.
 
 ### Timestamp source policy and completed work
+
 - Preserve the completed 29,837-row safe acceptance-timestamp repair.
 - Honor explicit Z and numeric offsets in submissions timestamps.
 - Parse compact EDGAR header timestamps separately using the Eastern timezone.
@@ -101,6 +113,7 @@ This note consolidates the communication rules recovered from earlier market-int
 ## Exact TTWO handoff
 
 ### Identity and sources
+
 | Item | Value |
 | --- | --- |
 | Accession | 0001628280-25-026694 |
@@ -120,6 +133,7 @@ This note consolidates the communication rules recovered from earlier market-int
 - Proposed correction: 14:32:02 UTC to 10:32:02 UTC on May 20, 2025. The verified header and later submissions agree on the proposed instant.
 
 ### Reproduction and impact
+
 The accepted earlier saved baseline was captured September 24 at 02:51:28 UTC. Fresh package inputs were captured September 25 at 16:52:38 UTC. All 31 event calculation fields reproduced from the captured current dependencies. No further drift was reported in the final read-only dry-run.
 
 | Metric | Reviewed baseline | Proposed replacement |
@@ -138,6 +152,7 @@ The accepted earlier saved baseline was captured September 24 at 02:51:28 UTC. F
 Revenue acceleration remains 13.56%, below the 20% requirement; operating-margin change is missing. The alternative also fails positive momentum. Financial facts and financial metrics are not proposed for modification.
 
 ### Committed artifacts
+
 - Acceptance investigation commit: b416f0e96448e61bbd89d1dcca024fddc75ca5e1.
 - Correction package commit: bd402a59990d2cf20325b202fe7a91c308ee1f8f.
 - Correction manifest SHA-256: fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4.
@@ -151,6 +166,7 @@ Revenue acceleration remains 13.56%, below the 20% requirement; operating-margin
 The latest completion report says 15 reviewed files were committed, the working tree was clean, and nothing was pushed. Do not assume those local commits are available from GitHub.
 
 ### Verification completed
+
 - 32 focused regression tests passed.
 - Five real PostgreSQL 18.6 checks passed in a separate disposable cluster: apply and post-write verification; rollback; atomic rollback after failure of the event update; correction lock timeout; exclusion of competing UPDATE/DELETE/INSERT operations.
 - Only filing 108402 and event 413248 changed in the integration apply test.
@@ -159,6 +175,7 @@ The latest completion report says 15 reviewed files were committed, the working 
 - No production correction was reported as executed.
 
 ### Pending operation and stop conditions
+
 The next intended action is one explicitly authorized application of the existing committed correction tool using the exact manifest pin, followed by its post-commit verification and a durable receipt.
 
 The tool revalidates rows and dependencies under database locks; it preserves event identity, period and creation time and updates filing/event atomically. It aborts on drift, lock timeout, or a replacement event. Locks briefly exclude writers across the dependency tables.
@@ -168,16 +185,18 @@ Do not re-run research, refresh the manifest, change source precedence, perform 
 Waiting may allow scheduled data changes to invalidate the pinned package. That means stop and review the mismatch; it does not justify bypassing the guard.
 
 ## Historical context that requires reconfirmation
+
 An earlier September 19 conversation reported prospective paper-trading schema/migration work completed with a $10,000 starting cash balance, zero signals/positions and a NULL cutover, pending an SEC freshness fix. These are historical observations, not verified September 25 live balances or activation status. Later refresh or activation decisions were not fully recovered.
 
 Earlier SIC pilots and follow-up studies had bounded sampling/request budgets. Their old budgets are not permission for new requests.
 
 ## Sources and coverage
+
 - Clay's explicit September 25 communication correction: model KEEP/CHANGE guidance, user-run reports, saved results for Codex, and project continuity.
 - Clay's subsequent September 25 instruction: complete already assigned work without repeated consent or "continue" prompts, including when Clay is away from the computer.
 - Retrieved September 18 communication/role agreements; September 6 handoff discussion; August 31 architecture and workflow discussions; September 19 prospective-paper/freshness discussion. Retrieval was partial.
 - User-supplied September 24–25 Codex transcripts, including Pasted text.txt, Pasted text(1).txt and Pasted text(2).txt.
-- Published repository instructions read September 25: https://github.com/ClayAucoin/market-intel/blob/main/AGENTS.md, blob SHA 099c1f69bd7f79071ac4df0842402481e49c4eee. This is the fetched GitHub version; a newer local AGENTS.md must also be read in the repository.
-- Current usage guidance read September 25: https://learn.chatgpt.com/docs/pricing.
+- Published repository instructions read September 25: [AGENTS.md on GitHub](https://github.com/ClayAucoin/market-intel/blob/main/AGENTS.md), blob SHA 099c1f69bd7f79071ac4df0842402481e49c4eee. This is the fetched GitHub version; a newer local AGENTS.md must also be read in the repository.
+- Current usage guidance read September 25: [pricing documentation](https://learn.chatgpt.com/docs/pricing).
 
 No complete archive of all prior feeds was recovered. Do not claim that unknown historical decisions are settled. Use this note as a starting reference, then retrieve the specific missing decision or read the current authoritative project file before making a change. A saved note is not automatic synchronization with the Codex repository or a guarantee that every future chat will load it.
