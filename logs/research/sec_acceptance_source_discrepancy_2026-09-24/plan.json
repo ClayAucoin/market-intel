@@ -1,0 +1,79 @@
+[
+  {
+    "kind": "header",
+    "cik": "0000936395",
+    "accession": "0000936395-20-000042",
+    "reason": "First excluded exceptional filing",
+    "category": "exceptional_offset",
+    "label": "CIEN",
+    "url": "https://www.sec.gov/Archives/edgar/data/936395/000093639520000042/0000936395-20-000042-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000936395",
+    "accession": "0001628280-26-060361",
+    "reason": "Latest excluded exceptional filing",
+    "category": "exceptional_offset",
+    "label": "CIEN",
+    "url": "https://www.sec.gov/Archives/edgar/data/936395/000162828026060361/0001628280-26-060361-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000936395",
+    "accession": "0000936395-20-000036",
+    "reason": "Last safely repaired filing preceding exceptional range",
+    "category": "safely_correctable",
+    "label": "CIEN",
+    "url": "https://www.sec.gov/Archives/edgar/data/936395/000093639520000036/0000936395-20-000036-index-headers.html"
+  },
+  {
+    "kind": "submissions",
+    "cik": "0000936395",
+    "label": "CIEN",
+    "reason": "Raw current response to distinguish source vintage from project transformations",
+    "url": "https://data.sec.gov/submissions/CIK0000936395.json"
+  },
+  {
+    "kind": "header",
+    "cik": "0000946581",
+    "accession": "0001047469-15-000639",
+    "reason": "First excluded exceptional filing",
+    "category": "exceptional_offset",
+    "label": "TTWO",
+    "url": "https://www.sec.gov/Archives/edgar/data/946581/000104746915000639/0001047469-15-000639-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000946581",
+    "accession": "0001628280-26-054870",
+    "reason": "Latest excluded exceptional filing",
+    "category": "exceptional_offset",
+    "label": "TTWO",
+    "url": "https://www.sec.gov/Archives/edgar/data/946581/000162828026054870/0001628280-26-054870-index-headers.html"
+  },
+  {
+    "kind": "header",
+    "cik": "0000946581",
+    "accession": "0001047469-14-008670",
+    "reason": "Last safely repaired filing preceding exceptional range",
+    "category": "safely_correctable",
+    "label": "TTWO",
+    "url": "https://www.sec.gov/Archives/edgar/data/946581/000104746914008670/0001047469-14-008670-index-headers.html"
+  },
+  {
+    "kind": "submissions",
+    "cik": "0000946581",
+    "label": "TTWO",
+    "reason": "Raw current response to distinguish source vintage from project transformations",
+    "url": "https://data.sec.gov/submissions/CIK0000946581.json"
+  },
+  {
+    "kind": "header",
+    "cik": "0000946581",
+    "accession": "0001628280-25-026694",
+    "label": "TTWO",
+    "category": "exceptional_offset",
+    "reason": "Follow-up: only exceptional row with a calendar candidate-date difference; independent header needed before impact conclusion",
+    "url": "https://www.sec.gov/Archives/edgar/data/946581/000162828025026694/0001628280-25-026694-index-headers.html"
+  }
+]

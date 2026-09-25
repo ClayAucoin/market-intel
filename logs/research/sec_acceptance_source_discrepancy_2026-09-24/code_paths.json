@@ -1,0 +1,78 @@
+[
+  {
+    "path": "src/sec/acceptance_time.py",
+    "sha256": "43da92af8122df616f309f2ad38162e7bf6938ded7026564aea1e55ef6115b2b",
+    "functions": {
+      "parse_submissions_acceptance": 14,
+      "parse_header_acceptance": 27
+    }
+  },
+  {
+    "path": "src/backtesting/sic_validation_study.py",
+    "sha256": "15592ada545972aa3948afa4d63d8542e1447d271fb96e9bff516abf15501f39",
+    "functions": {
+      "fetch": 128
+    }
+  },
+  {
+    "path": "src/backtesting/sic_stage3.py",
+    "sha256": "70e3596b1953aa8bd57cb75f5f33c65b4fda195bf49ca7f2ac2f00cfcf92ef3a",
+    "functions": {
+      "prepare": 116,
+      "catalog_discrepancy": 275
+    }
+  },
+  {
+    "path": "src/sec/sec_http.py",
+    "sha256": "03e65e481373ff43b4ff05e939235ec9364d737b0e9c8eead2fa04f5ab66c1c2",
+    "functions": {
+      "get_sec_json": 53
+    }
+  },
+  {
+    "path": "src/sec/sec_submissions.py",
+    "sha256": "47cb6c5fee0b050995f338ec907149b7ff1f379839ed7bbaf7d7609b67d2a293",
+    "functions": {
+      "download_json": 56,
+      "columnar_to_records": 173
+    }
+  },
+  {
+    "path": "src/sec/json_cache.py",
+    "sha256": "2b6531acb00a98cb962d89ae52865f50bd7ae8e94f5b753738767e9cdfd455c9",
+    "functions": {
+      "atomic_json": 10,
+      "validate_columns": 44
+    }
+  },
+  {
+    "path": "src/sec/import_universe_filings.py",
+    "sha256": "a3606307e35d8ad31b30635ae2d5f82c31c1de17f057a5997739ea75f52507b7",
+    "functions": {
+      "parse_acceptance_datetime": 36,
+      "save_filing": 213
+    }
+  },
+  {
+    "path": "src/sec/filing_repository.py",
+    "sha256": "f3122ff485eb95cd95c44ad821ea651944fdc18ef26fee7c2a6f7f8287d6883e",
+    "functions": {
+      "save_filings": 5
+    }
+  },
+  {
+    "path": "src/backtesting/acceptance_repair_manifest.py",
+    "sha256": "022080e1fa41b015de9849fee8a1cbd7d8cc83cfcc09119cd58810eba72407aa",
+    "functions": {
+      "classify": 37,
+      "build": 97
+    }
+  },
+  {
+    "path": "src/analysis/event_timing.py",
+    "sha256": "d0caac2d303e09651a7cddbbaacd6d4c534ddd7b251f33a134de523889fc494a",
+    "functions": {
+      "get_candidate_entry_date": 122
+    }
+  }
+]

@@ -1,0 +1,137 @@
+{
+  "date": "2026-09-24",
+  "tests": {
+    "command": "unittest discovery: test_investigate_acceptance_sources.py, test_sec_acceptance_time.py, test_acceptance_repair_manifest.py",
+    "passed": 25,
+    "failed": 0,
+    "network_and_database_calls_blocked": true,
+    "byte_identical_offline_replay": true
+  },
+  "compilation": "Both new Python files passed py_compile",
+  "diff_check": "git diff --check passed; tracked working tree and index unchanged; new Python/Markdown whitespace checked",
+  "fixture_integrity": "All nine new raw response hashes verified; all 22 former cases checked against committed raw submissions in tests",
+  "requests": {
+    "attempted": 10,
+    "succeeded": 9,
+    "failed": 1,
+    "cap": 20
+  },
+  "privacy_review": "No credentials, private portfolio data or absolute home paths introduced. Fixtures contain public SEC issuer information. No request User-Agent/configuration values saved.",
+  "safety": {
+    "database_access": false,
+    "production_files_changed": false,
+    "prices_accessed": false,
+    "events_rebuilt": false,
+    "committed": false,
+    "pushed": false
+  },
+  "replay_dependencies": "Frozen inputs, committed Stage 3 headers, new headers and existing source-specific parsers. No database, network, price snapshot or original preflight required. Raw-source regression test also uses committed Stage 2 submissions.",
+  "capture_dependencies": "One-time extraction used saved audit/repair/preflight artifacts, existing source caches and manifest-pinned historical Git objects; see inputs.json and README.md.",
+  "excluded_transients": [
+    ".fetch.lock",
+    "__pycache__",
+    "test logs"
+  ],
+  "artifacts": [
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/.gitignore",
+      "bytes": 18,
+      "sha256": "f688e7a275a6ecdbbeceaea7e9de406aaa994479fef5fd8850c6b5d967aa0ce9"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/README.md",
+      "bytes": 22325,
+      "sha256": "74aba88632d50ffe30c04bdb94d52a09106e5223b1468db877b64172f78be447"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/code_paths.json",
+      "bytes": 2075,
+      "sha256": "e017988d794a5bf0f84ccc4e0df822b0f46fb3d5734e91366ac35988153ebde5"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000936395_0000936395-20-000036.json",
+      "bytes": 25856,
+      "sha256": "67b1c1ae53846ce2a9ccd4c69465212c0559e862ddd7c75f7f439d81ce3cec5c"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000936395_0000936395-20-000042.json",
+      "bytes": 34356,
+      "sha256": "56781ffc3b7dca0f68a8ad59338028130c95cc8c9b87c9370e38b50e923a1e88"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000936395_0001628280-26-060361.json",
+      "bytes": 23370,
+      "sha256": "c1686e58461bd61c8a7ae1a02295a4fd4cb1b8ad3f20f403b62a833915d4d5a4"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000946581_0001047469-14-008670.json",
+      "bytes": 16231,
+      "sha256": "96ad8789ff4ce70ccf1a6d58224566ef8feb4941e45e37b8cd3ed4b231f4e324"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000946581_0001047469-15-000639.json",
+      "bytes": 16690,
+      "sha256": "00b2192940bfd0dd818c670fe65ef048f944a9de0a32b18ce2345e41e4afc1bb"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000946581_0001628280-25-026694.json",
+      "bytes": 32283,
+      "sha256": "745269c51609d55558eb4752ae4ec3fad71c48ac7a619b1ea9b69365900c27b0"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/header/0000946581_0001628280-26-054870.json",
+      "bytes": 18761,
+      "sha256": "8bf3d45d33d44a882258dee6fede4c22750ecc62b702416f4ed66672eec72f2f"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/inputs.json",
+      "bytes": 340421,
+      "sha256": "07f52e190ecc416ab09f5788483b17cc378af84fec1e38efb90c52ca142a9e8c"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/plan.json",
+      "bytes": 2911,
+      "sha256": "d3773fbd01e19ec8520c708d11aa5a076500e28f82678c857f89b32fbc4c1fa7"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/plan_followup.json",
+      "bytes": 421,
+      "sha256": "21dafccbc8bac33623db50d12257398d661c8ad4a54aefb290baef136c37f48d"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/plan_initial.json",
+      "bytes": 2493,
+      "sha256": "e04790de02168c8b71cbceeccf28ea8a92742e63842febde2c47882bb7f56c99"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/requests.json",
+      "bytes": 5374,
+      "sha256": "0d6fd335d1b1810d6446b02eb7359eda350b1a573d6069628bdf2f4d7cbd01e7"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/results.json",
+      "bytes": 463799,
+      "sha256": "8c4ecae821f1285243f43054529cec5bfe2e01e1f5325d6934472512df897826"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/submissions/CIK0000936395.json",
+      "bytes": 183199,
+      "sha256": "b3379e71641b1b3bdf8d9c4b609807897d1def94fed4aeec671359f7b8d5bea5"
+    },
+    {
+      "path": "logs/research/sec_acceptance_source_discrepancy_2026-09-24/submissions/CIK0000946581.json",
+      "bytes": 183002,
+      "sha256": "38500b5e89af171741f2ae049fb80cff8e2228a1f626a36c813fe4d2de80c7f3"
+    },
+    {
+      "path": "src/backtesting/investigate_acceptance_sources.py",
+      "bytes": 24169,
+      "sha256": "92a7094afb3cedd86391de1e882a112b2302e77c9cdff42940810371394e482c"
+    },
+    {
+      "path": "tests/test_investigate_acceptance_sources.py",
+      "bytes": 6245,
+      "sha256": "daa799d55e3666053e68596d03df3733bfd7fc497ef6e7c768655300f78de74a"
+    }
+  ]
+}
