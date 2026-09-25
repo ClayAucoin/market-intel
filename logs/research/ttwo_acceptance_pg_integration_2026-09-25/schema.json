@@ -1,0 +1,1376 @@
+{
+  "metadata": {
+    "read_only": "on",
+    "version": "18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)"
+  },
+  "columns": [
+    {
+      "table_name": "backtest_events",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "security_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "period_end",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "entry_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "entry_price",
+      "data_type": "numeric",
+      "not_null": true
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "revenue_yoy",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "revenue_acceleration",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "eps_yoy",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "gross_margin_change",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "operating_margin_change",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "return_30d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "spy_return_30d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "excess_30d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "return_90d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "spy_return_90d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "excess_90d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "return_180d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "spy_return_180d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "excess_180d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "pre_return_20d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "pre_return_60d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "pre_excess_20d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "pre_excess_60d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "pre_volatility_20d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "previous_close",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "entry_open",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "opening_gap_pct",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "spy_opening_gap_pct",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "opening_gap_excess",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "exit_date_30d",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "exit_date_90d",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "backtest_events",
+      "column_name": "exit_date_180d",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "companies",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "companies",
+      "column_name": "cik",
+      "data_type": "character varying(10)",
+      "not_null": true
+    },
+    {
+      "table_name": "companies",
+      "column_name": "ticker",
+      "data_type": "character varying(10)",
+      "not_null": false
+    },
+    {
+      "table_name": "companies",
+      "column_name": "company_name",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "companies",
+      "column_name": "exchange",
+      "data_type": "character varying(50)",
+      "not_null": false
+    },
+    {
+      "table_name": "companies",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "companies",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "symbol",
+      "data_type": "character varying(20)",
+      "not_null": true
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "trade_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "open",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "high",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "low",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "close",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "adjusted_close",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "volume",
+      "data_type": "bigint",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "dividend_cash",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "split_factor",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "daily_prices",
+      "column_name": "adjusted_open",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "filing_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "sequence",
+      "data_type": "integer",
+      "not_null": false
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "exhibit_type",
+      "data_type": "character varying(50)",
+      "not_null": false
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "document_name",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "description",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "document_url",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "filing_exhibits",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "filings",
+      "column_name": "company_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "filings",
+      "column_name": "accession_number",
+      "data_type": "character varying(30)",
+      "not_null": true
+    },
+    {
+      "table_name": "filings",
+      "column_name": "form",
+      "data_type": "character varying(20)",
+      "not_null": true
+    },
+    {
+      "table_name": "filings",
+      "column_name": "filing_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "filings",
+      "column_name": "report_date",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "acceptance_datetime",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "primary_document",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "primary_doc_description",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "filings",
+      "column_name": "filing_url",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "company_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "metric",
+      "data_type": "character varying(100)",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "concept",
+      "data_type": "character varying(200)",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "unit",
+      "data_type": "character varying(50)",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "fiscal_year",
+      "data_type": "integer",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "fiscal_period",
+      "data_type": "character varying(10)",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "period_start",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "period_end",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "value",
+      "data_type": "numeric",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "filed_date",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "accession_number",
+      "data_type": "character varying(30)",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "is_derived",
+      "data_type": "boolean",
+      "not_null": true
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "financial_facts",
+      "column_name": "security_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "index_name",
+      "data_type": "character varying(100)",
+      "not_null": true
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "security_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "effective_from",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "effective_to",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "source",
+      "data_type": "character varying(100)",
+      "not_null": false
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "notes",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "index_membership_history",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "account_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "signal_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "security_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "ticker",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "status",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "entry_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "entry_price",
+      "data_type": "numeric",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "shares",
+      "data_type": "numeric",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "invested_amount",
+      "data_type": "numeric",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "planned_exit_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "exit_date",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "exit_price",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "exit_value",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "profit",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "return_percent",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_positions",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "account_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "security_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "backtest_event_id",
+      "data_type": "bigint",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "ticker",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "sector",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "signal_date",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "period_end",
+      "data_type": "date",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "score",
+      "data_type": "integer",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "classification",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "sector_confidence",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "recommendation",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "priority",
+      "data_type": "integer",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "recommendation_reason",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "revenue_yoy",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "revenue_acceleration",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "eps_yoy",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "action",
+      "data_type": "text",
+      "not_null": true
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "action_reason",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "operating_margin_change",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "pre_excess_20d",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "purchase_committed_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "not_before_date",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "committed_amount",
+      "data_type": "numeric",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "source_accession",
+      "data_type": "text",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "source_acceptance_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "paper_signals",
+      "column_name": "execution_session_date",
+      "data_type": "date",
+      "not_null": false
+    },
+    {
+      "table_name": "securities",
+      "column_name": "id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "securities",
+      "column_name": "company_id",
+      "data_type": "bigint",
+      "not_null": true
+    },
+    {
+      "table_name": "securities",
+      "column_name": "ticker",
+      "data_type": "character varying(20)",
+      "not_null": true
+    },
+    {
+      "table_name": "securities",
+      "column_name": "exchange",
+      "data_type": "character varying(50)",
+      "not_null": false
+    },
+    {
+      "table_name": "securities",
+      "column_name": "source",
+      "data_type": "character varying(100)",
+      "not_null": false
+    },
+    {
+      "table_name": "securities",
+      "column_name": "is_primary",
+      "data_type": "boolean",
+      "not_null": true
+    },
+    {
+      "table_name": "securities",
+      "column_name": "created_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    },
+    {
+      "table_name": "securities",
+      "column_name": "updated_at",
+      "data_type": "timestamp with time zone",
+      "not_null": false
+    }
+  ],
+  "constraints": [
+    {
+      "table_name": "backtest_events",
+      "kind": "f",
+      "definition": "FOREIGN KEY (security_id) REFERENCES securities(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "n",
+      "definition": "NOT NULL entry_date"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "n",
+      "definition": "NOT NULL entry_price"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "n",
+      "definition": "NOT NULL period_end"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "n",
+      "definition": "NOT NULL security_id"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "backtest_events",
+      "kind": "u",
+      "definition": "UNIQUE (security_id, period_end)"
+    },
+    {
+      "table_name": "companies",
+      "kind": "n",
+      "definition": "NOT NULL cik"
+    },
+    {
+      "table_name": "companies",
+      "kind": "n",
+      "definition": "NOT NULL company_name"
+    },
+    {
+      "table_name": "companies",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "companies",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "companies",
+      "kind": "u",
+      "definition": "UNIQUE (cik)"
+    },
+    {
+      "table_name": "daily_prices",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "daily_prices",
+      "kind": "n",
+      "definition": "NOT NULL symbol"
+    },
+    {
+      "table_name": "daily_prices",
+      "kind": "n",
+      "definition": "NOT NULL trade_date"
+    },
+    {
+      "table_name": "daily_prices",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "daily_prices",
+      "kind": "u",
+      "definition": "UNIQUE (symbol, trade_date)"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "f",
+      "definition": "FOREIGN KEY (filing_id) REFERENCES filings(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "n",
+      "definition": "NOT NULL document_name"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "n",
+      "definition": "NOT NULL filing_id"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "filing_exhibits",
+      "kind": "u",
+      "definition": "UNIQUE (filing_id, document_name)"
+    },
+    {
+      "table_name": "filings",
+      "kind": "f",
+      "definition": "FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "filings",
+      "kind": "n",
+      "definition": "NOT NULL accession_number"
+    },
+    {
+      "table_name": "filings",
+      "kind": "n",
+      "definition": "NOT NULL company_id"
+    },
+    {
+      "table_name": "filings",
+      "kind": "n",
+      "definition": "NOT NULL filing_date"
+    },
+    {
+      "table_name": "filings",
+      "kind": "n",
+      "definition": "NOT NULL form"
+    },
+    {
+      "table_name": "filings",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "filings",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "filings",
+      "kind": "u",
+      "definition": "UNIQUE (accession_number)"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "f",
+      "definition": "FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "f",
+      "definition": "FOREIGN KEY (security_id) REFERENCES securities(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL company_id"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL concept"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL is_derived"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL metric"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL period_end"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL security_id"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL unit"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "n",
+      "definition": "NOT NULL value"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "financial_facts",
+      "kind": "u",
+      "definition": "UNIQUE (security_id, company_id, metric, period_end)"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "f",
+      "definition": "FOREIGN KEY (security_id) REFERENCES securities(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "n",
+      "definition": "NOT NULL index_name"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "n",
+      "definition": "NOT NULL security_id"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "index_membership_history",
+      "kind": "u",
+      "definition": "UNIQUE (index_name, security_id, effective_from)"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "f",
+      "definition": "FOREIGN KEY (account_id) REFERENCES paper_accounts(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "f",
+      "definition": "FOREIGN KEY (security_id) REFERENCES securities(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "f",
+      "definition": "FOREIGN KEY (signal_id) REFERENCES paper_signals(id) ON DELETE RESTRICT"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL account_id"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL entry_date"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL entry_price"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL invested_amount"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL planned_exit_date"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL security_id"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL shares"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL signal_id"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL status"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "n",
+      "definition": "NOT NULL ticker"
+    },
+    {
+      "table_name": "paper_positions",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "c",
+      "definition": "CHECK (((action IS NOT NULL) AND (((action = ANY (ARRAY['SKIP_CASH'::text, 'SKIP_CAP'::text])) AND (purchase_committed_at IS NULL) AND (not_before_date IS NULL) AND (committed_amount IS NULL) AND (source_accession IS NULL) AND (source_acceptance_at IS NULL) AND (execution_session_date IS NULL)) OR ((action = ANY (ARRAY['PENDING_BUY'::text, 'BUY'::text])) AND (purchase_committed_at IS NOT NULL) AND (not_before_date IS NOT NULL) AND (committed_amount IS NOT NULL) AND (committed_amount > (0)::numeric) AND (committed_amount < 'Infinity'::numeric) AND (source_accession IS NOT NULL) AND (source_accession ~ '[^[:space:]]'::text) AND (source_acceptance_at IS NOT NULL) AND (source_acceptance_at <= purchase_committed_at) AND (not_before_date = (((purchase_committed_at AT TIME ZONE 'America/New_York'::text))::date + 1)) AND ((execution_session_date IS NULL) OR (execution_session_date >= not_before_date)) AND ((action = 'PENDING_BUY'::text) OR (execution_session_date IS NOT NULL))))))"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "f",
+      "definition": "FOREIGN KEY (account_id) REFERENCES paper_accounts(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "f",
+      "definition": "FOREIGN KEY (backtest_event_id) REFERENCES backtest_events(id) ON DELETE SET NULL"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "f",
+      "definition": "FOREIGN KEY (security_id) REFERENCES securities(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL account_id"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL action"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL period_end"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL priority"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL recommendation"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL score"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL security_id"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL signal_date"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "n",
+      "definition": "NOT NULL ticker"
+    },
+    {
+      "table_name": "paper_signals",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "securities",
+      "kind": "f",
+      "definition": "FOREIGN KEY (company_id) REFERENCES companies(id) ON DELETE CASCADE"
+    },
+    {
+      "table_name": "securities",
+      "kind": "n",
+      "definition": "NOT NULL company_id"
+    },
+    {
+      "table_name": "securities",
+      "kind": "n",
+      "definition": "NOT NULL id"
+    },
+    {
+      "table_name": "securities",
+      "kind": "n",
+      "definition": "NOT NULL is_primary"
+    },
+    {
+      "table_name": "securities",
+      "kind": "n",
+      "definition": "NOT NULL ticker"
+    },
+    {
+      "table_name": "securities",
+      "kind": "p",
+      "definition": "PRIMARY KEY (id)"
+    },
+    {
+      "table_name": "securities",
+      "kind": "u",
+      "definition": "UNIQUE (company_id, ticker)"
+    }
+  ],
+  "user_triggers": [
+    {
+      "table_name": "paper_signals",
+      "name": "preserve_paper_commitment",
+      "definition": "CREATE TRIGGER preserve_paper_commitment BEFORE UPDATE ON public.paper_signals FOR EACH ROW EXECUTE FUNCTION preserve_paper_commitment()",
+      "function_definition": "CREATE OR REPLACE FUNCTION public.preserve_paper_commitment()\n RETURNS trigger\n LANGUAGE plpgsql\nAS $function$\nBEGIN\n    IF NEW.action IS DISTINCT FROM OLD.action AND NOT\n       (OLD.action = 'PENDING_BUY' AND NEW.action = 'BUY') THEN\n        RAISE EXCEPTION 'Invalid paper signal action transition';\n    END IF;\n    IF ROW(NEW.account_id, NEW.security_id, NEW.period_end, NEW.signal_date, NEW.ticker)\n       IS DISTINCT FROM\n       ROW(OLD.account_id, OLD.security_id, OLD.period_end, OLD.signal_date, OLD.ticker)\n    THEN\n        RAISE EXCEPTION 'A paper signal logical identity is immutable';\n    END IF;\n    IF OLD.purchase_committed_at IS NOT NULL AND\n       ROW(NEW.purchase_committed_at, NEW.not_before_date, NEW.committed_amount,\n           NEW.source_accession, NEW.source_acceptance_at)\n       IS DISTINCT FROM\n       ROW(OLD.purchase_committed_at, OLD.not_before_date, OLD.committed_amount,\n           OLD.source_accession, OLD.source_acceptance_at)\n    THEN\n        RAISE EXCEPTION 'A paper purchase commitment is immutable';\n    END IF;\n    IF NEW.execution_session_date IS DISTINCT FROM OLD.execution_session_date AND\n       (OLD.execution_session_date IS NOT NULL OR OLD.action <> 'PENDING_BUY') THEN\n        RAISE EXCEPTION 'A paper execution session is immutable';\n    END IF;\n    RETURN NEW;\nEND $function$\n"
+    }
+  ]
+}

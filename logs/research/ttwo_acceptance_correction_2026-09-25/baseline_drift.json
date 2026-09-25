@@ -1,0 +1,60 @@
+{
+  "accepted_baseline_path": "logs/research/timestamp_rebuild_2026-09-23/provenance_inputs.json.gz",
+  "accepted_baseline_sha256": "2ee8f3627a2c0269680972fed94b89c9753dba2f4431442e07a538be6a40ef7c",
+  "comparison": [
+    {
+      "group": "filings",
+      "current_id": 108402,
+      "baseline_id": 108402,
+      "differences": {}
+    },
+    {
+      "group": "events",
+      "current_id": 413248,
+      "baseline_id": 398505,
+      "differences": {
+        "updated_at": {
+          "old": "2026-09-23 22:21:43.265306+00:00",
+          "current": "2026-09-24 22:24:04.871511+00:00"
+        },
+        "created_at": {
+          "old": "2026-09-23 22:21:43.265306+00:00",
+          "current": "2026-09-24 22:24:04.871511+00:00"
+        },
+        "id": {
+          "old": 398505,
+          "current": 413248
+        }
+      }
+    },
+    {
+      "group": "linked_facts",
+      "current_id": 547980,
+      "baseline_id": 547980,
+      "differences": {
+        "updated_at": {
+          "old": "2026-09-23 22:06:51.557004+00:00",
+          "current": "2026-09-24 22:08:07.770211+00:00"
+        }
+      }
+    },
+    {
+      "group": "linked_facts",
+      "current_id": 548242,
+      "baseline_id": 548242,
+      "differences": {
+        "updated_at": {
+          "old": "2026-09-23 22:06:51.751405+00:00",
+          "current": "2026-09-24 22:08:07.966590+00:00"
+        }
+      }
+    }
+  ],
+  "reviewed_event_id": 413248,
+  "reviewed_event_still_present": true,
+  "reviewed_state_drift": "No drift in target identity, calculation fields, linked-fact values or reviewed update timestamps. Database row versions were newly captured.",
+  "capture": {
+    "captured_at": "2026-09-25 16:52:38.163107+00:00",
+    "read_only": "on"
+  }
+}

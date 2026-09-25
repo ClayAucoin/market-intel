@@ -1,0 +1,134 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "manifest_sha256": "fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4",
+  "read_only_capture": {
+    "captured_at": "2026-09-25 16:52:38.163107+00:00",
+    "read_only": "on"
+  },
+  "live_dry_run": "Final production database-enforced read-only dry-run after integration/regression tests: DRY_RUN_READY; no production apply/rollback",
+  "tests": {
+    "passed": 32,
+    "failed": 0,
+    "new_package_tests": 15,
+    "existing_tests": 17,
+    "patterns": [
+      "test_ttwo_acceptance_correction.py",
+      "test_investigate_event_provenance.py",
+      "test_sec_acceptance_time.py",
+      "test_acceptance_repair_manifest.py"
+    ],
+    "connections_blocked": [
+      "psycopg.connect",
+      "requests.sessions.Session.request"
+    ],
+    "write_mode_tests": "In-memory transaction doubles only; temporary receipts outside repository",
+    "real_postgresql_integration": {
+      "passed": 5,
+      "failed": 0,
+      "results_path": "logs/research/ttwo_acceptance_pg_integration_2026-09-25/results.json",
+      "runner": "tests/integration_ttwo_postgres.py",
+      "sql_snapshot_locks_transactions_mocked": false,
+      "disposable_cluster_removed": true
+    }
+  },
+  "baseline_reproduction": {
+    "fields": 31,
+    "differences": 0,
+    "financial_metrics_unchanged": true,
+    "exact_signal_baseline": false,
+    "exact_signal_alternative": false
+  },
+  "compilation": "Correction source, offline tests and PostgreSQL integration runner passed py_compile",
+  "diff_checks": "Tracked working tree/index unchanged; all new Python/Markdown whitespace checked",
+  "safety": {
+    "sec_requests": 0,
+    "live_database_writes": 0,
+    "production_rebuilds": 0,
+    "job_changes": 0,
+    "commits": 0,
+    "pushes": 0,
+    "original_safe_repair_unchanged": true,
+    "production_database_writes": 0,
+    "disposable_postgresql_writes": "Authorized integration checks only; cluster removed"
+  },
+  "privacy": "No credentials, private portfolio identity or absolute home paths introduced; bounded public-market and row-provenance data only.",
+  "limitations": [
+    "Actual PostgreSQL apply/rollback verified on disposable cluster using captured schema/inputs; production writes remain unexecuted.",
+    "Wide but short-lived table lock footprint is necessary for uncooperative concurrent writers; lock timeout aborts rather than stopping jobs.",
+    "Manifest becomes stale on reviewed dependency/version drift or any target rebuild; no automatic retargeting.",
+    "No permanent importer override or shared source policy introduced.",
+    "Current vendor-price and derived-fact provenance limits remain."
+  ],
+  "artifacts": [
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/.gitignore",
+      "bytes": 19,
+      "sha256": "6c68a0856fec76102fcc07f3f50df89b55becf17cb092e0f28c4829a52e33ccd"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/README.md",
+      "bytes": 12818,
+      "sha256": "724dd87e635d161a90024b2cfaf5b8b7ab58b37fa1a28f37ed2f96188a9e2ea8"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/baseline_drift.json",
+      "bytes": 1725,
+      "sha256": "da3b0bed40044b5a1fd6a5fc0f8d311582c01f59f34c332f99d4b2f82f8366ee"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/before_images.json",
+      "bytes": 1651,
+      "sha256": "e553c7e2968be09eff4a7ac9ac3eac5adf2a91888d6547e7d25866d50e29bc34"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/comparison.json",
+      "bytes": 6534,
+      "sha256": "bece759518e690b26695a895896faf6d3100fd3e52c4a808a7aa1ca8ca7566fe"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/inputs.json",
+      "bytes": 240113,
+      "sha256": "4b8fc36f26433ad86f69162b3cea3b7e52509f28c834e963f76fe7a9c4f03bc1"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/manifest.json",
+      "bytes": 2977,
+      "sha256": "fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-25/manifest.sha256",
+      "bytes": 65,
+      "sha256": "03db0430826b935fd9e6614678e6952514745ac15c641b00d7545177399f7538"
+    },
+    {
+      "path": "src/backtesting/ttwo_acceptance_correction.py",
+      "bytes": 22614,
+      "sha256": "600e58083f9bdf6da70d985b4d2e12a61dc4a644d7d89896a97c21878ec52378"
+    },
+    {
+      "path": "tests/test_ttwo_acceptance_correction.py",
+      "bytes": 13293,
+      "sha256": "53ee8b0c7ca0a6c4e7e522bc09e353b60ef8dd818cc2f0e073cfdab62bd73514"
+    },
+    {
+      "path": "tests/integration_ttwo_postgres.py",
+      "bytes": 14174,
+      "sha256": "699b9b1312464c2b90398ea709788ed5b6b81f2c80c1546e489dd031594382d7"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_pg_integration_2026-09-25/README.md",
+      "bytes": 3115,
+      "sha256": "6b0ed94b86ed2a407d2c90f9175691ada35120f94bc9728d8715f2efeebe939f"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_pg_integration_2026-09-25/results.json",
+      "bytes": 1859,
+      "sha256": "b4f55e59befd98bf5565fea1a3831a3681b50dc1690cf429855dea54354bcd02"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_pg_integration_2026-09-25/schema.json",
+      "bytes": 35100,
+      "sha256": "a197550624660380bc2a3f66b2b36101edd5d0284d69668cb76dc81d82ceba72"
+    }
+  ]
+}

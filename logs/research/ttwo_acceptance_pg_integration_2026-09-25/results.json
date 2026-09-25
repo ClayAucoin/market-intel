@@ -1,0 +1,58 @@
+{
+  "correction_code_sha256": "600e58083f9bdf6da70d985b4d2e12a61dc4a644d7d89896a97c21878ec52378",
+  "production_manifest_sha256": "fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4",
+  "fixtures_sha256": "4b8fc36f26433ad86f69162b3cea3b7e52509f28c834e963f76fe7a9c4f03bc1",
+  "schema_sha256": "a197550624660380bc2a3f66b2b36101edd5d0284d69668cb76dc81d82ceba72",
+  "tests": [
+    {
+      "name": "real_apply_and_postverification",
+      "passed": true,
+      "changed_records": {
+        "backtest_events": [
+          413248
+        ],
+        "filings": [
+          108402
+        ]
+      },
+      "status": "COMMITTED_VERIFIED"
+    },
+    {
+      "name": "real_rollback_business_fields_identity",
+      "passed": true,
+      "status": "COMMITTED_VERIFIED",
+      "mvcc_versions_expected_to_change": true
+    },
+    {
+      "name": "real_second_update_error_rolls_back_filing",
+      "passed": true,
+      "injected_error": "PostgreSQL CHECK constraint on event entry_date",
+      "unchanged_rows_and_xmin": true
+    },
+    {
+      "name": "real_competing_writer_causes_correction_lock_timeout",
+      "passed": true,
+      "elapsed_seconds": 3.014,
+      "no_partial_correction": true
+    },
+    {
+      "name": "real_lock_set_excludes_update_delete_insert",
+      "passed": true,
+      "competing_backends": 3,
+      "no_partial_correction": true
+    }
+  ],
+  "production_connections": 0,
+  "production_writes": 0,
+  "postgresql_version": "18.6 (Ubuntu 18.6-0ubuntu0.26.04.1)",
+  "isolation": {
+    "new_cluster": true,
+    "private_unix_socket": true,
+    "tcp_disabled": true,
+    "data_directory_verified_each_connection": true
+  },
+  "passed": true,
+  "disposable_cluster_stopped": true,
+  "production_package_unchanged": true,
+  "test_manifests_receipts": "Separate ephemeral test roots, deleted with cluster; no database dump retained"
+}
