@@ -1,0 +1,24 @@
+{
+  "reservation_sha256": "cb48b39bad571a7b7bbc981556a4300f2eeb13320d2f181dff3f1d0e60fda2e6",
+  "result": {
+    "status": 200,
+    "outcome": "SUCCESS",
+    "truncated": false,
+    "incomplete_read": false,
+    "diagnostic_evidence": {
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index.html",
+      "status": 200,
+      "raw_sha256": "0090681f1ab7022a41ff2b8c42491d0ef67e2e6cb58cafb9b0eeaff303bc3d93",
+      "raw_bytes": 12420,
+      "body": "diagnostics/000007/body.bin",
+      "reservation_sha256": "cb48b39bad571a7b7bbc981556a4300f2eeb13320d2f181dff3f1d0e60fda2e6",
+      "manifest_sha256": "84be968a5fb4d3492bba87666dccbc337cb98189b84c0a2ac80f52596339cb30",
+      "provenance": {
+        "basis": "index_diagnostic_only",
+        "reserved_at": "2026-09-26T22:53:21.188094+00:00"
+      },
+      "truncated": false,
+      "incomplete_read": false
+    }
+  }
+}

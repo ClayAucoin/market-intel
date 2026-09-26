@@ -187,5 +187,39 @@
     "outcome": "HTTP_FAILURE",
     "reserved_at": "2026-09-26T22:23:28.160656+00:00",
     "status": 404
+  },
+  {
+    "attempt": 7,
+    "item": {
+      "kind": "index_diagnostic",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000006",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index.html",
+      "envelope": "contingency",
+      "reason": "Inspect ordinary index resource links after header HTTP 404"
+    },
+    "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index.html",
+    "plan": "extension_01.json",
+    "charged_envelope": "contingency",
+    "outcome": "SUCCESS",
+    "reserved_at": "2026-09-26T22:53:21.188094+00:00",
+    "status": 200,
+    "truncated": false,
+    "incomplete_read": false,
+    "diagnostic_evidence": {
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index.html",
+      "status": 200,
+      "raw_sha256": "0090681f1ab7022a41ff2b8c42491d0ef67e2e6cb58cafb9b0eeaff303bc3d93",
+      "raw_bytes": 12420,
+      "body": "diagnostics/000007/body.bin",
+      "reservation_sha256": "cb48b39bad571a7b7bbc981556a4300f2eeb13320d2f181dff3f1d0e60fda2e6",
+      "manifest_sha256": "84be968a5fb4d3492bba87666dccbc337cb98189b84c0a2ac80f52596339cb30",
+      "provenance": {
+        "basis": "index_diagnostic_only",
+        "reserved_at": "2026-09-26T22:53:21.188094+00:00"
+      },
+      "truncated": false,
+      "incomplete_read": false
+    }
   }
 ]
