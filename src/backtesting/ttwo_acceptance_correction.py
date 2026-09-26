@@ -250,13 +250,28 @@ def prepare():
 
 
 def load_package(pin=None):
+    require(ROOT.is_dir(), 'Selected package directory does not exist or is not a directory')
+    for name in ('manifest.json', 'manifest.sha256', 'inputs.json', 'comparison.json', 'before_images.json'):
+        require((ROOT / name).is_file(), 'Selected package is incomplete: missing ' + name)
     actual = file_hash(ROOT / 'manifest.json')
     require(actual == (ROOT / 'manifest.sha256').read_text().strip(), 'Manifest sidecar mismatch')
     if pin is not None:
         require(actual == pin, 'Explicit manifest pin mismatch')
-    m = read(ROOT / 'manifest.json')
+    try:
+        m = read(ROOT / 'manifest.json')
+    except (ValueError, OSError):
+        raise GuardFailure('Selected package manifest is invalid') from None
+    require(isinstance(m, dict) and all(k in m for k in
+            ('version', 'accession', 'filing_id', 'company_id', 'event_id', 'security_id',
+             'period_end', 'old', 'new', 'files', 'code_sha256', 'state_sha256', 'event_changes')),
+            'Selected package manifest is incomplete')
     require((m['version'], m['accession'], m['filing_id'], m['company_id'], m['event_id'], m['security_id'], m['period_end'], m['old'], m['new']) ==
             (1, ACCESSION, 108402, 362, EVENT_ID, 358, PERIOD, OLD, NEW), 'Manifest scope mismatch')
+    require(isinstance(m['files'], dict) and isinstance(m['code_sha256'], dict), 'Selected package hash maps are invalid')
+    pinned_inputs = {Path(p).resolve() for p in m['files']}
+    require(all((ROOT / name).resolve() in pinned_inputs for name in
+                ('inputs.json', 'comparison.json', 'before_images.json')),
+            'Manifest does not pin the selected package inputs')
     for path, expected in {**m['files'], **m['code_sha256']}.items():
         require(file_hash(path) == expected, 'Pinned file/code changed: ' + path)
     state = read(ROOT / 'inputs.json')['state']
@@ -349,26 +364,36 @@ def execute(mode, pin, receipt_path=None):
 
 
 def main():
+    global ROOT
     parser = argparse.ArgumentParser(description=__doc__)
     group = parser.add_mutually_exclusive_group()
     for name in ('capture', 'prepare', 'offline', 'apply', 'rollback'):
         group.add_argument('--' + name, action='store_true')
     parser.add_argument('--manifest-sha256')
     parser.add_argument('--receipt', type=Path)
+    parser.add_argument('--package-dir', type=Path,
+                        help='Correction package directory; defaults to the original reviewed package')
     args = parser.parse_args()
-    if args.capture:
-        capture()
-    elif args.prepare:
-        prepare()
-    elif args.apply or args.rollback:
-        execute('apply' if args.apply else 'rollback', args.manifest_sha256, args.receipt)
-    else:
-        _, state = load_package(args.manifest_sha256)
-        if not args.offline:
-            with get_connection() as conn:
-                configure(conn)
-                revalidate(snapshot(conn), state)
-        print('OFFLINE_VERIFIED' if args.offline else 'DRY_RUN_READY; no database writes')
+    previous_root = ROOT
+    try:
+        if args.package_dir is not None:
+            ROOT = args.package_dir
+        require(not ROOT.exists() or ROOT.is_dir(), 'Selected package path is not a directory')
+        if args.capture:
+            capture()
+        elif args.prepare:
+            prepare()
+        elif args.apply or args.rollback:
+            execute('apply' if args.apply else 'rollback', args.manifest_sha256, args.receipt)
+        else:
+            _, state = load_package(args.manifest_sha256)
+            if not args.offline:
+                with get_connection() as conn:
+                    configure(conn)
+                    revalidate(snapshot(conn), state)
+            print('OFFLINE_VERIFIED' if args.offline else 'DRY_RUN_READY; no database writes')
+    finally:
+        ROOT = previous_root
 
 
 if __name__ == '__main__':

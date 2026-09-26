@@ -238,16 +238,20 @@ class CorrectionTests(unittest.TestCase):
             self.assertEqual(receipt['status'], 'FAILED_OR_COMMIT_STATE_UNCERTAIN')
 
     def test_offline_package_pin_and_stale_manifest(self):
-        tool.load_package(tool.file_hash(tool.ROOT/'manifest.json'))
-        with self.assertRaisesRegex(tool.GuardFailure, 'Explicit manifest pin'):
-            tool.load_package('0'*64)
-        with patch.object(tool, 'file_hash', return_value='changed'):
-            with self.assertRaisesRegex(tool.GuardFailure, 'sidecar'):
-                tool.load_package()
-        real_hash = tool.file_hash
-        with patch.object(tool, 'file_hash', side_effect=lambda p: 'changed' if str(p) == tool.CODE[1] else real_hash(p)):
-            with self.assertRaisesRegex(tool.GuardFailure, 'Pinned file/code changed'):
-                tool.load_package()
+        # Never rewrite historical code pins to accommodate a new implementation.
+        with tempfile.TemporaryDirectory() as directory, patch.object(tool, 'ROOT', Path(directory)):
+            tool.durable_json(tool.ROOT/'inputs.json', dict(state=self.state))
+            tool.prepare()
+            tool.load_package(tool.file_hash(tool.ROOT/'manifest.json'))
+            with self.assertRaisesRegex(tool.GuardFailure, 'Explicit manifest pin'):
+                tool.load_package('0'*64)
+            with patch.object(tool, 'file_hash', return_value='changed'):
+                with self.assertRaisesRegex(tool.GuardFailure, 'sidecar'):
+                    tool.load_package()
+            real_hash = tool.file_hash
+            with patch.object(tool, 'file_hash', side_effect=lambda p: 'changed' if str(p) == tool.CODE[1] else real_hash(p)):
+                with self.assertRaisesRegex(tool.GuardFailure, 'Pinned file/code changed'):
+                    tool.load_package()
 
     def test_already_applied_execute_refuses_second_update(self):
         db = MemoryDatabase(self.state)
@@ -275,6 +279,83 @@ class CorrectionTests(unittest.TestCase):
         with patch.object(tool, 'load_package', return_value=(self.manifest, self.state)), patch.object(tool, 'get_connection') as connection, patch('sys.argv', ['tool', '--offline']):
             tool.main()
             connection.assert_not_called()
+
+    def test_default_directory_and_selector_restore_after_dispatch(self):
+        original = tool.ROOT
+        with patch.object(tool, 'load_package', return_value=(self.manifest, self.state)) as load, patch('sys.argv', ['tool', '--offline']):
+            tool.main()
+            load.assert_called_once_with(None)
+            self.assertEqual(tool.ROOT, original)
+        with tempfile.TemporaryDirectory() as directory, patch.object(tool, 'capture', side_effect=lambda: self.assertEqual(tool.ROOT, Path(directory))) as capture, patch('sys.argv', ['tool', '--package-dir', directory, '--capture']):
+            tool.main()
+            capture.assert_called_once()
+        self.assertEqual(tool.ROOT, original)
+
+    def test_selected_prepare_outputs_and_real_offline_pin_are_isolated(self):
+        original = tool.ROOT
+        original_hashes = {p: tool.file_hash(p) for p in original.rglob('*') if p.is_file()}
+        with tempfile.TemporaryDirectory() as directory:
+            selected = Path(directory)/'separate'
+            selected.mkdir()
+            tool.durable_json(selected/'inputs.json', dict(state=self.state))
+            with patch('sys.argv', ['tool', '--package-dir', str(selected), '--prepare']):
+                tool.main()
+            self.assertEqual(tool.ROOT, original)
+            for name in ('inputs.json','manifest.json','manifest.sha256','before_images.json','comparison.json'):
+                self.assertTrue((selected/name).is_file())
+            pin = tool.file_hash(selected/'manifest.json')
+            with patch('sys.argv', ['tool', '--package-dir', str(selected), '--offline', '--manifest-sha256', pin]), patch.object(tool, 'get_connection') as connect:
+                tool.main()
+                connect.assert_not_called()
+            with patch('sys.argv', ['tool', '--package-dir', str(selected), '--offline', '--manifest-sha256', '0'*64]), self.assertRaisesRegex(tool.GuardFailure, 'Explicit manifest pin'):
+                tool.main()
+            with patch('sys.argv', ['tool', '--package-dir', str(selected), '--prepare']), self.assertRaisesRegex(tool.GuardFailure, 'already frozen'):
+                tool.main()
+        self.assertTrue(all(tool.file_hash(p)==h for p,h in original_hashes.items()))
+
+    def test_selected_receipts_are_isolated_with_cli(self):
+        db = MemoryDatabase(self.state)
+        original = tool.ROOT
+        with tempfile.TemporaryDirectory() as directory, ExitStack() as stack:
+            selected = Path(directory)/'execution'
+            stack.enter_context(patch.object(tool, 'load_package', side_effect=lambda pin: (self.assertEqual(tool.ROOT, selected) or self.manifest, self.state)))
+            stack.enter_context(patch.object(tool, 'get_connection', side_effect=db.connect))
+            stack.enter_context(patch.object(tool, 'snapshot', side_effect=lambda conn: copy.deepcopy(conn.working)))
+            stack.enter_context(patch('sys.argv', ['tool', '--package-dir', str(selected), '--apply', '--manifest-sha256', 'test-pin']))
+            tool.main()
+            self.assertEqual(len(list(selected.rglob('receipt.json'))), 1)
+            self.assertEqual(tool.ROOT, original)
+
+    def test_invalid_selected_packages_never_fall_back_or_connect(self):
+        original = tool.ROOT
+        with tempfile.TemporaryDirectory() as directory, patch.object(tool, 'get_connection') as connect:
+            root = Path(directory)
+            for selected in (root/'missing', root):
+                with patch('sys.argv', ['tool', '--package-dir', str(selected), '--offline']), self.assertRaisesRegex(tool.GuardFailure, 'Selected package'):
+                    tool.main()
+            file = root/'not-directory'
+            file.write_text('fixture')
+            with patch('sys.argv', ['tool', '--package-dir', str(file), '--capture']), self.assertRaisesRegex(tool.GuardFailure, 'not a directory'):
+                tool.main()
+            for name in ('manifest.json','manifest.sha256','inputs.json','comparison.json','before_images.json'):
+                (root/name).write_text('not-json')
+            (root/'manifest.sha256').write_text(tool.file_hash(root/'manifest.json'))
+            with patch('sys.argv', ['tool', '--package-dir', str(root), '--offline']), self.assertRaisesRegex(tool.GuardFailure, 'manifest is invalid'):
+                tool.main()
+            connect.assert_not_called()
+        self.assertEqual(tool.ROOT, original)
+
+    def test_manifest_cannot_redirect_selected_inputs_to_original_package(self):
+        with tempfile.TemporaryDirectory() as directory, patch.object(tool, 'ROOT', Path(directory)):
+            tool.durable_json(tool.ROOT/'inputs.json', dict(state=self.state))
+            tool.prepare()
+            manifest = tool.read(tool.ROOT/'manifest.json')
+            path = str(tool.ROOT/'inputs.json')
+            manifest['files']['logs/research/ttwo_acceptance_correction_2026-09-25/inputs.json'] = manifest['files'].pop(path)
+            tool.durable_json(tool.ROOT/'manifest.json',manifest)
+            (tool.ROOT/'manifest.sha256').write_text(tool.file_hash(tool.ROOT/'manifest.json'))
+            with self.assertRaisesRegex(tool.GuardFailure, 'selected package inputs'):
+                tool.load_package()
 
 
 if __name__ == '__main__':

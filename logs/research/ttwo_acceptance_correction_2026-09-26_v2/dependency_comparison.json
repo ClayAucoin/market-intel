@@ -1,0 +1,19 @@
+{
+  "original_package": "logs/research/ttwo_acceptance_correction_2026-09-25",
+  "original_manifest_sha256": "fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4",
+  "facts_checked": 227,
+  "missing_facts": 0,
+  "new_facts": 0,
+  "business_field_changes": 0,
+  "changed_field_counts": {
+    "updated_at": 227,
+    "row_version": 227
+  },
+  "other_dependencies_identical": true,
+  "capture": {
+    "captured_at": "2026-09-26 05:40:26.637816+00:00",
+    "read_only": "on"
+  },
+  "expected_calculation_results_reference": "logs/research/ttwo_acceptance_correction_2026-09-25/comparison.json",
+  "expected_calculation_results_sha256": "bece759518e690b26695a895896faf6d3100fd3e52c4a808a7aa1ca8ca7566fe"
+}

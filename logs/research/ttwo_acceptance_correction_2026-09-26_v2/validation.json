@@ -1,0 +1,86 @@
+{
+  "status": "PREPARED_NOT_APPLIED",
+  "manifest_sha256": "c73fff2f6492a31f94422ee04e86332e01f0e2fd667bbaf37bc3943992401bda",
+  "selected_package": "logs/research/ttwo_acceptance_correction_2026-09-26_v2",
+  "capture": {
+    "captured_at": "2026-09-26 05:40:26.637816+00:00",
+    "read_only": "on"
+  },
+  "tests": {
+    "passed": 37,
+    "failed": 0,
+    "package_tests": 20,
+    "existing_regression_tests": 17,
+    "network_database_blocked_in_tests": true
+  },
+  "compilation": "Both changed Python files passed py_compile",
+  "read_only_dry_run": "DRY_RUN_READY; explicit selected package and manifest pin",
+  "business_inputs_identical": true,
+  "comparison_identical_to_original": true,
+  "original_package_and_receipt_hashes": {
+    "logs/research/ttwo_acceptance_correction_2026-09-25/README.md": "724dd87e635d161a90024b2cfaf5b8b7ab58b37fa1a28f37ed2f96188a9e2ea8",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/baseline_drift.json": "da3b0bed40044b5a1fd6a5fc0f8d311582c01f59f34c332f99d4b2f82f8366ee",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/manifest.sha256": "03db0430826b935fd9e6614678e6952514745ac15c641b00d7545177399f7538",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/before_images.json": "e553c7e2968be09eff4a7ac9ac3eac5adf2a91888d6547e7d25866d50e29bc34",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/validation.json": "0ccfecddfdd034e97e5213cd8c243619d5b49c2839ff86eea33297bff654fa52",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/manifest.json": "fc032a801e529743dd476d2638dc3f52409f5e459f749381e579b5c5e7d7f3e4",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/comparison.json": "bece759518e690b26695a895896faf6d3100fd3e52c4a808a7aa1ca8ca7566fe",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/inputs.json": "4b8fc36f26433ad86f69162b3cea3b7e52509f28c834e963f76fe7a9c4f03bc1",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/.gitignore": "6c68a0856fec76102fcc07f3f50df89b55becf17cb092e0f28c4829a52e33ccd",
+    "logs/research/ttwo_acceptance_correction_2026-09-25/executions/20260926T052627_500395Z/receipt.json": "7524088ac7082646420e62db7b8b12b43a4a51774000e328d7d07005abc56c04"
+  },
+  "current_code_sha256": {
+    "src/backtesting/ttwo_acceptance_correction.py": "61b776e4f9e3dfbeaba93d8a1a987ed2d415260993607432d2cac6f54b8fd45a",
+    "src/backtesting/build_backtest_events.py": "30a218d13e4b70f14a193afe475c75a823dd649d5bd33e66d546c131b8868bdb",
+    "src/backtesting/backtester.py": "0c028547139a8df569bfafe07955f18540c4fd58f4d66a27b3e4b035d3cc2602",
+    "src/backtesting/investigate_event_provenance.py": "a0fa7a2c1931674ad63b409bea370a091adcd48d6b10b19d815442aa2d3ccef4",
+    "src/backtesting/investigate_acceptance_sources.py": "92a7094afb3cedd86391de1e882a112b2302e77c9cdff42940810371394e482c",
+    "src/backtesting/apply_acceptance_repair.py": "679fdc3516187b026b40eb3f67b5d358ebf0390f3b4d303c5a4d827e939a856e",
+    "src/analysis/event_timing.py": "d0caac2d303e09651a7cddbbaacd6d4c534ddd7b251f33a134de523889fc494a",
+    "src/analysis/market_context.py": "7322f4c9cc05e0af4cca3a233025b6d49c2110ba4b5aec1b3f26cc87da8c4c10",
+    "src/analysis/experimental_signal.py": "ca556dc218f909750ade82764d73920e1a2bb9c8b8c147b76253301ecc992edd",
+    "src/sec/acceptance_time.py": "43da92af8122df616f309f2ad38162e7bf6938ded7026564aea1e55ef6115b2b"
+  },
+  "safety": {
+    "production_writes": 0,
+    "application_attempts": 0,
+    "rollbacks": 0,
+    "sec_requests": 0,
+    "production_builders": 0,
+    "broad_calculation_replays": 0,
+    "commits": 0,
+    "pushes": 0
+  },
+  "artifacts": [
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/before_images.json",
+      "bytes": 1651,
+      "sha256": "e553c7e2968be09eff4a7ac9ac3eac5adf2a91888d6547e7d25866d50e29bc34"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/comparison.json",
+      "bytes": 6534,
+      "sha256": "bece759518e690b26695a895896faf6d3100fd3e52c4a808a7aa1ca8ca7566fe"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/dependency_comparison.json",
+      "bytes": 713,
+      "sha256": "8159c6b97a88c21fa0ffb5c247039c4e757ab97c04987c132aab7e920e542b20"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/inputs.json",
+      "bytes": 240113,
+      "sha256": "c14708ff2325868086be0848c9dfb05ff14b08bc86a81cf5a78ca33d3c72c8b2"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/manifest.json",
+      "bytes": 2986,
+      "sha256": "c73fff2f6492a31f94422ee04e86332e01f0e2fd667bbaf37bc3943992401bda"
+    },
+    {
+      "path": "logs/research/ttwo_acceptance_correction_2026-09-26_v2/manifest.sha256",
+      "bytes": 65,
+      "sha256": "5e4e1d86377efa732985e1ffc8f1cd4e22c55b9bce5849a25654286d5002a762"
+    }
+  ]
+}

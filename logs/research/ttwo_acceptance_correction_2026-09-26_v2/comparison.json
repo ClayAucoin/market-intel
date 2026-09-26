@@ -1,0 +1,264 @@
+{
+  "baseline": {
+    "fields": {
+      "security_id": 358,
+      "period_end": "2025-03-31",
+      "entry_date": "2025-05-21",
+      "entry_price": "228.03",
+      "revenue_yoy": "13.08",
+      "revenue_acceleration": "13.56",
+      "eps_yoy": null,
+      "gross_margin_change": "17.24",
+      "operating_margin_change": null,
+      "pre_return_20d": "13.11",
+      "pre_return_60d": "12.02",
+      "pre_excess_20d": "0.67",
+      "pre_excess_60d": "12.45",
+      "pre_volatility_20d": "38.40",
+      "previous_close": "237.5",
+      "entry_open": "228.03",
+      "opening_gap_pct": "-3.99",
+      "spy_opening_gap_pct": "-0.74",
+      "opening_gap_excess": "-3.25",
+      "exit_date_30d": "2025-06-20",
+      "return_30d": "4.53",
+      "spy_return_30d": "1.29",
+      "excess_30d": "3.24",
+      "exit_date_90d": "2025-08-19",
+      "return_90d": "0.14",
+      "spy_return_90d": "9.05",
+      "excess_90d": "-8.91",
+      "exit_date_180d": "2025-11-17",
+      "return_180d": "2.43",
+      "spy_return_180d": "13.77",
+      "excess_180d": "-11.34"
+    },
+    "exact_signal": false,
+    "stock": {
+      "symbol": "TTWO",
+      "entry_date": "2025-05-21",
+      "entry_price": "228.03",
+      "horizons": {
+        "30d": {
+          "target_date": "2025-06-20",
+          "exit_date": "2025-06-20",
+          "exit_price": "238.37",
+          "return_percent": "4.53"
+        },
+        "90d": {
+          "target_date": "2025-08-19",
+          "exit_date": "2025-08-19",
+          "exit_price": "228.36",
+          "return_percent": "0.14"
+        },
+        "180d": {
+          "target_date": "2025-11-17",
+          "exit_date": "2025-11-17",
+          "exit_price": "233.58",
+          "return_percent": "2.43"
+        }
+      }
+    },
+    "benchmark": {
+      "symbol": "SPY",
+      "entry_date": "2025-05-21",
+      "entry_price": "580.287352549",
+      "horizons": {
+        "30d": {
+          "target_date": "2025-06-20",
+          "exit_date": "2025-06-20",
+          "exit_price": "587.7831585111",
+          "return_percent": "1.29"
+        },
+        "90d": {
+          "target_date": "2025-08-19",
+          "exit_date": "2025-08-19",
+          "exit_price": "632.815411333",
+          "return_percent": "9.05"
+        },
+        "180d": {
+          "target_date": "2025-11-17",
+          "exit_date": "2025-11-17",
+          "exit_price": "660.2091737454",
+          "return_percent": "13.77"
+        }
+      }
+    }
+  },
+  "alternative": {
+    "fields": {
+      "security_id": 358,
+      "period_end": "2025-03-31",
+      "entry_date": "2025-05-20",
+      "entry_price": "233.02",
+      "revenue_yoy": "13.08",
+      "revenue_acceleration": "13.56",
+      "eps_yoy": null,
+      "gross_margin_change": "17.24",
+      "operating_margin_change": null,
+      "pre_return_20d": "14.38",
+      "pre_return_60d": "10.87",
+      "pre_excess_20d": "-1.38",
+      "pre_excess_60d": "11.42",
+      "pre_volatility_20d": "38.83",
+      "previous_close": "234.66",
+      "entry_open": "233.02",
+      "opening_gap_pct": "-0.70",
+      "spy_opening_gap_pct": "-0.30",
+      "opening_gap_excess": "-0.40",
+      "exit_date_30d": "2025-06-20",
+      "return_30d": "2.30",
+      "spy_return_30d": "0.50",
+      "excess_30d": "1.80",
+      "exit_date_90d": "2025-08-18",
+      "return_90d": "-0.20",
+      "spy_return_90d": "8.79",
+      "excess_90d": "-8.99",
+      "exit_date_180d": "2025-11-17",
+      "return_180d": "0.24",
+      "spy_return_180d": "12.88",
+      "excess_180d": "-12.64"
+    },
+    "exact_signal": false,
+    "stock": {
+      "symbol": "TTWO",
+      "entry_date": "2025-05-20",
+      "entry_price": "233.02",
+      "horizons": {
+        "30d": {
+          "target_date": "2025-06-19",
+          "exit_date": "2025-06-20",
+          "exit_price": "238.37",
+          "return_percent": "2.30"
+        },
+        "90d": {
+          "target_date": "2025-08-18",
+          "exit_date": "2025-08-18",
+          "exit_price": "232.55",
+          "return_percent": "-0.20"
+        },
+        "180d": {
+          "target_date": "2025-11-16",
+          "exit_date": "2025-11-17",
+          "exit_price": "233.58",
+          "return_percent": "0.24"
+        }
+      }
+    },
+    "benchmark": {
+      "symbol": "SPY",
+      "entry_date": "2025-05-20",
+      "entry_price": "584.8729282905",
+      "horizons": {
+        "30d": {
+          "target_date": "2025-06-19",
+          "exit_date": "2025-06-20",
+          "exit_price": "587.7831585111",
+          "return_percent": "0.50"
+        },
+        "90d": {
+          "target_date": "2025-08-18",
+          "exit_date": "2025-08-18",
+          "exit_price": "636.2672576398",
+          "return_percent": "8.79"
+        },
+        "180d": {
+          "target_date": "2025-11-16",
+          "exit_date": "2025-11-17",
+          "exit_price": "660.2091737454",
+          "return_percent": "12.88"
+        }
+      }
+    }
+  },
+  "changed_fields": {
+    "entry_date": {
+      "old": "2025-05-21",
+      "new": "2025-05-20"
+    },
+    "entry_price": {
+      "old": "228.03",
+      "new": "233.02"
+    },
+    "pre_return_20d": {
+      "old": "13.11",
+      "new": "14.38"
+    },
+    "pre_return_60d": {
+      "old": "12.02",
+      "new": "10.87"
+    },
+    "pre_excess_20d": {
+      "old": "0.67",
+      "new": "-1.38"
+    },
+    "pre_excess_60d": {
+      "old": "12.45",
+      "new": "11.42"
+    },
+    "pre_volatility_20d": {
+      "old": "38.40",
+      "new": "38.83"
+    },
+    "previous_close": {
+      "old": "237.5",
+      "new": "234.66"
+    },
+    "entry_open": {
+      "old": "228.03",
+      "new": "233.02"
+    },
+    "opening_gap_pct": {
+      "old": "-3.99",
+      "new": "-0.70"
+    },
+    "spy_opening_gap_pct": {
+      "old": "-0.74",
+      "new": "-0.30"
+    },
+    "opening_gap_excess": {
+      "old": "-3.25",
+      "new": "-0.40"
+    },
+    "return_30d": {
+      "old": "4.53",
+      "new": "2.30"
+    },
+    "spy_return_30d": {
+      "old": "1.29",
+      "new": "0.50"
+    },
+    "excess_30d": {
+      "old": "3.24",
+      "new": "1.80"
+    },
+    "exit_date_90d": {
+      "old": "2025-08-19",
+      "new": "2025-08-18"
+    },
+    "return_90d": {
+      "old": "0.14",
+      "new": "-0.20"
+    },
+    "spy_return_90d": {
+      "old": "9.05",
+      "new": "8.79"
+    },
+    "excess_90d": {
+      "old": "-8.91",
+      "new": "-8.99"
+    },
+    "return_180d": {
+      "old": "2.43",
+      "new": "0.24"
+    },
+    "spy_return_180d": {
+      "old": "13.77",
+      "new": "12.88"
+    },
+    "excess_180d": {
+      "old": "-11.34",
+      "new": "-12.64"
+    }
+  }
+}
