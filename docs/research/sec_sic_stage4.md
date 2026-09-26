@@ -137,3 +137,45 @@ For each next review send Codex the saved plan/review paths and hashes, console 
 New tests exercise only temporary fixtures with real network and database access blocked. Relevant existing tests are selected individually to exclude saved-study replay/report methods. Validation results are recorded in the implementation completion response; historical Stage 3/TTWO saved test results are not presented as newly run tests.
 
 Implementation validation on September 26, 2026: both changed Python files passed `.venv/bin/python -m py_compile`; **84 focused offline tests passed, zero failures** (47 Stage 4, 10 Stage 3, 8 SIC validation, 11 pilot, 8 SEC acceptance-time tests). The three existing saved-study replay methods were explicitly excluded. Network sockets, Requests session transport and PostgreSQL connection entry points were blocked during the suite; approved transport tests use local mocked responses. All preparation/planning/fetch/report interface exercises used temporary fixture packages. No real study preparation, retrieval, analysis, database access, production change, service action, commit or push occurred.
+
+## One legacy Dell index diagnostic extension
+
+`src.backtesting.sic_stage4_diagnostic` is separate from the pinned Stage 4 implementation. It supports only the ordinary index for CIK `0000826083`, accession `0000826083-12-000006`:
+
+```text
+https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index.html
+```
+
+Availability is unverified. The purpose is to inspect resource links after the recorded header HTTP 404, not to retry that header, accept identity or select a research clock. Default invocation prints help without preparation or retrieval. Original code, frozen inputs, evidence and reviews are not edited or re-pinned.
+
+Preparation requires the exact six-attempt ledger hash `d5a833f52a11dd755b857901d7907512b43d376cfd3f94b9874cf47d576ea63c`, five completed successes and attempt 6's completed header HTTP 404. It verifies the original package/code pins, saved catalogue accession, pinned existing review, all three blockers and all 27 clock acknowledgements, with empty approvals. The extension explicitly acknowledges failed attempt 6 in its own continuation state; the original review remains unchanged. It exclusively creates `diagnostics/extension_01.json`, pinning implementation bytes (including the original Stage 4 module), original JSON/evidence dependencies, ledger, review, exact request and transport controls. Only this one extension is permitted; it is not a budget-reset or general diagnostic interface.
+
+Clay's first manual command, from the repository root:
+
+```bash
+set -o pipefail
+.venv/bin/python -m src.backtesting.sic_stage4_diagnostic \
+  --package-dir logs/research/sec_sic_stage4_2026-09-26 --prepare \
+  --review logs/research/sec_sic_stage4_2026-09-26/review_03.json \
+  --review-sha256 a6cd4c1ead31ea245fc8b3deaee67351f0e43a17505e13956573cb579da7c604 \
+  2>&1 | tee -a logs/research/sec_sic_stage4_2026-09-26/run_logs/diagnostic_prepare_console.log
+```
+
+Give Codex the printed manifest path/hash and console receipt for saved-file review before retrieval. Once reviewed and authorized, the separate manual fetch interface is:
+
+```bash
+set -o pipefail
+.venv/bin/python -m src.backtesting.sic_stage4_diagnostic \
+  --package-dir logs/research/sec_sic_stage4_2026-09-26 --fetch \
+  --extension-manifest logs/research/sec_sic_stage4_2026-09-26/diagnostics/extension_01.json \
+  --extension-sha256 '<exact reviewed manifest SHA-256>' \
+  2>&1 | tee -a logs/research/sec_sic_stage4_2026-09-26/run_logs/diagnostic_fetch_console.log
+```
+
+Fetch verifies the exact manifest hash and all pinned state under the original package lock. It creates an exclusive extension reservation receipt, then immutable `attempts/000007.json` and the ledger snapshot before transport. The attempt consumes contingency: cumulative spending becomes 7/240, contingency 1/30; the six prior attempts and ordinary allocations remain intact. No repeated execution, automatic retry, redirect or linked-resource request is permitted. An interruption during reservation/storage leaves a durable stop requiring review; do not delete receipts or reservations to restart.
+
+Transport uses existing SEC pacing/headers, `(10, 30)` timeouts, disabled redirects and a 256 KiB body bound. Every received HTTP status, including redirects and failures, retains its bounded body in `diagnostics/000007/body.bin` and metadata in `response.json`. Metadata pins the raw-body hash, URL, HTTP status, body length, reservation/manifest hashes and diagnostic provenance. Oversize responses preserve the first 256 KiB and mark truncation; incomplete reads preserve the received prefix and mark the failure. A transport failure before an HTTP response records null status and an empty body. Exception class names are saved without exception messages or credentials.
+
+Durable outcomes remain in the shared `outcomes/` directory and `requests.json`. They use `diagnostic_evidence`, never ordinary `evidence` or `responses/` entries. Existing Stage 4 readers count the attempt and outcome but do not parse diagnostic content as a header, catalogue, identity or timestamp source. Subsequent continuation must acknowledge non-SUCCESS attempt numbers (including 6, and 7 if applicable). Denial/redirect/size stops still apply under the original rules. This extension does not authorize ordinary study continuation, another diagnostic or a retry.
+
+Focused validation uses temporary packages and mocked transport with real network/database entry points blocked. No live preparation, manifest creation or retrieval is part of implementation validation.
