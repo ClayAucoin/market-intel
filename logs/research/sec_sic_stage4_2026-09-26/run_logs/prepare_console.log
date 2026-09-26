@@ -1,0 +1,15 @@
+{
+  "status": "PREPARED_OFFLINE",
+  "inputs_sha256": "6416a6ed0f9b205135ca3be856b71a8f584f9ebcf00ba680d8c9bcdfe88b2ade",
+  "candidates": 20,
+  "blocked": [
+    "0001175454"
+  ],
+  "unknown": [
+    "0000826083",
+    "0000040730",
+    "0001308161",
+    "0001754308",
+    "0001572709"
+  ]
+}

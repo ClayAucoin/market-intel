@@ -1,0 +1,9 @@
+{
+  "status": "UNREVIEWED_TEMPLATE",
+  "issuer_reviews": [],
+  "relationships": [],
+  "eight_k_intervals": [],
+  "clock_reviews": [],
+  "continuation": null,
+  "note": "Create a versioned review file; do not edit frozen artifacts. Unknown boundaries/IDs remain null."
+}

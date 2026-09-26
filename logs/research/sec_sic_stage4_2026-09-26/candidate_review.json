@@ -1,0 +1,401 @@
+{
+  "0000320193": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "APPLE INC"
+        ]
+      },
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Apple Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Apple Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000773840": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "HONEYWELL INTERNATIONAL INC"
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "HONEYWELL INTERNATIONAL INC"
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000833444": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Johnson Controls International plc"
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Johnson Controls International plc"
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001326801": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Facebook Inc"
+        ]
+      },
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Meta Platforms, Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Meta Platforms, Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001652044": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Alphabet Inc."
+        ]
+      },
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Alphabet Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Alphabet Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Alphabet Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Alphabet Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Alphabet Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000040545": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "GENERAL ELECTRIC CO"
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "GENERAL ELECTRIC CO"
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001932393": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "GE HealthCare Technologies Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "GE HealthCare Technologies Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000718877": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "Activision Blizzard, Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001418091": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "TWITTER, INC."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001175454": {
+    "status": "BLOCKED_CONTRADICTION",
+    "supporting_sources": [
+      {
+        "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+        "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+        "names": [
+          "FLEETCOR TECHNOLOGIES INC"
+        ]
+      }
+    ],
+    "contradictions": [
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "CORPAY, INC."
+        ]
+      }
+    ],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000826083": {
+    "status": "UNSUPPORTED_DISCOVERY",
+    "supporting_sources": [],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001571996": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "data/cache/sec/submissions/CIK0001571996.json",
+        "sha256": "3e7f97767fc706bffb35aa2c66498f900b8a0617f9ed0f7def91ecece15e21e7",
+        "names": [
+          "Dell Technologies Inc.",
+          "Dell Technologies Inc",
+          "Denali Holding Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Dell Technologies Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0000040730": {
+    "status": "UNSUPPORTED_DISCOVERY",
+    "supporting_sources": [],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001467858": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "data/cache/sec/submissions/CIK0001467858.json",
+        "sha256": "2b23d44ced27e2b14c319c9ce27418a6769ce73373fc3dd63c61e1ecb783b868",
+        "names": [
+          "General Motors Co"
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "General Motors Co"
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001308161": {
+    "status": "UNSUPPORTED_DISCOVERY",
+    "supporting_sources": [],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001754308": {
+    "status": "UNSUPPORTED_DISCOVERY",
+    "supporting_sources": [],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001666700": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "data/cache/sec/submissions/CIK0001666700.json",
+        "sha256": "425a1c4bddb750f11b665dcd40808b21e3e9506e9a56ef7ee6d41cd946b596f1",
+        "names": [
+          "DuPont de Nemours, Inc.",
+          "DowDuPont Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "DuPont de Nemours, Inc."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001751788": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "data/cache/sec/submissions/CIK0001751788.json",
+        "sha256": "9eccdb544e74d6efb4969980369ed09eca911f358e46ecbc3e60ba28d2ce409e",
+        "names": [
+          "DOW INC.",
+          "Dow Holdings Inc."
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "DOW INC."
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001572709": {
+    "status": "UNSUPPORTED_DISCOVERY",
+    "supporting_sources": [],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  },
+  "0001637459": {
+    "status": "SUPPORTED_CANDIDATE",
+    "supporting_sources": [
+      {
+        "path": "data/cache/sec/submissions/CIK0001637459.json",
+        "sha256": "84ea46bd62062e31130eb88ddfef8f624ec3cf3ee80995236f78242e2a1c3855",
+        "names": [
+          "Kraft Heinz Co",
+          "H.J. Heinz Holding Corp"
+        ]
+      },
+      {
+        "path": "data/cache/sec/company_tickers_exchange.json",
+        "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+        "names": [
+          "Kraft Heinz Co"
+        ]
+      }
+    ],
+    "contradictions": [],
+    "issuer_identity_accepted": false,
+    "relationship_verified": false
+  }
+}
