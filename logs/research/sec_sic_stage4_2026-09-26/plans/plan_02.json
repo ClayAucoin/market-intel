@@ -1,0 +1,160 @@
+{
+  "version": 1,
+  "inputs_sha256": "6416a6ed0f9b205135ca3be856b71a8f584f9ebcf00ba680d8c9bcdfe88b2ade",
+  "ledger_sha256": "2bfd67ec4b305d21ecc00b439d8b3294def8be883a32ca936fc4f11e09dd2bec",
+  "evidence_sha256": "0a39f194b9a0cc579ae18a2dada8d3c86e8b49069930f23944e5ab15cfe2cd59",
+  "review": {
+    "path": "logs/research/sec_sic_stage4_2026-09-26/review_02.json",
+    "sha256": "c03faea09fcbabc91c35c25a2c012f5b5154b4db1ad6a868d9e59d8a453b6322"
+  },
+  "requests": [
+    {
+      "kind": "catalogue",
+      "cik": "0001572709",
+      "envelope": "catalogue",
+      "reason": "Unverified discovery catalogue",
+      "url": "https://data.sec.gov/submissions/CIK0001572709.json",
+      "charged_envelope": "catalogue"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000006",
+      "expected_form": "10-K",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000011",
+      "expected_form": "10-Q",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000011/0000826083-12-000011-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000015",
+      "expected_form": "10-Q",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000015/0000826083-12-000015-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000019",
+      "expected_form": "10-Q",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000019/0000826083-12-000019-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-13-000005",
+      "expected_form": "10-K",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608313000005/0000826083-13-000005-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-13-000014",
+      "expected_form": "10-K/A",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608313000014/0000826083-13-000014-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-13-000020",
+      "expected_form": "10-Q",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608313000020/0000826083-13-000020-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-13-000028",
+      "expected_form": "10-Q",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608313000028/0000826083-13-000028-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    {
+      "kind": "header",
+      "cik": "0001571996",
+      "accession": "0001571996-17-000004",
+      "expected_form": "10-K",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/1571996/000157199617000004/0001571996-17-000004-index-headers.html",
+      "charged_envelope": "periodic"
+    }
+  ],
+  "blocked_cases": {
+    "0001175454": {
+      "status": "BLOCKED_CONTRADICTION",
+      "supporting_sources": [
+        {
+          "path": "logs/research/sec_sic_stage3_2026-09-24/inputs.json",
+          "sha256": "8170f4bda0797e135e14874daf527399f17d303eee23f1db175cf665c3917f2a",
+          "names": [
+            "FLEETCOR TECHNOLOGIES INC"
+          ]
+        }
+      ],
+      "contradictions": [
+        {
+          "path": "data/cache/sec/company_tickers_exchange.json",
+          "sha256": "ed834bd9e296fc31bfe3d9a68b93033f738d828e493667f144d6668ce09656e2",
+          "names": [
+            "CORPAY, INC."
+          ]
+        }
+      ],
+      "issuer_identity_accepted": false,
+      "relationship_verified": false
+    },
+    "0001754308": {
+      "status": "BLOCKED_CONTRADICTION",
+      "supporting_sources": [],
+      "contradictions": [
+        {
+          "path": "evidence/88f433b3889156e31243614a7cb2734dc754f02a323bb3eba857462203857ca5.gz",
+          "sha256": "88f433b3889156e31243614a7cb2734dc754f02a323bb3eba857462203857ca5",
+          "names": [
+            "Centre Lane Partners Master Credit Fund II-A, L.P."
+          ]
+        }
+      ],
+      "issuer_identity_accepted": false,
+      "relationship_verified": false
+    }
+  },
+  "envelopes": {
+    "catalogue": 20,
+    "periodic": 90,
+    "identity": 50,
+    "seed": 20,
+    "eight_k": 30,
+    "contingency": 30
+  },
+  "cap": 240,
+  "no_automatic_budget_transfer": true
+}

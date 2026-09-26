@@ -134,5 +134,39 @@
         "reserved_at": "2026-09-26T18:48:07.841361+00:00"
       }
     }
+  },
+  {
+    "attempt": 5,
+    "item": {
+      "kind": "catalogue",
+      "cik": "0001572709",
+      "envelope": "catalogue",
+      "reason": "Unverified discovery catalogue",
+      "url": "https://data.sec.gov/submissions/CIK0001572709.json",
+      "charged_envelope": "catalogue"
+    },
+    "url": "https://data.sec.gov/submissions/CIK0001572709.json",
+    "plan": "plan_02.json",
+    "charged_envelope": "catalogue",
+    "outcome": "SUCCESS",
+    "reserved_at": "2026-09-26T19:11:01.042860+00:00",
+    "status": 200,
+    "evidence": {
+      "item": {
+        "kind": "catalogue",
+        "cik": "0001572709",
+        "envelope": "catalogue",
+        "reason": "Unverified discovery catalogue",
+        "url": "https://data.sec.gov/submissions/CIK0001572709.json",
+        "charged_envelope": "catalogue"
+      },
+      "url": "https://data.sec.gov/submissions/CIK0001572709.json",
+      "sha256": "e842ac4862f7835cd3daf079a3bd340cef1d3d78dfd7c9704f48c2fd6c6bd7be",
+      "blob": "evidence/e842ac4862f7835cd3daf079a3bd340cef1d3d78dfd7c9704f48c2fd6c6bd7be.gz",
+      "provenance": {
+        "basis": "new_raw_response",
+        "reserved_at": "2026-09-26T19:11:01.042860+00:00"
+      }
+    }
   }
 ]

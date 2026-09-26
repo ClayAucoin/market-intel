@@ -7,3 +7,13 @@
     "0001175454"
   ]
 }
+{
+  "status": "PLAN_SAVED_OFFLINE",
+  "path": "logs/research/sec_sic_stage4_2026-09-26/plans/plan_02.json",
+  "sha256": "b853ff1990895b215d935c3bd6b0783cbb3910c4aa2adee0d599dd52aed24c1a",
+  "planned_attempts": 10,
+  "blocked_cases": [
+    "0001175454",
+    "0001754308"
+  ]
+}

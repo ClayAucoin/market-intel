@@ -1,0 +1,55 @@
+{
+  "inputs_sha256": "6416a6ed0f9b205135ca3be856b71a8f584f9ebcf00ba680d8c9bcdfe88b2ade",
+  "issuer_reviews": [],
+  "relationships": [],
+  "eight_k_intervals": [],
+  "clock_reviews": [],
+  "identity_requests": [],
+  "acknowledged_clock_conflicts": [
+    "0000718877/0001047469-18-001114/3175e24443117e938bbb6907aeeca27178b805656442a3c8c2f3e7205ce9b075",
+    "0000718877/0001104659-21-012239/0c1ed7eb2b9ce6d9bf6e52ee8ba0373f214ed55ef3e4e32c41e1cdb584ff201b",
+    "0000718877/0001104659-22-004729/56cccf2ab970c676aed66cc77f14659b01adc722403c3fdc0686f9498fe802f4",
+    "0000718877/0001308179-21-000286/90c6c7bee24ca518f10137b887adaf401f11d79f2b4ab26f4ba66b9a9f9532ff",
+    "0000718877/0001628280-20-015105/4928851fa6aa316bc67433cf0df1843dde851d0fe721ed31caac2d82f9742ddb",
+    "0000718877/0001628280-21-002828/cf392bb3aa72c8f3a8467e2af48edafb0d264251bf88d827e2fa80d966014e89",
+    "0000718877/0001628280-21-008889/1c2585e7d1d4460763d9ba7dca8a177bf6e1f1be0883e0fb0ca1d552cca24e94",
+    "0000718877/0001628280-21-015351/f90041ad6280d7089b44eb604ee7e385963ce0a3ad45e179727b0436d2d8e19d",
+    "0000718877/0001628280-21-021200/8555f902211ca3e7c15b4d3b912795bab159a536f711d9e7130c98a9976bb26e",
+    "0000718877/0001628280-22-003992/125e0b31d2cf8b6a2b6a1b80afbc8a7f5ccd2ee76173f1044f5ce9c85b3a17a9",
+    "0000718877/0001628280-22-011987/d81f1bcd56257b8d37d0c91ce8a01b4363aa9971a26fe011f472d37d8250fc0d",
+    "0000718877/0001628280-22-019955/1ea9ca25b0932e6be914493505129f9018cb4312d60af550d848e91633d46a68",
+    "0000718877/0001628280-22-028658/74d74a5d2b023dc578966b573f18265cff76a67f830c04a44b3647161f6bb7b9",
+    "0000718877/0001628280-23-026269/50ced307ab589f162e6df377c8e691d70dd4eaed2c335c9d14f855a13101f79e",
+    "0001418091/0001140361-20-008934/7b36f5a0409de5c5e71872ad699a9628f20767e41ac81638bdd11f33304cb6d6",
+    "0001418091/0001193125-21-016213/093dee2a4c6c8586f16f1706388c99ef535769239e2a1c5ddeb7878f5c293b89",
+    "0001418091/0001418091-20-000019/bdc876075be4b3a3f5c3e53cdcdb3d57716a4acc93a13635546779fb5004b6f2",
+    "0001418091/0001418091-20-000037/980774b610958ab8d2278bf8d4f333371656372cff11c759d6facf0ca63bf64a",
+    "0001418091/0001418091-20-000089/ee5b482408f6efdece2dc6f864119c255ab90948f0f96e02deadfc9611b6cccc",
+    "0001418091/0001418091-20-000158/7053a00a1f925a750be4de658e54d36f185bed7eb95312cbf36b67fdd0ae7c37",
+    "0001418091/0001418091-20-000202/e808e4f120c7ded20ea127a91318a01f6ac904172469df05fc31ae0994b320ae",
+    "0001418091/0001418091-21-000031/13d44c6f05db0337791b028c2fe457264ac3b7a20932902bf55f6e4188efaade",
+    "0001418091/0001418091-21-000085/2320b85289ba87c5ef6c2e8b3c75f4b0e581e87bcc891312f2b6a414f0301c1b",
+    "0001418091/0001418091-21-000155/043db607eb4ce4ecfda4aef7531a5321d2fc698be34a84d2e8d862bf9efe6bd7",
+    "0001418091/0001418091-21-000209/83062acf9d319c8ac1d52f701699fe9750eb556378a8de81a5b58ef9dc549e06",
+    "0001418091/0001418091-22-000147/0907f013b6d8682fed85e4e0b12d790a35abda9baca74474aa1637751858c318",
+    "0001418091/0001564590-18-003046/5202e36f3d4d9a4173b939db6f9b558c2d34286b094a2a31603c5157dfdf3314"
+  ],
+  "reviewed_by": "Codex (OpenAI assistant), saved-file continuation review explicitly authorized by Clay",
+  "acknowledged_contradictions": [
+    "0001175454",
+    "0001572709",
+    "0001754308"
+  ],
+  "continuation": {
+    "ledger_sha256": "9c6df66e6eee18155fd61414205e52c1fd26c8edfecc9c3df155940b3152fd04",
+    "acknowledged_attempts": []
+  },
+  "review_scope": "Acknowledgement of saved blockers and the completed interrupted batch solely to permit unrelated planning. Neither blocker is resolved; no issuer identity, security relationship or clock source is accepted. Frozen candidates and inputs remain unchanged.",
+  "unresolved_notes": [
+    "0001175454 remains blocked by the FLEETCOR/CORPAY saved-name disagreement.",
+    "0001572709 remains blocked: the discovery response returns the expected CIK but names PERFECTLY GREEN CORP., with no former names matching Kraft Foods Group Inc. No replacement candidate is inferred.",
+    "0001754308 remains blocked: the saved discovery response names Centre Lane Partners Master Credit Fund II-A, L.P., with no former names matching Fox Corp or Fox Corporation. No replacement FOX candidate is inferred.",
+    "All 27 existing clock conflicts remain unresolved and quarantined.",
+    "All five attempts have completed SUCCESS outcomes; no failed or unfinished reservations require acknowledgement. Transport success is not identity acceptance. Preserve all evidence and request accounting; neither reserved plan may be rerun."
+  ]
+}
