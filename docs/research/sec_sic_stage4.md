@@ -179,3 +179,45 @@ Transport uses existing SEC pacing/headers, `(10, 30)` timeouts, disabled redire
 Durable outcomes remain in the shared `outcomes/` directory and `requests.json`. They use `diagnostic_evidence`, never ordinary `evidence` or `responses/` entries. Existing Stage 4 readers count the attempt and outcome but do not parse diagnostic content as a header, catalogue, identity or timestamp source. Subsequent continuation must acknowledge non-SUCCESS attempt numbers (including 6, and 7 if applicable). Denial/redirect/size stops still apply under the original rules. This extension does not authorize ordinary study continuation, another diagnostic or a retry.
 
 Focused validation uses temporary packages and mocked transport with real network/database entry points blocked. No live preparation, manifest creation or retrieval is part of implementation validation.
+
+## One legacy Dell submission-prefix diagnostic
+
+`src.backtesting.sic_stage4_prefix_diagnostic` is a separate extension. It preserves the original index extension and its manifest. Its only target is the `.txt` resource explicitly linked by the saved attempt 7 index:
+
+```text
+https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006.txt
+```
+
+The saved index lists the complete submission as 24,438,849 bytes. This extension requests only bytes 0–262143; neither availability nor a complete SEC header within that prefix is presumed. Diagnostic bytes never become accepted research evidence. Any later proposal must demonstrate a complete SEC header from saved bytes, verify issuer/accession/form fields and preserve all identity and clock gates.
+
+Offline preparation requires ledger SHA-256 `fa013e6ab012ffbd7f057f063babc993b6d7b327e5276b6a4e5201f4a683dc6d`: seven completed attempts, including attempt 6's periodic 404 and attempt 7's successful index diagnostic. It checks the index manifest/implementation pins, reservation-linked index result and body hash, exact saved `.txt` link, catalogue target, original code/frozen pins, all three blockers, 27 clock acknowledgements and empty approvals. It creates `prefix_diagnostics/extension_01.json`, pinning the new implementation, previous implementations, package dependencies, current ledger/evidence, review, single request and transport controls. Continuation explicitly acknowledges failed attempt 6 without approving a header retry. No existing manifest or frozen file is edited.
+
+Clay's first manual preparation command, from the repository root:
+
+```bash
+set -o pipefail
+.venv/bin/python -m src.backtesting.sic_stage4_prefix_diagnostic \
+  --package-dir logs/research/sec_sic_stage4_2026-09-26 --prepare \
+  --review logs/research/sec_sic_stage4_2026-09-26/review_03.json \
+  --review-sha256 a6cd4c1ead31ea245fc8b3deaee67351f0e43a17505e13956573cb579da7c604 \
+  2>&1 | tee -a logs/research/sec_sic_stage4_2026-09-26/run_logs/prefix_diagnostic_prepare_console.log
+```
+
+Review the saved manifest and printed hash before separately authorizing retrieval. The explicit manual fetch interface is:
+
+```bash
+set -o pipefail
+.venv/bin/python -m src.backtesting.sic_stage4_prefix_diagnostic \
+  --package-dir logs/research/sec_sic_stage4_2026-09-26 --fetch \
+  --extension-manifest logs/research/sec_sic_stage4_2026-09-26/prefix_diagnostics/extension_01.json \
+  --extension-sha256 '<exact reviewed prefix manifest SHA-256>' \
+  2>&1 | tee -a logs/research/sec_sic_stage4_2026-09-26/run_logs/prefix_diagnostic_fetch_console.log
+```
+
+Under the same package lock, fetch validates manifest/state pins and makes a durable exclusive receipt and attempt 8 reservation before transport. It charges contingency, bringing spending to 8/240 and contingency 2/30. Reexecution cannot duplicate the request, including after interrupted storage. No automatic retry, redirect or linked-resource request is allowed. Default invocation only prints help.
+
+The one request uses existing SEC pacing, `(10, 30)` timeouts, `Range: bytes=0-262143`, `Accept-Encoding: identity` and disabled redirects. Raw response-body streaming disables content decoding and enforces 256 KiB even if Range is ignored. Every received status retains bounded bytes and the relevant `Content-Range`, `Content-Length`, `Accept-Ranges` and `Content-Encoding` headers. Unexpected encoding does not establish a complete requested submission prefix. Oversize responses retain the first 256 KiB with `SIZE_FAILURE`/truncation; interrupted reads retain their prefix and record `NETWORK_FAILURE`. Exception messages are not persisted. Original denial/redirect/size continuation stops are preserved.
+
+`prefix_diagnostics/000008/body.bin` and `response.json` hold diagnostic-only output, raw hash, reservation/manifest links and provenance. Metadata distinguishes HTTP-response completion, requested-prefix completion and full-submission completion. A normal 206 for bytes 0–262143 of a larger file completes the requested prefix, not the submission. A 200 ignoring Range may provide the whole requested prefix while streaming stops at the bound; it is marked truncated and not a complete submission. Invalid 206 range metadata is recorded as a processing failure. A non-200 body is preserved without claiming it is a submission prefix. Full-submission completion is a transport-length statement, not validation of SEC content or acceptance of identity/timestamp evidence.
+
+The shared outcome and ledger use only `diagnostic_evidence`; no ordinary response/evidence entries are created. Original readers retain spending/outcome compatibility and ignore the diagnostic content. Implementation validation uses focused temporary fixtures with network/database entry points blocked; no live preparation or fetch is performed by Codex.
