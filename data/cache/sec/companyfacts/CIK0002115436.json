@@ -1,6 +1,6 @@
 {
   "cik": "2115436",
-  "entityName": "Exxon Mobil Corporation",
+  "entityName": "ExxonMobil Holdings Corp",
   "facts": {
     "ffd": {
       "NetFeeAmt": {
@@ -17,6 +17,16 @@
               "form": "POSASR",
               "filed": "2026-07-01",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-24",
+              "val": 25670.44,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -35,6 +45,16 @@
               "form": "POSASR",
               "filed": "2026-07-01",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-24",
+              "val": 25670.44,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -53,6 +73,16 @@
               "form": "POSASR",
               "filed": "2026-07-01",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-24",
+              "val": 185883000,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -71,6 +101,16 @@
               "form": "POSASR",
               "filed": "2026-07-01",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-24",
+              "val": 0,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
             }
           ]
         }
@@ -89,6 +129,34 @@
               "form": "POSASR",
               "filed": "2026-07-01",
               "frame": "CY2026Q2I"
+            },
+            {
+              "end": "2026-09-24",
+              "val": 0,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
+            }
+          ]
+        }
+      },
+      "NrrtvMaxAggtOfferingPric": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "end": "2026-09-24",
+              "val": 185883000,
+              "accn": "0001193125-26-401391",
+              "fy": null,
+              "fp": null,
+              "form": "424B2",
+              "filed": "2026-09-25",
+              "frame": "CY2026Q3I"
             }
           ]
         }

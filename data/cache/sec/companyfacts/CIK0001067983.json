@@ -187139,6 +187139,46 @@
           ]
         }
       }
+    },
+    "rxp": {
+      "Fees": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 1330707,
+              "accn": "0001193125-26-402798",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-25",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      },
+      "TotalPayments": {
+        "label": "",
+        "description": "",
+        "units": {
+          "USD": [
+            {
+              "start": "2025-01-01",
+              "end": "2025-12-31",
+              "val": 1330707,
+              "accn": "0001193125-26-402798",
+              "fy": null,
+              "fp": null,
+              "form": "2.01 SD",
+              "filed": "2026-09-25",
+              "frame": "CY2025"
+            }
+          ]
+        }
+      }
     }
   }
 }
