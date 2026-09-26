@@ -1,0 +1,9 @@
+{
+  "status": "PLAN_SAVED_OFFLINE",
+  "path": "logs/research/sec_sic_stage4_2026-09-26/plans/plan_01.json",
+  "sha256": "ee3e3abbc2609ac31fa17cd75996fbac4056d3a3d626b45c5dc5d6d1adc20f62",
+  "planned_attempts": 10,
+  "blocked_cases": [
+    "0001175454"
+  ]
+}

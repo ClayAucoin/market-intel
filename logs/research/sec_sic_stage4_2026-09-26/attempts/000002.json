@@ -1,0 +1,16 @@
+{
+  "attempt": 2,
+  "item": {
+    "kind": "catalogue",
+    "cik": "0000040730",
+    "envelope": "catalogue",
+    "reason": "Unverified discovery catalogue",
+    "url": "https://data.sec.gov/submissions/CIK0000040730.json",
+    "charged_envelope": "catalogue"
+  },
+  "url": "https://data.sec.gov/submissions/CIK0000040730.json",
+  "plan": "plan_01.json",
+  "charged_envelope": "catalogue",
+  "outcome": "IN_FLIGHT",
+  "reserved_at": "2026-09-26T18:47:54.629399+00:00"
+}

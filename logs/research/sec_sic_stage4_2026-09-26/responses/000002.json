@@ -1,0 +1,20 @@
+{
+  "reservation_sha256": "1af8625430a3929627d10926e7a8ac491aa173654f72c8e034503d2938b4ed27",
+  "evidence": {
+    "item": {
+      "kind": "catalogue",
+      "cik": "0000040730",
+      "envelope": "catalogue",
+      "reason": "Unverified discovery catalogue",
+      "url": "https://data.sec.gov/submissions/CIK0000040730.json",
+      "charged_envelope": "catalogue"
+    },
+    "url": "https://data.sec.gov/submissions/CIK0000040730.json",
+    "sha256": "6f55d8f976cbfbe692bd134ba34f28fa2a576e6bb18b6e6dc072a532ae86e2d3",
+    "blob": "evidence/6f55d8f976cbfbe692bd134ba34f28fa2a576e6bb18b6e6dc072a532ae86e2d3.gz",
+    "provenance": {
+      "basis": "new_raw_response",
+      "reserved_at": "2026-09-26T18:47:54.629399+00:00"
+    }
+  }
+}

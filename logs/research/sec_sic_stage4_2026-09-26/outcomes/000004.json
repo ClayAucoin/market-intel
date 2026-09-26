@@ -1,0 +1,24 @@
+{
+  "reservation_sha256": "a9b2f8bb05ca2212bf9da9f41af8f2534981f136f544ef775549b0d467eb638f",
+  "result": {
+    "outcome": "SUCCESS",
+    "status": 200,
+    "evidence": {
+      "item": {
+        "kind": "catalogue",
+        "cik": "0001754308",
+        "envelope": "catalogue",
+        "reason": "Unverified discovery catalogue",
+        "url": "https://data.sec.gov/submissions/CIK0001754308.json",
+        "charged_envelope": "catalogue"
+      },
+      "url": "https://data.sec.gov/submissions/CIK0001754308.json",
+      "sha256": "88f433b3889156e31243614a7cb2734dc754f02a323bb3eba857462203857ca5",
+      "blob": "evidence/88f433b3889156e31243614a7cb2734dc754f02a323bb3eba857462203857ca5.gz",
+      "provenance": {
+        "basis": "new_raw_response",
+        "reserved_at": "2026-09-26T18:48:07.841361+00:00"
+      }
+    }
+  }
+}
