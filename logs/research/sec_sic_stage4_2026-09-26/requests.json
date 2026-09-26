@@ -168,5 +168,24 @@
         "reserved_at": "2026-09-26T19:11:01.042860+00:00"
       }
     }
+  },
+  {
+    "attempt": 6,
+    "item": {
+      "kind": "header",
+      "cik": "0000826083",
+      "accession": "0000826083-12-000006",
+      "expected_form": "10-K",
+      "envelope": "periodic",
+      "reason": "Mandatory periodic baseline",
+      "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index-headers.html",
+      "charged_envelope": "periodic"
+    },
+    "url": "https://www.sec.gov/Archives/edgar/data/826083/000082608312000006/0000826083-12-000006-index-headers.html",
+    "plan": "plan_03.json",
+    "charged_envelope": "periodic",
+    "outcome": "HTTP_FAILURE",
+    "reserved_at": "2026-09-26T22:23:28.160656+00:00",
+    "status": 404
   }
 ]

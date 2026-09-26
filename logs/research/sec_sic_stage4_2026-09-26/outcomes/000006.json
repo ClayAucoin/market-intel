@@ -1,0 +1,7 @@
+{
+  "reservation_sha256": "cab796e0a8d9ec83c6675abab79895029504bacc8fcfdfe43ce7deb8b9cdcb15",
+  "result": {
+    "outcome": "HTTP_FAILURE",
+    "status": 404
+  }
+}
